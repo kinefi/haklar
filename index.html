@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ee">
+  <meta name="description" content="Avusturya'da çalışanlar için sade ve çok dilli işçi hakları rehberi.">
+  <title>İş Haklarım · Avusturya'da çalışma rehberi</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="İş Haklarım - ana sayfa">
+        <span class="brand-mark" aria-hidden="true">İH</span>
+      </a>
+      <nav class="page-nav" aria-label="Sayfalar">
+        <a class="header-link" href="index.html" data-i18n="guideLink" aria-current="page">İş Haklarım</a>
+        <a class="header-link" href="collective-agreements.html" data-i18n="catalogLink">Toplu sözleşmeler</a>
+      </nav>
+      <nav class="language" id="languages"></nav>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow" data-i18n="eyebrow">Avusturya · Çalışma hayatı</p>
+      <h1 id="page-title" data-i18n="title">İşçi olarak haklarım.</h1>
+      <p class="hero-copy" data-i18n="intro">Kısa ve sade bilgiler. Bir karta dokun, ayrıntıları ve istisnaları gör.</p>
+      <div class="hero-tip"><span aria-hidden="true">👆</span><span data-i18n="tip">Ayrıntı için kartları aç</span></div>
+    </section>
+
+    <main>
+      <div class="section-heading">
+        <h2 data-i18n="sectionTitle">En çok sorulan konular</h2>
+        <p data-i18n="sectionIntro">Kurallar iş koluna ve toplu sözleşmeye göre değişebilir.</p>
+      </div>
+      <div class="cards" id="cards"></div>
+      <p class="load-error" id="loadError" role="alert" hidden></p>
+
+      <section class="help" aria-labelledby="help-title">
+        <div>
+          <h2 id="help-title" data-i18n="helpTitle">Bir sorun mu var?</h2>
+          <p data-i18n="helpText">Belgelerini sakla ve ücretsiz danışmanlık iste. Anlamadığın bir şeyi imzalamadan önce sor.</p>
+        </div>
+        <div class="help-links" id="helpLinks"></div>
+      </section>
+      <p class="disclaimer" data-i18n="disclaimer">Bu sayfa genel bilgilendirmedir; hukuki danışmanlık değildir. Özel durumunu Arbeiterkammer (AK) veya sendika ile görüş.</p>
+    </main>
+    <footer data-i18n="footer">Kaynaklar: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB) ve kollektivvertrag.at. Bilgiler değişebilir; güncel durum için kaynağa danış.</footer>
+  </div>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+{
+  "brand": "İş Haklarım",
+  "guideLink": "İş Haklarım",
+  "languageLabel": "Dil seçimi",
+  "catalogLink": "Toplu sözleşmeler",
+  "eyebrow": "Avusturya · Çalışma hayatı",
+  "title": "İşçi olarak haklarım.",
+  "intro": "Kısa ve sade bilgiler. Bir karta dokun, ayrıntıları ve istisnaları gör.",
+  "tip": "Ayrıntı için kartları aç",
+  "sectionTitle": "En çok sorulan konular",
+  "sectionIntro": "Kurallar iş koluna ve toplu sözleşmeye göre değişebilir.",
+  "helpTitle": "Bir sorun mu var?",
+  "helpText": "Belgelerini sakla ve ücretsiz danışmanlık iste. Anlamadığın bir şeyi imzalamadan önce sor.",
+  "disclaimer": "Bu sayfa genel bilgilendirmedir; hukuki danışmanlık değildir. Özel durumunu Arbeiterkammer (AK) veya sendika ile görüş.",
+  "footer": "Kaynaklar: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at ve RIS. Bilgiler değişebilir; güncel durum için işyeri temsilcine, sendikana veya kaynağa danış.",
+  "open": "Ayrıntıları aç",
+  "close": "Ayrıntıları kapat",
+  "sources": "Kaynaklar",
+  "helpLinks": [
+    "AK Steiermark",
+    "ÖGB",
+    "GLB",
+    "RIS · Avusturya mevzuatı (Almanca)"
+  ],
+  "cards": [
+    {
+      "title": "Toplu sözleşme (Kollektivvertrag)",
+      "teaser": "Asgari ücretini ve çalışma koşullarını öğren.",
+      "intro": "Toplu sözleşme, birçok iş kolunda ücret ve çalışma koşulları için asgari kuralları belirler.",
+      "bullets": [
+        "Hangi sözleşmenin geçerli olduğu iş yerine ve yaptığın işe bağlıdır. İşverene hangi toplu sözleşmenin uygulandığını sor.",
+        "Avusturya'da herkes için geçerli tek bir yasal asgari ücret yoktur. Ücret tablosunu toplu sözleşmede kontrol et.",
+        "13. ve 14. maaş çoğu iş kolunda toplu sözleşme veya sözleşmeyle verilir; herkese otomatik olarak kanunla garanti edilmez."
+      ],
+      "links": [
+        {
+          "label": "Tüm toplu sözleşmeleri ara · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Toplu sözleşme arama · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · İş hukuku",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Çalışma saatleri",
+      "teaser": "Başlama ve bitiş saatlerini kaydet.",
+      "intro": "Yasal normal süre haftada 40 saat ve günde 8 saattir. Birçok toplu sözleşme daha kısa süre belirler; 38,5 saat yaygındır.",
+      "bullets": [
+        "38,5 saat herkes için geçerli değildir. Süre sektörün toplu sözleşmesine ve işyerindeki çalışan grubuna bağlıdır. Bazı işlerde vardiya kuralları da olabilir.",
+        "İşveren çalışma saatlerini kaydetmelidir. Kendi kayıtlarını da tut; çizelgenin veya kaydın bir kopyasını iste.",
+        "Günde 6 saatten uzun çalışırsan genellikle en az 30 dakika mola hakkın vardır.",
+        "Vardiyalar arasında genellikle en az 11 saat dinlenme hakkın vardır. Bazı sektörlerde istisnalar ve telafi dinlenmesi kuralları bulunur."
+      ],
+      "links": [
+        {
+          "label": "AK · Çalışma saatleri",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Fazla mesai ve mola",
+      "teaser": "Her ek saat için ödeme veya izin al.",
+      "intro": "Fazla çalışma karşılıksız değildir. Saatlerini ve yöneticinin talimatlarını not et.",
+      "bullets": [
+        "Fazla mesai için genellikle en az %50 ek ücret veya buna denk serbest zaman verilir. Toplu sözleşme daha fazlasını sağlayabilir.",
+        "Yasal üst sınırlar ve istisnalar vardır. Genel sınır, fazla mesai dâhil günde 12 ve haftada 60 saattir; uzun dönemde ortalama genellikle haftada 48 saati aşamaz.",
+        "Yarı zamanlı çalışıyorsan sözleşmedeki saatlerin üstünde çalışmak her zaman yasal anlamda fazla mesai sayılmaz. Ek saat kuralları farklı olabilir.",
+        "Ücret pusulanı, vardiya listesini ve saat kayıtlarını sakla."
+      ],
+      "links": [
+        {
+          "label": "AK · Çalışma saatleri",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Yıllık izin ve resmi tatil",
+      "teaser": "İzin günlerini ve tatil ücretini kontrol et.",
+      "intro": "Çoğu çalışan yılda 5 hafta ücretli yıllık izin hakkına sahiptir.",
+      "bullets": [
+        "5 günlük haftada bu genellikle 25 iş günüdür. Uzun hizmet süresinde, koşullara bağlı olarak hak 6 haftaya çıkar.",
+        "İzin tarihini işverenle kararlaştır. Onay almadan izne çıkma; kalan izin günleri otomatik silinmez.",
+        "Resmi tatilde çalışmazsan genellikle normal ücretin devam eder. Tatilde çalışmanın karşılığı iş kanununa ve toplu sözleşmeye göre değişebilir.",
+        "İşten ayrılırken kullanılmamış izin için ödeme gerekebilir."
+      ],
+      "links": [
+        {
+          "label": "AK · Yıllık izin",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Hastalık ve bakım izni",
+      "teaser": "Hastalanınca hemen haber ver.",
+      "intro": "İşe gelemeyeceksen işverene gecikmeden haber ver.",
+      "bullets": [
+        "İşveren ilk günden rapor isteyebilir. Raporu zamanında alıp işverene ilet.",
+        "Hastalıkta ücretin bir süre devam edebilir. Süre; çalışma sürene, hastalığın dönemine ve özel kurallara bağlıdır.",
+        "Pflegefreistellung kısa süreli ücretli bakım iznidir. Pflegekarenz ve Pflegeteilzeit ise bakım için ayrı, daha uzun süreli izin veya kısmi çalışma düzenlemeleridir. Koşullarını AK ile kontrol et.",
+        "İşverenle yazışmaları ve sağlık belgelerini sakla."
+      ],
+      "links": [
+        {
+          "label": "AK · İş hukuku",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · Urlaubsgesetz §16",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "İşe başlama, maaş ve işten ayrılma",
+      "teaser": "Belgelerin bir kopyasını al ve sakla.",
+      "intro": "İşe başlamadan önce ücretini, çalışma saatini ve görevini netleştir.",
+      "bullets": [
+        "İşveren seni işe başlamadan önce sosyal sigortaya kaydettirmelidir. Kayıt belgesinin bir kopyasını iste.",
+        "Yazılı sözleşmen yoksa işveren temel çalışma koşullarını içeren Dienstzettel adlı belgeyi vermelidir. İmzalamadan önce anlamadığın maddeleri sor.",
+        "Maaş bordronu ve banka ödemelerini kontrol et. Eksik ücret varsa yazılı olarak sor; kayıtlarını sakla.",
+        "İşten çıkarılma veya istifa için süre ve şekil kuralları olabilir. Süreyi kaçırmadan AK veya sendikaya danış."
+      ],
+      "links": [
+        {
+          "label": "AK · İş hukuku",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "İş kıyafeti ve giyinme süresi",
+      "teaser": "Zorunlu kıyafet değişimi çalışma süresine sayılabilir.",
+      "intro": "İşveren özel kıyafet veya koruyucu ekipman giymeni ve işyerinde değişmeni şart koşuyorsa, giyinme süresi çalışma süresine dahil olabilir.",
+      "bullets": [
+        "Bu hak her işte otomatik değildir. Kıyafetin iş için gerekli olması ve işyerinde değiştirme zorunluluğu önemlidir.",
+        "İşe başlama ve bitiş saatlerinin yanında kıyafet değiştirme zamanını da not et.",
+        "Toplu sözleşme veya işyeri kuralları ek koşullar getirebilir. Durumunu AK veya sendikaya sor."
+      ],
+      "links": [
+        {
+          "label": "AK · Çalışma saatleri",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Çocuk ve aile hakları",
+      "teaser": "Gebelik, ebeveyn izni ve aile yardımlarını kontrol et.",
+      "intro": "Çocuk sahibi olunca iş ve aile için farklı izinler ve yardımlar olabilir.",
+      "bullets": [
+        "Mutterschutz, Elternkarenz ve Elternteilzeit farklı haklardır. Bildirim süreleri vardır; işverene yazılı bildirim yapmadan önce AK’dan bilgi al.",
+        "Kinderbetreuungsgeld ve Familienbeihilfe ayrı aile yardımlarıdır. Uygunluk, ikamet ve diğer koşullara göre değişebilir.",
+        "Papamonat ve çocuk bakımıyla ilgili izinlerin özel şartları olabilir. Güncel durumu AK ile kontrol et."
+      ],
+      "links": [
+        {
+          "label": "AK · Aile ve iş",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Vergi ve maaş pusulası",
+      "teaser": "Yıllık vergi iadesi hakkını kontrol et.",
+      "intro": "Maaşından vergi ve sosyal sigorta kesintileri yapılır. Bordronu düzenli kontrol et.",
+      "bullets": [
+        "Arbeitnehmerveranlagung (yıllık vergi düzeltmesi), fazla kesilen verginin bir kısmını geri almanı sağlayabilir.",
+        "Familienbonus ve Pendlerpauschale gibi vergi indirimleri koşullara bağlıdır; herkese otomatik verilmez.",
+        "Brüt ücret, net ücret, vergi ve sosyal sigorta kesintileri farklı kalemlerdir. Bordronu anlamıyorsan AK’dan destek iste."
+      ],
+      "links": [
+        {
+          "label": "AK · Vergi ve gelir",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}

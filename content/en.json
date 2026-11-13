@@ -1,0 +1,198 @@
+{
+  "brand": "My rights at work",
+  "guideLink": "My rights at work",
+  "languageLabel": "Choose language",
+  "catalogLink": "Collective agreements",
+  "eyebrow": "Austria · Working life",
+  "title": "Know your rights at work.",
+  "intro": "Short, clear information. Open a card for details and exceptions.",
+  "tip": "Open a card for details",
+  "sectionTitle": "Common questions",
+  "sectionIntro": "Rules can differ by industry and collective agreement.",
+  "helpTitle": "Having a problem?",
+  "helpText": "Keep your documents and ask for free advice. Ask questions before signing anything you do not understand.",
+  "disclaimer": "This page gives general information, not legal advice. Discuss your situation with the Arbeiterkammer (AK) or a trade union.",
+  "footer": "Sources: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at, and RIS. Rules can change; contact your workplace representative, trade union, or source for current information. RIS publishes official Austrian laws in German.",
+  "open": "Open details",
+  "close": "Close details",
+  "sources": "Sources",
+  "helpLinks": [
+    "AK Styria",
+    "ÖGB",
+    "GLB",
+    "RIS · Austrian laws (German)"
+  ],
+  "cards": [
+    {
+      "title": "Collective agreements",
+      "teaser": "Check minimum pay and working conditions.",
+      "intro": "Collective agreements set minimum pay and working conditions in many industries.",
+      "bullets": [
+        "The applicable agreement mainly depends on the employer’s industry and your employee category. Ask your employer which one applies.",
+        "Search by industry, region, and type of employment. Your job title alone may not identify the right agreement.",
+        "Austria has no single statutory minimum wage for everyone. Check the pay table in the applicable agreement.",
+        "A 13th and 14th salary are provided in many industries by collective or employment agreements; the law does not automatically guarantee them to everyone."
+      ],
+      "links": [
+        {
+          "label": "Search all agreements · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Collective agreement search · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · Employment law",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Working hours",
+      "teaser": "Record when you start and finish work.",
+      "intro": "The statutory standard is 40 hours a week and 8 hours a day. Many collective agreements set less; 38.5 hours is common.",
+      "bullets": [
+        "38.5 hours does not apply to everyone. Hours depend on the industry agreement and employee category. Some jobs also have special shift rules.",
+        "Your employer must record working time. Keep your own records too and ask for a copy.",
+        "If you work more than 6 hours a day, you generally get a break of at least 30 minutes.",
+        "There is generally an 11-hour rest period between work shifts. Some industries have exceptions and compensatory-rest rules."
+      ],
+      "links": [
+        {
+          "label": "AK · Working time",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Overtime and breaks",
+      "teaser": "Extra hours must be compensated.",
+      "intro": "Extra work should not go unpaid. Record your hours and your manager’s instructions.",
+      "bullets": [
+        "Overtime generally earns at least a 50% premium or equivalent time off. A collective agreement may provide more.",
+        "There are legal limits and exceptions. The general maximum, including overtime, is 12 hours a day and 60 hours a week; the longer-term average is usually no more than 48 hours a week.",
+        "For part-time work, extra hours are not always overtime in the legal sense. Different rules may apply.",
+        "Keep your payslips, shift schedules, and time records."
+      ],
+      "links": [
+        {
+          "label": "AK · Working time",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Annual leave and public holidays",
+      "teaser": "Check your leave and holiday pay.",
+      "intro": "Most employees are entitled to 5 weeks of paid annual leave.",
+      "bullets": [
+        "With a five-day week, this is usually 25 working days. Under certain conditions, entitlement rises to 6 weeks after long service.",
+        "Agree on leave dates with your employer. Do not take leave without approval; unused days do not automatically disappear.",
+        "If you do not work on a public holiday, your pay usually continues. Special rules for working on a holiday depend on the law and collective agreement.",
+        "When employment ends, you may be entitled to payment for unused leave."
+      ],
+      "links": [
+        {
+          "label": "AK · Annual leave",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Sick leave and care leave",
+      "teaser": "Tell your employer as soon as possible.",
+      "intro": "If you cannot work, notify your employer without delay.",
+      "bullets": [
+        "Your employer may ask for a medical certificate from the first day. Get it in time.",
+        "Pay may continue for a period during illness. The duration depends on service and your circumstances.",
+        "Pflegefreistellung is short-term paid care leave. Pflegekarenz and Pflegeteilzeit are separate, longer care-leave or reduced-hours arrangements. Ask the AK to check the conditions for your case.",
+        "Keep messages to your employer and medical documents."
+      ],
+      "links": [
+        {
+          "label": "AK · Employment law",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · Urlaubsgesetz §16",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "Starting work, pay, and leaving a job",
+      "teaser": "Get copies of documents and keep them.",
+      "intro": "Confirm your pay, working hours, and duties before you start work.",
+      "bullets": [
+        "Your employer must register you for social insurance before you start. Ask for a copy of the registration.",
+        "If there is no written employment contract, your employer must give you a Dienstzettel with the essential terms. Ask before signing anything you do not understand.",
+        "Check your payslips and bank payments. Ask in writing if pay is missing, and keep your records.",
+        "Notice periods and formal rules can apply to dismissal or resignation. Contact the AK or a union before a deadline."
+      ],
+      "links": [
+        {
+          "label": "AK · Employment law",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "Work clothes and changing time",
+      "teaser": "Required changing time may count as working time.",
+      "intro": "If your employer requires specific clothing or protective equipment and you must change at work, the changing time may count as working time.",
+      "bullets": [
+        "This does not apply automatically to every job. It matters whether the clothing is required and whether you must change at the workplace.",
+        "Record changing time as well as your start and finish times.",
+        "A collective agreement or workplace rules may add conditions. Ask the AK or a union about your situation."
+      ],
+      "links": [
+        {
+          "label": "AK · Working time",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Children and family rights",
+      "teaser": "Check maternity protection, parental leave, and family benefits.",
+      "intro": "Having a child can bring different leave rights and family benefits.",
+      "bullets": [
+        "Mutterschutz, Elternkarenz, and Elternteilzeit are different rights. Notice deadlines apply; ask the AK before sending written notice to your employer.",
+        "Kinderbetreuungsgeld and Familienbeihilfe are separate family benefits. Eligibility may depend on residence and other conditions.",
+        "Papamonat and leave for childcare have specific conditions. Check the current rules with the AK."
+      ],
+      "links": [
+        {
+          "label": "AK · Family and work",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Tax and payslips",
+      "teaser": "Check whether you may be due a tax refund.",
+      "intro": "Tax and social insurance contributions are deducted from your pay. Check your payslip regularly.",
+      "bullets": [
+        "The Arbeitnehmerveranlagung (employee tax assessment) may allow you to reclaim some overpaid wage tax.",
+        "Tax benefits such as Familienbonus and Pendlerpauschale depend on eligibility and are not automatic for everyone.",
+        "Gross pay, net pay, tax, and social insurance contributions are different items. Ask the AK if you do not understand your payslip."
+      ],
+      "links": [
+        {
+          "label": "AK · Tax and income",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}

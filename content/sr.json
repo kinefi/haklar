@@ -1,0 +1,197 @@
+{
+  "brand": "Moja radna prava",
+  "guideLink": "Moja radna prava",
+  "languageLabel": "Izbor jezika",
+  "catalogLink": "Kolektivni ugovori",
+  "eyebrow": "Austrija · Radni život",
+  "title": "Znajte svoja prava na poslu.",
+  "intro": "Kratke i jasne informacije. Otvorite karticu za detalje i izuzetke.",
+  "tip": "Otvorite kartice za detalje",
+  "sectionTitle": "Najčešća pitanja",
+  "sectionIntro": "Pravila mogu da se razlikuju u zavisnosti od delatnosti i kolektivnog ugovora.",
+  "helpTitle": "Imate problem?",
+  "helpText": "Sačuvajte dokumente i zatražite besplatno savetovanje. Pre potpisa pitajte ako nešto ne razumete.",
+  "disclaimer": "Ova stranica pruža opšte informacije, a ne pravni savet. O svom slučaju razgovarajte sa Arbeiterkammer (AK) ili sindikatom.",
+  "footer": "Izvori: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at i RIS. Pravila mogu da se menjaju; za aktuelne informacije obratite se predstavniku zaposlenih, sindikatu ili izvoru. RIS objavljuje zvanične austrijske propise na nemačkom jeziku.",
+  "open": "Otvori detalje",
+  "close": "Zatvori detalje",
+  "sources": "Izvori",
+  "helpLinks": [
+    "AK Steiermark",
+    "ÖGB",
+    "GLB",
+    "RIS · Austrijski zakoni (nemački)"
+  ],
+  "cards": [
+    {
+      "title": "Kolektivni ugovor (Kollektivvertrag)",
+      "teaser": "Proverite minimalnu platu i uslove rada.",
+      "intro": "Kolektivni ugovor određuje minimalna pravila o platama i uslovima rada u mnogim delatnostima.",
+      "bullets": [
+        "Koji ugovor važi zavisi od poslodavca i posla koji obavljate. Pitajte poslodavca koji se ugovor primenjuje.",
+        "U Austriji ne postoji jedna zakonska minimalna plata za sve. Proverite tabelu plata u kolektivnom ugovoru.",
+        "13. i 14. plata postoje u mnogim delatnostima prema kolektivnom ugovoru ili ugovoru o radu; zakon ih ne garantuje automatski svima."
+      ],
+      "links": [
+        {
+          "label": "Pretražite sve kolektivne ugovore · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Pretraga kolektivnih ugovora · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · Radno pravo",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Radno vreme",
+      "teaser": "Beležite početak i završetak rada.",
+      "intro": "Zakonsko uobičajeno radno vreme je 40 sati nedeljno i 8 sati dnevno. Mnogi kolektivni ugovori određuju kraće vreme; 38,5 sati je često.",
+      "bullets": [
+        "38,5 sati ne važi za sve. Radno vreme zavisi od kolektivnog ugovora za delatnost i kategorije zaposlenja. Za neke poslove važe i posebna pravila za smene.",
+        "Poslodavac mora da vodi evidenciju radnog vremena. Vodite i svoju evidenciju i tražite kopiju rasporeda ili zapisa.",
+        "Ako radite duže od 6 sati dnevno, uglavnom imate pravo na pauzu od najmanje 30 minuta.",
+        "Između smena obično imate pravo na najmanje 11 sati odmora. U nekim delatnostima postoje izuzeci i pravila o nadoknadi odmora."
+      ],
+      "links": [
+        {
+          "label": "AK · Radno vreme",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Prekovremeni rad i pauza",
+      "teaser": "Za dodatne sate tražite isplatu ili slobodno vreme.",
+      "intro": "Dodatni rad mora da se nadoknadi. Beležite sate i uputstva nadređenog.",
+      "bullets": [
+        "Za prekovremeni rad obično pripada najmanje 50% dodatka na platu ili odgovarajuće slobodno vreme. Kolektivni ugovor može da daje više.",
+        "Postoje zakonske granice i izuzeci. Opšta granica, uključujući prekovremeni rad, iznosi 12 sati dnevno i 60 sati nedeljno; dugoročni prosek uglavnom ne sme da pređe 48 sati nedeljno.",
+        "Kod rada sa nepunim radnim vremenom dodatni sati preko ugovorenog vremena nisu uvek prekovremeni rad u pravnom smislu. Mogu da važe druga pravila.",
+        "Sačuvajte platne liste, raspored smena i evidenciju sati."
+      ],
+      "links": [
+        {
+          "label": "AK · Radno vreme",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Godišnji odmor i praznici",
+      "teaser": "Proverite dane odmora i naknadu za praznike.",
+      "intro": "Većina zaposlenih ima pravo na 5 nedelja plaćenog godišnjeg odmora.",
+      "bullets": [
+        "Kod petodnevne radne nedelje to je obično 25 radnih dana. Posle dugog radnog staža pravo može da poraste na 6 nedelja, u zavisnosti od uslova.",
+        "Datum odmora dogovorite sa poslodavcem. Ne odlazite na odmor bez odobrenja; preostali dani odmora ne nestaju automatski.",
+        "Ako ne radite na državni praznik, plata se uglavnom nastavlja. Naknada za rad na praznik zavisi od zakona i kolektivnog ugovora.",
+        "Pri prestanku rada može da vam pripada isplata za neiskorišćeni odmor."
+      ],
+      "links": [
+        {
+          "label": "AK · Godišnji odmor",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Bolovanje i nega člana porodice",
+      "teaser": "Odmah javite ako ste bolesni.",
+      "intro": "Ako ne možete da dođete na posao, odmah obavestite poslodavca.",
+      "bullets": [
+        "Poslodavac može da traži lekarsku potvrdu već od prvog dana. Nabavite je na vreme i dostavite poslodavcu.",
+        "Tokom bolesti plata može da se nastavi određeno vreme. Trajanje zavisi od radnog staža, perioda bolesti i posebnih pravila.",
+        "Pflegefreistellung je kratko plaćeno odsustvo radi nege. Pflegekarenz i Pflegeteilzeit su odvojena, duža odsustva ili skraćeno radno vreme radi nege. Proverite uslove kod AK-a.",
+        "Sačuvajte prepisku sa poslodavcem i medicinsku dokumentaciju."
+      ],
+      "links": [
+        {
+          "label": "AK · Radno pravo",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · Urlaubsgesetz §16",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "Početak rada, plata i prestanak rada",
+      "teaser": "Uzmite i sačuvajte kopije dokumenata.",
+      "intro": "Pre početka rada razjasnite platu, radno vreme i opis posla.",
+      "bullets": [
+        "Poslodavac mora da vas prijavi na socijalno osiguranje pre početka rada. Zatražite kopiju potvrde o prijavi.",
+        "Ako nemate pisani ugovor, poslodavac mora da vam da Dienstzettel sa osnovnim uslovima rada. Pitajte za objašnjenje pre potpisivanja onoga što ne razumete.",
+        "Proveravajte platne liste i uplate na račun. Ako nedostaje deo plate, zatražite objašnjenje pismenim putem i sačuvajte evidenciju.",
+        "Za otkaz ili ostavku mogu da važe rokovi i pravila o načinu dostavljanja. Obratite se AK-u ili sindikatu pre isteka roka."
+      ],
+      "links": [
+        {
+          "label": "AK · Radno pravo",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "Radna odeća i vreme presvlačenja",
+      "teaser": "Obavezno presvlačenje može da se računa u radno vreme.",
+      "intro": "Ako poslodavac zahteva posebnu odeću ili zaštitnu opremu i presvlačenje na radnom mestu, to vreme može da se računa kao radno vreme.",
+      "bullets": [
+        "Ovo pravo ne važi automatski za svaki posao. Važno je da li je odeća obavezna i da li morate da se presvučete na poslu.",
+        "Beležite vreme presvlačenja, pored početka i završetka rada.",
+        "Kolektivni ugovor ili pravila firme mogu da odrede dodatne uslove. Pitajte AK ili sindikat za svoj slučaj."
+      ],
+      "links": [
+        {
+          "label": "AK · Radno vreme",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Deca i porodična prava",
+      "teaser": "Proverite zaštitu u trudnoći, roditeljsko odsustvo i porodične naknade.",
+      "intro": "Rođenje deteta može doneti različita prava na odsustvo i porodične naknade.",
+      "bullets": [
+        "Mutterschutz, Elternkarenz i Elternteilzeit različita su prava. Postoje rokovi za obaveštavanje; pre pisane prijave poslodavcu pitajte AK.",
+        "Kinderbetreuungsgeld i Familienbeihilfe odvojene su porodične naknade. Uslovi mogu zavisiti od boravka i drugih okolnosti.",
+        "Papamonat i odsustvo radi brige o detetu imaju posebne uslove. Proverite aktuelna pravila kod AK-a."
+      ],
+      "links": [
+        {
+          "label": "AK · Porodica i posao",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Porez i platni listić",
+      "teaser": "Proverite pravo na godišnji povraćaj poreza.",
+      "intro": "Od plate se odbijaju porez i doprinosi za socijalno osiguranje. Redovno proveravajte platni listić.",
+      "bullets": [
+        "Arbeitnehmerveranlagung (godišnji obračun poreza) može omogućiti povraćaj dela previše plaćenog poreza.",
+        "Poreske olakšice kao Familienbonus i Pendlerpauschale zavise od uslova i ne pripadaju automatski svima.",
+        "Bruto plata, neto plata, porez i doprinosi različite su stavke. Ako ne razumete platni listić, pitajte AK."
+      ],
+      "links": [
+        {
+          "label": "AK · Porez i prihodi",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "brand": "Meine Rechte bei der Arbeit",
+  "guideLink": "Meine Rechte",
+  "languageLabel": "Sprache auswählen",
+  "catalogLink": "Kollektivverträge",
+  "eyebrow": "Österreich · Arbeitsleben",
+  "title": "Meine Rechte als Arbeitnehmer:in.",
+  "intro": "Kurze, klare Informationen. Öffnen Sie eine Karte für Details und Ausnahmen.",
+  "tip": "Karten für Details öffnen",
+  "sectionTitle": "Häufige Fragen",
+  "sectionIntro": "Regeln können je nach Branche und Kollektivvertrag abweichen.",
+  "helpTitle": "Gibt es ein Problem?",
+  "helpText": "Bewahren Sie Ihre Unterlagen auf und holen Sie sich kostenlose Beratung. Fragen Sie nach, bevor Sie etwas unterschreiben, das Sie nicht verstehen.",
+  "disclaimer": "Diese Seite bietet allgemeine Informationen, keine Rechtsberatung. Besprechen Sie Ihren Fall mit der Arbeiterkammer (AK) oder einer Gewerkschaft.",
+  "footer": "Quellen: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at und RIS. Regeln können sich ändern; wenden Sie sich für aktuelle Informationen an die Arbeitnehmervertretung, die Gewerkschaft oder die Quelle. RIS veröffentlicht die österreichischen Gesetze amtlich auf Deutsch.",
+  "open": "Details öffnen",
+  "close": "Details schließen",
+  "sources": "Quellen",
+  "helpLinks": [
+    "AK Steiermark",
+    "ÖGB",
+    "GLB",
+    "RIS · Österreichisches Recht"
+  ],
+  "cards": [
+    {
+      "title": "Kollektivvertrag",
+      "teaser": "Prüfen Sie Mindestlohn und Arbeitsbedingungen.",
+      "intro": "Kollektivverträge legen in vielen Branchen Mindestregeln zu Lohn und Arbeitsbedingungen fest.",
+      "bullets": [
+        "Welcher Vertrag gilt, hängt vor allem von der Branche des Betriebs und Ihrer Beschäftigungsgruppe ab. Fragen Sie Ihren Arbeitgeber.",
+        "Suchen Sie nach Branche, Region und Beschäftigungsart. Nur Ihre Berufsbezeichnung reicht oft nicht.",
+        "In Österreich gibt es keinen einheitlichen gesetzlichen Mindestlohn für alle. Prüfen Sie die Lohntabelle im passenden Kollektivvertrag.",
+        "13. und 14. Gehalt gibt es in vielen Branchen laut Kollektivvertrag oder Arbeitsvertrag; das Gesetz garantiert sie nicht automatisch allen."
+      ],
+      "links": [
+        {
+          "label": "Alle Kollektivverträge suchen · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Kollektivvertragssuche · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · Arbeitsrecht",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Arbeitszeit",
+      "teaser": "Notieren Sie Arbeitsbeginn und Arbeitsende.",
+      "intro": "Die gesetzliche Normalarbeitszeit beträgt 40 Wochenstunden und 8 Stunden pro Tag. Viele Kollektivverträge sehen weniger vor; 38,5 Stunden sind häufig.",
+      "bullets": [
+        "38,5 Stunden gelten nicht für alle. Die Arbeitszeit hängt vom Kollektivvertrag der Branche und der Beschäftigtengruppe ab. Für manche Jobs gelten Sonderregeln.",
+        "Der Arbeitgeber muss die Arbeitszeit aufzeichnen. Führen Sie auch eigene Aufzeichnungen und verlangen Sie eine Kopie.",
+        "Bei mehr als 6 Stunden Arbeit am Tag haben Sie in der Regel Anspruch auf mindestens 30 Minuten Pause.",
+        "Zwischen zwei Arbeitseinsätzen haben Sie grundsätzlich mindestens 11 Stunden Ruhezeit. In manchen Branchen gelten Ausnahmen und Ausgleichsruhezeiten."
+      ],
+      "links": [
+        {
+          "label": "AK · Arbeitszeit",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Überstunden und Pausen",
+      "teaser": "Zusätzliche Stunden müssen ausgeglichen werden.",
+      "intro": "Zusätzliche Arbeit darf nicht einfach unbezahlt bleiben. Notieren Sie Stunden und Anweisungen.",
+      "bullets": [
+        "Für Überstunden gibt es in der Regel mindestens 50 Prozent Zuschlag oder entsprechende Freizeit. Der Kollektivvertrag kann mehr vorsehen.",
+        "Es gibt gesetzliche Höchstgrenzen und Ausnahmen. Allgemein sind es höchstens 12 Stunden pro Tag und 60 Stunden pro Woche; im längeren Durchschnitt meist höchstens 48 Stunden pro Woche.",
+        "Bei Teilzeit sind zusätzliche Stunden nicht immer Überstunden im rechtlichen Sinn. Es können andere Regeln gelten.",
+        "Bewahren Sie Lohnzettel, Dienstpläne und Arbeitszeitaufzeichnungen auf."
+      ],
+      "links": [
+        {
+          "label": "AK · Arbeitszeit",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Urlaub und Feiertage",
+      "teaser": "Prüfen Sie Urlaubstage und Feiertagsentgelt.",
+      "intro": "Die meisten Beschäftigten haben Anspruch auf 5 Wochen bezahlten Jahresurlaub.",
+      "bullets": [
+        "Bei einer Fünf-Tage-Woche sind das meist 25 Arbeitstage. Unter bestimmten Voraussetzungen steigt der Anspruch nach langer Dienstzeit auf 6 Wochen.",
+        "Vereinbaren Sie den Urlaubszeitpunkt mit dem Arbeitgeber. Gehen Sie nicht ohne Zustimmung auf Urlaub; offene Urlaubstage verfallen nicht automatisch.",
+        "Wenn Sie an einem Feiertag nicht arbeiten, wird das Entgelt meist weitergezahlt. Für Arbeit am Feiertag gelten je nach Gesetz und Kollektivvertrag besondere Regeln.",
+        "Bei Ende des Arbeitsverhältnisses kann eine Auszahlung für nicht verbrauchten Urlaub zustehen."
+      ],
+      "links": [
+        {
+          "label": "AK · Urlaub",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Krankheit und Pflegefreistellung",
+      "teaser": "Melden Sie sich sofort krank.",
+      "intro": "Wenn Sie nicht arbeiten können, informieren Sie den Arbeitgeber unverzüglich.",
+      "bullets": [
+        "Der Arbeitgeber kann eine ärztliche Bestätigung schon ab dem ersten Tag verlangen. Besorgen Sie sie rechtzeitig.",
+        "Bei Krankheit kann das Entgelt für eine bestimmte Zeit weitergezahlt werden. Die Dauer hängt unter anderem von Dienstzeit und Einzelfall ab.",
+        "Pflegefreistellung ist eine kurzfristige bezahlte Freistellung zur Pflege. Pflegekarenz und Pflegeteilzeit sind eigene, längerfristige Pflegefreistellungen oder Arbeitszeitverkürzungen. Lassen Sie die Voraussetzungen bei der AK prüfen.",
+        "Bewahren Sie Nachrichten an den Arbeitgeber und medizinische Unterlagen auf."
+      ],
+      "links": [
+        {
+          "label": "AK · Arbeitsrecht",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · Urlaubsgesetz §16",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "Arbeitsbeginn, Lohn und Kündigung",
+      "teaser": "Lassen Sie sich Kopien geben und bewahren Sie sie auf.",
+      "intro": "Klären Sie Lohn, Arbeitszeit und Aufgaben vor dem Arbeitsbeginn.",
+      "bullets": [
+        "Der Arbeitgeber muss Sie vor Arbeitsbeginn bei der Sozialversicherung anmelden. Verlangen Sie eine Kopie der Anmeldung.",
+        "Wenn es keinen schriftlichen Arbeitsvertrag gibt, muss der Arbeitgeber einen Dienstzettel mit den wesentlichen Bedingungen geben. Fragen Sie nach, bevor Sie Unverstandenes unterschreiben.",
+        "Prüfen Sie Lohnzettel und Überweisungen. Fragen Sie schriftlich nach, wenn Geld fehlt, und bewahren Sie Ihre Aufzeichnungen auf.",
+        "Bei Kündigung oder Eigenkündigung können Fristen und Formvorschriften gelten. Fragen Sie rechtzeitig bei der AK oder einer Gewerkschaft nach."
+      ],
+      "links": [
+        {
+          "label": "AK · Arbeitsrecht",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "Arbeitskleidung und Umkleidezeit",
+      "teaser": "Vorgeschriebenes Umziehen kann Arbeitszeit sein.",
+      "intro": "Wenn der Arbeitgeber bestimmte Kleidung oder Schutzausrüstung vorschreibt und das Umziehen im Betrieb notwendig ist, kann die Umkleidezeit als Arbeitszeit zählen.",
+      "bullets": [
+        "Das gilt nicht automatisch für jeden Job. Wichtig ist, ob die Kleidung vorgeschrieben ist und ob Sie sich im Betrieb umziehen müssen.",
+        "Notieren Sie auch die Umkleidezeit, zusätzlich zu Arbeitsbeginn und Arbeitsende.",
+        "Kollektivvertrag oder betriebliche Regeln können weitere Bedingungen festlegen. Fragen Sie die AK oder eine Gewerkschaft zu Ihrem Fall."
+      ],
+      "links": [
+        {
+          "label": "AK · Arbeitszeit",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Kinder und Familienrechte",
+      "teaser": "Prüfen Sie Mutterschutz, Elternkarenz und Familienleistungen.",
+      "intro": "Mit einem Kind können verschiedene Freistellungen und Familienleistungen verbunden sein.",
+      "bullets": [
+        "Mutterschutz, Elternkarenz und Elternteilzeit sind unterschiedliche Rechte. Es gelten Meldefristen; fragen Sie vor einer schriftlichen Mitteilung an den Arbeitgeber bei der AK nach.",
+        "Kinderbetreuungsgeld und Familienbeihilfe sind verschiedene Familienleistungen. Voraussetzungen können vom Wohnsitz und weiteren Umständen abhängen.",
+        "Papamonat und Freistellungen zur Kinderbetreuung haben eigene Voraussetzungen. Prüfen Sie die aktuellen Regeln bei der AK."
+      ],
+      "links": [
+        {
+          "label": "AK · Beruf und Familie",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Steuern und Lohnzettel",
+      "teaser": "Prüfen Sie, ob Sie Steuern zurückbekommen können.",
+      "intro": "Vom Lohn werden Steuern und Sozialversicherungsbeiträge abgezogen. Prüfen Sie Ihren Lohnzettel regelmäßig.",
+      "bullets": [
+        "Mit der Arbeitnehmerveranlagung können Sie unter Umständen zu viel bezahlte Lohnsteuer zurückbekommen.",
+        "Steuerliche Vorteile wie Familienbonus und Pendlerpauschale hängen von den Voraussetzungen ab und gelten nicht automatisch für alle.",
+        "Bruttolohn, Nettolohn, Steuer und Sozialversicherungsbeiträge sind verschiedene Posten. Wenn Sie den Lohnzettel nicht verstehen, fragen Sie bei der AK nach."
+      ],
+      "links": [
+        {
+          "label": "AK · Steuern und Einkommen",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}
