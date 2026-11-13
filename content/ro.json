@@ -1,0 +1,198 @@
+{
+  "brand": "Drepturile mele la muncă",
+  "guideLink": "Drepturile mele",
+  "payLink": "Salariu și impozit",
+  "languageLabel": "Alegeți limba",
+  "catalogLink": "Contracte colective",
+  "eyebrow": "Austria · Viața profesională",
+  "title": "Drepturile mele la muncă.",
+  "intro": "Informații scurte și clare. Deschideți un card pentru detalii și excepții.",
+  "tip": "Atingeți cardurile pentru detalii",
+  "sectionTitle": "Subiecte frecvente",
+  "sectionIntro": "Regulile pot diferi în funcție de domeniu și de contractul colectiv.",
+  "helpTitle": "Aveți o problemă?",
+  "helpText": "Păstrați documentele și cereți consiliere gratuită. Întrebați înainte să semnați ceva ce nu înțelegeți.",
+  "disclaimer": "Această pagină oferă informații generale, nu consiliere juridică. Discutați situația dumneavoastră cu Arbeiterkammer (AK) sau cu un sindicat.",
+  "footer": "Surse: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at și RIS. Regulile se pot schimba; pentru informații actuale, întrebați reprezentantul angajaților, sindicatul sau sursa.",
+  "open": "Deschideți detaliile",
+  "close": "Închideți detaliile",
+  "sources": "Surse",
+  "helpLinks": [
+    "AK Steiermark",
+    "ÖGB",
+    "GLB",
+    "RIS · legislația austriacă (în germană)"
+  ],
+  "cards": [
+    {
+      "title": "Contractul colectiv (Kollektivvertrag)",
+      "teaser": "Aflați salariul minim și condițiile de muncă.",
+      "intro": "Contractul colectiv stabilește reguli minime privind salariile și condițiile de muncă în multe domenii.",
+      "bullets": [
+        "Contractul aplicabil depinde de companie și de activitatea dumneavoastră. Întrebați angajatorul ce contract colectiv se aplică.",
+        "În Austria nu există un singur salariu minim legal pentru toată lumea. Verificați tabelul salarial din contractul colectiv.",
+        "Al 13-lea și al 14-lea salariu sunt prevăzute în multe domenii prin contractul colectiv sau contractul individual. Legea nu le garantează automat tuturor."
+      ],
+      "links": [
+        {
+          "label": "Căutați contracte colective · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Căutare contracte colective · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · Dreptul muncii",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Programul de lucru",
+      "teaser": "Notați orele de început și de sfârșit.",
+      "intro": "Programul normal prevăzut de lege este de 40 de ore pe săptămână și 8 ore pe zi. Multe contracte colective stabilesc un program mai scurt; 38,5 ore sunt frecvente.",
+      "bullets": [
+        "Programul de 38,5 ore nu se aplică tuturor. Durata depinde de domeniu, de contractul colectiv și de categoria angajaților. Unele locuri de muncă au reguli pentru ture.",
+        "Angajatorul trebuie să țină evidența orelor. Notați-vă și dumneavoastră orele și cereți o copie a pontajului.",
+        "Dacă lucrați mai mult de 6 ore pe zi, de regulă aveți dreptul la o pauză de cel puțin 30 de minute.",
+        "De regulă, trebuie să existe cel puțin 11 ore de odihnă între ture. Unele domenii au excepții și reguli privind odihna compensatorie."
+      ],
+      "links": [
+        {
+          "label": "AK · Programul de lucru",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Ore suplimentare și pauze",
+      "teaser": "Pentru orele în plus se acordă bani sau timp liber.",
+      "intro": "Munca suplimentară nu este gratuită. Notați orele și indicațiile primite de la conducător.",
+      "bullets": [
+        "Pentru orele suplimentare se acordă, de regulă, cel puțin un spor de 50% sau timp liber echivalent. Contractul colectiv poate prevedea mai mult.",
+        "Există limite legale și excepții. Limita generală, cu ore suplimentare incluse, este de 12 ore pe zi și 60 pe săptămână; media pe termen lung nu poate depăși, de regulă, 48 de ore pe săptămână.",
+        "Dacă lucrați cu jumătate de normă, orele peste programul convenit nu sunt întotdeauna ore suplimentare în sens legal. Se pot aplica reguli diferite pentru orele suplimentare.",
+        "Păstrați fluturașii de salariu, planul turelor și evidența orelor."
+      ],
+      "links": [
+        {
+          "label": "AK · Programul de lucru",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Concediul anual și sărbătorile legale",
+      "teaser": "Verificați zilele de concediu și plata pentru sărbători.",
+      "intro": "Majoritatea angajaților au dreptul la 5 săptămâni de concediu plătit pe an.",
+      "bullets": [
+        "La o săptămână de lucru de 5 zile, aceasta înseamnă de obicei 25 de zile lucrătoare. În anumite condiții și după o vechime îndelungată, dreptul crește la 6 săptămâni.",
+        "Stabiliți perioada concediului împreună cu angajatorul. Nu plecați fără aprobare; zilele de concediu rămase nu se pierd automat.",
+        "Dacă nu lucrați într-o sărbătoare legală, de regulă primiți salariul normal. Plata pentru munca în sărbători depinde de lege și de contractul colectiv.",
+        "La încetarea contractului, concediul nefolosit poate trebui plătit."
+      ],
+      "links": [
+        {
+          "label": "AK · Concediul anual",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Boală și concediu pentru îngrijire",
+      "teaser": "Anunțați imediat dacă sunteți bolnav.",
+      "intro": "Dacă nu puteți merge la serviciu, informați angajatorul fără întârziere.",
+      "bullets": [
+        "Angajatorul poate cere un certificat medical chiar din prima zi. Obțineți-l la timp și transmiteți-l angajatorului.",
+        "Salariul poate continua să fie plătit pentru o perioadă în caz de boală. Durata depinde de vechime, de perioada bolii și de reguli speciale.",
+        "Pflegefreistellung este un concediu scurt, plătit, pentru îngrijire. Pflegekarenz și Pflegeteilzeit sunt forme separate, mai lungi, de concediu sau de program redus pentru îngrijire. Verificați condițiile la AK.",
+        "Păstrați mesajele cu angajatorul și documentele medicale."
+      ],
+      "links": [
+        {
+          "label": "AK · Dreptul muncii",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · legislația austriacă (în germană)",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "Începerea muncii, salariul și încetarea contractului",
+      "teaser": "Cereți și păstrați copii ale documentelor.",
+      "intro": "Înainte să începeți munca, clarificați salariul, programul și atribuțiile.",
+      "bullets": [
+        "Angajatorul trebuie să vă înregistreze la asigurările sociale înainte de prima zi de lucru. Cereți o copie a dovezii.",
+        "Dacă nu aveți un contract scris, angajatorul trebuie să vă dea un Dienstzettel cu principalele condiții de muncă. Întrebați despre orice nu înțelegeți înainte să semnați.",
+        "Verificați fluturașul de salariu și plățile bancare. Dacă lipsește o sumă, întrebați în scris și păstrați dovezile.",
+        "Pentru concediere și demisie pot exista termene și reguli de formă. Cereți ajutorul AK sau al sindicatului înainte să expire termenul."
+      ],
+      "links": [
+        {
+          "label": "AK · Dreptul muncii",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "Haine de lucru și timpul pentru schimbare",
+      "teaser": "Schimbarea obligatorie a hainelor poate fi timp de lucru.",
+      "intro": "Dacă angajatorul cere haine speciale sau echipament de protecție și schimbarea lor la locul de muncă, timpul pentru schimbare poate conta ca timp de lucru.",
+      "bullets": [
+        "Acest drept nu se aplică automat în orice loc de muncă. Contează dacă hainele sunt necesare pentru muncă și dacă trebuie schimbate la locul de muncă.",
+        "Notați timpul de schimbare, pe lângă orele de început și de sfârșit.",
+        "Contractul colectiv sau regulile companiei pot stabili condiții suplimentare. Întrebați AK sau sindicatul."
+      ],
+      "links": [
+        {
+          "label": "AK · Programul de lucru",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Drepturile părinților și ale familiei",
+      "teaser": "Verificați drepturile în timpul sarcinii și după naștere.",
+      "intro": "După nașterea unui copil pot exista concedii și ajutoare pentru familie.",
+      "bullets": [
+        "Mutterschutz, Elternkarenz și Elternteilzeit sunt drepturi diferite. Există termene de notificare; cereți informații de la AK înainte să anunțați angajatorul în scris.",
+        "Kinderbetreuungsgeld și Familienbeihilfe sunt ajutoare diferite. Eligibilitatea depinde de condițiile aplicabile, inclusiv de domiciliu.",
+        "Papamonat și concediul pentru îngrijirea copilului au condiții speciale. Verificați regulile actuale la AK."
+      ],
+      "links": [
+        {
+          "label": "AK · Familie și muncă",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Impozite și fluturașul de salariu",
+      "teaser": "Verificați dacă puteți primi bani înapoi din impozit.",
+      "intro": "Din salariu se scad impozitul și contribuțiile sociale. Verificați regulat fluturașul de salariu.",
+      "bullets": [
+        "Arbeitnehmerveranlagung (regularizarea anuală a impozitului) vă poate permite să recuperați o parte din impozitul plătit în plus.",
+        "Facilități precum Familienbonus și Pendlerpauschale depind de anumite condiții; nu se acordă automat tuturor.",
+        "Salariul brut, salariul net, impozitul și contribuțiile sociale sunt elemente diferite. Dacă nu înțelegeți fluturașul, cereți ajutorul AK."
+      ],
+      "links": [
+        {
+          "label": "AK · Impozite și venituri",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}

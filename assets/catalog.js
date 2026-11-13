@@ -3,6 +3,9 @@ const languages = {
   hr: { name: "Hrvatski", short: "HR", html: "hr", locale: "hr-HR" },
   sr: { name: "Srpski", short: "SR", html: "sr-Latn", locale: "sr-Latn-RS" },
   bs: { name: "Bosanski", short: "BS", html: "bs", locale: "bs-BA" },
+  ro: { name: "Română", short: "RO", html: "ro", locale: "ro-RO" },
+  hu: { name: "Magyar", short: "HU", html: "hu", locale: "hu-HU" },
+  sl: { name: "Slovenščina", short: "SL", html: "sl", locale: "sl-SI" },
   de: { name: "Deutsch", short: "DE", html: "de", locale: "de-AT" },
   en: { name: "English", short: "EN", html: "en", locale: "en-GB" }
 };
@@ -180,7 +183,10 @@ function setLanguage(language) {
     button.textContent = details.short;
     button.setAttribute("aria-label", details.name);
     button.setAttribute("aria-pressed", String(code === language));
-    button.addEventListener("click", () => setLanguage(code));
+    button.addEventListener("click", () => {
+      window.haklarLanguage.rememberLanguage(code);
+      setLanguage(code);
+    });
     return button;
   }));
   renderAgreements();
@@ -201,11 +207,11 @@ async function init() {
 
   searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
   searchInput.addEventListener("input", renderAgreements);
-  if (catalog.failures.length) {
+  if (catalog.failures.length || (catalog.unavailableListings || []).length) {
     catalogError.textContent = translations.tr.partial;
     catalogError.hidden = false;
   }
-  setLanguage("tr");
+  setLanguage(window.haklarLanguage.initialLanguage(Object.keys(languages), "tr"));
 }
 
 init();

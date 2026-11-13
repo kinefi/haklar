@@ -1,0 +1,198 @@
+{
+  "brand": "Moje pravice pri delu",
+  "guideLink": "Moje pravice",
+  "payLink": "Plača in davki",
+  "languageLabel": "Izberite jezik",
+  "catalogLink": "Kolektivne pogodbe",
+  "eyebrow": "Avstrija · Delovno življenje",
+  "title": "Moje pravice pri delu.",
+  "intro": "Kratke in razumljive informacije. Odprite kartico za podrobnosti in izjeme.",
+  "tip": "Za podrobnosti odprite kartice",
+  "sectionTitle": "Pogosta vprašanja",
+  "sectionIntro": "Pravila se lahko razlikujejo glede na dejavnost in kolektivno pogodbo.",
+  "helpTitle": "Imate težavo?",
+  "helpText": "Shranite dokumente in prosite za brezplačen nasvet. Pred podpisom vprašajte, če česa ne razumete.",
+  "disclaimer": "Ta stran vsebuje splošne informacije in ni pravni nasvet. O svojem primeru se posvetujte z Arbeiterkammer (AK) ali sindikatom.",
+  "footer": "Viri: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at in RIS. Pravila se lahko spremenijo; za aktualne informacije vprašajte predstavnika zaposlenih, sindikat ali vir.",
+  "open": "Odprite podrobnosti",
+  "close": "Zaprite podrobnosti",
+  "sources": "Viri",
+  "helpLinks": [
+    "AK Steiermark",
+    "ÖGB",
+    "GLB",
+    "RIS · avstrijska zakonodaja (v nemščini)"
+  ],
+  "cards": [
+    {
+      "title": "Kolektivna pogodba (Kollektivvertrag)",
+      "teaser": "Preverite minimalno plačo in pogoje dela.",
+      "intro": "Kolektivna pogodba v številnih dejavnostih določa minimalna pravila za plačo in pogoje dela.",
+      "bullets": [
+        "Katera pogodba velja za vas, je odvisno od podjetja in vašega dela. Delodajalca vprašajte, katera kolektivna pogodba se uporablja.",
+        "V Avstriji ni ene zakonsko določene minimalne plače za vse. Plačno tabelo preverite v kolektivni pogodbi.",
+        "13. in 14. plača sta v številnih dejavnostih določeni s kolektivno pogodbo ali pogodbo o zaposlitvi; zakon ju ne zagotavlja samodejno vsem."
+      ],
+      "links": [
+        {
+          "label": "Iskanje kolektivnih pogodb · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Iskanje kolektivnih pogodb · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · Delovno pravo",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Delovni čas",
+      "teaser": "Zapišite si začetek in konec dela.",
+      "intro": "Običajni delovni čas po zakonu je 40 ur na teden in 8 ur na dan. Številne kolektivne pogodbe določajo krajši čas; 38,5 ure je pogostih.",
+      "bullets": [
+        "38,5 ure ne velja za vse. Delovni čas je odvisen od dejavnosti, kolektivne pogodbe in skupine zaposlenih. Nekatera dela imajo tudi pravila za izmene.",
+        "Delodajalec mora evidentirati delovni čas. Vodite tudi svoje zapiske in zahtevajte kopijo evidence.",
+        "Če delate več kot 6 ur na dan, imate praviloma pravico do najmanj 30-minutnega odmora.",
+        "Med izmenami imate praviloma pravico do najmanj 11 ur počitka. V nekaterih dejavnostih veljajo izjeme in pravila o nadomestnem počitku."
+      ],
+      "links": [
+        {
+          "label": "AK · Delovni čas",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Nadurno delo in odmori",
+      "teaser": "Za dodatne ure dobite plačilo ali prosti čas.",
+      "intro": "Nadurno delo ni brezplačno. Zapišite si ure in navodila nadrejenega.",
+      "bullets": [
+        "Za nadurno delo praviloma pripada najmanj 50-odstotni dodatek ali enakovreden prosti čas. Kolektivna pogodba lahko določa več.",
+        "Obstajajo zakonske omejitve in izjeme. Splošna meja z nadurami je 12 ur na dan in 60 ur na teden; dolgoročno povprečje praviloma ne sme preseči 48 ur na teden.",
+        "Pri delu s krajšim delovnim časom delo nad pogodbenimi urami ni vedno nadurno delo v pravnem smislu. Za dodatne ure lahko veljajo druga pravila.",
+        "Shranite plačilne liste, razpored izmen in evidence ur."
+      ],
+      "links": [
+        {
+          "label": "AK · Delovni čas",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Letni dopust in prazniki",
+      "teaser": "Preverite dneve dopusta in plačilo za praznike.",
+      "intro": "Večina zaposlenih ima pravico do 5 tednov plačanega letnega dopusta.",
+      "bullets": [
+        "Pri petdnevnem delovnem tednu je to običajno 25 delovnih dni. Po daljši delovni dobi se lahko pod določenimi pogoji pravica poveča na 6 tednov.",
+        "Datum dopusta se dogovorite z delodajalcem. Ne odidite na dopust brez odobritve; neporabljeni dnevi ne izginejo samodejno.",
+        "Če na praznik ne delate, praviloma še naprej prejemate običajno plačo. Plačilo za delo na praznik je odvisno od zakona in kolektivne pogodbe.",
+        "Ob prenehanju zaposlitve je treba neporabljeni dopust v določenih primerih izplačati."
+      ],
+      "links": [
+        {
+          "label": "AK · Letni dopust",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Bolezen in dopust za nego",
+      "teaser": "Če zbolite, takoj obvestite delodajalca.",
+      "intro": "Če ne morete na delo, o tem čim prej obvestite delodajalca.",
+      "bullets": [
+        "Delodajalec lahko zahteva zdravniško potrdilo že od prvega dne. Pravočasno ga pridobite in pošljite delodajalcu.",
+        "Med boleznijo se lahko plača še naprej izplačuje določeno obdobje. Trajanje je odvisno od delovne dobe, obdobja bolezni in posebnih pravil.",
+        "Pflegefreistellung je kratka plačana odsotnost za nego. Pflegekarenz in Pflegeteilzeit sta ločeni, daljši obliki dopusta ali krajšega delovnega časa zaradi nege. Pogoje preverite pri AK.",
+        "Shranite sporočila z delodajalcem in zdravstvene dokumente."
+      ],
+      "links": [
+        {
+          "label": "AK · Delovno pravo",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · avstrijska zakonodaja (v nemščini)",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "Začetek dela, plača in prenehanje zaposlitve",
+      "teaser": "Pridobite kopijo dokumentov in jo shranite.",
+      "intro": "Pred začetkom dela razjasnite plačo, delovni čas in naloge.",
+      "bullets": [
+        "Delodajalec vas mora pred prvim delovnim dnem prijaviti v socialno zavarovanje. Zahtevajte kopijo potrdila.",
+        "Če nimate pisne pogodbe, vam mora delodajalec izročiti dokument Dienstzettel z osnovnimi pogoji dela. Pred podpisom vprašajte o vsem, česar ne razumete.",
+        "Preverite plačilno listo in nakazila na račun. Če manjka del plače, vprašajte pisno in shranite zapise.",
+        "Za odpoved in izredno prenehanje zaposlitve lahko veljajo roki in pravila glede oblike. Pred iztekom roka se posvetujte z AK ali sindikatom."
+      ],
+      "links": [
+        {
+          "label": "AK · Delovno pravo",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "Delovna oblačila in čas preoblačenja",
+      "teaser": "Obvezno preoblačenje se lahko šteje v delovni čas.",
+      "intro": "Če delodajalec zahteva posebna oblačila ali zaščitno opremo in preoblačenje na delovnem mestu, se lahko ta čas šteje v delovni čas.",
+      "bullets": [
+        "Ta pravica ne velja samodejno za vsako delo. Pomembno je, ali so oblačila potrebna za delo in ali se morate preobleči na delovnem mestu.",
+        "Poleg začetka in konca dela si zapišite tudi čas preoblačenja.",
+        "Kolektivna pogodba ali pravila na delovnem mestu lahko določajo dodatne pogoje. Vprašajte AK ali sindikat."
+      ],
+      "links": [
+        {
+          "label": "AK · Delovni čas",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Pravice staršev in družin",
+      "teaser": "Preverite pravice med nosečnostjo in po rojstvu otroka.",
+      "intro": "Ob rojstvu otroka so lahko na voljo različne odsotnosti in družinske pomoči.",
+      "bullets": [
+        "Mutterschutz, Elternkarenz in Elternteilzeit so različne pravice. Veljajo roki za obvestilo; pred pisnim obvestilom delodajalca se posvetujte z AK.",
+        "Kinderbetreuungsgeld in Familienbeihilfe sta ločeni družinski pomoči. Upravičenost je odvisna od pogojev, tudi od prebivališča.",
+        "Papamonat in dopust za nego otroka imata posebne pogoje. Aktualna pravila preverite pri AK."
+      ],
+      "links": [
+        {
+          "label": "AK · Družina in delo",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Davki in plačilna lista",
+      "teaser": "Preverite, ali lahko dobite povračilo davka.",
+      "intro": "Od plače se odtegujejo davek in prispevki za socialno zavarovanje. Redno preverjajte plačilno listo.",
+      "bullets": [
+        "Arbeitnehmerveranlagung (letni obračun davka) vam lahko omogoči vračilo dela preveč plačanega davka.",
+        "Davčne olajšave, kot sta Familienbonus in Pendlerpauschale, so odvisne od pogojev in ne pripadajo samodejno vsem.",
+        "Bruto plača, neto plača, davek in prispevki za socialno zavarovanje so različne postavke. Če plačilne liste ne razumete, prosite AK za pomoč."
+      ],
+      "links": [
+        {
+          "label": "AK · Davki in prihodki",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}

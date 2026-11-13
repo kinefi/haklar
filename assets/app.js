@@ -3,6 +3,9 @@
       hr: { name: "Hrvatski", short: "HR", html: "hr", error: "Sadržaj na hrvatskom nije moguće učitati. Osvježite stranicu." },
       sr: { name: "Srpski", short: "SR", html: "sr-Latn", error: "Sadržaj na srpskom nije moguće učitati. Osvežite stranicu." },
       bs: { name: "Bosanski", short: "BS", html: "bs", error: "Sadržaj na bosanskom nije moguće učitati. Osvježite stranicu." },
+      ro: { name: "Română", short: "RO", html: "ro", error: "Conținutul în română nu s-a putut încărca. Reîncărcați pagina." },
+      hu: { name: "Magyar", short: "HU", html: "hu", error: "A magyar tartalom nem tölthető be. Frissítse az oldalt." },
+      sl: { name: "Slovenščina", short: "SL", html: "sl", error: "Vsebine v slovenščini ni bilo mogoče naložiti. Osvežite stran." },
       de: { name: "Deutsch", short: "DE", html: "de", error: "Deutsche Inhalte konnten nicht geladen werden. Bitte laden Sie die Seite neu." },
       en: { name: "English", short: "EN", html: "en", error: "English content could not be loaded. Please reload the page." }
     };
@@ -90,7 +93,10 @@
         button.textContent = value.short;
         button.setAttribute("aria-label", value.name);
         button.setAttribute("aria-pressed", String(code === language));
-        button.addEventListener("click", () => render(code).catch((error) => console.error(error)));
+        button.addEventListener("click", () => {
+          window.haklarLanguage.rememberLanguage(code);
+          render(code).catch((error) => console.error(error));
+        });
         return button;
       }));
 
@@ -157,4 +163,5 @@
         return link;
       }));
     }
-    render("tr").catch((error) => console.error("Language content could not be loaded.", error));
+    const language = window.haklarLanguage.initialLanguage(Object.keys(languages), "tr");
+    render(language).catch((error) => console.error("Language content could not be loaded.", error));

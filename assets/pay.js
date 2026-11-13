@@ -3,6 +3,9 @@ const languages = {
   hr: { name: "Hrvatski", short: "HR", html: "hr", locale: "hr-HR" },
   sr: { name: "Srpski", short: "SR", html: "sr-Latn", locale: "sr-Latn-RS" },
   bs: { name: "Bosanski", short: "BS", html: "bs", locale: "bs-BA" },
+  ro: { name: "Română", short: "RO", html: "ro", locale: "ro-RO" },
+  hu: { name: "Magyar", short: "HU", html: "hu", locale: "hu-HU" },
+  sl: { name: "Slovenščina", short: "SL", html: "sl", locale: "sl-SI" },
   de: { name: "Deutsch", short: "DE", html: "de", locale: "de-AT" },
   en: { name: "English", short: "EN", html: "en", locale: "en-GB" }
 };
@@ -67,7 +70,10 @@ function setLanguage(language) {
     button.textContent = details.short;
     button.setAttribute("aria-label", details.name);
     button.setAttribute("aria-pressed", String(code === language));
-    button.addEventListener("click", () => setLanguage(code));
+    button.addEventListener("click", () => {
+      window.haklarLanguage.rememberLanguage(code);
+      setLanguage(code);
+    });
     return button;
   }));
 }
@@ -87,7 +93,7 @@ async function init() {
     console.error("Could not load pay and tax data.", error);
     return;
   }
-  setLanguage("tr");
+  setLanguage(window.haklarLanguage.initialLanguage(Object.keys(languages), "tr"));
 }
 
 init();

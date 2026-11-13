@@ -1,0 +1,198 @@
+{
+  "brand": "Munkajogaim",
+  "guideLink": "Munkajogaim",
+  "payLink": "Bér és adó",
+  "languageLabel": "Nyelv kiválasztása",
+  "catalogLink": "Kollektív szerződések",
+  "eyebrow": "Ausztria · Munka világa",
+  "title": "Munkavállalói jogaim.",
+  "intro": "Rövid, érthető információk. Nyisson meg egy kártyát a részletekért és a kivételekért.",
+  "tip": "A részletekért nyissa meg a kártyákat",
+  "sectionTitle": "Gyakori kérdések",
+  "sectionIntro": "A szabályok ágazatonként és kollektív szerződésenként eltérhetnek.",
+  "helpTitle": "Problémája van?",
+  "helpText": "Őrizze meg a dokumentumait, és kérjen ingyenes tanácsot. Aláírás előtt kérdezzen rá arra, amit nem ért.",
+  "disclaimer": "Ez az oldal általános tájékoztatást ad, nem jogi tanács. Egyéni ügyével forduljon az Arbeiterkammerhez (AK) vagy a szakszervezetéhez.",
+  "footer": "Források: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at és RIS. A szabályok változhatnak; naprakész információért kérdezze meg a munkahelyi képviselőt, a szakszervezetet vagy a forrást.",
+  "open": "Részletek megnyitása",
+  "close": "Részletek bezárása",
+  "sources": "Források",
+  "helpLinks": [
+    "AK Steiermark",
+    "ÖGB",
+    "GLB",
+    "RIS · osztrák jogszabályok (németül)"
+  ],
+  "cards": [
+    {
+      "title": "Kollektív szerződés (Kollektivvertrag)",
+      "teaser": "Ismerje meg a minimálbért és a munkafeltételeket.",
+      "intro": "A kollektív szerződés sok ágazatban minimális bér- és munkafeltételeket határoz meg.",
+      "bullets": [
+        "Az Önre vonatkozó szerződés a munkahelytől és a tényleges munkától függ. Kérdezze meg a munkáltatót, melyik kollektív szerződés vonatkozik Önre.",
+        "Ausztriában nincs mindenkire érvényes, egységes törvényi minimálbér. A bértáblát a kollektív szerződésben ellenőrizze.",
+        "A 13. és 14. havi bér sok ágazatban a kollektív szerződés vagy az egyéni szerződés alapján jár; a törvény nem garantálja automatikusan mindenkinek."
+      ],
+      "links": [
+        {
+          "label": "Kollektív szerződések keresése · kollektivvertrag.at",
+          "url": "https://www.kollektivvertrag.at/"
+        },
+        {
+          "label": "Kollektív szerződések · WKO",
+          "url": "https://www.wko.at/oe/kollektivvertraege"
+        },
+        {
+          "label": "AK · Munkajog",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "collective-agreements"
+    },
+    {
+      "title": "Munkaidő",
+      "teaser": "Jegyezze fel a kezdési és befejezési időt.",
+      "intro": "A törvény szerinti rendes munkaidő heti 40, napi 8 óra. Sok kollektív szerződés rövidebb időt ír elő; a 38,5 óra gyakori.",
+      "bullets": [
+        "A 38,5 óra nem mindenkire vonatkozik. A munkaidő az ágazattól, a kollektív szerződéstől és a munkavállalói csoporttól függ. Egyes munkakörökben a műszak szabályai is számítanak.",
+        "A munkáltatónak nyilván kell tartania a munkaidőt. Vezessen saját feljegyzést is, és kérjen másolatot a nyilvántartásról.",
+        "Ha naponta 6 óránál többet dolgozik, általában legalább 30 perc szünet jár.",
+        "A műszakok között általában legalább 11 óra pihenőidő jár. Egyes ágazatokban kivételek és kompenzáló pihenőidőre vonatkozó szabályok vannak."
+      ],
+      "links": [
+        {
+          "label": "AK · Munkaidő",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "working-hours"
+    },
+    {
+      "title": "Túlóra és szünet",
+      "teaser": "A többletmunkáért bér vagy szabadidő jár.",
+      "intro": "A túlóra nem ingyenes. Jegyezze fel az órákat és a vezető utasításait.",
+      "bullets": [
+        "A túlóráért általában legalább 50% pótlék vagy ennek megfelelő szabadidő jár. A kollektív szerződés ennél többet is adhat.",
+        "Vannak törvényi felső határok és kivételek. Általános felső határ túlórával együtt napi 12 és heti 60 óra; hosszabb időszak átlagában általában nem lehet heti 48 óránál több.",
+        "Részmunkaidő esetén a szerződéses órák feletti munka nem mindig minősül jogi értelemben túlórának. A többletórákra eltérő szabályok vonatkozhatnak.",
+        "Őrizze meg a bérjegyzéket, a műszakbeosztást és a munkaidő-nyilvántartást."
+      ],
+      "links": [
+        {
+          "label": "AK · Munkaidő",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "overtime"
+    },
+    {
+      "title": "Éves szabadság és munkaszüneti napok",
+      "teaser": "Ellenőrizze a szabadságnapokat és az ünnepnapi bért.",
+      "intro": "A legtöbb munkavállalónak évente 5 hét fizetett szabadság jár.",
+      "bullets": [
+        "Ötnapos munkahétnél ez általában 25 munkanap. Hosszú szolgálati idő után, feltételektől függően, 6 hétre nőhet.",
+        "A szabadság időpontját a munkáltatóval kell egyeztetni. Jóváhagyás nélkül ne menjen szabadságra; a megmaradt napok nem törlődnek automatikusan.",
+        "Ha munkaszüneti napon nem dolgozik, általában a rendes bére jár. Az ünnepnapi munkáért járó díjazás a törvénytől és a kollektív szerződéstől függ.",
+        "A munkaviszony megszűnésekor a fel nem használt szabadságot ki kell fizetni, ha a szabályok ezt előírják."
+      ],
+      "links": [
+        {
+          "label": "AK · Éves szabadság",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Urlaub/index.html"
+        }
+      ],
+      "id": "leave"
+    },
+    {
+      "title": "Betegség és ápolási szabadság",
+      "teaser": "Betegség esetén azonnal értesítse a munkáltatót.",
+      "intro": "Ha nem tud munkába menni, késedelem nélkül értesítse a munkáltatót.",
+      "bullets": [
+        "A munkáltató már az első naptól kérhet orvosi igazolást. Időben szerezze be és adja át.",
+        "Betegség esetén a bér egy ideig tovább járhat. Az időtartam a szolgálati időtől, a betegség időszakától és a külön szabályoktól függ.",
+        "A Pflegefreistellung rövid, fizetett ápolási távollét. A Pflegekarenz és a Pflegeteilzeit külön, hosszabb távú szabadság vagy részmunkaidős megoldás ápolásra. A feltételekről kérdezze az AK-t.",
+        "Őrizze meg a munkáltatóval folytatott levelezést és az egészségügyi dokumentumokat."
+      ],
+      "links": [
+        {
+          "label": "AK · Munkajog",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        },
+        {
+          "label": "RIS · osztrák jogszabályok (németül)",
+          "url": "https://www.ris.bka.gv.at/"
+        }
+      ],
+      "id": "care"
+    },
+    {
+      "title": "Munkakezdés, bér és a munkaviszony vége",
+      "teaser": "Kérjen másolatot a dokumentumokról, és őrizze meg őket.",
+      "intro": "Munkakezdés előtt tisztázza a bért, a munkaidőt és a feladatokat.",
+      "bullets": [
+        "A munkáltatónak az első munkanap előtt be kell jelentenie a társadalombiztosításba. Kérjen másolatot a bejelentésről.",
+        "Írásos szerződés hiányában a munkáltatónak át kell adnia a Dienstzettel nevű dokumentumot az alapvető feltételekről. Aláírás előtt kérdezzen rá arra, amit nem ért.",
+        "Ellenőrizze a bérjegyzéket és a banki átutalásokat. Hiányzó bér esetén kérdezzen írásban, és őrizze meg a feljegyzéseket.",
+        "Felmondásra és azonnali kilépésre határidők és formai szabályok vonatkozhatnak. Határidőn belül kérjen tanácsot az AK-tól vagy a szakszervezettől."
+      ],
+      "links": [
+        {
+          "label": "AK · Munkajog",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
+        }
+      ],
+      "id": "employment"
+    },
+    {
+      "title": "Munkaruha és átöltözési idő",
+      "teaser": "A kötelező átöltözés munkaidőnek számíthat.",
+      "intro": "Ha a munkáltató külön ruhát vagy védőfelszerelést ír elő, és a munkahelyen kell átöltöznie, az átöltözési idő munkaidőnek számíthat.",
+      "bullets": [
+        "Ez a jog nem automatikus minden munkakörben. Fontos, hogy a ruha szükséges-e a munkához, és kötelező-e a munkahelyen átöltözni.",
+        "A kezdési és befejezési idő mellett az átöltözés idejét is jegyezze fel.",
+        "A kollektív szerződés vagy a munkahelyi szabályzat további feltételeket írhat elő. Kérdezze meg az AK-t vagy a szakszervezetet."
+      ],
+      "links": [
+        {
+          "label": "AK · Munkaidő",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitszeit/index.html"
+        }
+      ],
+      "id": "workwear"
+    },
+    {
+      "title": "Gyermekekkel és családdal kapcsolatos jogok",
+      "teaser": "Ellenőrizze a várandósság, a szülői szabadság és a támogatások szabályait.",
+      "intro": "Gyermek születésekor különböző szabadságok és családi támogatások járhatnak.",
+      "bullets": [
+        "A Mutterschutz, az Elternkarenz és az Elternteilzeit különböző jogok. Bejelentési határidők vannak; írásbeli bejelentés előtt kérdezze meg az AK-t.",
+        "A Kinderbetreuungsgeld és a Familienbeihilfe külön támogatások. A jogosultság többek között a lakóhelyre és más feltételekre is vonatkozhat.",
+        "A Papamonat és a gyermekgondozási szabadság külön feltételekhez kötött. Az aktuális szabályokról kérdezze az AK-t."
+      ],
+      "links": [
+        {
+          "label": "AK · Család és munka",
+          "url": "https://www.arbeiterkammer.at/beratung/berufundfamilie/index.html"
+        }
+      ],
+      "id": "family"
+    },
+    {
+      "title": "Adó és bérjegyzék",
+      "teaser": "Ellenőrizze, visszaigényelhet-e adót.",
+      "intro": "A bérből adót és társadalombiztosítási járulékot vonnak le. Rendszeresen ellenőrizze a bérjegyzéket.",
+      "bullets": [
+        "Az Arbeitnehmerveranlagung (éves adóelszámolás) lehetővé teheti a túlfizetett adó egy részének visszaigénylését.",
+        "A Familienbonus és a Pendlerpauschale adókedvezmények feltételekhez kötöttek; nem járnak automatikusan mindenkinek.",
+        "A bruttó bér, a nettó bér, az adó és a társadalombiztosítási járulék külön tételek. Ha nem érti a bérjegyzéket, kérjen segítséget az AK-tól."
+      ],
+      "links": [
+        {
+          "label": "AK · Adó és jövedelem",
+          "url": "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/index.html"
+        }
+      ],
+      "id": "tax"
+    }
+  ]
+}

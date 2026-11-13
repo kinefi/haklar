@@ -30,6 +30,10 @@ POPULAR_GROUPS = {
 }
 
 
+class UnavailableAgreement(ValueError):
+    pass
+
+
 class SitemapParser(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -81,6 +85,12 @@ def load_entry(entry):
         raise ValueError(f"No agreement metadata found for {entry['title']}")
 
     group = json.loads(parser.group_data)
+    if "errorMessage" in group:
+        message = group["errorMessage"]
+        if "Variant group ID nicht gefunden" in message:
+            raise UnavailableAgreement(message)
+        raise ValueError(f"Source error for {entry['title']}: {message}")
+
     query = parse_qs(urlparse(entry["url"]).query)
     group_id = query.get("variant-group-id", [""])[0]
     requested_variant = query.get("variant-id", [""])[0]
@@ -144,12 +154,16 @@ def main():
 
     results = []
     failures = []
+    unavailable = []
     with ThreadPoolExecutor(max_workers=4) as executor:
         tasks = {executor.submit(load_entry, entry): entry for entry in entries}
         for task in as_completed(tasks):
             entry = tasks[task]
             try:
                 results.extend(task.result())
+            except UnavailableAgreement as error:
+                unavailable.append({"title": entry["title"], "url": entry["url"], "reason": str(error)})
+                print(f"Unavailable in source: {entry['title']}: {error}", file=sys.stderr)
             except (HTTPError, URLError, TimeoutError, ValueError, json.JSONDecodeError) as error:
                 failures.append({"title": entry["title"], "url": entry["url"], "error": str(error)})
                 print(f"Could not read {entry['title']}: {error}", file=sys.stderr)
@@ -160,11 +174,15 @@ def main():
         "retrievedAt": datetime.now(timezone.utc).date().isoformat(),
         "listingCount": len(entries),
         "entryCount": len(results),
+        "unavailableListings": unavailable,
         "agreements": results,
         "failures": failures,
     }
     OUTPUT.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(results)} agreement variants from {len(entries)} catalogue listings to {OUTPUT.relative_to(ROOT)}.")
+    print(
+        f"Wrote {len(results)} agreement variants from {len(entries)} catalogue listings "
+        f"to {OUTPUT.relative_to(ROOT)}; {len(unavailable)} listings no longer exist."
+    )
     if failures:
         raise RuntimeError(f"{len(failures)} agreement records could not be refreshed.")
 

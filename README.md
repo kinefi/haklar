@@ -3,7 +3,7 @@
 
 # Avusturya İşçi Hakları Rehberi
 
-Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, Hırvatça, Sırpça (Latin alfabesi), Boşnakça, Almanca ve İngilizce içerir. Konu kartlarını açarak kısa özetleri ve ilgili kaynakları görebilirsiniz.
+Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, Hırvatça, Sırpça (Latin alfabesi), Boşnakça, Romence, Macarca, Slovence, Almanca ve İngilizce içerir. İlk dil tarayıcı ayarına göre seçilir; kullanıcı tercihi sonraki sayfalarda korunur. Konu kartlarını açarak kısa özetleri ve ilgili kaynakları görebilirsiniz.
 
 ## Özellikler
 
@@ -29,7 +29,7 @@ Maaş/vergi sayfasının çevirileri `content/pay-ui.json`, yıllık vergi dilim
 python3 scripts/update-kv-catalog.py
 ```
 
-Güncelleme kaynağı kodda ve oluşturulan JSON dosyasında belirtilir. Kaynaktan alınamayan sözleşmeler betik çıktısında bildirilir.
+Güncelleme kaynağı kodda ve oluşturulan JSON dosyasında belirtilir. A–Z dizininde kalmış ancak artık kaynakta bulunmayan gruplar `unavailableListings` içinde kaydedilir ve sayfada uyarı gösterilir. Ağ veya veri okuma hataları `failures` alanında tutulur ve betiğin başarısız çıkmasına neden olur.
 
 ## Önizleme
 
