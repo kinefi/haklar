@@ -1,6 +1,7 @@
 {
   "brand": "Meine Rechte bei der Arbeit",
   "guideLink": "Meine Rechte",
+  "payLink": "Lohn und Steuer",
   "languageLabel": "Sprache auswählen",
   "catalogLink": "Kollektivverträge",
   "eyebrow": "Österreich · Arbeitsleben",
@@ -119,7 +120,7 @@
           "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
         },
         {
-          "label": "RIS · Urlaubsgesetz §16",
+          "label": "RIS · Österreichische Gesetze",
           "url": "https://www.ris.bka.gv.at/"
         }
       ],

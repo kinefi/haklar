@@ -8,7 +8,8 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 ## Özellikler
 
 - Mobil uyumlu, büyük ve anlaşılır konu kartları
-- 462 katalog kaydını ve sözleşmelerde listelenen konu başlıklarını içeren ayrı, aranabilir toplu sözleşme sayfası
+- A–Z grup kayıtlarını mevcut sözleşme varyantlarına genişleten ayrı, aranabilir toplu sözleşme sayfası
+- Maaş/vergi sayfası: KV ücret baremini bulma yönergesi ve RIS §33'e dayalı 2026 gelir vergisi dilimleri
 - Toplu sözleşme verisini kollektivvertrag.at A–Z dizininden yenileyen betik
 - Çalışma saatleri, fazla mesai, izin, hastalık ve iş kıyafeti gibi konularda kısa bilgiler
 - Arbeiterkammer (AK), ÖGB, GLB ve resmi Avusturya mevzuat sistemi RIS bağlantıları
@@ -18,6 +19,7 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 ## İçeriği düzenleme
 
 Bir dildeki metni değiştirmek için `content/tr.json`, `content/hr.json`, `content/sr.json`, `content/bs.json`, `content/de.json` veya `content/en.json` dosyasını düzenleyin. Kartların başlıkları, açıklamaları, kaynak bağlantıları ve destek kuruluşlarının adları bu dosyalarda bulunur.
+Maaş/vergi sayfasının çevirileri `content/pay-ui.json`, yıllık vergi dilimleri `content/income-tax-2026.json` içindedir. Vergi oranları yıl ve yürürlük tarihine göre kontrol edilmelidir.
 
 ## Toplu sözleşme kataloğunu yenileme
 
@@ -41,7 +43,7 @@ Tarayıcıda <http://localhost:8000> adresini açın. Sunucuyu durdurmak için t
 
 ## Yayınlama
 
-Site [GitHub Pages](https://kinefi.github.io/haklar) üzerinden yayınlanır. Depoda **Settings → Pages** bölümünde `main` dalını ve `/ (root)` klasörünü seçin. Ana rehber `index.html`, toplu sözleşme kataloğu `collective-agreements.html` sayfasındadır.
+Site [GitHub Pages](https://kinefi.github.io/haklar) üzerinden yayınlanır. Depoda **Settings → Pages** bölümünde `main` dalını ve `/ (root)` klasörünü seçin. Ana rehber `index.html`, toplu sözleşme kataloğu `collective-agreements.html`, maaş/vergi sayfası `lohn-steuer.html` sayfasındadır.
 
 ## Bilgilendirme
 

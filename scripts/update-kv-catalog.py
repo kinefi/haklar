@@ -90,6 +90,15 @@ def load_entry(entry):
     if not variants:
         raise ValueError(f"No agreement variants found for {entry['title']}")
 
+    variant_ids = {variant.get("id") for variant in variants}
+    popular_variant_id = requested_variant
+    if group_id in POPULAR_GROUPS and popular_variant_id not in variant_ids:
+        broadest_variant = max(
+            variants,
+            key=lambda item: len((item.get("facetMapping") or {}).get("provinces", [])),
+        )
+        popular_variant_id = broadest_variant.get("id")
+
     records = []
     for variant in variants:
         variant_id = variant.get("id")
@@ -117,7 +126,7 @@ def load_entry(entry):
             ],
             "popularOrder": (
                 POPULAR_GROUPS.get(group_id)
-                if variant_id == requested_variant
+                if variant_id == popular_variant_id
                 else None
             ),
         })

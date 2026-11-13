@@ -5,6 +5,38 @@
   "entryCount": 585,
   "agreements": [
     {
+      "title": "Hotel- Gastgewerbe",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2256_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2256_de",
+      "validFrom": "2026-11-02T11:38:15.824Z",
+      "lastContentUpdate": "2026-11-02T11:38:15.824Z",
+      "employmentTypes": [
+        "ang"
+      ],
+      "regions": [
+        "st",
+        "b",
+        "s",
+        "t",
+        "v",
+        "oö",
+        "w",
+        "nö",
+        "k"
+      ],
+      "unions": [
+        "gpa"
+      ],
+      "topics": [
+        "Kündigung und Jubiläumsgeld",
+        "Arbeitszeit, Ruhezeiten und freie Tage",
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung in Beschäftigungsgruppen"
+      ],
+      "popularOrder": 1
+    },
+    {
       "title": "Handelsangestellte",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=handelsangestellte&variant-id=SI-2225_de&topic-id=1",
       "groupId": "handelsangestellte",
@@ -7082,38 +7114,6 @@
         "Weihnachts- und Urlaubsgeld (Sonderzahlungen)",
         "Abfertigung und Gehaltszahlung im Todesfall",
         "Reisekosten und Aufwandsentschädigungen bei Dienstreisen"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2256_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2256_de",
-      "validFrom": "2026-11-02T11:38:15.824Z",
-      "lastContentUpdate": "2026-11-02T11:38:15.824Z",
-      "employmentTypes": [
-        "ang"
-      ],
-      "regions": [
-        "st",
-        "b",
-        "s",
-        "t",
-        "v",
-        "oö",
-        "w",
-        "nö",
-        "k"
-      ],
-      "unions": [
-        "gpa"
-      ],
-      "topics": [
-        "Kündigung und Jubiläumsgeld",
-        "Arbeitszeit, Ruhezeiten und freie Tage",
-        "Löhne, Zulagen und Sonderzahlungen",
-        "Einstufung in Beschäftigungsgruppen"
       ],
       "popularOrder": null
     },

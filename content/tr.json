@@ -1,6 +1,7 @@
 {
   "brand": "İş Haklarım",
   "guideLink": "İş Haklarım",
+  "payLink": "Maaş ve vergi",
   "languageLabel": "Dil seçimi",
   "catalogLink": "Toplu sözleşmeler",
   "eyebrow": "Avusturya · Çalışma hayatı",
@@ -118,7 +119,7 @@
           "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
         },
         {
-          "label": "RIS · Urlaubsgesetz §16",
+          "label": "RIS · Resmî mevzuat (Almanca)",
           "url": "https://www.ris.bka.gv.at/"
         }
       ],

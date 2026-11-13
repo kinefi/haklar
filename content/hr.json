@@ -1,6 +1,7 @@
 {
   "brand": "Moja radna prava",
   "guideLink": "Moja radna prava",
+  "payLink": "Plata i porez",
   "languageLabel": "Odabir jezika",
   "catalogLink": "Kolektivni ugovori",
   "eyebrow": "Austrija · Radni život",
@@ -118,7 +119,7 @@
           "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/index.html"
         },
         {
-          "label": "RIS · Urlaubsgesetz §16",
+          "label": "RIS · Austrijski propisi (njemački)",
           "url": "https://www.ris.bka.gv.at/"
         }
       ],

@@ -1,0 +1,13 @@
+{
+  "year": 2026,
+  "source": "https://www.ris.bka.gv.at/eli/bgbl/1988/400/P33/NOR40279893",
+  "brackets": [
+    { "lower": 0, "upper": 13539, "rate": 0 },
+    { "lower": 13539, "upper": 21992, "rate": 20 },
+    { "lower": 21992, "upper": 36458, "rate": 30 },
+    { "lower": 36458, "upper": 70365, "rate": 40 },
+    { "lower": 70365, "upper": 104859, "rate": 48 },
+    { "lower": 104859, "upper": 1000000, "rate": 50 },
+    { "lower": 1000000, "upper": null, "rate": 55 }
+  ]
+}

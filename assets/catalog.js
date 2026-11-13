@@ -46,6 +46,18 @@ function formatDate(value, locale) {
   return new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeZone: "UTC" }).format(date);
 }
 
+const regionNames = {
+  b: "Burgenland",
+  k: "Kärnten",
+  nö: "Niederösterreich",
+  oö: "Oberösterreich",
+  s: "Salzburg",
+  st: "Steiermark",
+  t: "Tirol",
+  v: "Vorarlberg",
+  w: "Wien"
+};
+
 function makeAgreementCard(agreement, ui, locale) {
   const card = document.createElement("article");
   card.className = "agreement-card";
@@ -67,6 +79,18 @@ function makeAgreementCard(agreement, ui, locale) {
   if (validFrom) dates.push(`${ui.validFrom}: ${validFrom}`);
   if (updated) dates.push(`${ui.updated}: ${updated}`);
   date.textContent = dates.join(" · ");
+
+  const applicability = [];
+  if (agreement.employmentTypes.length) {
+    applicability.push(`${ui.workerTypes}: ${agreement.employmentTypes.join(", ")}`);
+  }
+  if (agreement.regions.length) {
+    const regions = agreement.regions.map((region) => regionNames[region] || region);
+    applicability.push(`${ui.regions}: ${regions.join(", ")}`);
+  }
+  const applicabilityText = document.createElement("p");
+  applicabilityText.className = "agreement-applicability";
+  applicabilityText.textContent = applicability.join(" · ");
 
   const topicHeading = document.createElement("p");
   topicHeading.className = "topic-label";
@@ -97,6 +121,7 @@ function makeAgreementCard(agreement, ui, locale) {
 
   card.append(heading);
   if (date.textContent) card.append(date);
+  if (applicabilityText.textContent) card.append(applicabilityText);
   card.append(topicHeading, topicList, openLink);
   return card;
 }
@@ -109,7 +134,12 @@ function renderAgreements() {
   const ui = translations[currentLanguage];
   const query = normalize(searchInput.value.trim());
   const filtered = catalog.agreements.filter((agreement) => {
-    const searchable = normalize([agreement.title, ...agreement.topics].join(" "));
+    const searchable = normalize([
+      agreement.title,
+      ...agreement.topics,
+      ...agreement.employmentTypes,
+      ...agreement.regions.map((region) => regionNames[region] || region)
+    ].join(" "));
     return searchable.includes(query);
   });
 
@@ -169,6 +199,7 @@ async function init() {
     return;
   }
 
+  searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
   searchInput.addEventListener("input", renderAgreements);
   if (catalog.failures.length) {
     catalogError.textContent = translations.tr.partial;
