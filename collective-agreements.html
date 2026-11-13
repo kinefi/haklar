@@ -30,8 +30,13 @@
       <p class="hero-copy" data-catalog="intro">Sık aranan sektörlere bakın veya tüm sözleşmeler arasında arama yapın.</p>
     </section>
 
+    <nav class="section-jump" aria-label="Bölümlere git" data-employer-nav>
+      <a href="#popularSection" data-employer-ui="jumpPopular">Sık arananlar</a>
+      <a href="#catalogSearch" data-employer-ui="jumpCatalog">KV ara</a>
+    </nav>
+
     <main>
-      <section class="catalog-search" role="search">
+      <section class="catalog-search" id="catalogSearch" role="search">
         <label for="agreementSearch" data-catalog="searchLabel">Sözleşme veya sektör ara</label>
         <input id="agreementSearch" type="search" autocomplete="off" placeholder="Sektör adı veya sözleşme başlığı">
         <p id="resultCount" aria-live="polite"></p>
@@ -44,13 +49,13 @@
         <div class="agreement-grid" id="popularAgreements"></div>
       </section>
 
-      <section class="all-agreements" aria-labelledby="allTitle">
+      <p id="catalogError" class="load-error" role="alert" hidden></p>
+      <section class="all-agreements" aria-labelledby="allTitle" hidden>
         <div class="section-heading">
           <h2 id="allTitle" data-catalog="allTitle">Tüm sözleşmeler · A–Z</h2>
         </div>
         <div class="agreement-grid" id="allAgreements"></div>
         <p id="noResults" class="load-error" hidden></p>
-        <p id="catalogError" class="load-error" role="alert" hidden></p>
       </section>
 
       <p class="disclaimer" data-catalog="disclaimer"></p>

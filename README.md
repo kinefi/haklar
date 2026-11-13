@@ -9,6 +9,8 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 
 - Mobil uyumlu, büyük ve anlaşılır konu kartları
 - A–Z grup kayıtlarını mevcut sözleşme varyantlarına genişleten ayrı, aranabilir toplu sözleşme sayfası
+- Büyük şirketlerin ilgili KV başlıkları altında kaynak bağlantılı örnekleri
+- Toplu sözleşmelerde bölüm kısayolları; tam liste yalnızca arama yapılınca gösterilir
 - Maaş/vergi sayfası: KV ücret baremini bulma yönergesi ve RIS §33'e dayalı 2026 gelir vergisi dilimleri
 - Toplu sözleşme verisini kollektivvertrag.at A–Z dizininden yenileyen betik
 - Çalışma saatleri, fazla mesai, izin, hastalık ve iş kıyafeti gibi konularda kısa bilgiler
@@ -20,6 +22,7 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 
 Bir dildeki metni değiştirmek için `content/tr.json`, `content/hr.json`, `content/sr.json`, `content/bs.json`, `content/de.json` veya `content/en.json` dosyasını düzenleyin. Kartların başlıkları, açıklamaları, kaynak bağlantıları ve destek kuruluşlarının adları bu dosyalarda bulunur.
 Maaş/vergi sayfasının çevirileri `content/pay-ui.json`, yıllık vergi dilimleri `content/income-tax-2026.json` içindedir. Vergi oranları yıl ve yürürlük tarihine göre kontrol edilmelidir.
+Şirket/KV örnekleri ve kaynak bağlantıları `content/employer-kv.json` dosyasındadır. Şirket adı KV'yi tek başına belirlemez; özel kapsam ve tarih notlarını okuyun.
 
 ## Toplu sözleşme kataloğunu yenileme
 

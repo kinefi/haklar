@@ -37,6 +37,229 @@
       "popularOrder": 1
     },
     {
+      "title": "Hotel- Gastgewerbe BGL",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2275_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2275_de",
+      "validFrom": "2026-09-18T13:14:34.080Z",
+      "lastContentUpdate": "2026-09-18T13:14:34.080Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "b"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Arbeitszeit, Überstunden und freie Tage",
+        "Löhne, Zulagen, Sonderzahlungen und Jubiläumsgeld",
+        "Einstufung und Tätigkeitsgruppen",
+        "Kündigung und Verfall von Ansprüchen"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe K",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2277_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2277_de",
+      "validFrom": "2026-10-30T12:08:00.109Z",
+      "lastContentUpdate": "2026-10-30T12:08:00.109Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "k"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Arbeitszeit, Überstunden und freie Wochenenden",
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung und Vorrückung",
+        "Kündigung und Verfall von Ansprüchen",
+        "Nachtarbeitszuschlag"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe NÖ",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2279_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2279_de",
+      "validFrom": "2026-10-28T10:44:11.023Z",
+      "lastContentUpdate": "2026-10-28T10:44:11.023Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "nö"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Kündigung und Jubiläumsgeld",
+        "Löhne, Zuschläge und Sonderzahlungen",
+        "Einstufung und Vorrückung",
+        "Arbeitszeit und Überstunden"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe OÖ",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2281_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2281_de",
+      "validFrom": "2026-11-02T10:10:08.457Z",
+      "lastContentUpdate": "2026-11-02T10:10:08.457Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "oö"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung und Vorrückung",
+        "Arbeitszeit und Überstunden",
+        "Kündigung und Verfall von Ansprüchen",
+        "Nachtarbeitszuschlag",
+        "Fremdsprachenzulage"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe S",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2283_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2283_de",
+      "validFrom": "2026-11-02T10:10:09.643Z",
+      "lastContentUpdate": "2026-11-02T10:10:09.643Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "s"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Arbeitszeit, Überstunden und freie Tage",
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung und Vorrückung",
+        "Kündigung und Verfall von Ansprüchen",
+        "Nachtarbeitszuschlag"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe STM",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2285_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2285_de",
+      "validFrom": "2026-10-28T10:44:14.494Z",
+      "lastContentUpdate": "2026-10-28T10:44:14.494Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "st"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Arbeitszeit, Überstunden und freie Tage",
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung und Vorrückung nach Dienstjahren",
+        "Kündigung und Verfall von Ansprüchen",
+        "Jubiläumsgeld für langjährige Dienste"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe T",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2287_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2287_de",
+      "validFrom": "2026-11-02T10:10:12.632Z",
+      "lastContentUpdate": "2026-11-02T10:10:12.632Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "t"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Arbeitszeit, Überstunden und freie Tage",
+        "Löhne, Zulagen und Nachtzuschlag",
+        "Einstufung und Vorrückung",
+        "Kündigung und Verfall von Ansprüchen"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe VLB",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2289_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2289_de",
+      "validFrom": "2026-11-02T10:10:14.088Z",
+      "lastContentUpdate": "2026-11-02T10:10:14.088Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "v"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Arbeitszeit, Überstunden und freie Wochenenden",
+        "Löhne, Zulagen und Nachtzuschlag",
+        "Einstufung in Lohngruppen",
+        "Kündigung und Verfall von Ansprüchen"
+      ],
+      "popularOrder": 1
+    },
+    {
+      "title": "Hotel- Gastgewerbe W",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2291_de&topic-id=1",
+      "groupId": "hotel-gastgewerbe",
+      "variantId": "SI-2291_de",
+      "validFrom": "2026-09-22T15:33:24.750Z",
+      "lastContentUpdate": "2026-09-22T15:33:24.750Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "w"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung und Vorrückung",
+        "Arbeitszeit und Überstunden",
+        "Kündigung und Verfall von Ansprüchen",
+        "Arbeit am Heiligabend",
+        "Fahrtkosten bei Nachtarbeit"
+      ],
+      "popularOrder": 1
+    },
+    {
       "title": "Handelsangestellte",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=handelsangestellte&variant-id=SI-2225_de&topic-id=1",
       "groupId": "handelsangestellte",
@@ -106,6 +329,39 @@
       "popularOrder": 3
     },
     {
+      "title": "IT-KV (EDV-KV)",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=it-kv-edv-kv&variant-id=SI-2122_de&topic-id=1",
+      "groupId": "it-kv-edv-kv",
+      "variantId": "SI-2122_de",
+      "validFrom": "2026-06-25T15:24:34.870Z",
+      "lastContentUpdate": "2026-06-25T15:24:34.870Z",
+      "employmentTypes": [
+        "ang"
+      ],
+      "regions": [
+        "st",
+        "b",
+        "s",
+        "t",
+        "v",
+        "oö",
+        "w",
+        "nö",
+        "k"
+      ],
+      "unions": [
+        "gpa"
+      ],
+      "topics": [
+        "Einstufung, Gehalt und Sonderzahlungen (Urlaubs- und Weihnachtsgeld)",
+        "Arbeitszeit, Überstunden und Gleitzeitmodelle",
+        "Fristen und Verfall von Ansprüchen",
+        "Dienstreisen und Reisekosten",
+        "Homeoffice und Telearbeit"
+      ],
+      "popularOrder": 4
+    },
+    {
       "title": "Bauindustrie und Baugewerbe",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=bauindustrie-baugewerbe&variant-id=SI-2062_de&topic-id=1",
       "groupId": "bauindustrie-baugewerbe",
@@ -138,7 +394,7 @@
         "Zulagen für schwere und gefährliche Arbeiten",
         "Weihnachtsgeld"
       ],
-      "popularOrder": 4
+      "popularOrder": 5
     },
     {
       "title": "Güterbeförderungsgewerbe",
@@ -170,7 +426,39 @@
         "Verfall von Überstunden und Beendigung des Arbeitsverhältnisses",
         "Bezahlte Freistellung bei Dienstverhinderung"
       ],
-      "popularOrder": 5
+      "popularOrder": 6
+    },
+    {
+      "title": "Güterbeförderungsgewerbe",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=gueterbefoerderungsgewerbe&variant-id=SI-2223_de&topic-id=1",
+      "groupId": "gueterbefoerderungsgewerbe",
+      "variantId": "SI-2223_de",
+      "validFrom": "2026-08-25T14:07:14.677Z",
+      "lastContentUpdate": "2026-08-25T14:07:14.677Z",
+      "employmentTypes": [
+        "arb"
+      ],
+      "regions": [
+        "st",
+        "b",
+        "s",
+        "t",
+        "v",
+        "oö",
+        "w",
+        "nö",
+        "k"
+      ],
+      "unions": [
+        "vida"
+      ],
+      "topics": [
+        "Löhne, Reisegelder und besondere Zulagen",
+        "Einstufung nach Tätigkeit und Betriebszugehörigkeit",
+        "Arbeitszeit, Überstunden und Ruhezeiten",
+        "Kündigung und Verfall von Ansprüchen"
+      ],
+      "popularOrder": 6
     },
     {
       "title": "Sozialwirtschaft Österreich (SWÖ)",
@@ -205,7 +493,7 @@
         "Arbeitszeit, Überstunden und Zuschläge",
         "Karenz und Pflegefreistellung"
       ],
-      "popularOrder": 6
+      "popularOrder": 7
     },
     {
       "title": "Mobile Pflege- und Betreuungsdienste STM",
@@ -234,7 +522,7 @@
         "Karenz und Pflegefreistellung",
         "Altersteilzeit und Berufspause"
       ],
-      "popularOrder": 7
+      "popularOrder": 8
     },
     {
       "title": "AGES (Österr. Agentur für Gesundheit und Ernährungssicherheit GmbH)",
@@ -6119,38 +6407,6 @@
       "popularOrder": null
     },
     {
-      "title": "Güterbeförderungsgewerbe",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=gueterbefoerderungsgewerbe&variant-id=SI-2223_de&topic-id=1",
-      "groupId": "gueterbefoerderungsgewerbe",
-      "variantId": "SI-2223_de",
-      "validFrom": "2026-08-25T14:07:14.677Z",
-      "lastContentUpdate": "2026-08-25T14:07:14.677Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "st",
-        "b",
-        "s",
-        "t",
-        "v",
-        "oö",
-        "w",
-        "nö",
-        "k"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Löhne, Reisegelder und besondere Zulagen",
-        "Einstufung nach Tätigkeit und Betriebszugehörigkeit",
-        "Arbeitszeit, Überstunden und Ruhezeiten",
-        "Kündigung und Verfall von Ansprüchen"
-      ],
-      "popularOrder": null
-    },
-    {
       "title": "Hafner, Platten-, Fliesenleger und Keramiker",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hafner-platten-fliesenleger-keramiker&variant-id=SI-2224_de&topic-id=1",
       "groupId": "hafner-platten-fliesenleger-keramiker",
@@ -7226,229 +7482,6 @@
       "popularOrder": null
     },
     {
-      "title": "Hotel- Gastgewerbe BGL",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2275_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2275_de",
-      "validFrom": "2026-09-18T13:14:34.080Z",
-      "lastContentUpdate": "2026-09-18T13:14:34.080Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "b"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Arbeitszeit, Überstunden und freie Tage",
-        "Löhne, Zulagen, Sonderzahlungen und Jubiläumsgeld",
-        "Einstufung und Tätigkeitsgruppen",
-        "Kündigung und Verfall von Ansprüchen"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe K",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2277_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2277_de",
-      "validFrom": "2026-10-30T12:08:00.109Z",
-      "lastContentUpdate": "2026-10-30T12:08:00.109Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "k"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Arbeitszeit, Überstunden und freie Wochenenden",
-        "Löhne, Zulagen und Sonderzahlungen",
-        "Einstufung und Vorrückung",
-        "Kündigung und Verfall von Ansprüchen",
-        "Nachtarbeitszuschlag"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe NÖ",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2279_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2279_de",
-      "validFrom": "2026-10-28T10:44:11.023Z",
-      "lastContentUpdate": "2026-10-28T10:44:11.023Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "nö"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Kündigung und Jubiläumsgeld",
-        "Löhne, Zuschläge und Sonderzahlungen",
-        "Einstufung und Vorrückung",
-        "Arbeitszeit und Überstunden"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe OÖ",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2281_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2281_de",
-      "validFrom": "2026-11-02T10:10:08.457Z",
-      "lastContentUpdate": "2026-11-02T10:10:08.457Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "oö"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Löhne, Zulagen und Sonderzahlungen",
-        "Einstufung und Vorrückung",
-        "Arbeitszeit und Überstunden",
-        "Kündigung und Verfall von Ansprüchen",
-        "Nachtarbeitszuschlag",
-        "Fremdsprachenzulage"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe S",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2283_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2283_de",
-      "validFrom": "2026-11-02T10:10:09.643Z",
-      "lastContentUpdate": "2026-11-02T10:10:09.643Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "s"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Arbeitszeit, Überstunden und freie Tage",
-        "Löhne, Zulagen und Sonderzahlungen",
-        "Einstufung und Vorrückung",
-        "Kündigung und Verfall von Ansprüchen",
-        "Nachtarbeitszuschlag"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe STM",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2285_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2285_de",
-      "validFrom": "2026-10-28T10:44:14.494Z",
-      "lastContentUpdate": "2026-10-28T10:44:14.494Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "st"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Arbeitszeit, Überstunden und freie Tage",
-        "Löhne, Zulagen und Sonderzahlungen",
-        "Einstufung und Vorrückung nach Dienstjahren",
-        "Kündigung und Verfall von Ansprüchen",
-        "Jubiläumsgeld für langjährige Dienste"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe T",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2287_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2287_de",
-      "validFrom": "2026-11-02T10:10:12.632Z",
-      "lastContentUpdate": "2026-11-02T10:10:12.632Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "t"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Arbeitszeit, Überstunden und freie Tage",
-        "Löhne, Zulagen und Nachtzuschlag",
-        "Einstufung und Vorrückung",
-        "Kündigung und Verfall von Ansprüchen"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe VLB",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2289_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2289_de",
-      "validFrom": "2026-11-02T10:10:14.088Z",
-      "lastContentUpdate": "2026-11-02T10:10:14.088Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "v"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Arbeitszeit, Überstunden und freie Wochenenden",
-        "Löhne, Zulagen und Nachtzuschlag",
-        "Einstufung in Lohngruppen",
-        "Kündigung und Verfall von Ansprüchen"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "Hotel- Gastgewerbe W",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe&variant-id=SI-2291_de&topic-id=1",
-      "groupId": "hotel-gastgewerbe",
-      "variantId": "SI-2291_de",
-      "validFrom": "2026-09-22T15:33:24.750Z",
-      "lastContentUpdate": "2026-09-22T15:33:24.750Z",
-      "employmentTypes": [
-        "arb"
-      ],
-      "regions": [
-        "w"
-      ],
-      "unions": [
-        "vida"
-      ],
-      "topics": [
-        "Löhne, Zulagen und Sonderzahlungen",
-        "Einstufung und Vorrückung",
-        "Arbeitszeit und Überstunden",
-        "Kündigung und Verfall von Ansprüchen",
-        "Arbeit am Heiligabend",
-        "Fahrtkosten bei Nachtarbeit"
-      ],
-      "popularOrder": null
-    },
-    {
       "title": "Hotel-Gastgewerbe / Praterstraße Eins",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hotel-gastgewerbe-praterstrasse-eins&variant-id=SI-2860_de&topic-id=1",
       "groupId": "hotel-gastgewerbe-praterstrasse-eins",
@@ -7741,39 +7774,6 @@
         "Arbeits- und Ruhezeiten",
         "Geltungsbereich und Ausnahmen vom Kollektivvertrag",
         "Reisekosten und Aufwandsentschädigungen"
-      ],
-      "popularOrder": null
-    },
-    {
-      "title": "IT-KV (EDV-KV)",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=it-kv-edv-kv&variant-id=SI-2122_de&topic-id=1",
-      "groupId": "it-kv-edv-kv",
-      "variantId": "SI-2122_de",
-      "validFrom": "2026-06-25T15:24:34.870Z",
-      "lastContentUpdate": "2026-06-25T15:24:34.870Z",
-      "employmentTypes": [
-        "ang"
-      ],
-      "regions": [
-        "st",
-        "b",
-        "s",
-        "t",
-        "v",
-        "oö",
-        "w",
-        "nö",
-        "k"
-      ],
-      "unions": [
-        "gpa"
-      ],
-      "topics": [
-        "Einstufung, Gehalt und Sonderzahlungen (Urlaubs- und Weihnachtsgeld)",
-        "Arbeitszeit, Überstunden und Gleitzeitmodelle",
-        "Fristen und Verfall von Ansprüchen",
-        "Dienstreisen und Reisekosten",
-        "Homeoffice und Telearbeit"
       ],
       "popularOrder": null
     },

@@ -18,8 +18,10 @@ const allContainer = document.querySelector("#allAgreements");
 const resultCount = document.querySelector("#resultCount");
 const noResults = document.querySelector("#noResults");
 const catalogError = document.querySelector("#catalogError");
+const allAgreementsSection = document.querySelector(".all-agreements");
 let catalog;
 let translations;
+let employerData;
 let currentLanguage = "tr";
 
 async function loadJson(path) {
@@ -95,23 +97,59 @@ function makeAgreementCard(agreement, ui, locale) {
   applicabilityText.className = "agreement-applicability";
   applicabilityText.textContent = applicability.join(" · ");
 
-  const topicHeading = document.createElement("p");
-  topicHeading.className = "topic-label";
-  topicHeading.textContent = ui.topicLabel;
+  const contents = [];
+  if (!agreement.sourceOnly) {
+    const topicHeading = document.createElement("p");
+    topicHeading.className = "topic-label";
+    topicHeading.textContent = ui.topicLabel;
 
-  const topicList = document.createElement("ul");
-  topicList.className = "topic-list";
-  const topics = [...new Set(agreement.topics.map((topic) => translateTopic(topic, ui)))];
-  if (topics.length) {
-    topics.forEach((topic) => {
+    const topicList = document.createElement("ul");
+    topicList.className = "topic-list";
+    const topics = [...new Set(agreement.topics.map((topic) => translateTopic(topic, ui)))];
+    if (topics.length) {
+      topics.forEach((topic) => {
+        const item = document.createElement("li");
+        item.textContent = topic;
+        topicList.append(item);
+      });
+    } else {
       const item = document.createElement("li");
-      item.textContent = topic;
+      item.textContent = ui.topicUnavailable;
       topicList.append(item);
+    }
+    contents.push(topicHeading, topicList);
+  }
+
+  if (agreement.companyExamples?.length) {
+    const examples = document.createElement("section");
+    examples.className = "company-examples";
+    const examplesHeading = document.createElement("h4");
+    examplesHeading.textContent = employerData.ui[currentLanguage].companyExamplesTitle;
+    const examplesList = document.createElement("ul");
+    agreement.companyExamples.forEach((example) => {
+      const item = document.createElement("li");
+      const name = document.createElement("strong");
+      name.textContent = example.name;
+      item.append(name);
+      if (example.notes?.[currentLanguage]) {
+        const note = document.createElement("p");
+        note.textContent = example.notes[currentLanguage];
+        item.append(note);
+      }
+      if (!agreement.sourceOnly) {
+        example.sources.forEach((source) => {
+          const link = document.createElement("a");
+          link.href = source.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = source.label;
+          item.append(link);
+        });
+      }
+      examplesList.append(item);
     });
-  } else {
-    const item = document.createElement("li");
-    item.textContent = ui.topicUnavailable;
-    topicList.append(item);
+    examples.append(examplesHeading, examplesList);
+    contents.push(examples);
   }
 
   const openLink = document.createElement("a");
@@ -120,17 +158,50 @@ function makeAgreementCard(agreement, ui, locale) {
   openLink.target = "_blank";
   openLink.rel = "noopener noreferrer";
   openLink.lang = "de";
-  openLink.textContent = ui.openAgreement;
+  openLink.textContent = agreement.sourceOnly
+    ? employerData.ui[currentLanguage].openSource
+    : ui.openAgreement;
 
   card.append(heading);
   if (date.textContent) card.append(date);
   if (applicabilityText.textContent) card.append(applicabilityText);
-  card.append(topicHeading, topicList, openLink);
+  card.append(...contents, openLink);
   return card;
 }
 
 function renderList(container, agreements, ui, locale) {
   container.replaceChildren(...agreements.map((agreement) => makeAgreementCard(agreement, ui, locale)));
+}
+
+function attachCompanyExamples() {
+  const supplementalAgreements = [];
+  employerData.entries.forEach((entry) => {
+    const agreement = !entry.supplemental
+      ? catalog.agreements.find((item) => item.groupId === entry.groupId)
+      : null;
+    if (agreement) {
+      agreement.companyExamples = [...(agreement.companyExamples || []), entry];
+      return;
+    }
+
+    const source = entry.sources[0];
+    supplementalAgreements.push({
+      title: entry.agreement,
+      url: source.url,
+      groupId: `company-${entry.id}`,
+      variantId: `company-${entry.id}`,
+      validFrom: null,
+      lastContentUpdate: null,
+      employmentTypes: [],
+      regions: [],
+      unions: [],
+      topics: [],
+      popularOrder: null,
+      sourceOnly: true,
+      companyExamples: [entry]
+    });
+  });
+  catalog.agreements.push(...supplementalAgreements);
 }
 
 function renderAgreements() {
@@ -141,28 +212,36 @@ function renderAgreements() {
       agreement.title,
       ...agreement.topics,
       ...agreement.employmentTypes,
-      ...agreement.regions.map((region) => regionNames[region] || region)
+      ...agreement.regions.map((region) => regionNames[region] || region),
+      ...(agreement.companyExamples || []).flatMap((example) => [
+        example.name,
+        example.notes?.[currentLanguage] || ""
+      ])
     ].join(" "));
     return searchable.includes(query);
   });
 
-  resultCount.textContent = `${filtered.length} ${ui.resultUnit}`;
+  resultCount.textContent = query
+    ? `${filtered.length} ${ui.resultUnit}`
+    : employerData.ui[currentLanguage].searchHint;
   noResults.textContent = ui.noResults;
-  noResults.hidden = filtered.length !== 0;
+  noResults.hidden = !query || filtered.length !== 0;
   popularContainer.replaceChildren();
 
   if (query) {
     popularSection.hidden = true;
+    document.querySelector(".section-jump a[href='#popularSection']").hidden = true;
+    allAgreementsSection.hidden = false;
     renderList(allContainer, filtered, ui, languages[currentLanguage].locale);
     return;
   }
 
   popularSection.hidden = false;
+  document.querySelector(".section-jump a[href='#popularSection']").hidden = false;
+  allAgreementsSection.hidden = true;
+  allContainer.replaceChildren();
   const popular = filtered.filter((agreement) => agreement.popularOrder !== null);
-  const popularIds = new Set(popular.map((agreement) => agreement.url));
-  const remaining = filtered.filter((agreement) => !popularIds.has(agreement.url));
   renderList(popularContainer, popular, ui, languages[currentLanguage].locale);
-  renderList(allContainer, remaining, ui, languages[currentLanguage].locale);
 }
 
 function setLanguage(language) {
@@ -172,8 +251,12 @@ function setLanguage(language) {
   document.title = `${ui.pageTitle} · ${ui.brand}`;
   document.querySelector(".brand").setAttribute("aria-label", ui.brand);
   languageNav.setAttribute("aria-label", ui.languageLabel);
+  document.querySelector("[data-employer-nav]").setAttribute("aria-label", employerData.ui[language].jumpLabel);
   document.querySelectorAll("[data-catalog]").forEach((element) => {
     element.textContent = ui[element.dataset.catalog];
+  });
+  document.querySelectorAll("[data-employer-ui]").forEach((element) => {
+    element.textContent = employerData.ui[language][element.dataset.employerUi];
   });
   searchInput.placeholder = ui.searchPlaceholder;
   languageNav.replaceChildren(...Object.entries(languages).map(([code, details]) => {
@@ -194,9 +277,10 @@ function setLanguage(language) {
 
 async function init() {
   try {
-    [catalog, translations] = await Promise.all([
+    [catalog, translations, employerData] = await Promise.all([
       loadJson("content/collective-agreements.json"),
-      loadJson("content/catalog-ui.json")
+      loadJson("content/catalog-ui.json"),
+      loadJson("content/employer-kv.json")
     ]);
   } catch (error) {
     catalogError.textContent = "Katalog verileri yüklenemedi. Sayfayı yenileyin.";
@@ -205,6 +289,7 @@ async function init() {
     return;
   }
 
+  attachCompanyExamples();
   searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
   searchInput.addEventListener("input", renderAgreements);
   if (catalog.failures.length || (catalog.unavailableListings || []).length) {

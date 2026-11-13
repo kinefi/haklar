@@ -23,10 +23,11 @@ POPULAR_GROUPS = {
     "hotel-gastgewerbe": 1,
     "handelsangestellte": 2,
     "handelsarbeiter": 3,
-    "bauindustrie-baugewerbe": 4,
-    "gueterbefoerderungsgewerbe": 5,
-    "sozialwirtschaft-oesterreich-swoe": 6,
-    "mobile-pflege-betreuungsdienste": 7,
+    "it-kv-edv-kv": 4,
+    "bauindustrie-baugewerbe": 5,
+    "gueterbefoerderungsgewerbe": 6,
+    "sozialwirtschaft-oesterreich-swoe": 7,
+    "mobile-pflege-betreuungsdienste": 8,
 }
 
 

@@ -1,0 +1,173 @@
+{
+  "ui": {
+    "tr": {
+      "companyExamplesTitle": "Bu KV kapsamındaki şirket örneği",
+      "jumpLabel": "Bölümlere git",
+      "jumpPopular": "Sık arananlar",
+      "jumpCatalog": "KV ara",
+      "searchHint": "Tüm sözleşmelerde aramak için yazmaya başlayın.",
+      "openSource": "Resmî kaynağı aç"
+    },
+    "hr": {
+      "companyExamplesTitle": "Primjer kompanije pod ovim ugovorom",
+      "jumpLabel": "Idi na odjeljak",
+      "jumpPopular": "Često traženo",
+      "jumpCatalog": "Pretraži ugovore",
+      "searchHint": "Počnite pisati za pretragu svih ugovora.",
+      "openSource": "Otvori službeni izvor"
+    },
+    "sr": {
+      "companyExamplesTitle": "Primer kompanije pod ovim ugovorom",
+      "jumpLabel": "Idi na odeljak",
+      "jumpPopular": "Često traženo",
+      "jumpCatalog": "Pretraži ugovore",
+      "searchHint": "Počnite da kucate za pretragu svih ugovora.",
+      "openSource": "Otvori zvanični izvor"
+    },
+    "bs": {
+      "companyExamplesTitle": "Primjer kompanije pod ovim ugovorom",
+      "jumpLabel": "Idi na odjeljak",
+      "jumpPopular": "Često traženo",
+      "jumpCatalog": "Pretraži ugovore",
+      "searchHint": "Počnite pisati za pretragu svih ugovora.",
+      "openSource": "Otvori službeni izvor"
+    },
+    "ro": {
+      "companyExamplesTitle": "Exemplu de companie sub acest contract",
+      "jumpLabel": "Salt la secțiune",
+      "jumpPopular": "Căutate frecvent",
+      "jumpCatalog": "Căutați contracte",
+      "searchHint": "Începeți să scrieți pentru a căuta toate contractele.",
+      "openSource": "Deschideți sursa oficială"
+    },
+    "hu": {
+      "companyExamplesTitle": "Példa erre a szerződésre",
+      "jumpLabel": "Ugrás a részhez",
+      "jumpPopular": "Gyakran keresett",
+      "jumpCatalog": "Szerződés keresése",
+      "searchHint": "Kezdjen gépelni az összes szerződés kereséséhez.",
+      "openSource": "Hivatalos forrás megnyitása"
+    },
+    "sl": {
+      "companyExamplesTitle": "Primer podjetja, za katerega velja ta pogodba",
+      "jumpLabel": "Pojdi na razdelek",
+      "jumpPopular": "Pogosto iskano",
+      "jumpCatalog": "Išči pogodbe",
+      "searchHint": "Za iskanje vseh pogodb začnite tipkati.",
+      "openSource": "Odprite uradni vir"
+    },
+    "de": {
+      "companyExamplesTitle": "Beispiel für ein Unternehmen unter diesem KV",
+      "jumpLabel": "Zum Abschnitt",
+      "jumpPopular": "Häufig gesucht",
+      "jumpCatalog": "KV suchen",
+      "searchHint": "Tippen Sie, um alle Kollektivverträge zu durchsuchen.",
+      "openSource": "Offizielle Quelle öffnen"
+    },
+    "en": {
+      "companyExamplesTitle": "Example employer under this agreement",
+      "jumpLabel": "Jump to section",
+      "jumpPopular": "Popular",
+      "jumpCatalog": "Search agreements",
+      "searchHint": "Start typing to search all agreements.",
+      "openSource": "Open official source"
+    }
+  },
+  "entries": [
+    {
+      "id": "ams-osram",
+      "groupId": "elektro-u-elektronikindustrie",
+      "name": "ams OSRAM",
+      "agreement": "Elektro- und Elektronikindustrie",
+      "notes": {
+        "tr": "GPA kaynağı, elektrik ve elektronik sanayisinin KV görüşmelerini ve sektör temsilcilerini gösterir. Sana uygulanacak KV'yi Dienstzettel'den doğrula.",
+        "hr": "Izvor GPA prikazuje pregovore o kolektivnom ugovoru za elektroindustriju i predstavnike sektora. Provjerite u Dienstzettelu koji se ugovor primjenjuje na vas.",
+        "sr": "Izvor GPA prikazuje pregovore o kolektivnom ugovoru za elektroindustriju i predstavnike sektora. Proverite u Dienstzettelu koji se ugovor primenjuje na vas.",
+        "bs": "Izvor GPA prikazuje pregovore o kolektivnom ugovoru za elektroindustriju i predstavnike sektora. Provjerite u Dienstzettelu koji se ugovor primjenjuje na vas.",
+        "ro": "Sursa GPA prezintă negocierile contractului colectiv din industria electrică și reprezentanții sectorului. Verificați în Dienstzettel ce contract vi se aplică.",
+        "hu": "A GPA forrása az elektrotechnikai ipar kollektív szerződéses tárgyalásait és az ágazat képviselőit mutatja be. Ellenőrizze a Dienstzettelben, melyik vonatkozik Önre.",
+        "sl": "Vir GPA prikazuje pogajanja o kolektivni pogodbi za elektroindustrijo in predstavnike sektorja. V Dienstzettlu preverite, katera pogodba velja za vas.",
+        "de": "Die GPA-Quelle zeigt die KV-Verhandlungen der Elektro- und Elektronikindustrie sowie Branchenvertreter. Prüfen Sie im Dienstzettel, welcher KV für Sie gilt.",
+        "en": "The GPA source covers collective bargaining in the electrical and electronics industry and its sector representatives. Check your Dienstzettel to confirm which agreement applies to you."
+      },
+      "sources": [
+        {
+          "label": "GPA: Elektro- und Elektronikindustrie",
+          "url": "https://www.gpa.at/kollektivvertrag/industrie/elektro/verhandlungsteam-elektro--und-elektronikindustrie"
+        }
+      ]
+    },
+    {
+      "id": "avl-automobilindustrie",
+      "groupId": "automobilindustrie",
+      "supplemental": true,
+      "name": "AVL · Lehrlinge in Graz",
+      "agreement": "Kollektivvertrag für Unternehmen der Automobilindustrie",
+      "notes": {
+        "tr": "AVL bu KV'yi çıraklık ücretleri için açıkça belirtiyor. Bu bilgi tüm görev ve çalışan gruplarına otomatik olarak uygulanmaz.",
+        "hr": "AVL izričito navodi ovaj ugovor za naknade naučnicima. To ne znači da se automatski primjenjuje na sve poslove i kategorije zaposlenih.",
+        "sr": "AVL izričito navodi ovaj ugovor za zarade učenika na praksi. To ne znači da se automatski primenjuje na sve poslove i kategorije zaposlenih.",
+        "bs": "AVL izričito navodi ovaj ugovor za naknade učenicima na praksi. To ne znači da se automatski primjenjuje na sve poslove i kategorije zaposlenih.",
+        "ro": "AVL menționează explicit acest contract pentru ucenici. Informația nu se aplică automat tuturor rolurilor și categoriilor de angajați.",
+        "hu": "Az AVL kifejezetten a tanulókra nevezi meg ezt a szerződést. Ez nem jelenti azt, hogy automatikusan minden munkakörre és dolgozói csoportra érvényes.",
+        "sl": "AVL to pogodbo izrecno navaja za vajence. To ne pomeni, da samodejno velja za vsa delovna mesta in skupine zaposlenih.",
+        "de": "AVL nennt diesen KV ausdrücklich für Lehrlinge. Daraus folgt nicht automatisch, dass er für alle Tätigkeiten und Beschäftigtengruppen gilt.",
+        "en": "AVL explicitly names this agreement for apprentices. This does not automatically establish its scope for every role or employee group."
+      },
+      "sources": [
+        {
+          "label": "AVL: Lehre in Graz",
+          "url": "https://www.avl.com/de/career/apprenticeship"
+        }
+      ]
+    },
+    {
+      "id": "magna-fahrzeugindustrie",
+      "groupId": "fahrzeugindustrie-kv-453-2026",
+      "supplemental": true,
+      "name": "MAGNA Powertrain GmbH & Co KG · Lannach",
+      "agreement": "Fachverband der Fahrzeugindustrie · KV 453/2026",
+      "notes": {
+        "tr": "EVI kaydı, U1 projesindeki belirli montaj ve linefeeding çalışanları için hafta sonu/tatil çalışmasına özel düzenlemedir. İzin dönemi 4 Ekim 2026'da sona erdi; tüm Magna çalışanlarına yönelik genel bir KV bilgisi değildir.",
+        "hr": "Objava EVI-ja posebna je odredba za rad vikendom i praznicima određenih radnika u montaži i linefeedingu na projektu U1. Period odobrenja završio je 4. oktobra 2026; to nije opći podatak o ugovoru za sve zaposlene u Magni.",
+        "sr": "Objava EVI-ja posebna je odredba za rad vikendom i praznicima određenih radnika u montaži i linefeedingu na projektu U1. Period odobrenja završen je 4. oktobra 2026; to nije opšti podatak o ugovoru za sve zaposlene u Magni.",
+        "bs": "Objava EVI-ja posebna je odredba za rad vikendom i praznicima određenih radnika u montaži i linefeedingu na projektu U1. Period odobrenja završio je 4. oktobra 2026; to nije opći podatak o ugovoru za sve zaposlene u Magni.",
+        "ro": "Publicarea EVI este o regulă specială pentru munca în weekend și de sărbători a anumitor angajați din montaj și linefeeding la proiectul U1. Perioada aprobării s-a încheiat la 4 octombrie 2026; nu descrie contractul general al tuturor angajaților Magna.",
+        "hu": "Az EVI-közlemény külön szabály az U1 projekt meghatározott szerelő- és linefeeding-dolgozóinak hétvégi és ünnepnapi munkájára. Az engedélyezett időszak 2026. október 4-én véget ért; ez nem az összes Magna-dolgozó általános szerződését írja le.",
+        "sl": "Objava EVI je posebna ureditev dela ob koncih tedna in praznikih za določene zaposlene v montaži in linefeedingu pri projektu U1. Obdobje dovoljenja se je končalo 4. oktobra 2026; ne opisuje splošne pogodbe za vse zaposlene pri Magni.",
+        "de": "Die EVI-Veröffentlichung ist eine Sonderregelung für Wochenend- und Feiertagsarbeit bestimmter Montage- und Linefeeding-Beschäftigter im Projekt U1. Der Genehmigungszeitraum endete am 4. Oktober 2026; sie beschreibt nicht allgemein den KV aller Magna-Beschäftigten.",
+        "en": "The EVI notice is a special rule for weekend and holiday work by specified assembly and linefeeding employees on project U1. The authorization period ended on 4 October 2026; it does not describe the general agreement for all Magna employees."
+      },
+      "sources": [
+        {
+          "label": "EVI: KV 453/2026",
+          "url": "https://www.evi.gv.at/b/pi/bpp-4px"
+        }
+      ]
+    },
+    {
+      "id": "andritz-metalltechnische-industrie",
+      "groupId": "metalltechnische-industrie-kv-94-2026",
+      "supplemental": true,
+      "name": "ANDRITZ AG · Graz",
+      "agreement": "Fachverband Metalltechnische Industrie · KV 94/2026",
+      "notes": {
+        "tr": "EVI kaydı, 2026 hafta sonu ve tatil çalışması için özel düzenlemedir. Belirli çalışan temsilcilerinin kapsadığı gruplar ve yıllık en fazla 500 kişilik kontenjanla sınırlıdır; işyeri anlaşması ve ek ödeme koşulu vardır.",
+        "hr": "Objava EVI-ja posebna je odredba za rad vikendom i praznicima u 2026. Ograničena je na grupe koje zastupaju navedena radnička vijeća i godišnju kvotu do 500 osoba; potrebni su sporazum u pogonu i dodatak za rad.",
+        "sr": "Objava EVI-ja posebna je odredba za rad vikendom i praznicima u 2026. Ograničena je na grupe koje zastupaju navedeni radnički saveti i godišnju kvotu do 500 osoba; potrebni su sporazum u pogonu i dodatak za rad.",
+        "bs": "Objava EVI-ja posebna je odredba za rad vikendom i praznicima u 2026. Ograničena je na grupe koje zastupaju navedena radnička vijeća i godišnju kvotu do 500 osoba; potrebni su sporazum u pogonu i dodatak za rad.",
+        "ro": "Publicarea EVI este o regulă specială pentru munca în weekend și de sărbători în 2026. Se limitează la grupurile reprezentate de consiliile de întreprindere semnatare și la o cotă anuală de până la 500 de persoane; este necesar un acord la nivelul întreprinderii și un spor.",
+        "hu": "Az EVI-közlemény külön szabály a 2026-os hétvégi és ünnepnapi munkára. A megnevezett üzemi tanácsok által képviselt csoportokra és évi legfeljebb 500 főre korlátozódik; üzemi megállapodás és pótlék szükséges.",
+        "sl": "Objava EVI je posebna ureditev dela ob koncih tedna in praznikih v letu 2026. Omejena je na skupine, ki jih zastopajo podpisani sveti delavcev, in na letno kvoto do 500 oseb; potrebna sta dogovor v podjetju in dodatek za delo.",
+        "de": "Die EVI-Veröffentlichung ist eine Sonderregelung für Wochenend- und Feiertagsarbeit 2026. Sie gilt nur für die von den unterzeichnenden Betriebsräten vertretenen Gruppen und ein Jahreskontingent bis 500 Personen; Betriebsvereinbarung und Zuschlag sind erforderlich.",
+        "en": "The EVI notice is a special rule for weekend and holiday work in 2026. It is limited to groups represented by the signing works councils and an annual quota of up to 500 people; a works agreement and allowance are required."
+      },
+      "sources": [
+        {
+          "label": "EVI: KV 94/2026",
+          "url": "https://www.evi.gv.at/b/pi/bpc-7q4"
+        }
+      ]
+    }
+  ]
+}
