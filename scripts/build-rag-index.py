@@ -322,7 +322,7 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
             })
 
             # Optionally fetch actual KV text sections from kollektivvertrag.at
-            if fetch_sections and url and fetched_count < limit:
+            if fetch_sections and url and (limit is None or fetched_count < limit):
                 try:
                     html = fetch_html(url)
                     parser = KVSectionParser()
@@ -343,7 +343,8 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
                             }
                         })
                     fetched_count += 1
-                    print(f"[{fetched_count}/{limit}] Indexed {len(chunks[:18])} sections from: {title}")
+                    total_to_fetch = len(ordered) if limit is None else limit
+                    print(f"[{fetched_count}/{total_to_fetch}] Indexed {len(chunks[:18])} sections from: {title}")
                     if delay > 0:
                         time.sleep(delay)
                 except (HTTPError, URLError, TimeoutError) as exc:
@@ -523,7 +524,7 @@ def main() -> None:
     parser.add_argument(
         "--limit",
         type=int,
-        default=40,
+        default=None,
         help="Max number of KV pages to crawl when --fetch-sections is enabled (default: 40)"
     )
     parser.add_argument(
