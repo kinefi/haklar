@@ -1,11 +1,14 @@
 name: Update KV Catalog, Tax Brackets & RAG Index
 
 on:
+  push:
+    branches:
+      - main  # main branch'ine her push yapıldığında çalışır
   schedule:
-    # Her Pazartesi sabahı UTC 04:00'te (Avusturya saatiyle 05:00/06:00) otomatik çalışır
+    # Her Pazartesi sabahı UTC 04:00'te otomatik çalışır
     - cron: "0 4 * * 1"
   workflow_dispatch:
-    # GitHub arayüzündeki "Actions" sekmesinden elle tetikleyebilmek için
+    # GitHub arayüzünden elle tetiklenebilmesi için
 
 permissions:
   contents: write
@@ -25,11 +28,11 @@ jobs:
       - name: Update collective agreements catalog
         run: python3 scripts/update-kv-catalog.py
 
-    - name: Update Austrian Income Tax Brackets
-      run: python3 scripts/update-tax-brackets.py
+      - name: Update Austrian Income Tax Brackets
+        run: python3 scripts/update-tax-brackets.py
 
-    - name: Rebuild RAG Index
-      run: python3 scripts/build-rag-index.py --fetch-sections
+      - name: Rebuild RAG Index
+        run: python3 scripts/build-rag-index.py --fetch-sections
 
       - name: Commit and push updated JSON files
         run: |
@@ -37,7 +40,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content/collective-agreements.json content/income-tax-current.json content/rag-index.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): update KV catalog, tax brackets and RAG index"
+            git commit -m "chore(data): update KV catalog, tax brackets and RAG index [skip ci]"
             git push
           else
             echo "No changes to commit."
