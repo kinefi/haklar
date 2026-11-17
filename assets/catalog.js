@@ -307,8 +307,8 @@ async function init() {
   attachCompanyExamples();
   searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
   searchInput.addEventListener("input", renderAgreements);
-  if (catalog.failures.length || (catalog.unavailableListings || []).length) {
-    catalogError.textContent = translations.tr.partial;
+  if (catalog.failures.length) {
+    catalogError.textContent = translations[currentLanguage]?.partial || translations.tr.partial;
     catalogError.hidden = false;
   }
   setLanguage(window.haklarLanguage.initialLanguage(Object.keys(languages), "tr"));

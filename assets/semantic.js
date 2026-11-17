@@ -123,13 +123,13 @@
     {
       id: "tax_pay",
       terms: [
-        "lohn", "gehalt", "steuer", "lohnzettel", "brutto", "netto", "arbeitnehmerveranlagung", "familienbonus", "pendlerpauschale", "mindestlohn",
-        "maas", "ucret", "vergi", "bordro", "vergi iadesi", "asgari ucret", "yol parasi",
-        "plata", "placa", "zarada", "porez", "platna lista", "povrat poreza", "minimalac",
-        "salariu", "impozit", "fluturas", "restituire impozit",
-        "ber", "fizetes", "ado", "berjegyzek", "adovisszaterites",
-        "placa", "davek", "placilna lista", "vracilo davka",
-        "salary", "wage", "tax", "payslip", "tax refund", "minimum wage"
+        "lohn", "gehalt", "steuer", "einkommensteuer", "steuerstufe", "tarifstufe", "lohnzettel", "brutto", "netto", "arbeitnehmerveranlagung", "familienbonus", "pendlerpauschale", "mindestlohn", "13539",
+        "maas", "ucret", "vergi", "vergi dilimi", "gelir vergisi", "bordro", "vergi iadesi", "asgari ucret", "yol parasi", "brut", "net",
+        "plata", "placa", "zarada", "porez", "porezni razred", "platna lista", "povrat poreza", "minimalac",
+        "salariu", "impozit", "transe de impozitare", "fluturas", "restituire impozit",
+        "ber", "fizetes", "ado", "adokulcs", "berjegyzek", "adovisszaterites",
+        "placa", "davek", "davcni razred", "placilna lista", "vracilo davka",
+        "salary", "wage", "tax", "tax bracket", "income tax", "payslip", "tax refund", "minimum wage"
       ]
     }
   ];

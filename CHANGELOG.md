@@ -8,7 +8,7 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) standardını te
 ### Added (Eklenenler)
 - **Çok Dilli Semantik ve Kavramsal Arama (`assets/semantic.js`):**
   - Harici sunucu veya derleme adımı gerektirmeden tarayıcıda çalışan kavramsal genişletme (*concept expansion*) ve Levenshtein yazım hatası toleranslı arama motoru eklendi.
-  - Türkçe, Almanca, İngilizce, Hırvatça, Sırpça, Boşnakça, Romence, Macarca ve Slovence dilleri arasında çapraz terim eşleştirmesi sağlandı (ör. *"kovulma"* → *"Kündigung"*, *"ikramiye"* → *"Sonderzahlungen"*, *"garson"* → *"Hotel- und Gastgewerbe"*).
+  - Türkçe, Almanca, İngilizce, Hırvatça, Sırpça, Boşnakça, Romence, Macarca ve Slovence dilleri arasında çapraz terim eşleştirmesi sağlandı (ör. *"kovulma"* → *"Kündigung"*, *"ikramiye"* → *"Sonderzahlungen"*, *"vergi dilimi"* → *"Vergi ve maaş pusulası"*).
 - **Ana Sayfa Konu Arama Çubuğu (`index.html`, `assets/app.js`, `assets/styles.css`):**
   - İşçi hakları rehberine anlık kart filtreleme, eşleşme sayacı ve 1–2 sonuç kaldığında kartları otomatik açma özelliği eklendi.
 - **Yeni Hak Kartları (9 Dilin Tamamında):**
@@ -18,7 +18,13 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) standardını te
 - **Kart İkonları (`content/card-icons.json`):** `sonderzahlungen` (🎁), `vorsorge` (🏦) ve `termination` (🚪) kartları için ortak simgeler eklendi.
 
 ### Changed (Değiştirilenler)
-- **Toplu Sözleşme Kataloğu Araması (`collective-agreements.html`, `assets/catalog.js`):** Mevcut alt dize (*substring*) araması semantik puanlama ve sıralama motoruyla güçlendirildi; çevrilmiş konu etiketleri ve sektör eş anlamlıları arama kapsamına dahil edildi.
+- **Vergi Dilimleri Ana Sayfaya Taşındı (`index.html`, `assets/app.js`, `assets/styles.css`):**
+  - Ayrı *Maaş ve Vergi* sayfası (`lohn-steuer.html`, `assets/pay.js`) kaldırılarak navigasyon iki ana bölüme (*İş Haklarım* ve *Toplu sözleşmeler*) sadeleştirildi.
+  - 2026 gelir vergisi dilimleri tablosu (`content/income-tax-2026.json`, `content/pay-ui.json`) ile BMF Brüt-Net / AK vergi hesaplayıcı bağlantıları doğrudan ana sayfadaki **Vergi ve maaş pusulası (`tax`)** kartının içine gömüldü.
+- **Toplu Sözleşme Kataloğu Araması (`collective-agreements.html`, `assets/catalog.js`):** Mevcut alt dize (*substring*) araması semantik puanlama ve sıralama motoruyla güçlendirildi.
+
+### Removed (Kaldırılanlar)
+- `lohn-steuer.html` ve `assets/pay.js` dosyaları (içerikleri ana sayfadaki `tax` kartına birleştirildiği için) kaldırıldı.
 
 ---
 
