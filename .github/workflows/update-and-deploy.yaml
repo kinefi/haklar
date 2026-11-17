@@ -3,22 +3,20 @@ name: Update KV Catalog, Tax Brackets & RAG Index & Deploy
 on:
   push:
     branches:
-      - main  # main branch'ine her push yapıldığında çalışır
+      - main
   schedule:
-    # Her Pazartesi sabahı UTC 04:00'te otomatik çalışır
     - cron: "0 4 * * 1"
   workflow_dispatch:
-    # GitHub arayüzünden elle tetiklenebilmesi için
 
 permissions:
   contents: write
-  pages: write      # GitHub Pages'e yazma yetkisi
-  id-token: write   # Pages güvenli kimlik doğrulaması için
+  pages: write      
+  id-token: write   
 
-# Eş zamanlı çakışmaları önlemek için
+# Eskileri otomatik iptal eden ayar:
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "pages-and-update"
+  cancel-in-progress: true
 
 jobs:
   update-content:
@@ -53,7 +51,6 @@ jobs:
             echo "No changes to commit."
           fi
 
-  # Veriler güncellendikten hemen sonra güvenle devreye giren Pages deployment adımı
   deploy-pages:
     needs: update-content
     runs-on: ubuntu-latest
@@ -67,7 +64,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Projenin kök dizini (veya statik dosyaların olduğu klasör, örn: './public' veya './dist')
+          path: '.'  # Eğer özel bir build klasörün varsa (örn: 'dist'), burayı güncelleyebilirsin.
 
       - name: Deploy to GitHub Pages
         id: deployment
