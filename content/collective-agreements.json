@@ -20,14 +20,14 @@
       "reason": "Variant group ID nicht gefunden: oesterreichische-bundesbahnen-oebb"
     },
     {
-      "title": "Papier Pappe Verarbeitende Industrie Konsolidiert",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=papier-pappe-verarbeitende-industrie-konsolidiert&variant-id=SI-2455_de&topic-id=1",
-      "reason": "Variant group ID nicht gefunden: papier-pappe-verarbeitende-industrie-konsolidiert"
-    },
-    {
       "title": "Papier Pappe Verarbeitende Industrie",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=papier-pappe-verarbeitende-industrie&variant-id=SI-2459_de&topic-id=1",
       "reason": "Variant group ID nicht gefunden: papier-pappe-verarbeitende-industrie"
+    },
+    {
+      "title": "Papier Pappe Verarbeitende Industrie Konsolidiert",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=papier-pappe-verarbeitende-industrie-konsolidiert&variant-id=SI-2455_de&topic-id=1",
+      "reason": "Variant group ID nicht gefunden: papier-pappe-verarbeitende-industrie-konsolidiert"
     },
     {
       "title": "Verband Förderung Tierzucht Milchwirtschaft",
