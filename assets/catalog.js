@@ -206,29 +206,44 @@ function attachCompanyExamples() {
 
 function renderAgreements() {
   const ui = translations[currentLanguage];
-  const query = normalize(searchInput.value.trim());
-  const filtered = catalog.agreements.filter((agreement) => {
-    const searchable = normalize([
+  const rawQuery = searchInput.value.trim();
+  const queryContext = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
+
+  let scored = catalog.agreements.map((agreement) => {
+    if (!queryContext) return { agreement, score: 1 };
+    const searchable = [
       agreement.title,
       ...agreement.topics,
+      ...agreement.topics.map((topic) => translateTopic(topic, ui)),
       ...agreement.employmentTypes,
       ...agreement.regions.map((region) => regionNames[region] || region),
       ...(agreement.companyExamples || []).flatMap((example) => [
         example.name,
         example.notes?.[currentLanguage] || ""
       ])
-    ].join(" "));
-    return searchable.includes(query);
+    ].join(" ");
+    return {
+      agreement,
+      score: window.haklarSemantic.scoreDocument(searchable, queryContext)
+    };
   });
 
-  resultCount.textContent = query
+  if (queryContext) {
+    scored = scored
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score);
+  }
+
+  const filtered = scored.map((item) => item.agreement);
+
+  resultCount.textContent = rawQuery
     ? `${filtered.length} ${ui.resultUnit}`
     : employerData.ui[currentLanguage].searchHint;
   noResults.textContent = ui.noResults;
-  noResults.hidden = !query || filtered.length !== 0;
+  noResults.hidden = !rawQuery || filtered.length !== 0;
   popularContainer.replaceChildren();
 
-  if (query) {
+  if (rawQuery) {
     popularSection.hidden = true;
     document.querySelector(".section-jump a[href='#popularSection']").hidden = true;
     allAgreementsSection.hidden = false;

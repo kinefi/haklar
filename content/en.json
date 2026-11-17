@@ -145,6 +145,82 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "Bonus, 13th and 14th Salary (Sonderzahlungen)",
+      "teaser": "Check holiday pay and Christmas bonus rules.",
+      "intro": "In Austria, the 13th salary (Urlaubsgeld) and 14th salary (Weihnachtsgeld) are governed by collective agreements (KV) or employment contracts rather than general statute.",
+      "keywords": [
+        "bonus",
+        "13th salary",
+        "14th salary",
+        "sonderzahlungen",
+        "urlaubsgeld",
+        "weihnachtsgeld"
+      ],
+      "bullets": [
+        "Most collective agreements entitle employees to two annual special payments (typically paid in summer and November/December).",
+        "If you did not work the full calendar year, special payments are calculated on a pro-rata basis (Aliquotierung).",
+        "Within the annual sixth threshold (Jahressechstel), the 13th and 14th salaries are taxed at a significantly lower rate than regular monthly pay.",
+        "Check your collective agreement for clawback rules in case of unjustified resignation or summary dismissal."
+      ],
+      "links": [
+        {
+          "label": "AK · Holiday and Christmas bonus",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Severance Fund & Vorsorgekasse (Abfertigung Neu)",
+      "teaser": "Track the 1.53% employer contribution paid for you.",
+      "intro": "For all employment contracts started from 2003 onwards, employers pay monthly contributions into an employee provident fund (Betriebliche Vorsorgekasse).",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "severance",
+        "abfertigung neu"
+      ],
+      "bullets": [
+        "From the second month of employment, your employer pays 1.53% of your gross pay (including bonuses) into the fund at no deduction from your salary.",
+        "Your accumulated balance is never lost even if you resign yourself; it remains invested in your fund account.",
+        "Cash payout requires at least 3 years (36 months) of contributions plus a qualifying termination (e.g. employer dismissal or mutual termination).",
+        "You receive an annual account statement showing which Vorsorgekasse holds your funds and your current balance."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "Dismissal and Termination (Kündigung & Entlassung)",
+      "teaser": "Never sign anything hastily under pressure.",
+      "intro": "Employment may end by employer notice (Kündigung), summary dismissal (Entlassung), resignation, or mutual agreement (einvernehmliche Lösung).",
+      "keywords": [
+        "dismissal",
+        "fired",
+        "termination",
+        "kundigung",
+        "entlassung",
+        "notice period"
+      ],
+      "bullets": [
+        "Do not sign a mutual termination agreement (einvernehmliche Lösung) under pressure; signing generally waives your right to challenge the termination.",
+        "Employers must observe statutory or collective-agreement notice periods (Kündigungsfristen) and termination dates.",
+        "Deadlines to contest an unfair dismissal are very short (often 1 to 2 weeks)—contact the AK or your union immediately.",
+        "Check your final payslip, unused leave payout (Urlaubsersatzleistung), and reference letter (Dienstzeugnis), and register with the AMS promptly."
+      ],
+      "links": [
+        {
+          "label": "AK · Termination of employment",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "Work clothes and changing time",
       "teaser": "Required changing time may count as working time.",
       "intro": "If your employer requires specific clothing or protective equipment and you must change at work, the changing time may count as working time.",
@@ -195,5 +271,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Search topics or keywords",
+  "searchPlaceholder": "E.g. bonus, severance fund, dismissal, overtime...",
+  "noResults": "No matching topics found."
 }

@@ -144,6 +144,81 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "Bonus, 13. in 14. plača (Sonderzahlungen)",
+      "teaser": "Preverite pravila za regres in božičnico.",
+      "intro": "V Avstriji 13. plača (Urlaubsgeld) in 14. plača (Weihnachtsgeld) nista določeni z zakonom, temveč s kolektivno pogodbo (KV) ali pogodbo o zaposlitvi.",
+      "keywords": [
+        "bonus",
+        "13. placa",
+        "14. placa",
+        "regres",
+        "bozicnica",
+        "sonderzahlungen"
+      ],
+      "bullets": [
+        "V večini dejavnosti kolektivna pogodba določa dve posebni izplačili letno (običajno poleti in novembra/decembra).",
+        "Če niste delali celotnega koledarskega leta, se izplačili obračunata sorazmerno (aliquot).",
+        "13. in 14. plača sta obdavčeni po bistveno nižji stopnji kot redna mesečna plača.",
+        "V kolektivni pogodbi preverite, ali je predvideno vračilo v primeru neupravičenega odhoda."
+      ],
+      "links": [
+        {
+          "label": "AK · Regres in božičnica",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Odpravnina in Vorsorgekasse (Abfertigung Neu)",
+      "teaser": "Spremljajte prispevek delodajalca v višini 1,53 %.",
+      "intro": "Za vsa delovna razmerja od leta 2003 dalje delodajalec mesečno vplačuje prispevek v sklad za odpravnine (Betriebliche Vorsorgekasse).",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "odpravnina",
+        "abfertigung neu"
+      ],
+      "bullets": [
+        "Od drugega meseca zaposlitve delodajalec vplačuje 1,53 % bruto plače (vključno z bonusi) v sklad, brez odtegljaja od vaše plače.",
+        "Prihranek ne propade niti ob lastni odpovedi; ostane na vašem računu v skladu.",
+        "Izplačilo je mogoče po najmanj 3 letih vplačil (36 mesecev) in prenehanju z odpovedjo delodajalca ali sporazumno.",
+        "Enkrat letno prejmete izpisek sklada o stanju vašega računa."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "Odpoved in prenehanje zaposlitve (Kündigung & Entlassung)",
+      "teaser": "Pod pritiskom ne podpisujte ničesar prenagljeno.",
+      "intro": "Delovno razmerje lahko preneha z odpovedjo delodajalca (Kündigung), izredno odpovedjo (Entlassung) ali sporazumno (einvernehmliche Lösung).",
+      "keywords": [
+        "odpoved",
+        "odpuscanje",
+        "kundigung",
+        "entlassung",
+        "sporazumna odpoved"
+      ],
+      "bullets": [
+        "Pod pritiskom ne podpisujte sporazumne odpovedi (einvernehmliche Lösung); s podpisom običajno izgubite pravico do izpodbijanja.",
+        "Pri odpovedi mora delodajalec upoštevati zakonske ali kolektivne odpovedne roke (Kündigungsfristen).",
+        "Roki za izpodbijanje odpovedi so zelo kratki (pogosto 1 do 2 tedna) – takoj se obrnite na AK ali sindikat.",
+        "Preverite končni obračun, izplačilo neizrabljenega dopusta in potrdilo o delu (Dienstzeugnis) ter se prijavite na AMS."
+      ],
+      "links": [
+        {
+          "label": "AK · Prenehanje delovnega razmerja",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "Delovna oblačila in čas preoblačenja",
       "teaser": "Obvezno preoblačenje se lahko šteje v delovni čas.",
       "intro": "Če delodajalec zahteva posebna oblačila ali zaščitno opremo in preoblačenje na delovnem mestu, se lahko ta čas šteje v delovni čas.",
@@ -194,5 +269,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Poiščite temo ali ključno besedo",
+  "searchPlaceholder": "Npr. bonus, odpravnina, odpoved, nadure...",
+  "noResults": "Ni tem, ki bi ustrezale iskanju."
 }

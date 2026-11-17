@@ -144,6 +144,80 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "Bónusz, 13. és 14. havi bér (Sonderzahlungen)",
+      "teaser": "Ellenőrizze az üdülési és karácsonyi juttatás szabályait.",
+      "intro": "Ausztriában a 13. havi (Urlaubsgeld) és 14. havi bér (Weihnachtsgeld) nem törvényben, hanem a kollektív szerződésben (KV) vagy munkaszerződésben van rögzítve.",
+      "keywords": [
+        "bonusz",
+        "13. havi",
+        "14. havi",
+        "sonderzahlungen",
+        "jutalom"
+      ],
+      "bullets": [
+        "A legtöbb ágazatban a kollektív szerződés évente két külön juttatást ír elő (általában nyáron és november/decemberben).",
+        "Ha nem dolgozta végig a naptári évet, a juttatás időarányosan (aliquot) jár.",
+        "A 13. és 14. havi bér adózása lényegesen kedvezőbb, mint a havi rendes béré.",
+        "Ellenőrizze a kollektív szerződésben, van-e visszafizetési kötelezettség jogellenes kilépés esetén."
+      ],
+      "links": [
+        {
+          "label": "AK · Üdülési és karácsonyi juttatás",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Végkielégítés és Vorsorgekasse (Abfertigung Neu)",
+      "teaser": "Kövesse a munkáltató által fizetett 1,53%-os hozzájárulást.",
+      "intro": "A 2003 után kezdődött munkaviszonyoknál a munkáltató havonta járulékot fizet egy végkielégítési pénztárba (Betriebliche Vorsorgekasse).",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "vegkielegites",
+        "abfertigung neu"
+      ],
+      "bullets": [
+        "A második hónaptól a munkáltató a bruttó bér 1,53%-át (a bónuszokat is beleértve) befizeti a pénztárba, levonás nélkül.",
+        "Az összegyűlt összeg saját felmondás esetén sem vész el, a számláján marad.",
+        "Kifizetés legalább 3 évnyi befizetés (36 hónap) és munkáltatói felmondás vagy közös megegyezés esetén kérhető.",
+        "Évente számlakivonatot kap a pénztártól az aktuális egyenlegéről."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "Felmondás és elbocsátás (Kündigung & Entlassung)",
+      "teaser": "Nyomás alatt ne írjon alá semmit elhamarkodva.",
+      "intro": "A munkaviszony megszűnhet munkáltatói felmondással (Kündigung), azonnali hatályú elbocsátással (Entlassung) vagy közös megegyezéssel (einvernehmliche Lösung).",
+      "keywords": [
+        "felmondas",
+        "elbocsatas",
+        "kundigung",
+        "entlassung",
+        "kozos megegyezes"
+      ],
+      "bullets": [
+        "Nyomás alatt ne írjon alá közös megegyezést (einvernehmliche Lösung); az aláírás többnyire kizárja a felmondás megtámadását.",
+        "Felmondásnál be kell tartani a törvényes vagy kollektív szerződéses felmondási határidőket (Kündigungsfristen).",
+        "A felmondás megtámadásának határideje nagyon rövid (gyakran 1–2 hét) – azonnal forduljon az AK-hoz vagy a szakszervezethez.",
+        "Ellenőrizze a végső elszámolást, a ki nem vett szabadság megváltását és a munkáltatói igazolást (Dienstzeugnis), és jelentkezzen az AMS-nél."
+      ],
+      "links": [
+        {
+          "label": "AK · Munkaviszony megszűnése",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "Munkaruha és átöltözési idő",
       "teaser": "A kötelező átöltözés munkaidőnek számíthat.",
       "intro": "Ha a munkáltató külön ruhát vagy védőfelszerelést ír elő, és a munkahelyen kell átöltöznie, az átöltözési idő munkaidőnek számíthat.",
@@ -194,5 +268,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Téma vagy kulcsszó keresése",
+  "searchPlaceholder": "Pl. bónusz, végkielégítés, felmondás, túlóra...",
+  "noResults": "Nincs a keresésnek megfelelő téma."
 }

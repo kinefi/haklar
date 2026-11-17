@@ -34,7 +34,15 @@
         <h2 data-i18n="sectionTitle">En çok sorulan konular</h2>
         <p data-i18n="sectionIntro">Kurallar iş koluna ve toplu sözleşmeye göre değişebilir.</p>
       </div>
+
+      <section class="guide-search" role="search">
+        <label for="guideSearch" class="visually-hidden" data-i18n="searchLabel">Konu veya anahtar kelime ara</label>
+        <input id="guideSearch" type="search" autocomplete="off" placeholder="Örn: ikramiye, kıdem tazminatı, kovulma, fazla mesai...">
+        <p class="search-status" id="guideSearchStatus" aria-live="polite"></p>
+      </section>
+
       <div class="cards" id="cards"></div>
+      <p class="load-error" id="noCardResults" role="status" hidden></p>
       <p class="load-error" id="loadError" role="alert" hidden></p>
 
       <section class="help" aria-labelledby="help-title">
@@ -50,6 +58,7 @@
   </div>
 
   <script src="assets/language.js" defer></script>
+  <script src="assets/semantic.js" defer></script>
   <script src="assets/app.js" defer></script>
 </body>
 </html>

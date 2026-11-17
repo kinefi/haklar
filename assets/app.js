@@ -24,8 +24,13 @@
     const cardsEl = document.querySelector("#cards");
     const helpLinksEl = document.querySelector("#helpLinks");
     const loadErrorEl = document.querySelector("#loadError");
+    const searchInputEl = document.querySelector("#guideSearch");
+    const searchStatusEl = document.querySelector("#guideSearchStatus");
+    const noCardResultsEl = document.querySelector("#noCardResults");
 
     let renderRequest = 0;
+    let activeContent = null;
+    let activeCardIcons = null;
 
     async function loadContent(language) {
       if (!contentCache.has(language)) {
@@ -58,15 +63,111 @@
       return cardIconsRequest;
     }
 
+    function buildCardElement(card, current, cardIcons, autoOpen) {
+      const details = document.createElement("details");
+      details.className = "card";
+      if (autoOpen) details.open = true;
+
+      const summary = document.createElement("summary");
+      const icon = document.createElement("span");
+      icon.className = "card-icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = cardIcons[card.id] || "📌";
+
+      const heading = document.createElement("span");
+      const title = document.createElement("span");
+      title.className = "card-title";
+      title.textContent = card.title;
+      const teaser = document.createElement("span");
+      teaser.className = "card-teaser";
+      teaser.textContent = card.teaser;
+      heading.append(title, teaser);
+
+      const chevron = document.createElement("span");
+      chevron.className = "chevron";
+      chevron.setAttribute("aria-hidden", "true");
+      chevron.textContent = "⌄";
+      summary.append(icon, heading, chevron);
+
+      const body = document.createElement("div");
+      body.className = "card-body";
+      const intro = document.createElement("p");
+      intro.textContent = card.intro;
+      const list = document.createElement("ul");
+      card.bullets.forEach((bullet) => {
+        const item = document.createElement("li");
+        item.textContent = bullet;
+        list.append(item);
+      });
+
+      const sourceList = document.createElement("div");
+      sourceList.className = "sources";
+      const sourceHeading = document.createElement("span");
+      sourceHeading.textContent = current.sources + ":";
+      sourceList.append(sourceHeading);
+      card.links.forEach((reference) => {
+        const link = document.createElement("a");
+        link.href = reference.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = reference.label;
+        sourceList.append(link);
+      });
+      body.append(intro, list, sourceList);
+      details.append(summary, body);
+      return details;
+    }
+
+    function renderFilteredCards() {
+      if (!activeContent || !activeCardIcons) return;
+      const rawQuery = searchInputEl ? searchInputEl.value.trim() : "";
+      const queryContext = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
+
+      let matchedCards = activeContent.cards.map((card) => {
+        if (!queryContext) return { card, score: 1 };
+        const searchable = [
+          card.id,
+          card.title,
+          card.teaser,
+          card.intro,
+          ...(card.keywords || []),
+          ...card.bullets
+        ].join(" ");
+        return {
+          card,
+          score: window.haklarSemantic.scoreDocument(searchable, queryContext)
+        };
+      });
+
+      if (queryContext) {
+        matchedCards = matchedCards
+          .filter((item) => item.score > 0)
+          .sort((a, b) => b.score - a.score);
+      }
+
+      const autoOpen = Boolean(queryContext && matchedCards.length > 0 && matchedCards.length <= 2);
+      cardsEl.replaceChildren(
+        ...matchedCards.map(({ card }) => buildCardElement(card, activeContent, activeCardIcons, autoOpen))
+      );
+
+      if (searchStatusEl) {
+        searchStatusEl.textContent = queryContext
+          ? `${matchedCards.length} / ${activeContent.cards.length}`
+          : "";
+      }
+
+      if (noCardResultsEl) {
+        noCardResultsEl.textContent = activeContent.noResults || "Sonuç bulunamadı.";
+        noCardResultsEl.hidden = !queryContext || matchedCards.length > 0;
+      }
+    }
+
     async function render(language) {
       const requestId = ++renderRequest;
       let current;
       let cardIcons;
       try {
         [current, cardIcons] = await Promise.all([loadContent(language), loadCardIcons()]);
-        if (current.cards.some((card) => !cardIcons[card.id])) {
-          throw new Error(`Missing card icon for ${language}`);
-        }
       } catch (error) {
         if (requestId === renderRequest) {
           loadErrorEl.textContent = languages[language].error;
@@ -76,6 +177,8 @@
       }
       if (requestId !== renderRequest) return;
       loadErrorEl.hidden = true;
+      activeContent = current;
+      activeCardIcons = cardIcons;
 
       document.documentElement.lang = languages[language].html;
       languagesEl.setAttribute("aria-label", current.languageLabel);
@@ -83,8 +186,14 @@
       document.title = current.title + " · " + current.brand;
 
       document.querySelectorAll("[data-i18n]").forEach((element) => {
-        element.textContent = current[element.dataset.i18n];
+        if (current[element.dataset.i18n]) {
+          element.textContent = current[element.dataset.i18n];
+        }
       });
+
+      if (searchInputEl && current.searchPlaceholder) {
+        searchInputEl.placeholder = current.searchPlaceholder;
+      }
 
       languagesEl.replaceChildren(...Object.entries(languages).map(([code, value]) => {
         const button = document.createElement("button");
@@ -100,59 +209,7 @@
         return button;
       }));
 
-      cardsEl.replaceChildren(...current.cards.map((card) => {
-        const details = document.createElement("details");
-        details.className = "card";
-
-        const summary = document.createElement("summary");
-        const icon = document.createElement("span");
-        icon.className = "card-icon";
-        icon.setAttribute("aria-hidden", "true");
-        icon.textContent = cardIcons[card.id];
-
-        const heading = document.createElement("span");
-        const title = document.createElement("span");
-        title.className = "card-title";
-        title.textContent = card.title;
-        const teaser = document.createElement("span");
-        teaser.className = "card-teaser";
-        teaser.textContent = card.teaser;
-        heading.append(title, teaser);
-
-        const chevron = document.createElement("span");
-        chevron.className = "chevron";
-        chevron.setAttribute("aria-hidden", "true");
-        chevron.textContent = "⌄";
-        summary.append(icon, heading, chevron);
-
-        const body = document.createElement("div");
-        body.className = "card-body";
-        const intro = document.createElement("p");
-        intro.textContent = card.intro;
-        const list = document.createElement("ul");
-        card.bullets.forEach((bullet) => {
-          const item = document.createElement("li");
-          item.textContent = bullet;
-          list.append(item);
-        });
-
-        const sourceList = document.createElement("div");
-        sourceList.className = "sources";
-        const sourceHeading = document.createElement("span");
-        sourceHeading.textContent = current.sources + ":";
-        sourceList.append(sourceHeading);
-        card.links.forEach((reference) => {
-          const link = document.createElement("a");
-          link.href = reference.url;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = reference.label;
-          sourceList.append(link);
-        });
-        body.append(intro, list, sourceList);
-        details.append(summary, body);
-        return details;
-      }));
+      renderFilteredCards();
 
       helpLinksEl.replaceChildren(...current.helpLinks.map((label, index) => {
         const link = document.createElement("a");
@@ -163,5 +220,10 @@
         return link;
       }));
     }
+
+    if (searchInputEl) {
+      searchInputEl.addEventListener("input", renderFilteredCards);
+    }
+
     const language = window.haklarLanguage.initialLanguage(Object.keys(languages), "tr");
     render(language).catch((error) => console.error("Language content could not be loaded.", error));

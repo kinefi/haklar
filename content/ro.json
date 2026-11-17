@@ -144,6 +144,80 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "Bonus, al 13-lea și al 14-lea salariu (Sonderzahlungen)",
+      "teaser": "Verificați regulile pentru prima de vacanță și de Crăciun.",
+      "intro": "În Austria, al 13-lea salariu (Urlaubsgeld) și al 14-lea salariu (Weihnachtsgeld) sunt stabilite prin contractul colectiv (KV) sau contractul individual.",
+      "keywords": [
+        "bonus",
+        "al 13-lea salariu",
+        "al 14-lea salariu",
+        "sonderzahlungen",
+        "prima"
+      ],
+      "bullets": [
+        "În majoritatea domeniilor, contractul colectiv prevede două plăți speciale pe an (de obicei vara și în noiembrie/decembrie).",
+        "Dacă nu ați lucrat tot anul calendaristic, sumele se calculează proporțional (aliquot).",
+        "Al 13-lea și al 14-lea salariu sunt impozitate mult mai avantajos decât salariul lunar obișnuit.",
+        "Verificați în contractul colectiv dacă există reguli de restituire în caz de demisie nejustificată."
+      ],
+      "links": [
+        {
+          "label": "AK · Prima de vacanță și Crăciun",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Compensația de vechime și Vorsorgekasse (Abfertigung Neu)",
+      "teaser": "Urmăriți contribuția de 1,53% plătită de angajator.",
+      "intro": "Pentru contractele începute din 2003, angajatorul plătește lunar contribuții într-un fond de prevedere (Betriebliche Vorsorgekasse).",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "abfertigung neu",
+        "compensatie"
+      ],
+      "bullets": [
+        "Începând cu a doua lună, angajatorul virează 1,53% din salariul brut (inclusiv bonusuri) în fond, fără reținere din salariul dumneavoastră.",
+        "Suma acumulată nu se pierde nici dacă demisionați; rămâne investită în contul fondului.",
+        "Plata în numerar este posibilă după cel puțin 3 ani de contribuții (36 de luni) și încetarea prin concediere de către angajator sau acord comun.",
+        "Primiți anual un extras de cont care arată fondul și soldul acumulat."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "Concedierea și încetarea contractului (Kündigung & Entlassung)",
+      "teaser": "Nu semnați nimic în grabă sub presiune.",
+      "intro": "Contractul poate înceta prin concediere (Kündigung), desfacere disciplinară (Entlassung), demisie sau acord comun (einvernehmliche Lösung).",
+      "keywords": [
+        "concediere",
+        "demisie",
+        "kundigung",
+        "entlassung",
+        "preaviz"
+      ],
+      "bullets": [
+        "Nu semnați un acord comun (einvernehmliche Lösung) sub presiune; semnătura exclude de obicei contestarea concedierii.",
+        "La concediere trebuie respectate termenele de preaviz (Kündigungsfristen) legale sau din contractul colectiv.",
+        "Termenele pentru contestarea concedierii sunt foarte scurte (adesea 1–2 săptămâni) – contactați imediat AK sau sindicatul.",
+        "Verificați lichidarea finală, plata concediului neefectuat și adeverința de muncă (Dienstzeugnis), apoi înregistrați-vă la AMS."
+      ],
+      "links": [
+        {
+          "label": "AK · Încetarea contractului de muncă",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "Haine de lucru și timpul pentru schimbare",
       "teaser": "Schimbarea obligatorie a hainelor poate fi timp de lucru.",
       "intro": "Dacă angajatorul cere haine speciale sau echipament de protecție și schimbarea lor la locul de muncă, timpul pentru schimbare poate conta ca timp de lucru.",
@@ -194,5 +268,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Căutați un subiect sau un cuvânt cheie",
+  "searchPlaceholder": "Ex: bonus, compensație, concediere, ore suplimentare...",
+  "noResults": "Nu s-au găsit subiecte potrivite."
 }

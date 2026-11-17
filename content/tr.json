@@ -144,6 +144,87 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "İkramiye, Bonus, 13. ve 14. Maaş (Sonderzahlungen)",
+      "teaser": "Tatil parası ve Noel ikramiyesi kurallarını öğren.",
+      "intro": "Avusturya'da 13. maaş (Urlaubsgeld) ve 14. maaş (Weihnachtsgeld) kanunla değil, toplu sözleşme (KV) veya iş sözleşmesiyle düzenlenir.",
+      "keywords": [
+        "bonus",
+        "ikramiye",
+        "prim",
+        "13. maas",
+        "14. maas",
+        "sonderzahlung",
+        "urlaubsgeld",
+        "weihnachtsgeld"
+      ],
+      "bullets": [
+        "Çoğu sektörde yılda iki kez ek ödeme (genellikle Haziran/Temmuz ve Kasım/Aralık aylarında) toplu sözleşmeyle zorunludur.",
+        "Tam yıl çalışmadıysan veya yıl içinde işten ayrıldıysan, çalıştığın ay/hafta oranında kıstelyevm (Aliquotierung) hesaplanır.",
+        "13. ve 14. maaşlar normal maaşa göre çok daha düşük gelir vergisi oranıyla (Jahressechstel avantajı) vergilendirilir.",
+        "Haksız yere veya kendin istifa ettiğinde geri ödeme (Rückverrechnung) olup olmadığını kendi toplu sözleşmenden kontrol et."
+      ],
+      "links": [
+        {
+          "label": "AK · Tatil ve Noel ikramiyesi",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Kıdem Tazminatı ve Vorsorgekasse (Abfertigung Neu)",
+      "teaser": "İşvereninin senin adına yatırdığı %1,53 fonu takip et.",
+      "intro": "2003 sonrası başlayan tüm iş ilişkilerinde kıdem tazminatı işveren tarafından her ay bir çalışan ihtiyat sandığına (Betriebliche Vorsorgekasse) yatırılır.",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "abfertigung neu",
+        "kidem tazminati",
+        "bvk",
+        "fon"
+      ],
+      "bullets": [
+        "İşveren brüt maaşının %1,53'ünü (ikramiyeler dahil) ikinci aydan itibaren her ay Vorsorgekasse hesabına yatırır; maaşından kesinti yapılmaz.",
+        "Kendi isteğinle istifa etsen bile biriken paran yanmaz; fon hesabında kalır ve değerlenmeye devam eder.",
+        "Parayı nakit çekebilmek için en az 3 tam yıl (36 ay) prim ödenmiş olması ve işverenin feshi veya anlaşmalı fesih (einvernehmliche Lösung) gerekir.",
+        "Yılda bir kez posta veya e-posta ile hangi Vorsorgekasse'de ne kadar birikimin olduğunu gösteren hesap özeti alırsın."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "İşten Çıkarılma ve Fesih (Kündigung & Entlassung)",
+      "teaser": "Baskı altında hemen hiçbir belge imzalama.",
+      "intro": "İş ilişkisi işveren feshi (Kündigung), haklı nedenle derhal fesih (Entlassung) veya anlaşmalı fesih (einvernehmliche Lösung) ile sona erebilir.",
+      "keywords": [
+        "isten atilma",
+        "kovulma",
+        "kundigung",
+        "entlassung",
+        "einvernehmliche",
+        "ihbar",
+        "fesih"
+      ],
+      "bullets": [
+        "Anlaşmalı fesih (einvernehmliche Lösung) belgesini baskı altında imzalama; imzalarsan itiraz ve işsizlik maaşı bekleme süresi hakların etkilenebilir.",
+        "İşveren feshinde (Kündigung) yasal veya toplu sözleşmedeki ihbar sürelerine (Kündigungsfristen) uyulmalıdır.",
+        "Haksız veya sosyal açıdan ağır sonuçlu bir feshe itiraz (Kündigungsanfechtung) süresi çok kısadır (genellikle 1–2 hafta); derhal AK veya sendikaya başvur.",
+        "İşten ayrılırken son maaş bordronu, kullanılmamış izin ücretini (Urlaubsersatzleistung) ve çalışma belgeni (Dienstzeugnis) kontrol et; vakit kaybetmeden AMS'ye başvur."
+      ],
+      "links": [
+        {
+          "label": "AK · İş ilişkisinin sona ermesi",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "İş kıyafeti ve giyinme süresi",
       "teaser": "Zorunlu kıyafet değişimi çalışma süresine sayılabilir.",
       "intro": "İşveren özel kıyafet veya koruyucu ekipman giymeni ve işyerinde değişmeni şart koşuyorsa, giyinme süresi çalışma süresine dahil olabilir.",
@@ -194,5 +275,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Konu veya anahtar kelime ara",
+  "searchPlaceholder": "Örn: ikramiye, kıdem tazminatı, kovulma, fazla mesai...",
+  "noResults": "Aramanızla eşleşen konu bulunamadı."
 }

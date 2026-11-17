@@ -144,6 +144,81 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "Bonus, 13. i 14. plata (Sonderzahlungen)",
+      "teaser": "Proverite pravila za regres i božićnicu.",
+      "intro": "U Austriji 13. plata (Urlaubsgeld) i 14. plata (Weihnachtsgeld) nisu uređene zakonom, već kolektivnim ugovorom (KV) ili ugovorom o radu.",
+      "keywords": [
+        "bonus",
+        "13. plata",
+        "14. plata",
+        "regres",
+        "bozicnica",
+        "sonderzahlungen"
+      ],
+      "bullets": [
+        "U većini delatnosti kolektivni ugovor garantuje dve posebne isplate godišnje (najčešće leti i u novembru/decembru).",
+        "Ako niste radili celu kalendarsku godinu, isplate se obračunavaju srazmerno (aliquot).",
+        "13. i 14. plata oporezuju se po znatno nižoj stopi od redovne mesečne plate.",
+        "Proverite u kolektivnom ugovoru da li postoji obaveza povraćaja u slučaju neopravdanog otkaza."
+      ],
+      "links": [
+        {
+          "label": "AK · Regres i božićnica",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Otpremnina i Vorsorgekasse (Abfertigung Neu)",
+      "teaser": "Pratite doprinos poslodavca od 1,53 %.",
+      "intro": "Za sve radne odnose zasnovane od 2003. godine poslodavac mesečno uplaćuje doprinos u fond za otpremnine (Betriebliche Vorsorgekasse).",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "otpremnina",
+        "abfertigung neu"
+      ],
+      "bullets": [
+        "Od drugog meseca rada poslodavac uplaćuje 1,53 % bruto plate (uključujući bonuse) u fond, bez odbitka od vaše plate.",
+        "Novac ne propada ni ako sami date otkaz; ostaje na vašem računu u fondu.",
+        "Isplata je moguća nakon najmanje 3 godine uplata (36 meseci) i prestanka rada otkazom poslodavca ili sporazumno.",
+        "Jednom godišnje dobijate izveštaj fonda o stanju vašeg računa."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "Otkaz i prestanak rada (Kündigung & Entlassung)",
+      "teaser": "Ne potpisujte ništa na brzinu pod pritiskom.",
+      "intro": "Radni odnos može prestati otkazom poslodavca (Kündigung), vanrednim otkazom (Entlassung) ili sporazumnim raskidom (einvernehmliche Lösung).",
+      "keywords": [
+        "otkaz",
+        "otpustanje",
+        "kundigung",
+        "entlassung",
+        "sporazumni raskid"
+      ],
+      "bullets": [
+        "Ne potpisujte sporazumni raskid (einvernehmliche Lösung) pod pritiskom; potpisom najčešće gubite pravo na pobijanje otkaza.",
+        "Poslodavac mora da poštuje zakonske ili ugovorene otkazne rokove (Kündigungsfristen).",
+        "Rokovi za osporavanje otkaza su veoma kratki (često 1 do 2 nedelje) – odmah se obratite AK-u ili sindikatu.",
+        "Proverite završni obračun, isplatu neiskorišćenog godišnjeg odmora i radnu potvrdu (Dienstzeugnis) i prijavite se na AMS."
+      ],
+      "links": [
+        {
+          "label": "AK · Prestanak radnog odnosa",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "Radna odeća i vreme presvlačenja",
       "teaser": "Obavezno presvlačenje može da se računa u radno vreme.",
       "intro": "Ako poslodavac zahteva posebnu odeću ili zaštitnu opremu i presvlačenje na radnom mestu, to vreme može da se računa kao radno vreme.",
@@ -194,5 +269,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Pretražite temu ili ključnu reč",
+  "searchPlaceholder": "Npr. bonus, otpremnina, otkaz, prekovremeni...",
+  "noResults": "Nema tema koje odgovaraju pretrazi."
 }

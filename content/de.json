@@ -145,6 +145,83 @@
       "id": "employment"
     },
     {
+      "id": "sonderzahlungen",
+      "title": "Bonus, 13. und 14. Gehalt (Sonderzahlungen)",
+      "teaser": "Regeln zu Urlaubs- und Weihnachtsgeld prüfen.",
+      "intro": "In Österreich sind 13. Gehalt (Urlaubsgeld) und 14. Gehalt (Weihnachtsgeld) nicht gesetzlich, sondern im Kollektivvertrag (KV) oder Arbeitsvertrag geregelt.",
+      "keywords": [
+        "bonus",
+        "sonderzahlung",
+        "urlaubsgeld",
+        "weihnachtsgeld",
+        "13. gehalt",
+        "14. gehalt",
+        "pramie"
+      ],
+      "bullets": [
+        "In den meisten Branchen sind zwei Sonderzahlungen pro Jahr (meist im Sommer und November/Dezember) durch den KV vorgeschrieben.",
+        "Wenn Sie nicht das ganze Kalenderjahr beschäftigt waren, werden Sonderzahlungen anteilig (aliquot) berechnet.",
+        "Urlaubs- und Weihnachtsgeld werden innerhalb des Jahressechstels steuerlich deutlich günstiger besteuert als der laufende Lohn.",
+        "Prüfen Sie in Ihrem KV, ob bei unberechtigtem Austritt oder Entlassung eine Rückverrechnung vorgesehen ist."
+      ],
+      "links": [
+        {
+          "label": "AK · Urlaubs- und Weihnachtsgeld",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitsentgelt/Urlaubs-_und_Weihnachtsgeld.html"
+        }
+      ]
+    },
+    {
+      "id": "vorsorge",
+      "title": "Abfertigung Neu & Vorsorgekasse",
+      "teaser": "Den Arbeitgeberbeitrag von 1,53 % im Blick behalten.",
+      "intro": "Für alle Arbeitsverhältnisse ab 2003 zahlt der Arbeitgeber monatlich Beiträge in eine betriebliche Vorsorgekasse ein.",
+      "keywords": [
+        "vorsorge",
+        "vorsorgekasse",
+        "abfertigung",
+        "abfertigung neu",
+        "bvk"
+      ],
+      "bullets": [
+        "Der Arbeitgeber zahlt ab dem zweiten Beschäftigungsmonat 1,53 % des Bruttoentgelts (inkl. Sonderzahlungen) ein – ohne Abzug von Ihrem Lohn.",
+        "Ihr Guthaben geht auch bei Selbstkündigung nicht verloren, sondern bleibt in der Vorsorgekasse veranlagt.",
+        "Eine Auszahlung ist nach mindestens 3 Einzahlungsjahren (36 Monaten) und einer begünstigten Beendigung (z. B. Arbeitgeberkündigung, einvernehmliche Lösung) möglich.",
+        "Sie erhalten jährlich eine Kontoinformation Ihrer Vorsorgekasse über den aktuellen Kapitalstand."
+      ],
+      "links": [
+        {
+          "label": "AK · Abfertigung Neu",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/abfertigung/Abfertigung_neu.html"
+        }
+      ]
+    },
+    {
+      "id": "termination",
+      "title": "Kündigung und Entlassung",
+      "teaser": "Unterschreiben Sie nichts vorschnell unter Druck.",
+      "intro": "Ein Arbeitsverhältnis kann durch Arbeitgeberkündigung, Arbeitnehmerkündigung, Entlassung oder einvernehmliche Lösung enden.",
+      "keywords": [
+        "kundigung",
+        "entlassung",
+        "einvernehmliche losung",
+        "kundigungsfrist",
+        "anfechtung"
+      ],
+      "bullets": [
+        "Unterschreiben Sie eine einvernehmliche Lösung nicht unter Druck; sie schließt eine Kündigungsanfechtung meist aus.",
+        "Bei einer Kündigung müssen gesetzliche oder kollektivvertragliche Kündigungsfristen und Termine eingehalten werden.",
+        "Fristen zur Anfechtung einer Kündigung oder Entlassung sind sehr kurz (oft 1 bis 2 Wochen) – wenden Sie sich sofort an AK oder Gewerkschaft.",
+        "Prüfen Sie Endabrechnung, Urlaubsersatzleistung und Dienstzeugnis und melden Sie sich rechtzeitig beim AMS."
+      ],
+      "links": [
+        {
+          "label": "AK · Beendigung des Arbeitsverhältnisses",
+          "url": "https://www.arbeiterkammer.at/beratung/arbeitundrecht/beendigung/index.html"
+        }
+      ]
+    },
+    {
       "title": "Arbeitskleidung und Umkleidezeit",
       "teaser": "Vorgeschriebenes Umziehen kann Arbeitszeit sein.",
       "intro": "Wenn der Arbeitgeber bestimmte Kleidung oder Schutzausrüstung vorschreibt und das Umziehen im Betrieb notwendig ist, kann die Umkleidezeit als Arbeitszeit zählen.",
@@ -195,5 +272,8 @@
       ],
       "id": "tax"
     }
-  ]
+  ],
+  "searchLabel": "Thema oder Stichwort suchen",
+  "searchPlaceholder": "Z. B. Bonus, Vorsorgekasse, Kündigung, Überstunden...",
+  "noResults": "Keine passenden Themen gefunden."
 }
