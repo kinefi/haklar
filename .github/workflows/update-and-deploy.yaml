@@ -1,4 +1,4 @@
-name: Update KV Catalog, Tax Brackets & RAG Index
+name: Update KV Catalog, Tax Brackets & RAG Index & Deploy
 
 on:
   push:
@@ -12,6 +12,13 @@ on:
 
 permissions:
   contents: write
+  pages: write      # GitHub Pages'e yazma yetkisi
+  id-token: write   # Pages güvenli kimlik doğrulaması için
+
+# Eş zamanlı çakışmaları önlemek için
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   update-content:
@@ -45,3 +52,23 @@ jobs:
           else
             echo "No changes to commit."
           fi
+
+  # Veriler güncellendikten hemen sonra güvenle devreye giren Pages deployment adımı
+  deploy-pages:
+    needs: update-content
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # Projenin kök dizini (veya statik dosyaların olduğu klasör, örn: './public' veya './dist')
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
