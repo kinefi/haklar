@@ -13,15 +13,23 @@
   "helpTitle": "Bir sorun mu var?",
   "helpText": "Belgelerini sakla ve ücretsiz danışmanlık iste. Anlamadığın bir şeyi imzalamadan önce sor.",
   "disclaimer": "Bu sayfa genel bilgilendirmedir; hukuki danışmanlık değildir. Özel durumunu Arbeiterkammer (AK) veya sendika ile görüş.",
-  "footer": "Kaynaklar: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at ve RIS. Bilgiler değişebilir; güncel durum için işyeri temsilcine, sendikana veya kaynağa danış.",
+  "footer": "Kaynaklar: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at ve RIS. Bilgiler değişebilir; güncel durum için işyeri temsilcine, sendikana veya kaynağa danış.",
   "open": "Ayrıntıları aç",
   "close": "Ayrıntıları kapat",
   "sources": "Kaynaklar",
   "helpLinks": [
-    "AK Steiermark",
-    "ÖGB",
-    "GLB",
-    "RIS · Avusturya mevzuatı (Almanca)"
+    {
+      "label": "AK Steiermark",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · Avusturya mevzuatı (Almanca)",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

@@ -3,6 +3,28 @@
 Bu projedeki tüm önemli değişiklikler bu dosyada belgelenmektedir.
 Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) standardını temel alır.
 
+## [1.5.0] - 2026-11-22
+
+### Added
+- **Kavram sözlüğü (`content/concepts.json`):** 22 kavram, 9 dilde terimler ("annelik" → Mutterschutz, Wochengeld, Karenz). Arama kutusunun altında tıklanabilir Almanca karşılık ipuçları gösterilir.
+- Sayfa altına "gönüllü çalışma / yasal sorumluluk yok" uyarısı (`content/shared-ui.json`, 9 dil).
+- Node ile çalışan arama testleri (`tests/search.test.mjs`).
+
+### Changed
+- **Arama dil filtresi:** `lang` seçeneği daha önce yok sayılıyordu ve her dilin kayıtları dönüyordu; artık yalnızca seçili dil (ve kaynağı Almanca olan KV kayıtları, "DE" rozetiyle) döner. Aynı sözleşme tek kez listelenir, arama 150 ms gecikmeli ve eski isteklere karşı korumalıdır.
+- Eşleştirme sıkılaştırıldı: kısa terimler ("it", "13", "ber") artık her yerde eşleşmez.
+- Yeniden düzenleme: `common.js` (diller, normalize, JSON önbelleği, dil düğmeleri), `tax-section.js`; `helpLinks` artık `{label, url}` nesneleridir; RAG indeksi sözlüğü `concepts.json`'dan okur ve `idf`/boş alanlar çıkarıldığı için ~%30 küçüldü.
+
+### Fixed
+- Vergi tablosunda başlıklar ve iki bağlantı "undefined" görünüyordu (var olmayan çeviri anahtarları).
+- KV konu etiketlerinde "Urlaubsgeld ve Weihnachtsgeld" yanlışlıkla "Yıllık izin" olarak çevriliyordu; Kündigung/Karenz/Abfertigung gibi etiketler eklendi.
+- `kv_fulltext` kayıtlarının tamamı aynı yer tutucu metindi (585 kopya); indeksten çıkarıldı, CI'daki `--fetch-sections` adımı kaldırıldı.
+- KV sonuç kartlarının stili yoktu.
+
+### Removed
+- GLB (Gewerkschaftlicher Linksblock) tüm içeriklerden, altbilgiden ve README'den kaldırıldı.
+- Kullanılmayan `assets/pay.js`, `assets/tax-widget.js`, `assets/language.js`.
+
 ## [1.4.0] - 2026-11-17
 
 ### Added (Eklenenler)

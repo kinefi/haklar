@@ -13,15 +13,23 @@
   "helpTitle": "Having a problem?",
   "helpText": "Keep your documents and ask for free advice. Ask questions before signing anything you do not understand.",
   "disclaimer": "This page gives general information, not legal advice. Discuss your situation with the Arbeiterkammer (AK) or a trade union.",
-  "footer": "Sources: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at, and RIS. Rules can change; contact your workplace representative, trade union, or source for current information. RIS publishes official Austrian laws in German.",
+  "footer": "Sources: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at, and RIS. Rules can change; contact your workplace representative, trade union, or source for current information. RIS publishes official Austrian laws in German.",
   "open": "Open details",
   "close": "Close details",
   "sources": "Sources",
   "helpLinks": [
-    "AK Styria",
-    "ÖGB",
-    "GLB",
-    "RIS · Austrian laws (German)"
+    {
+      "label": "AK Styria",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · Austrian laws (German)",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

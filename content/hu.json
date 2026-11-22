@@ -13,15 +13,23 @@
   "helpTitle": "Problémája van?",
   "helpText": "Őrizze meg a dokumentumait, és kérjen ingyenes tanácsot. Aláírás előtt kérdezzen rá arra, amit nem ért.",
   "disclaimer": "Ez az oldal általános tájékoztatást ad, nem jogi tanács. Egyéni ügyével forduljon az Arbeiterkammerhez (AK) vagy a szakszervezetéhez.",
-  "footer": "Források: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at és RIS. A szabályok változhatnak; naprakész információért kérdezze meg a munkahelyi képviselőt, a szakszervezetet vagy a forrást.",
+  "footer": "Források: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at és RIS. A szabályok változhatnak; naprakész információért kérdezze meg a munkahelyi képviselőt, a szakszervezetet vagy a forrást.",
   "open": "Részletek megnyitása",
   "close": "Részletek bezárása",
   "sources": "Források",
   "helpLinks": [
-    "AK Steiermark",
-    "ÖGB",
-    "GLB",
-    "RIS · osztrák jogszabályok (németül)"
+    {
+      "label": "AK Steiermark",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · osztrák jogszabályok (németül)",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

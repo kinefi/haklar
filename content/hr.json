@@ -13,15 +13,23 @@
   "helpTitle": "Imate problem?",
   "helpText": "Sačuvajte dokumente i zatražite besplatno savjetovanje. Prije potpisa pitajte ako nešto ne razumijete.",
   "disclaimer": "Ova stranica pruža opće informacije, a ne pravni savjet. O svom slučaju razgovarajte s Arbeiterkammer (AK) ili sindikatom.",
-  "footer": "Izvori: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at i RIS. Pravila se mogu mijenjati; za aktuelne informacije obratite se predstavniku zaposlenih, sindikatu ili izvoru. RIS objavljuje službene austrijske propise na njemačkom jeziku.",
+  "footer": "Izvori: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at i RIS. Pravila se mogu mijenjati; za aktuelne informacije obratite se predstavniku zaposlenih, sindikatu ili izvoru. RIS objavljuje službene austrijske propise na njemačkom jeziku.",
   "open": "Otvori detalje",
   "close": "Zatvori detalje",
   "sources": "Izvori",
   "helpLinks": [
-    "AK Steiermark",
-    "ÖGB",
-    "GLB",
-    "RIS · Austrijski zakoni (njemački)"
+    {
+      "label": "AK Steiermark",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · Austrijski zakoni (njemački)",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

@@ -14,15 +14,30 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 - Maaş/vergi sayfası: KV ücret baremini bulma yönergesi ve RIS §33'e dayalı 2026 gelir vergisi dilimleri
 - Toplu sözleşme verisini kollektivvertrag.at A–Z dizininden yenileyen betik
 - Çalışma saatleri, fazla mesai, izin, hastalık ve iş kıyafeti gibi konularda kısa bilgiler
-- Arbeiterkammer (AK), ÖGB, GLB ve resmi Avusturya mevzuat sistemi RIS bağlantıları
+- Arbeiterkammer (AK), ÖGB ve resmi Avusturya mevzuat sistemi RIS bağlantıları
 - Dil içeriklerinin ve ortak kart simgelerinin `content/` altındaki JSON dosyalarında saklanması
+- Diller arası kavram sözlüğü: "annelik" aratınca Mutterschutz, Wochengeld ve Karenz bulunur; Almanca karşılıklar arama kutusunun altında ipucu olarak gösterilir
+- Arama yalnızca seçili dildeki kayıtları döndürür (toplu sözleşmeler kaynağı gereği Almanca olduğundan her dilde görünür)
 - Harici JavaScript paketi, derleme adımı veya kullanıcı verisi toplanması olmadan çalışma
 
 ## İçeriği düzenleme
 
 Bir dildeki metni değiştirmek için `content/tr.json`, `content/hr.json`, `content/sr.json`, `content/bs.json`, `content/de.json` veya `content/en.json` dosyasını düzenleyin. Kartların başlıkları, açıklamaları, kaynak bağlantıları ve destek kuruluşlarının adları bu dosyalarda bulunur.
-Maaş/vergi sayfasının çevirileri `content/pay-ui.json`, yıllık vergi dilimleri `content/income-tax-2026.json` içindedir. Vergi oranları yıl ve yürürlük tarihine göre kontrol edilmelidir.
+Maaş/vergi sayfasının çevirileri `content/pay-ui.json`, yıllık vergi dilimleri `content/income-tax-current.json` içindedir. Vergi oranları yıl ve yürürlük tarihine göre kontrol edilmelidir.
 Şirket/KV örnekleri ve kaynak bağlantıları `content/employer-kv.json` dosyasındadır. Şirket adı KV'yi tek başına belirlemez; özel kapsam ve tarih notlarını okuyun.
+
+## Kavram sözlüğü ve arama
+
+Diller arası eşleştirme tek bir dosyadadır: `content/concepts.json`. Her kavramın (ör. `maternity`) dillere göre terimleri, Almanca resmi karşılıkları (`display`) ve ilişkili kavramları (`related`) vardır; `sh` anahtarı Hırvatça, Sırpça ve Boşnakça için ortaktır. Yeni bir terim eklemek için ilgili dilin listesine yazmanız yeterlidir. Tarayıcı (`assets/semantic.js`) ve indeks betiği (`scripts/build-rag-index.py`) aynı dosyayı okur.
+
+Sözlüğü veya içeriği değiştirdikten sonra arama indeksini yenileyin ve testleri çalıştırın:
+
+```bash
+python3 scripts/build-rag-index.py
+node --test tests/search.test.mjs
+```
+
+İki sayfada ortak metinler (gönüllü uyarısı, arama başlıkları) `content/shared-ui.json` içindedir.
 
 ## Toplu sözleşme kataloğunu yenileme
 
@@ -46,11 +61,11 @@ Tarayıcıda <http://localhost:8000> adresini açın. Sunucuyu durdurmak için t
 
 ## Yayınlama
 
-Site [GitHub Pages](https://kinefi.github.io/haklar) üzerinden yayınlanır. Depoda **Settings → Pages** bölümünde `main` dalını ve `/ (root)` klasörünü seçin. Ana rehber `index.html`, toplu sözleşme kataloğu `collective-agreements.html`, maaş/vergi sayfası `lohn-steuer.html` sayfasındadır.
+Site [GitHub Pages](https://kinefi.github.io/haklar) üzerinden yayınlanır. Depoda **Settings → Pages** bölümünde `main` dalını ve `/ (root)` klasörünü seçin. Ana rehber `index.html`, toplu sözleşme kataloğu `collective-agreements.html` sayfasındadır; maaş/vergi bilgisi ana rehberdeki "Vergi" kartının içindedir.
 
 ## Bilgilendirme
 
-Bu sayfa genel bilgi verir; hukuki danışmanlık değildir. Katalogdaki başlıklar ve konu etiketleri, her sözleşmenin tüm haklarını özetlemez. Güncel ücretler ve özel koşullar için sözleşmenin tam metnini açın. Sözleşmeler ve kurallar değişebilir; güncel durum için işyeri temsilcinize, sendikanıza veya ilgili kaynağa danışın. RIS resmi mevzuatı yayımlar; mevzuatın Almanca olduğunu ve RIS'in hukuki danışmanlık vermediğini unutmayın.
+Bu uygulama tamamen gönüllü olarak, çeşitli kaynaklardan derlenen bilgilerle hazırlanmıştır ve yasal sorumluluk üstlenmez. Bu sayfa genel bilgi verir; hukuki danışmanlık değildir. Katalogdaki başlıklar ve konu etiketleri, her sözleşmenin tüm haklarını özetlemez. Güncel ücretler ve özel koşullar için sözleşmenin tam metnini açın. Sözleşmeler ve kurallar değişebilir; güncel durum için işyeri temsilcinize, sendikanıza veya ilgili kaynağa danışın. RIS resmi mevzuatı yayımlar; mevzuatın Almanca olduğunu ve RIS'in hukuki danışmanlık vermediğini unutmayın.
 
 ## Açık kaynak
 

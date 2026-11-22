@@ -1,14 +1,4 @@
-const languages = {
-  tr: { name: "Türkçe", short: "TR", html: "tr", locale: "tr-TR" },
-  hr: { name: "Hrvatski", short: "HR", html: "hr", locale: "hr-HR" },
-  sr: { name: "Srpski", short: "SR", html: "sr-Latn", locale: "sr-Latn-RS" },
-  bs: { name: "Bosanski", short: "BS", html: "bs", locale: "bs-BA" },
-  ro: { name: "Română", short: "RO", html: "ro", locale: "ro-RO" },
-  hu: { name: "Magyar", short: "HU", html: "hu", locale: "hu-HU" },
-  sl: { name: "Slovenščina", short: "SL", html: "sl", locale: "sl-SI" },
-  de: { name: "Deutsch", short: "DE", html: "de", locale: "de-AT" },
-  en: { name: "English", short: "EN", html: "en", locale: "en-GB" }
-};
+const { LANGUAGES: languages, loadJson, normalize, renderLanguageSwitcher, applySharedUi } = window.haklar;
 
 const languageNav = document.querySelector("#languages");
 const searchInput = document.querySelector("#agreementSearch");
@@ -23,20 +13,6 @@ let catalog;
 let translations;
 let employerData;
 let currentLanguage = "tr";
-
-async function loadJson(path) {
-  const response = await fetch(new URL(path, document.baseURI));
-  if (!response.ok) throw new Error(`Could not load ${path}`);
-  return response.json();
-}
-
-function normalize(value) {
-  return value
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .replace(/ß/g, "ss")
-    .toLowerCase();
-}
 
 function translateTopic(topic, ui) {
   const normalized = normalize(topic);
@@ -274,19 +250,8 @@ function setLanguage(language) {
     element.textContent = employerData.ui[language][element.dataset.employerUi];
   });
   searchInput.placeholder = ui.searchPlaceholder;
-  languageNav.replaceChildren(...Object.entries(languages).map(([code, details]) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.lang = details.html;
-    button.textContent = details.short;
-    button.setAttribute("aria-label", details.name);
-    button.setAttribute("aria-pressed", String(code === language));
-    button.addEventListener("click", () => {
-      window.haklarLanguage.rememberLanguage(code);
-      setLanguage(code);
-    });
-    return button;
-  }));
+  renderLanguageSwitcher(languageNav, language, setLanguage);
+  applySharedUi(language);
   renderAgreements();
 }
 
@@ -304,6 +269,7 @@ async function init() {
     return;
   }
 
+  await window.haklarSemantic.ready;
   attachCompanyExamples();
   searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
   searchInput.addEventListener("input", renderAgreements);
@@ -311,7 +277,7 @@ async function init() {
     catalogError.textContent = translations[currentLanguage]?.partial || translations.tr.partial;
     catalogError.hidden = false;
   }
-  setLanguage(window.haklarLanguage.initialLanguage(Object.keys(languages), "tr"));
+  setLanguage(window.haklar.initialLanguage());
 }
 
 init();

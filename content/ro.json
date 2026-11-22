@@ -13,15 +13,23 @@
   "helpTitle": "Aveți o problemă?",
   "helpText": "Păstrați documentele și cereți consiliere gratuită. Întrebați înainte să semnați ceva ce nu înțelegeți.",
   "disclaimer": "Această pagină oferă informații generale, nu consiliere juridică. Discutați situația dumneavoastră cu Arbeiterkammer (AK) sau cu un sindicat.",
-  "footer": "Surse: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at și RIS. Regulile se pot schimba; pentru informații actuale, întrebați reprezentantul angajaților, sindicatul sau sursa.",
+  "footer": "Surse: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at și RIS. Regulile se pot schimba; pentru informații actuale, întrebați reprezentantul angajaților, sindicatul sau sursa.",
   "open": "Deschideți detaliile",
   "close": "Închideți detaliile",
   "sources": "Surse",
   "helpLinks": [
-    "AK Steiermark",
-    "ÖGB",
-    "GLB",
-    "RIS · legislația austriacă (în germană)"
+    {
+      "label": "AK Steiermark",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · legislația austriacă (în germană)",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

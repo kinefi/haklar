@@ -8,9 +8,9 @@ Designed to work alongside `scripts/update-kv-catalog.py` with zero runtime
 backend required (pure static JSON + TF-IDF/BM25 + dense-optional hybrid vectors).
 
 Usage:
-  python3 scripts/build_rag_index.py
-  python3 scripts/build_rag_index.py --limit 60 --fetch-sections
-  python3 scripts/build_rag_index.py --with-embeddings --model paraphrase-multilingual-MiniLM-L12-v2
+  python3 scripts/build-rag-index.py
+  python3 scripts/build-rag-index.py --limit 60 --fetch-sections
+  python3 scripts/build-rag-index.py --with-embeddings --model paraphrase-multilingual-MiniLM-L12-v2
 """
 
 from __future__ import annotations
@@ -43,85 +43,9 @@ OUTPUT_INDEX_PATH = CONTENT_DIR / "rag-index.json"
 BASE_URL = "https://www.kollektivvertrag.at"
 USER_AGENT = "HaklarRAGIndexer/1.0 (+https://github.com/haklar; educational worker-rights guide)"
 
-# Multilingual domain synonym & concept expansion table (9 supported languages)
-DOMAIN_CONCEPTS: dict[str, list[str]] = {
-    "termination": [
-        "kundigung", "entlassung", "einvernehmliche losung", "arbeitsende", "kundigungsfrist",
-        "isten atilma", "kovulma", "fesih", "istifa", "ihbar suresi", "tazminat",
-        "otkaz", "otpustanje", "otkazni rok", "sporazumni raskid",
-        "concediere", "demisie", "preaviz",
-        "felmondas", "elbocsatas", "felmondasi ido",
-        "odpoved", "odpuscanje", "odpovedni rok",
-        "dismissal", "termination", "resignation", "notice period"
-    ],
-    "bonus_13_14": [
-        "sonderzahlung", "sonderzahlungen", "urlaubsgeld", "urlaubszuschuss",
-        "weihnachtsgeld", "weihnachtsremuneration", "13. gehalt", "14. gehalt", "jahressechstel",
-        "ikramiye", "bonus", "prim", "13. maas", "14. maas", "tatil parasi", "noel ikramiyesi",
-        "regres", "bozicnica", "13. plata", "14. plata", "13. placa", "14. placa",
-        "prima", "al 13-lea salariu", "al 14-lea salariu",
-        "jutalom", "13. havi", "14. havi", "udulesi", "karacsonyi",
-        "holiday pay", "christmas bonus", "13th salary", "14th salary"
-    ],
-    "vorsorge_severance": [
-        "abfertigung", "abfertigung neu", "vorsorgekasse", "betriebliche vorsorge", "bvk", "1.53",
-        "kidem tazminati", "emeklilik fonu", "birikim",
-        "otpremnina", "mirovinski fond",
-        "compensatie", "vechime",
-        "vegkielegites", "nyugdijpenztar",
-        "odpravnina", "pokojninski sklad",
-        "severance pay", "provident fund"
-    ],
-    "wages_minimum": [
-        "mindestlohn", "mindestgehalt", "grundlohn", "lohnordnung", "gehaltstafel",
-        "verwendungsgruppe", "beschaftigungsgruppe", "einstufung", "vordienstzeiten", "zulage",
-        "asgari ucret", "taban maas", "ucret skalasi", "kademe", "zam", "ek odeme",
-        "minimalac", "osnovna plata", "platni razred", "dodatak",
-        "salariu minim", "grila de salarizare", "sporuri",
-        "minimalber", "alapber", "bertarifa", "potlek",
-        "minimalna placa", "osnovna placa", "dodatek",
-        "minimum wage", "base pay", "pay scale", "allowance"
-    ],
-    "overtime_hours": [
-        "arbeitszeit", "normalarbeitszeit", "ueberstunden", "mehrarbeit", "zuschlag", "nachtarbeit",
-        "schichtarbeit", "ruhezeit", "pause", "teilzeit", "vollzeit",
-        "fazla mesai", "mesai", "calisma saati", "vardiya", "gece calismasi", "mola", "yari zamanli",
-        "radno vrijeme", "prekovremeni", "smjena", "nocni rad", "pauza",
-        "ore suplimentare", "program de lucru", "tura", "munca de noapte",
-        "munkaido", "tulora", "muszak", "ejszakai munka",
-        "delovni cas", "nadure", "izmena", "nocno delo",
-        "working hours", "overtime", "shift work", "night work", "part-time"
-    ],
-    "leave_sick": [
-        "urlaub", "krankenstand", "entgeltfortzahlung", "pflegefreistellung", "feiertag",
-        "yillik izin", "hastalik", "rapor", "bakim izni", "resmi tatil",
-        "godisnji odmor", "bolovanje", "bolest", "praznik",
-        "concediu anual", "concediu medical", "sarbatoare",
-        "szabadsag", "betegseg", "tappenz", "unnepnap",
-        "dopust", "bolniska", "praznik",
-        "annual leave", "sick leave", "public holiday"
-    ],
-    "tax_payslip": [
-        "lohnzettel", "einkommensteuer", "steuerstufe", "brutto", "netto", "arbeitnehmerveranlagung",
-        "pendlerpauschale", "familienbonus", "13539",
-        "maas bordrosu", "gelir vergisi", "vergi dilimi", "vergi iadesi", "yol parasi",
-        "platna lista", "porez", "porezni razred", "povrat poreza",
-        "fluturas de salariu", "impozit", "restituire impozit",
-        "berjegyzek", "ado", "adokulcs", "adovisszaterites",
-        "placilna lista", "davek", "davcni razred",
-        "payslip", "income tax", "tax bracket", "tax refund"
-    ],
-    "sectors": [
-        "gastgewerbe", "hotel", "handel", "bau", "baugewerbe", "metall", "industrie",
-        "it", "edv", "transport", "gueterbefoerderung", "pflege", "sozialwirtschaft", "reinigung",
-        "otel", "restoran", "ticaret", "magaza", "insaat", "metal", "sanayi", "bilisim", "nakliye", "sofor", "bakim", "temizlik",
-        "ugostiteljstvo", "trgovina", "gradevina", "industrija", "prijevoz", "njega", "ciscenje",
-        "turism", "comert", "constructii", "transport", "ingrijire", "curatenie",
-        "vendeglatas", "kereskedelem", "epitoipar", "femipar", "fuvarozas", "apolas", "takaritas",
-        "gostinstvo", "trgovina", "gradbenistvo", "prevoz", "nega", "ciscenje",
-        "hospitality", "retail", "construction", "manufacturing", "logistics", "care", "cleaning"
-    ]
-}
+CONCEPTS_PATH = CONTENT_DIR / "concepts.json"
+GERMAN_DIGRAPHS = {"ä": "ae", "ö": "oe", "ü": "ue", "Ä": "Ae", "Ö": "Oe", "Ü": "Ue"}
+FOLD_MAP = {"ß": "ss", "ı": "i", "đ": "dj", "ł": "l", "ø": "o", "æ": "ae", "œ": "oe"}
 
 STOPWORDS = {
     "der", "die", "das", "und", "oder", "fur", "fuer", "mit", "von", "zu", "im", "in", "am", "an",
@@ -135,10 +59,41 @@ STOPWORDS = {
 
 
 def normalize_text(text: str) -> str:
+    """Mirrors `normalize()` in assets/common.js (diacritics stripped, lowercase, folded letters)."""
     text = unicodedata.normalize("NFD", text or "")
-    text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
-    text = text.replace("ß", "ss").replace("ı", "i").lower()
-    return re.sub(r"\s+", " ", text).strip()
+    text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn").lower()
+    return "".join(FOLD_MAP.get(ch, ch) for ch in text).strip()
+
+
+def words(text: str) -> str:
+    """Mirrors `words()` in assets/common.js: 'Annelik, izni!' -> 'annelik izni'."""
+    return re.sub(r"[^a-z0-9]+", " ", normalize_text(text)).strip()
+
+
+def term_variants(raw: str) -> set[str]:
+    variants = {words(raw)}
+    if re.search("[äöüÄÖÜ]", raw):
+        variants.add(words("".join(GERMAN_DIGRAPHS.get(ch, ch) for ch in raw)))
+    variants.discard("")
+    return variants
+
+
+def contains_term(padded_words: str, term: str) -> bool:
+    """Mirrors `containsTerm()` in assets/semantic.js (5+ letter terms match at word start)."""
+    return (" " + term) in padded_words if len(term) >= 5 else (" " + term + " ") in padded_words
+
+
+def load_concepts(path: Path = CONCEPTS_PATH) -> dict[str, set[str]]:
+    """concepts.json -> {concept_id: {normalized terms}} (single source of truth shared with the browser)."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    concepts: dict[str, set[str]] = {}
+    for concept_id, definition in data["concepts"].items():
+        terms: set[str] = set()
+        for term_list in definition.get("terms", {}).values():
+            for raw in term_list:
+                terms |= term_variants(raw)
+        concepts[concept_id] = terms
+    return concepts
 
 
 def tokenize(text: str) -> list[str]:
@@ -264,12 +219,17 @@ class RAGChunk:
     embedding: list[float] | None = None
 
 
-def detect_concepts(normalized_blob: str) -> list[str]:
-    matched = []
-    for concept_id, terms in DOMAIN_CONCEPTS.items():
-        if any(term in normalized_blob for term in terms):
-            matched.append(concept_id)
-    return matched
+def detect_concepts(text: str, concepts: dict[str, set[str]]) -> list[str]:
+    padded = f" {words(text)} "
+    return [cid for cid, terms in concepts.items() if any(contains_term(padded, t) for t in terms)]
+
+
+# Placeholder text that kollektivvertrag.at serves on every page; it carries no agreement content.
+BOILERPLATE_PREFIXES = ("alle angaben ohne gewahr",)
+
+
+def is_boilerplate(text: str) -> bool:
+    return normalize_text(text).startswith(BOILERPLATE_PREFIXES)
 
 
 def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dict[str, Any]]:
@@ -286,6 +246,7 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
         )
 
         fetched_count = 0
+        seen_fulltext: set[str] = set()
         for ag in ordered:
             title = ag.get("title", "")
             url = ag.get("url", "")
@@ -296,7 +257,7 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
 
             summary_parts = [f"Kollektivvertrag: {title}."]
             if valid_from:
-                summary_parts.append(f"Gültig ab: {valid_from}.")
+                summary_parts.append(f"Gültig ab: {valid_from[:10]}.")
             if emp_types:
                 summary_parts.append(f"Gilt für: {', '.join(emp_types)}.")
             if regions:
@@ -317,7 +278,8 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
                     "popularOrder": ag.get("popularOrder"),
                     "validFrom": valid_from,
                     "regions": regions,
-                    "employmentTypes": emp_types
+                    "employmentTypes": emp_types,
+                    "topics": topics
                 }
             })
 
@@ -328,7 +290,11 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
                     parser = KVSectionParser()
                     parser.feed(html)
                     parser._flush()
-                    chunks = chunk_sections(parser.sections)
+                    chunks = [
+                        ch for ch in chunk_sections(parser.sections)
+                        if not is_boilerplate(ch["text"]) and ch["text"] not in seen_fulltext
+                    ]
+                    seen_fulltext.update(ch["text"] for ch in chunks)
                     for idx, ch in enumerate(chunks[:18]):
                         raw_docs.append({
                             "sourceType": "kv_fulltext",
@@ -422,6 +388,7 @@ def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dic
 
 def compute_bm25_and_vectors(
     raw_docs: list[dict[str, Any]],
+    concepts: dict[str, set[str]],
     with_embeddings: bool = False,
     model_name: str = "paraphrase-multilingual-MiniLM-L12-v2"
 ) -> dict[str, Any]:
@@ -477,8 +444,7 @@ def compute_bm25_and_vectors(
 
         # Keep top 45 weighted terms per chunk to keep JSON compact for browser loading
         top_terms = dict(sorted(sparse_weights.items(), key=lambda kv: kv[1], reverse=True)[:45])
-        norm_blob = normalize_text(f"{d['title']} {d['section']} {d['text']}")
-        concepts = detect_concepts(norm_blob)
+        chunk_concepts = detect_concepts(f"{d['title']} {d['section']} {d['text']}", concepts)
 
         chunk_id = hashlib.sha1(
             f"{d['sourceType']}:{d['lang']}:{d['title']}:{d['section']}:{idx}".encode("utf-8")
@@ -493,14 +459,17 @@ def compute_bm25_and_vectors(
             text=d["text"],
             url=d["url"],
             meta=d["meta"],
-            concepts=concepts,
+            concepts=chunk_concepts,
             tf=top_terms,
             embedding=dense_vectors[idx] if dense_vectors else None
         )
-        chunks.append(asdict(chunk_obj))
+        chunk_dict = asdict(chunk_obj)
+        if chunk_dict["embedding"] is None:
+            del chunk_dict["embedding"]  # keep the JSON small when no dense vectors were requested
+        chunks.append(chunk_dict)
 
     return {
-        "version": 1,
+        "version": 2,
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "stats": {
             "totalChunks": len(chunks),
@@ -508,8 +477,6 @@ def compute_bm25_and_vectors(
             "hasDenseEmbeddings": dense_vectors is not None,
             "embeddingModel": model_name if dense_vectors is not None else None
         },
-        "concepts": DOMAIN_CONCEPTS,
-        "idf": idf,
         "chunks": chunks
     }
 
@@ -558,6 +525,7 @@ def main() -> None:
     )
     index_payload = compute_bm25_and_vectors(
         raw_docs,
+        load_concepts(),
         with_embeddings=args.with_embeddings,
         model_name=args.model
     )

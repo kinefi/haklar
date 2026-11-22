@@ -1,247 +1,232 @@
+/**
+ * Haklar - kavram tabanlı çok dilli arama motoru.
+ *
+ * Kavram sözlüğü content/concepts.json içindedir (tek kaynak). Örneğin Türkçe "annelik"
+ * sorgusu `maternity` kavramına eşleşir ve Almanca "Mutterschutz", "Wochengeld" gibi
+ * karşılıklarını ve ilgili "Karenz" kavramını arama terimlerine ekler.
+ *
+ * Tarayıcıda window.haklarSemantic, Node testlerinde module.exports olarak kullanılır.
+ */
 (() => {
-  const CONCEPT_CLUSTERS = [
-    {
-      id: "termination",
-      terms: [
-        "kundigung", "entlassung", "einvernehmliche", "losung", "arbeitsende", "kuendigung",
-        "isten atilma", "isten cikarilma", "kovulma", "fesih", "istifa", "ihbar suresi", "tazminat", "cikis",
-        "otkaz", "otpustanje", "prestanak rada", "otkazni rok", "sporazumni",
-        "concediere", "demisie", "preaviz", "incetare",
-        "felmondas", "elbocsatas", "felmondasi ido",
-        "odpoved", "odpuscanje", "prenehanje",
-        "dismissal", "fired", "termination", "resignation", "notice period", "severance"
-      ]
-    },
-    {
-      id: "vorsorge",
-      terms: [
-        "vorsorge", "vorsorgekasse", "abfertigung", "abfertigung neu", "bvk", "betriebliche vorsorge", "pensionskasse",
-        "kidem", "kidem tazminati", "emeklilik fonu", "birikim", "fon", "1.53",
-        "otpremnina", "mirovinski fond", "stednja",
-        "compensatie", "fond de pensii", "vechime",
-        "vegkielegites", "nyugdijpenztar", "elotakarekossag",
-        "odpravnina", "pokojninski sklad",
-        "severance pay", "provident fund", "pension fund"
-      ]
-    },
-    {
-      id: "bonus",
-      terms: [
-        "bonus", "sonderzahlung", "sonderzahlungen", "urlaubsgeld", "urlaubszuschuss", "weihnachtsgeld", "weihnachtsremuneration", "13", "14", "jahressechstel", "praemie", "pramie",
-        "ikramiye", "prim", "13. maas", "14. maas", "tatil parasi", "noel ikramiyesi", "ek odeme",
-        "regres", "bozicnica", "13. plata", "14. plata", "13. placa", "14. placa", "nagrada",
-        "prima", "al 13-lea", "al 14-lea", "sporuri",
-        "jutalom", "13. havi", "14. havi", "udulesi", "karacsonyi",
-        "regres", "bozicnica", "13. placa", "14. placa", "nagrada",
-        "holiday pay", "christmas bonus", "13th salary", "14th salary", "special payment"
-      ]
-    },
-    {
-      id: "hospitality",
-      terms: [
-        "hotel", "gastgewerbe", "gastronomie", "restaurant", "kuche", "kellner", "koch", "tourismus",
-        "otel", "restoran", "garson", "asci", "mutfak", "turizm", "konaklama",
-        "konobar", "kuhar", "ugostiteljstvo",
-        "ospatar", "bucatar", "turism",
-        "pincer", "szakacs", "vendeglatas", "szalloda",
-        "natakar", "kuhar", "gostinstvo",
-        "waiter", "chef", "hospitality", "catering"
-      ]
-    },
-    {
-      id: "retail",
-      terms: [
-        "handel", "handelsangestellte", "handelsarbeiter", "einzelhandel", "supermarkt", "verkauf", "kassa", "lager",
-        "ticaret", "magaza", "market", "kasiyer", "satis", "depo", "perakende",
-        "trgovina", "prodavac", "blagajna", "skladiste",
-        "comert", "magazin", "vanzator", "casier", "depozit",
-        "kereskedelem", "bolt", "elado", "penztaros", "raktar",
-        "trgovina", "prodajalec", "blagajna", "skladisce",
-        "retail", "shop", "store", "cashier", "warehouse", "sales"
-      ]
-    },
-    {
-      id: "construction",
-      terms: [
-        "bau", "baugewerbe", "bauindustrie", "baunebengewerbe", "maurer", "zimmerer", "elektriker", "installateur", "buak",
-        "insaat", "santiye", "duvarci", "usta", "elektrikci", "tesisatci",
-        "gradevina", "gradjevina", "gradiliste", "zidar",
-        "constructii", "santier", "zidar", "electrician",
-        "epitoipar", "epitkezes", "komuves", "villanyszerelo",
-        "gradbenistvo", "gradbisce", "zidar",
-        "construction", "building", "builder", "site"
-      ]
-    },
-    {
-      id: "it_metal",
-      terms: [
-        "it", "edv", "informationstechnologie", "software", "metall", "metalltechnische", "industrie", "elektro", "elektronik", "fahrzeugindustrie",
-        "bilisim", "yazilim", "metal", "sanayi", "fabrika", "otomotiv",
-        "racunarstvo", "metalurgija", "industrija", "tvornica",
-        "informatica", "industrie", "fabrica", "auto",
-        "informatika", "femipar", "ipar", "gyar", "autoipar",
-        "racunalnistvo", "kovinska", "industrija", "tovarna",
-        "software", "engineering", "manufacturing", "factory", "automotive"
-      ]
-    },
-    {
-      id: "transport_care",
-      terms: [
-        "gueterbefoerderung", "transport", "fahrer", "lkw", "logistik", "pflege", "sozialwirtschaft", "swoe", "reinigung",
-        "nakliye", "sofor", "tir", "kamyon", "lojistik", "bakim", "temizlik", "sosyal hizmet",
-        "prijevoz", "prevoz", "vozac", "kamion", "njega", "nega", "ciscenje",
-        "transport", "sofer", "camion", "ingrijire", "curatenie",
-        "fuvarozas", "sofor", "teherauto", "apolas", "takaritas",
-        "prevoz", "voznik", "tovornjak", "nega", "ciscenje",
-        "driver", "truck", "logistics", "care", "nursing", "cleaning"
-      ]
-    },
-    {
-      id: "overtime_hours",
-      terms: [
-        "arbeitszeit", "ueberstunden", "mehrarbeit", "pause", "ruhezeit", "schicht", "teilzeit", "vollzeit", "dienstplan",
-        "mesai", "fazla mesai", "calisma saati", "mola", "vardiya", "yari zamanli", "dinlenme",
-        "radno vrijeme", "radno vreme", "prekovremeni", "pauza", "smjena", "smena",
-        "program", "ore suplimentare", "pauza", "tura",
-        "munkaido", "tulora", "szunet", "muszak", "reszmunkaido",
-        "delovni cas", "nadure", "odmor", "izmena",
-        "working hours", "overtime", "shift", "part-time", "rest"
-      ]
-    },
-    {
-      id: "sick_leave",
-      terms: [
-        "krankheit", "krankenstand", "arzt", "pflegefreistellung", "urlaub", "feiertag", "entgeltfortzahlung",
-        "hastalik", "rapor", "doktor", "izin", "yillik izin", "resmi tatil", "bakim izni",
-        "bolovanje", "bolest", "lijecnik", "lekar", "godisnji odmor", "praznik",
-        "boala", "concediu medical", "concediu anual", "sarbatoare",
-        "betegseg", "tappenz", "orvos", "szabadsag", "unnepnap",
-        "bolezen", "bolniska", "zdravnik", "dopust", "praznik",
-        "sick leave", "illness", "doctor", "annual leave", "holiday"
-      ]
-    },
-    {
-      id: "tax_pay",
-      terms: [
-        "lohn", "gehalt", "steuer", "einkommensteuer", "steuerstufe", "tarifstufe", "lohnzettel", "brutto", "netto", "arbeitnehmerveranlagung", "familienbonus", "pendlerpauschale", "mindestlohn", "13539",
-        "maas", "ucret", "vergi", "vergi dilimi", "gelir vergisi", "bordro", "vergi iadesi", "asgari ucret", "yol parasi", "brut", "net",
-        "plata", "placa", "zarada", "porez", "porezni razred", "platna lista", "povrat poreza", "minimalac",
-        "salariu", "impozit", "transe de impozitare", "fluturas", "restituire impozit",
-        "ber", "fizetes", "ado", "adokulcs", "berjegyzek", "adovisszaterites",
-        "placa", "davek", "davcni razred", "placilna lista", "vracilo davka",
-        "salary", "wage", "tax", "tax bracket", "income tax", "payslip", "tax refund", "minimum wage"
-      ]
-    }
-  ];
+  "use strict";
 
-  function normalize(value) {
-    return String(value || "")
-      .normalize("NFD")
-      .replace(/\p{Diacritic}/gu, "")
-      .replace(/ß/g, "ss")
-      .replace(/ı/g, "i")
-      .toLowerCase()
-      .trim();
+  const common = typeof require !== "undefined" ? require("./common.js") : window.haklar;
+  const { words } = common;
+
+  const GERMAN_DIGRAPHS = { "ä": "ae", "ö": "oe", "ü": "ue", "Ä": "Ae", "Ö": "Oe", "Ü": "Ue" };
+  const RELATED_FACTOR = 0.5;   // "related" kavramların ağırlık çarpanı
+  const MIN_PREFIX_QUERY = 4;   // yazarken ("mutters") ön ek eşleşmesi için en kısa sorgu
+  const MIN_PREFIX_TOKEN = 5;   // sorgudaki tek sözcüğün terim başına eşleşmesi için en kısa uzunluk
+
+  // Metin " sözcük sözcük " biçiminde; 5+ harfli terimler sözcük başında eşleşir
+  // (Türkçe ekler ve Almanca bileşik sözcükler için), kısa terimler yalnızca tam sözcük olarak.
+  function containsTerm(paddedWords, term) {
+    return term.length >= 5
+      ? paddedWords.includes(" " + term)
+      : paddedWords.includes(" " + term + " ");
   }
-
-  const NORMALIZED_CLUSTERS = CONCEPT_CLUSTERS.map((cluster) => ({
-    id: cluster.id,
-    terms: cluster.terms.map(normalize)
-  }));
 
   function levenshtein(a, b) {
     if (a === b) return 0;
     if (!a.length) return b.length;
     if (!b.length) return a.length;
-    const matrix = Array.from({ length: a.length + 1 }, (_, i) => [i]);
-    for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+    let previous = Array.from({ length: b.length + 1 }, (_, j) => j);
     for (let i = 1; i <= a.length; i++) {
+      const current = [i];
       for (let j = 1; j <= b.length; j++) {
-        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j] + 1,
-          matrix[i][j - 1] + 1,
-          matrix[i - 1][j - 1] + cost
+        current[j] = Math.min(
+          previous[j] + 1,
+          current[j - 1] + 1,
+          previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)
         );
       }
+      previous = current;
     }
-    return matrix[a.length][b.length];
+    return previous[b.length];
   }
 
-  function tokenMatchesTerm(token, term) {
-    if (term.includes(token) || (token.length >= 4 && token.includes(term))) return true;
-    if (token.length >= 5 && term.length >= 5) {
-      const maxDist = token.length >= 8 ? 2 : 1;
-      return levenshtein(token, term) <= maxDist;
-    }
-    return false;
+  function typoTolerance(length) {
+    return length >= 9 ? 2 : 1;
   }
 
-  function expandQuery(rawQuery) {
-    const normalizedQuery = normalize(rawQuery);
-    if (!normalizedQuery) return { tokens: [], expandedTerms: [] };
+  function termVariants(raw) {
+    const variants = new Set([words(raw)]);
+    if (/[äöüÄÖÜ]/.test(raw)) {
+      variants.add(words(raw.replace(/[äöüÄÖÜ]/g, (ch) => GERMAN_DIGRAPHS[ch])));
+    }
+    variants.delete("");
+    return [...variants];
+  }
 
-    const tokens = normalizedQuery.split(/[\s,.;:!?()[\]"'/-]+/).filter((t) => t.length >= 2);
-    const expanded = new Set(tokens);
+  /** concepts.json verisinden bir arama motoru kurar. */
+  function createEngine(data) {
+    const concepts = new Map();   // id -> { id, kind, display, related, terms: Set<string> }
+    const termIndex = new Map();  // normalleştirilmiş terim -> Set<conceptId>
 
-    for (const token of tokens) {
-      for (const cluster of NORMALIZED_CLUSTERS) {
-        if (cluster.terms.some((term) => tokenMatchesTerm(token, term))) {
-          cluster.terms.forEach((term) => expanded.add(term));
+    for (const [id, definition] of Object.entries((data && data.concepts) || {})) {
+      const terms = new Set();
+      for (const list of Object.values(definition.terms || {})) {
+        for (const raw of list) {
+          for (const variant of termVariants(raw)) {
+            terms.add(variant);
+            if (!termIndex.has(variant)) termIndex.set(variant, new Set());
+            termIndex.get(variant).add(id);
+          }
         }
       }
+      concepts.set(id, {
+        id,
+        kind: definition.kind || "topic",
+        display: definition.display || [],
+        related: definition.related || [],
+        terms
+      });
     }
 
-    return {
-      normalizedQuery,
-      tokens,
-      expandedTerms: [...expanded]
+    const fuzzyCandidates = [...termIndex.keys()].filter((term) => term.length >= 6 && !term.includes(" "));
+    const fuzzyCache = new Map();
+
+    function fuzzyConceptsForToken(token) {
+      if (fuzzyCache.has(token)) return fuzzyCache.get(token);
+      const matched = new Set();
+      if (token.length >= 6) {
+        const maxDistance = typoTolerance(token.length);
+        for (const term of fuzzyCandidates) {
+          if (Math.abs(term.length - token.length) > maxDistance) continue;
+          if (levenshtein(token, term) <= maxDistance) {
+            termIndex.get(term).forEach((id) => matched.add(id));
+          }
+        }
+      }
+      fuzzyCache.set(token, matched);
+      return matched;
+    }
+
+    function expandQuery(rawQuery) {
+      const normalizedQuery = words(rawQuery);
+      if (!normalizedQuery) return { raw: rawQuery, normalizedQuery: "", tokens: [], concepts: [], hints: [] };
+
+      const tokens = normalizedQuery.split(" ").filter((token) => token.length >= 2);
+      const padded = ` ${normalizedQuery} `;
+      const weights = new Map(); // conceptId -> ağırlık
+      const raise = (id, weight) => {
+        if ((weights.get(id) || 0) < weight) weights.set(id, weight);
+      };
+
+      for (const [term, ids] of termIndex) {
+        let weight = 0;
+        if (containsTerm(padded, term)) {
+          weight = 1;
+        } else if (normalizedQuery.length >= MIN_PREFIX_QUERY && term.startsWith(normalizedQuery)) {
+          weight = 0.7;
+        } else if (tokens.some((token) => token.length >= MIN_PREFIX_TOKEN && term.startsWith(token))) {
+          weight = 0.6;
+        }
+        if (weight) ids.forEach((id) => raise(id, weight));
+      }
+
+      // Hiçbir kavram bulunamadıysa yazım hatalarını dene.
+      if (!weights.size) {
+        for (const token of tokens) fuzzyConceptsForToken(token).forEach((id) => raise(id, 0.5));
+      }
+
+      const primary = [...weights.entries()];
+      for (const [id, weight] of primary) {
+        for (const relatedId of concepts.get(id).related) {
+          if (concepts.has(relatedId)) raise(relatedId, weight * RELATED_FACTOR);
+        }
+      }
+
+      const primaryIds = new Set(primary.map(([id]) => id));
+      const matched = [...weights.entries()]
+        .map(([id, weight]) => ({ id, weight, primary: primaryIds.has(id), concept: concepts.get(id) }))
+        .sort((a, b) => b.weight - a.weight);
+
+      const hints = [];
+      for (const item of matched) {
+        if (!item.primary || item.weight < 0.6) continue;
+        for (const label of item.concept.display) {
+          if (!hints.includes(label) && words(label) !== normalizedQuery) hints.push(label);
+        }
+      }
+
+      return {
+        raw: rawQuery,
+        normalizedQuery,
+        tokens,
+        concepts: matched.map(({ id, weight, primary: isPrimary }) => ({ id, weight, primary: isPrimary })),
+        hints
+      };
+    }
+
+    function conceptTerms(id) {
+      const concept = concepts.get(id);
+      return concept ? [...concept.terms] : [];
+    }
+
+    // paddedWords: " sözcük sözcük " biçimli metin
+    function countConceptHits(paddedWords, id) {
+      const concept = concepts.get(id);
+      if (!concept) return 0;
+      let hits = 0;
+      for (const term of concept.terms) if (containsTerm(paddedWords, term)) hits += 1;
+      return hits;
+    }
+
+    /** Belgenin (kart, KV başlığı vb.) sorguyla ne kadar eşleştiğini puanlar. 0 = eşleşme yok. */
+    function scoreDocument(searchableText, context) {
+      if (!context || !context.normalizedQuery) return 1;
+      const text = words(searchableText);
+      if (!text) return 0;
+      const padded = ` ${text} `;
+
+      let score = 0;
+      if (padded.includes(` ${context.normalizedQuery}`)) score += 100;
+
+      for (const token of context.tokens) {
+        const hit = token.length >= 4 ? padded.includes(token) : padded.includes(` ${token} `);
+        if (hit) score += 30;
+      }
+
+      for (const concept of context.concepts) {
+        const hits = countConceptHits(padded, concept.id);
+        if (hits) score += concept.weight * (25 + 5 * Math.min(hits, 3));
+      }
+
+      if (score === 0) {
+        const textWords = text.split(" ").filter((word) => word.length >= 5);
+        for (const token of context.tokens) {
+          if (token.length < 5) continue;
+          const maxDistance = typoTolerance(token.length);
+          if (textWords.some((word) => Math.abs(word.length - token.length) <= maxDistance
+            && levenshtein(word, token) <= maxDistance)) {
+            score += 15;
+          }
+        }
+      }
+      return score;
+    }
+
+    return { expandQuery, scoreDocument, countConceptHits, conceptTerms, hasConcept: (id) => concepts.has(id) };
+  }
+
+  const api = { createEngine, containsTerm, levenshtein };
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = api;
+  } else {
+    // Tarayıcı: sözlük yüklenene kadar boş motor; ready çözülünce gerçek motor devreye girer.
+    let engine = createEngine({ concepts: {} });
+    const ready = common.loadJson("content/concepts.json")
+      .then((data) => { engine = createEngine(data); })
+      .catch((error) => console.error("Could not load content/concepts.json; falling back to plain text search.", error));
+
+    window.haklarSemantic = {
+      ready,
+      expandQuery: (query) => engine.expandQuery(query),
+      scoreDocument: (text, context) => engine.scoreDocument(text, context),
+      countConceptHits: (padded, id) => engine.countConceptHits(padded, id),
+      containsTerm
     };
   }
-
-  function scoreDocument(searchableText, queryContext) {
-    if (!queryContext || !queryContext.normalizedQuery) return 1;
-    const text = normalize(searchableText);
-    if (!text) return 0;
-
-    let score = 0;
-    if (text.includes(queryContext.normalizedQuery)) {
-      score += 100;
-    }
-
-    let directHits = 0;
-    for (const token of queryContext.tokens) {
-      if (text.includes(token)) {
-        directHits += 1;
-        score += 30;
-      }
-    }
-
-    let semanticHits = 0;
-    for (const term of queryContext.expandedTerms) {
-      if (text.includes(term)) {
-        semanticHits += 1;
-        score += 8;
-      }
-    }
-
-    if (directHits === 0 && semanticHits === 0) {
-      const words = text.split(/[\s,.;:!?()[\]"'/-]+/).filter((w) => w.length >= 5);
-      for (const token of queryContext.tokens) {
-        if (token.length < 5) continue;
-        const maxDist = token.length >= 8 ? 2 : 1;
-        if (words.some((w) => Math.abs(w.length - token.length) <= maxDist && levenshtein(w, token) <= maxDist)) {
-          score += 15;
-        }
-      }
-    }
-
-    return score;
-  }
-
-  window.haklarSemantic = {
-    normalize,
-    expandQuery,
-    scoreDocument
-  };
 })();

@@ -13,15 +13,23 @@
   "helpTitle": "Imate težavo?",
   "helpText": "Shranite dokumente in prosite za brezplačen nasvet. Pred podpisom vprašajte, če česa ne razumete.",
   "disclaimer": "Ta stran vsebuje splošne informacije in ni pravni nasvet. O svojem primeru se posvetujte z Arbeiterkammer (AK) ali sindikatom.",
-  "footer": "Viri: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at in RIS. Pravila se lahko spremenijo; za aktualne informacije vprašajte predstavnika zaposlenih, sindikat ali vir.",
+  "footer": "Viri: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at in RIS. Pravila se lahko spremenijo; za aktualne informacije vprašajte predstavnika zaposlenih, sindikat ali vir.",
   "open": "Odprite podrobnosti",
   "close": "Zaprite podrobnosti",
   "sources": "Viri",
   "helpLinks": [
-    "AK Steiermark",
-    "ÖGB",
-    "GLB",
-    "RIS · avstrijska zakonodaja (v nemščini)"
+    {
+      "label": "AK Steiermark",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · avstrijska zakonodaja (v nemščini)",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

@@ -36,13 +36,13 @@
 
       <section class="guide-search" role="search">
         <label for="guideSearch" class="visually-hidden" data-i18n="searchLabel">Konu veya anahtar kelime ara</label>
-        <input id="guideSearch" type="search" autocomplete="off" placeholder="Örn: ikramiye, kıdem tazminatı, kovulma, vergi dilimi...">
+        <input id="guideSearch" type="search" autocomplete="off" placeholder="Örn: annelik, ikramiye, kıdem tazminatı, kovulma, vergi dilimi...">
+        <p class="concept-hint" id="conceptHint" hidden></p>
         <p class="search-status" id="guideSearchStatus" aria-live="polite"></p>
       </section>
 
       <div class="cards" id="cards"></div>
-      
-      <!-- Dinamik RAG Toplu Sözleşme Sonuçları Alanı -->
+
       <div id="ragSearchResults" class="rag-results-section" hidden></div>
 
       <p class="load-error" id="noCardResults" role="status" hidden></p>
@@ -55,14 +55,16 @@
         </div>
         <div class="help-links" id="helpLinks"></div>
       </section>
-      <h3 class="disclaimer" data-i18n="disclaimer">Bu sayfa genel bilgilendirmedir; hukuki danışmanlık değildir. Özel durumunu Arbeiterkammer (AK) veya sendika ile görüş.</h3>
+      <p class="disclaimer" data-i18n="disclaimer">Bu sayfa genel bilgilendirmedir; hukuki danışmanlık değildir. Özel durumunu Arbeiterkammer (AK) veya sendika ile görüş.</p>
     </main>
-    <footer data-i18n="footer">Kaynaklar: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB) ve kollektivvertrag.at. Bilgiler değişebilir; güncel durum için kaynağa danış.</footer>
+    <footer data-i18n="footer">Kaynaklar: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB) ve kollektivvertrag.at. Bilgiler değişebilir; güncel durum için kaynağa danış.</footer>
+    <p class="volunteer-note" role="note" data-shared="volunteerNote">Bu uygulama tamamen gönüllü olarak, çeşitli kaynaklardan derlenen bilgilerle hazırlanmıştır. Yasal bir sorumluluk üstlenmez; bilgiler eksik veya güncelliğini yitirmiş olabilir. Yasal konularda lütfen Arbeiterkammer (AK) ve sendikanızla görüşün.</p>
   </div>
 
-  <script src="assets/language.js" defer></script>
+  <script src="assets/common.js" defer></script>
   <script src="assets/semantic.js" defer></script>
   <script src="assets/rag-retriever.js" defer></script>
+  <script src="assets/tax-section.js" defer></script>
   <script src="assets/app.js" defer></script>
 </body>
 </html>

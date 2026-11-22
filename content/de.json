@@ -13,15 +13,23 @@
   "helpTitle": "Gibt es ein Problem?",
   "helpText": "Bewahren Sie Ihre Unterlagen auf und holen Sie sich kostenlose Beratung. Fragen Sie nach, bevor Sie etwas unterschreiben, das Sie nicht verstehen.",
   "disclaimer": "Diese Seite bietet allgemeine Informationen, keine Rechtsberatung. Besprechen Sie Ihren Fall mit der Arbeiterkammer (AK) oder einer Gewerkschaft.",
-  "footer": "Quellen: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), Gewerkschaftlicher Linksblock (GLB), kollektivvertrag.at und RIS. Regeln können sich ändern; wenden Sie sich für aktuelle Informationen an die Arbeitnehmervertretung, die Gewerkschaft oder die Quelle. RIS veröffentlicht die österreichischen Gesetze amtlich auf Deutsch.",
+  "footer": "Quellen: Arbeiterkammer (AK), Österreichischer Gewerkschaftsbund (ÖGB), kollektivvertrag.at und RIS. Regeln können sich ändern; wenden Sie sich für aktuelle Informationen an die Arbeitnehmervertretung, die Gewerkschaft oder die Quelle. RIS veröffentlicht die österreichischen Gesetze amtlich auf Deutsch.",
   "open": "Details öffnen",
   "close": "Details schließen",
   "sources": "Quellen",
   "helpLinks": [
-    "AK Steiermark",
-    "ÖGB",
-    "GLB",
-    "RIS · Österreichisches Recht"
+    {
+      "label": "AK Steiermark",
+      "url": "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html"
+    },
+    {
+      "label": "ÖGB",
+      "url": "https://www.oegb.at/themen/arbeitsrecht"
+    },
+    {
+      "label": "RIS · Österreichisches Recht",
+      "url": "https://www.ris.bka.gv.at/"
+    }
   ],
   "cards": [
     {

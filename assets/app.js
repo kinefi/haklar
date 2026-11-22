@@ -1,30 +1,13 @@
 /**
- * Haklar - Main Application Script (v1.5.0)
- * Integrates multilingual guides, live tax brackets, and hybrid client-side RAG search.
+ * Haklar - ana sayfa: çok dilli rehber kartları, kavram tabanlı arama ve KV sonuçları.
+ * Bağımlılıklar: common.js, semantic.js, rag-retriever.js, tax-section.js
  */
 (() => {
-  const languages = {
-    tr: { name: "Türkçe", short: "TR", html: "tr", locale: "tr-TR", error: "Türkçe içerik yüklenemedi. Sayfayı yenileyin." },
-    hr: { name: "Hrvatski", short: "HR", html: "hr", locale: "hr-HR", error: "Sadržaj na hrvatskom nije moguće učitati. Osvježite stranicu." },
-    sr: { name: "Srpski", short: "SR", html: "sr-Latn", locale: "sr-Latn-RS", error: "Sadržaj na srpskom nije moguće učitati. Osvežite stranicu." },
-    bs: { name: "Bosanski", short: "BS", html: "bs", locale: "bs-BA", error: "Sadržaj na bosanskom nije moguće učitati. Osvježite stranicu." },
-    ro: { name: "Română", short: "RO", html: "ro", locale: "ro-RO", error: "Conținutul în română nu s-a putut încărca. Reîncărcați pagina." },
-    hu: { name: "Magyar", short: "HU", html: "hu", locale: "hu-HU", error: "A magyar tartalom nem tölthető be. Frissítse az oldalt." },
-    sl: { name: "Slovenščina", short: "SL", html: "sl", locale: "sl-SI", error: "Vsebine v slovenščini ni bilo mogoče naložiti. Osvežite stran." },
-    de: { name: "Deutsch", short: "DE", html: "de", locale: "de-AT", error: "Deutsche Inhalte konnten nicht geladen werden. Bitte laden Sie die Seite neu." },
-    en: { name: "English", short: "EN", html: "en", locale: "en-GB", error: "English content could not be loaded. Please reload the page." }
-  };
+  "use strict";
 
-  const contentCache = new Map();
-  let cardIconsRequest;
-  let taxBundleRequest;
-
-  const helpResources = [
-    { url: "https://stmk.arbeiterkammer.at/ueberuns/kontakt/Kontakt.html" },
-    { url: "https://www.oegb.at/themen/arbeitsrecht" },
-    { url: "https://www.glb.at/thema/die-arbeit/" },
-    { url: "https://www.ris.bka.gv.at/" }
-  ];
+  const { LANGUAGES, loadJson, el, externalLink, renderLanguageSwitcher, applySharedUi } = window.haklar;
+  const SEARCH_DEBOUNCE_MS = 150;
+  const RAG_TOP_K = 6;
 
   const languagesEl = document.querySelector("#languages");
   const cardsEl = document.querySelector("#cards");
@@ -32,405 +15,209 @@
   const loadErrorEl = document.querySelector("#loadError");
   const searchInputEl = document.querySelector("#guideSearch");
   const searchStatusEl = document.querySelector("#guideSearchStatus");
+  const conceptHintEl = document.querySelector("#conceptHint");
   const noCardResultsEl = document.querySelector("#noCardResults");
-  const ragResultsContainerEl = document.querySelector("#ragSearchResults");
+  const ragResultsEl = document.querySelector("#ragSearchResults");
 
+  const state = {
+    language: "tr",
+    content: null,       // content/<dil>.json
+    icons: null,         // content/card-icons.json
+    taxBundle: null,     // vergi dilimleri (yüklenemezse null)
+    shared: {}           // content/shared-ui.json içinden seçili dil
+  };
   let renderRequest = 0;
-  let activeLanguage = "tr";
-  let activeContent = null;
-  let activeCardIcons = null;
-  let activeTaxBundle = null;
+  let searchRequest = 0;
+  let searchTimer;
 
-  async function loadContent(language) {
-    if (!contentCache.has(language)) {
-      const request = fetch(new URL(`content/${language}.json`, document.baseURI))
-        .then((response) => {
-          if (!response.ok) throw new Error(`Could not load content/${language}.json`);
-          return response.json();
-        })
-        .catch((error) => {
-          contentCache.delete(language);
-          throw error;
-        });
-      contentCache.set(language, request);
-    }
-    return contentCache.get(language);
-  }
+  // ---------- Kartlar ----------
 
-  async function loadCardIcons() {
-    if (!cardIconsRequest) {
-      cardIconsRequest = fetch(new URL("content/card-icons.json", document.baseURI))
-        .then((response) => {
-          if (!response.ok) throw new Error("Could not load content/card-icons.json");
-          return response.json();
-        })
-        .catch((error) => {
-          cardIconsRequest = undefined;
-          throw error;
-        });
-    }
-    return cardIconsRequest;
-  }
+  function buildCard(card, autoOpen) {
+    const { content, icons, taxBundle, language } = state;
 
-  async function loadTaxBundle() {
-    if (!taxBundleRequest) {
-      taxBundleRequest = Promise.all([
-        fetch(new URL("content/pay-ui.json", document.baseURI)).then((r) => {
-          if (!r.ok) throw new Error("Could not load content/pay-ui.json");
-          return r.json();
-        }),
-        fetch(new URL("content/income-tax-current.json", document.baseURI)).then((r) => {
-          if (!r.ok) throw new Error("Could not load content/income-tax-current.json");
-          return r.json();
-        })
-      ]).then(([payUi, taxData]) => ({ payUi, taxData }))
-        .catch((error) => {
-          taxBundleRequest = undefined;
-          return null;
-        });
-    }
-    return taxBundleRequest;
-  }
-
-  function formatCurrency(value, locale) {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: "EUR",
-      maximumFractionDigits: 0
-    }).format(value);
-  }
-
-  function formatBand(bracket, ui, locale) {
-    const lower = formatCurrency(bracket.lower, locale);
-    if (bracket.lower === 0) {
-      return ui.firstBand.replace("{amount}", formatCurrency(bracket.upper, locale));
-    }
-    if (bracket.upper === null) {
-      return ui.overBand.replace("{lower}", lower);
-    }
-    return ui.rangeBand
-      .replace("{lower}", lower)
-      .replace("{upper}", formatCurrency(bracket.upper, locale));
-  }
-
-  function buildTaxSection(language) {
-    if (!activeTaxBundle || !activeTaxBundle.payUi?.[language] || !activeTaxBundle.taxData?.brackets) {
-      return null;
-    }
-    const ui = activeTaxBundle.payUi[language];
-    const locale = languages[language].locale;
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "tax-embedded";
-
-    const heading = document.createElement("h3");
-    heading.className = "tax-embedded-title";
-    heading.textContent = ui.taxTitle;
-
-    const intro = document.createElement("p");
-    intro.textContent = ui.taxIntro;
-
-    const tableWrap = document.createElement("div");
-    tableWrap.className = "tax-table-wrap";
-
-    const table = document.createElement("table");
-    table.className = "tax-table";
-
-    const thead = document.createElement("thead");
-    const headRow = document.createElement("tr");
-    const thBand = document.createElement("th");
-    thBand.scope = "col";
-    thBand.textContent = ui.incomeHeader;
-    const thRate = document.createElement("th");
-    thRate.scope = "col";
-    thRate.textContent = ui.rateHeader;
-    headRow.append(thBand, thRate);
-    thead.append(headRow);
-
-    const tbody = document.createElement("tbody");
-    activeTaxBundle.taxData.brackets.forEach((bracket) => {
-      const row = document.createElement("tr");
-      const tdBand = document.createElement("td");
-      tdBand.textContent = formatBand(bracket, ui, locale);
-      const tdRate = document.createElement("td");
-      tdRate.textContent = `${bracket.rate}%`;
-      row.append(tdBand, tdRate);
-      tbody.append(row);
-    });
-
-    table.append(thead, tbody);
-    tableWrap.append(table);
-
-    const note = document.createElement("p");
-    note.className = "pay-note";
-    note.textContent = ui.taxNote;
-
-    wrapper.append(heading, intro, tableWrap, note);
-    return wrapper;
-  }
-
-  function buildCardElement(card, current, cardIcons, autoOpen) {
-    const details = document.createElement("details");
-    details.className = "card";
-    if (autoOpen) details.open = true;
-
-    const summary = document.createElement("summary");
-    const icon = document.createElement("span");
-    icon.className = "card-icon";
-    icon.setAttribute("aria-hidden", "true");
-    icon.textContent = cardIcons[card.id] || "📌";
-
-    const heading = document.createElement("span");
-    const title = document.createElement("span");
-    title.className = "card-title";
-    title.textContent = card.title;
-    const teaser = document.createElement("span");
-    teaser.className = "card-teaser";
-    teaser.textContent = card.teaser;
-    heading.append(title, teaser);
-
-    const chevron = document.createElement("span");
-    chevron.className = "chevron";
-    chevron.setAttribute("aria-hidden", "true");
-    chevron.textContent = "⌄";
-    summary.append(icon, heading, chevron);
-
-    const body = document.createElement("div");
-    body.className = "card-body";
-    const intro = document.createElement("p");
-    intro.textContent = card.intro;
-    const list = document.createElement("ul");
-    card.bullets.forEach((bullet) => {
-      const item = document.createElement("li");
-      item.textContent = bullet;
-      list.append(item);
-    });
-
-    body.append(intro, list);
-
-    if (card.id === "tax") {
-      const taxSection = buildTaxSection(activeLanguage);
-      if (taxSection) {
-        body.append(taxSection);
-      }
-    }
-
-    const sourceList = document.createElement("div");
-    sourceList.className = "sources";
-    const sourceHeading = document.createElement("span");
-    sourceHeading.textContent = current.sources + ":";
-    sourceList.append(sourceHeading);
+    const summary = el("summary", {},
+      el("span", { class: "card-icon", "aria-hidden": "true", text: icons[card.id] || "📌" }),
+      el("span", {},
+        el("span", { class: "card-title", text: card.title }),
+        el("span", { class: "card-teaser", text: card.teaser })
+      ),
+      el("span", { class: "chevron", "aria-hidden": "true", text: "⌄" })
+    );
 
     const links = [...card.links];
-    if (card.id === "tax" && activeTaxBundle?.payUi?.[activeLanguage]) {
-      const ui = activeTaxBundle.payUi[activeLanguage];
-      links.push(
-        { label: ui.bmfLink, url: "https://bruttonetto.bmf.gv.at/" },
-        { label: ui.akTaxLink, url: "https://www.arbeiterkammer.at/beratung/steuerundeinkommen/steuertipps/Lohnsteuertabelle.html" }
-      );
+    const body = el("div", { class: "card-body" },
+      el("p", { text: card.intro }),
+      el("ul", {}, ...card.bullets.map((bullet) => el("li", { text: bullet })))
+    );
+
+    if (card.id === "tax") {
+      const taxSection = window.haklarTax.buildSection(taxBundle, language);
+      if (taxSection) body.append(taxSection);
+      links.push(...window.haklarTax.extraLinks(taxBundle, language));
     }
 
-    links.forEach((reference) => {
-      const link = document.createElement("a");
-      link.href = reference.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = reference.label;
-      sourceList.append(link);
-    });
-    body.append(sourceList);
-    details.append(summary, body);
+    body.append(el("div", { class: "sources" },
+      el("span", { text: `${content.sources}:` }),
+      ...links.map((link) => externalLink(link.url, link.label))
+    ));
+
+    const details = el("details", { class: "card" }, summary, body);
+    details.open = autoOpen;
     return details;
   }
 
-  function renderRagResultsContainer(ragResults) {
-    if (!ragResultsContainerEl) return;
-
-    // Sadece KV, Tax ve Tam Metin sonuçlarını al (guide_card hariç)
-    const legalResults = (ragResults || []).filter(item => item.sourceType !== "guide_card");
-
-    if (legalResults.length === 0) {
-      ragResultsContainerEl.hidden = true;
-      ragResultsContainerEl.innerHTML = "";
-      return;
-    }
-
-    ragResultsContainerEl.hidden = false;
-    const heading = document.createElement("h3");
-    heading.className = "rag-results-title";
-    heading.textContent = activeLanguage === "tr" ? "İlgili Toplu Sözleşmeler ve Mevzuat:" : "Relevant Collective Agreements & Regulations:";
-
-    const list = document.createElement("div");
-    list.className = "rag-results-list";
-
-    legalResults.forEach((item) => {
-      const card = document.createElement("div");
-      card.className = "rag-result-card";
-
-      const title = document.createElement("h4");
-      title.textContent = item.title || "Toplu Sözleşme / Madde";
-
-      const meta = document.createElement("span");
-      meta.className = "rag-meta";
-      meta.textContent = item.section || "";
-
-      const text = document.createElement("p");
-      const rawText = item.text || "";
-      text.textContent = rawText.length > 220 ? rawText.substring(0, 220) + "..." : rawText;
-
-      card.append(title, meta, text);
-
-      if (item.url && item.url.startsWith("http")) {
-        const link = document.createElement("a");
-        link.href = item.url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = activeLanguage === "tr" ? "Kaynağa Git ↗" : "View Source ↗";
-        card.append(link);
-      }
-
-      list.append(card);
-    });
-
-    ragResultsContainerEl.replaceChildren(heading, list);
+  function cardSearchText(card) {
+    const extra = card.id === "tax" ? window.haklarTax.searchableText(state.taxBundle, state.language) : "";
+    return [card.id, card.title, card.teaser, card.intro, ...(card.keywords || []), ...card.bullets, extra].join(" ");
   }
 
-  async function renderFilteredCards() {
-    if (!activeContent || !activeCardIcons) return;
-    const rawQuery = searchInputEl ? searchInputEl.value.trim() : "";
-    
-    // 1. RAG Retriever üzerinden hibrit arama (Toplu sözleşmeler ve mevzuat)
-    let ragResults = [];
-    if (rawQuery.length >= 2 && window.haklarRAG) {
-      try {
-        ragResults = await window.haklarRAG.retrieve(rawQuery, {
-          lang: activeLanguage,
-          topK: 5
-        });
-      } catch (err) {
-        console.error("RAG retrieval error:", err);
-      }
-    }
+  // ---------- KV / mevzuat sonuçları ----------
 
-    renderRagResultsContainer(ragResults);
+  function resultSummary(item) {
+    if (item.meta?.topics?.length) return item.meta.topics.join(" · ");
+    const text = item.text || "";
+    return text.length > 220 ? `${text.slice(0, 220)}…` : text;
+  }
 
-    // 2. Yerel rehber kartlarını filtreleme
-    const queryContext = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
-
-    let matchedCards = activeContent.cards.map((card) => {
-      if (!queryContext) return { card, score: 1 };
-      const extraTaxText = card.id === "tax" && activeTaxBundle?.payUi?.[activeLanguage]
-        ? `${activeTaxBundle.payUi[activeLanguage].taxTitle} ${activeTaxBundle.payUi[activeLanguage].taxIntro} 2026 13539 21992 36458 70365 104859`
-        : "";
-      const searchable = [
-        card.id,
-        card.title,
-        card.teaser,
-        card.intro,
-        ...(card.keywords || []),
-        ...card.bullets,
-        extraTaxText
-      ].join(" ");
-      return {
-        card,
-        score: window.haklarSemantic.scoreDocument(searchable, queryContext)
-      };
-    });
-
-    if (queryContext) {
-      matchedCards = matchedCards
-        .filter((item) => item.score > 0)
-        .sort((a, b) => b.score - a.score);
-    }
-
-    const autoOpen = Boolean(queryContext && matchedCards.length > 0 && matchedCards.length <= 2);
-    cardsEl.replaceChildren(
-      ...matchedCards.map(({ card }) => buildCardElement(card, activeContent, activeCardIcons, autoOpen))
+  function buildRagCard(item) {
+    const { shared, language } = state;
+    const isGermanSource = item.lang === "de" && language !== "de";
+    const link = item.url && item.url.startsWith("http")
+      ? externalLink(item.url, `${shared.viewSource} ↗`)
+      : null;
+    return el("div", { class: "rag-result-card" },
+      el("h4", {}, item.title || "—", isGermanSource ? el("span", { class: "lang-badge", lang: "de", text: "DE" }) : null),
+      item.section ? el("span", { class: "rag-meta", text: item.section }) : null,
+      el("p", { text: resultSummary(item) }),
+      link
     );
+  }
 
-    if (searchStatusEl) {
-      searchStatusEl.textContent = queryContext
-        ? `${matchedCards.length} / ${activeContent.cards.length}`
-        : "";
+  function renderRagResults(results) {
+    if (!results.length) {
+      ragResultsEl.hidden = true;
+      ragResultsEl.replaceChildren();
+      return;
+    }
+    ragResultsEl.hidden = false;
+    ragResultsEl.replaceChildren(
+      el("h3", { class: "rag-results-title", text: state.shared.ragTitle }),
+      el("div", { class: "rag-results-list" }, ...results.map(buildRagCard))
+    );
+  }
+
+  // ---------- Kavram ipucu ("Almancada: Mutterschutz · Wochengeld") ----------
+
+  function renderConceptHint(hints) {
+    const show = state.language !== "de" && hints.length > 0;
+    conceptHintEl.hidden = !show;
+    if (!show) {
+      conceptHintEl.replaceChildren();
+      return;
+    }
+    conceptHintEl.replaceChildren(
+      el("span", { text: `${state.shared.conceptHint} ` }),
+      ...hints.slice(0, 4).map((term) => {
+        const button = el("button", { type: "button", class: "concept-chip", lang: "de", text: term });
+        button.addEventListener("click", () => {
+          searchInputEl.value = term;
+          runSearch();
+        });
+        return button;
+      })
+    );
+  }
+
+  // ---------- Arama ----------
+
+  async function runSearch() {
+    const request = ++searchRequest;
+    const { content, language } = state;
+    if (!content) return;
+
+    const rawQuery = searchInputEl.value.trim();
+    await window.haklarSemantic.ready;
+    if (request !== searchRequest) return;
+
+    const context = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
+
+    let ragResults = [];
+    if (context && rawQuery.length >= 2) {
+      try {
+        ragResults = await window.haklarRAG.retrieve(rawQuery, { language, topK: RAG_TOP_K });
+      } catch (error) {
+        console.error("KV search failed.", error);
+      }
+      if (request !== searchRequest) return; // daha yeni bir arama başladı
     }
 
-    if (noCardResultsEl) {
-      noCardResultsEl.textContent = activeContent.noResults || "Sonuç bulunamadı.";
-      // Göster: Eğer arama yapılmışsa VE hem rehber kartları hem de RAG sonuçları tamamen boşsa
-      noCardResultsEl.hidden = !queryContext || (matchedCards.length > 0 || (ragResults && ragResults.filter(i => i.sourceType !== "guide_card").length > 0));
-    }
+    let matched = content.cards.map((card) => ({
+      card,
+      score: context ? window.haklarSemantic.scoreDocument(cardSearchText(card), context) : 1
+    }));
+    if (context) matched = matched.filter((item) => item.score > 0).sort((a, b) => b.score - a.score);
+
+    const autoOpen = Boolean(context && matched.length > 0 && matched.length <= 2);
+    cardsEl.replaceChildren(...matched.map(({ card }) => buildCard(card, autoOpen)));
+    renderRagResults(ragResults);
+    renderConceptHint(context ? context.hints : []);
+
+    searchStatusEl.textContent = context ? `${matched.length} / ${content.cards.length}` : "";
+    noCardResultsEl.textContent = content.noResults;
+    noCardResultsEl.hidden = !context || matched.length > 0 || ragResults.length > 0;
+  }
+
+  function scheduleSearch() {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(runSearch, SEARCH_DEBOUNCE_MS);
+  }
+
+  // ---------- Sayfa ----------
+
+  function renderHelpLinks(helpLinks) {
+    helpLinksEl.replaceChildren(...helpLinks.map((link) => externalLink(link.url, link.label)));
   }
 
   async function render(language) {
-    const requestId = ++renderRequest;
-    let current;
-    let cardIcons;
-    let taxBundle;
+    const request = ++renderRequest;
+    let content, icons, shared, taxBundle;
     try {
-      [current, cardIcons, taxBundle] = await Promise.all([
-        loadContent(language),
-        loadCardIcons(),
-        loadTaxBundle()
+      [content, icons, shared, taxBundle] = await Promise.all([
+        loadJson(`content/${language}.json`),
+        loadJson("content/card-icons.json"),
+        loadJson("content/shared-ui.json"),
+        window.haklarTax.loadBundle(),
+        window.haklarSemantic.ready
       ]);
     } catch (error) {
-      if (requestId === renderRequest) {
-        loadErrorEl.textContent = languages[language].error;
+      if (request === renderRequest) {
+        loadErrorEl.textContent = LANGUAGES[language].error;
         loadErrorEl.hidden = false;
       }
       throw error;
     }
-    if (requestId !== renderRequest) return;
+    if (request !== renderRequest) return;
+
     loadErrorEl.hidden = true;
-    activeLanguage = language;
-    activeContent = current;
-    activeCardIcons = cardIcons;
-    activeTaxBundle = taxBundle;
+    Object.assign(state, { language, content, icons, taxBundle, shared: shared[language] || shared.en });
 
-    document.documentElement.lang = languages[language].html;
-    languagesEl.setAttribute("aria-label", current.languageLabel);
-    document.querySelector(".brand").setAttribute("aria-label", current.brand);
-    document.title = current.title + " · " + current.brand;
-
-    document.querySelectorAll("[data-i18n]").forEach((element) => {
-      if (current[element.dataset.i18n]) {
-        element.textContent = current[element.dataset.i18n];
-      }
+    document.documentElement.lang = LANGUAGES[language].html;
+    document.title = `${content.title} · ${content.brand}`;
+    languagesEl.setAttribute("aria-label", content.languageLabel);
+    document.querySelector(".brand").setAttribute("aria-label", content.brand);
+    document.querySelectorAll("[data-i18n]").forEach((node) => {
+      if (content[node.dataset.i18n]) node.textContent = content[node.dataset.i18n];
     });
+    applySharedUi(language);
+    if (content.searchPlaceholder) searchInputEl.placeholder = content.searchPlaceholder;
 
-    if (searchInputEl && current.searchPlaceholder) {
-      searchInputEl.placeholder = current.searchPlaceholder;
-    }
-
-    languagesEl.replaceChildren(...Object.entries(languages).map(([code, value]) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.lang = value.html;
-      button.textContent = value.short;
-      button.setAttribute("aria-label", value.name);
-      button.setAttribute("aria-pressed", String(code === language));
-      button.addEventListener("click", () => {
-        window.haklarLanguage.rememberLanguage(code);
-        render(code).catch((error) => console.error(error));
-      });
-      return button;
-    }));
-
-    renderFilteredCards();
-
-    helpLinksEl.replaceChildren(...current.helpLinks.map((label, index) => {
-      const link = document.createElement("a");
-      link.href = helpResources[index].url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = label;
-      return link;
-    }));
+    renderLanguageSwitcher(languagesEl, language, (code) => {
+      render(code).catch((error) => console.error(error));
+    });
+    renderHelpLinks(content.helpLinks);
+    runSearch();
   }
 
-  if (searchInputEl) {
-    searchInputEl.addEventListener("input", renderFilteredCards);
-  }
-
-  const language = window.haklarLanguage.initialLanguage(Object.keys(languages), "tr");
-  render(language).catch((error) => console.error("Language content could not be loaded.", error));
+  searchInputEl.addEventListener("input", scheduleSearch);
+  render(window.haklar.initialLanguage()).catch((error) => console.error("Language content could not be loaded.", error));
 })();
