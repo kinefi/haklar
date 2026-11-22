@@ -11,7 +11,8 @@ const read = (p) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url),
 
 const semantic = createEngine(read("content/concepts.json"));
 const index = read("content/rag-index.json");
-const search = (q, language, topK = 10) => rank(index, q, { language, topK, semantic });
+const agreements = read("content/collective-agreements.json").agreements;
+const search = (q, language, topK = 10) => rank(index, q, { language, topK, semantic, agreements });
 
 test("annelik -> Mutterschutz ipucu ve ilgili kavramlar", () => {
   const ctx = semantic.expandQuery("annelik");
@@ -42,7 +43,7 @@ test("kart metni: Türkçe 'annelik' Mutterschutz geçen kartı bulur", () => {
 test("arama her dili döndürmez: yerelleştirilmiş kayıtlar yalnızca seçili dilde", () => {
   for (const lang of ["tr", "hr", "de"]) {
     for (const r of search("maaş plata Gehalt salary", lang)) {
-      const ok = r.lang === lang || (r.lang === "de" && ["kv_catalog", "kv_fulltext"].includes(r.sourceType));
+      const ok = r.lang === lang || (r.lang === "de" && r.sourceType === "kv_catalog");
       assert.ok(ok, `${lang} aramasında ${r.lang}/${r.sourceType} döndü`);
     }
   }
@@ -52,6 +53,8 @@ test("'annelik' KV sonuçlarında Karenz/Mutterschutz konulu sözleşmeler çık
   const results = search("annelik", "tr");
   assert.ok(results.length > 0);
   assert.ok(results.every((r) => r.sourceType !== "guide_card"));
+  const topics = results.filter((r) => r.sourceType === "kv_catalog").flatMap((r) => r.meta.topics).join(" ");
+  assert.match(topics, /Karenz|Mutterschutz|Elternzeit/);
 });
 
 test("aynı sözleşme tekrarlanmaz", () => {
@@ -65,4 +68,40 @@ test("GLB hiçbir içerikte geçmez", () => {
     assert.ok(!/GLB|Linksblock/.test(readFileSync(new URL(`../content/${f}.json`, import.meta.url), "utf8")), f);
   }
   assert.ok(!/GLB|Linksblock/.test(readFileSync(new URL("../content/rag-index.json", import.meta.url), "utf8")));
+});
+
+test("rag-index küçük kalır (KV artık ayrı dosyadan aranır)", () => {
+  assert.ok(readFileSync(new URL("../content/rag-index.json", import.meta.url)).length < 400_000);
+  assert.ok(!index.chunks.some((c) => c.sourceType === "kv_catalog"));
+});
+
+test("concepts.json: yapı geçerli, her dilde terim var, related kimlikleri mevcut", () => {
+  const { concepts } = read("content/concepts.json");
+  for (const [id, def] of Object.entries(concepts)) {
+    assert.ok(def.display?.length, `${id}: display boş`);
+    for (const lang of ["de", "tr", "sh", "ro", "hu", "sl", "en"]) {
+      assert.ok(def.terms[lang]?.length, `${id}: ${lang} terimi yok`);
+    }
+    for (const r of def.related) assert.ok(concepts[r], `${id}: bilinmeyen related ${r}`);
+  }
+});
+
+test("sık arananlar önerileri her dilde bir kavrama veya sonuca ulaşır", () => {
+  const shared = read("content/shared-ui.json");
+  for (const [lang, ui] of Object.entries(shared)) {
+    assert.ok(ui.suggestions.length >= 4, lang);
+    for (const term of ui.suggestions) {
+      assert.ok(semantic.expandQuery(term).concepts.length > 0, `${lang}: "${term}" hiçbir kavrama eşleşmiyor`);
+      assert.ok(search(term, lang).length > 0, `${lang}: "${term}" sonuç vermiyor`);
+    }
+  }
+});
+
+test("card-meta.json yalnızca var olan kartları içerir; tarihler geçerli", () => {
+  const ids = read("content/tr.json").cards.map((c) => c.id);
+  const { reviewed } = read("content/card-meta.json");
+  for (const [id, date] of Object.entries(reviewed)) {
+    assert.ok(ids.includes(id), `bilinmeyen kart ${id}`);
+    assert.ok(date === null || !Number.isNaN(Date.parse(date)), `${id}: geçersiz tarih`);
+  }
 });

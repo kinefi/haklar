@@ -37,7 +37,20 @@ python3 scripts/build-rag-index.py
 node --test tests/search.test.mjs
 ```
 
-İki sayfada ortak metinler (gönüllü uyarısı, arama başlıkları) `content/shared-ui.json` içindedir.
+İki sayfada ortak metinler (gönüllü uyarısı, arama başlıkları, "sık arananlar" önerileri) `content/shared-ui.json` içindedir. Toplu sözleşmeler `rag-index.json` içinde değil, doğrudan `content/collective-agreements.json` üzerinden aranır; bu yüzden indeks küçük (~240 KB) kalır ve arama dosyaları arama kutusuna odaklanınca arka planda yüklenir.
+
+### Terimleri gönüllülerle gözden geçirme
+
+`python3 scripts/export-terminology.py` her dil için `docs/terminology-review/<dil>.md` dosyası üretir (Hırvatça, Sırpça ve Boşnakça tek dosyada). Dosyayı o dili konuşan bir gönüllüye verin; düzeltmeler `content/concepts.json`'a işlenir ve testler çalıştırılır.
+
+### Kartların son kontrol tarihi
+
+Kartın altında "Son kontrol: tarih" satırı gösterilir (12 aydan eskiyse uyarı rengiyle). Vergi kartı tarihi vergi verisinden otomatik alır. Diğer kartlar için içeriği kaynaktan kontrol ettikten sonra şunu çalıştırın:
+
+```bash
+python3 scripts/mark-reviewed.py family care     # belirli kartlar
+python3 scripts/mark-reviewed.py --all           # hepsi
+```
 
 ## Toplu sözleşme kataloğunu yenileme
 

@@ -130,6 +130,8 @@
 
     .guide-search .concept-hint { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0; color: var(--muted); font-size: 14px; }
     .concept-hint[hidden] { display: none; }
+    .review-line { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .review-line.stale { color: #8a4b12; }
     .concept-chip { min-height: 34px; padding: 4px 12px; border: 1px solid #bdcabb; border-radius: 999px; background: var(--card); color: var(--green-dark); cursor: pointer; font-size: 14px; font-weight: 750; }
     .concept-chip:hover { border-color: var(--green); }
 

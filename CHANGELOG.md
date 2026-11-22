@@ -10,15 +10,20 @@ Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) standardını te
 - Sayfa altına "gönüllü çalışma / yasal sorumluluk yok" uyarısı (`content/shared-ui.json`, 9 dil).
 - Node ile çalışan arama testleri (`tests/search.test.mjs`).
 
+- **Sık arananlar:** arama kutusu boşken tıklanabilir öneriler (9 dilde, `shared-ui.json`).
+- **Kartlarda "son kontrol" tarihi** (`content/card-meta.json`, `scripts/mark-reviewed.py`); 12 aydan eskiyse uyarı. Vergi kartı tarihi veriden alır.
+- **Terim gözden geçirme dosyaları** (`scripts/export-terminology.py` → `docs/terminology-review/`) ve sözlük/öneri/kart-meta doğrulama testleri.
+
 ### Changed
+- **Arama indeksi 1,2 MB → 240 KB:** toplu sözleşmeler artık `rag-index.json`'a kopyalanmıyor, doğrudan `collective-agreements.json` aranıyor; dosyalar arama kutusuna odaklanınca önceden yükleniyor. İndeks betiği sadeleştirildi (kullanılmayan tam metin tarayıcısı çıkarıldı). CI'a test adımı eklendi.
 - **Arama dil filtresi:** `lang` seçeneği daha önce yok sayılıyordu ve her dilin kayıtları dönüyordu; artık yalnızca seçili dil (ve kaynağı Almanca olan KV kayıtları, "DE" rozetiyle) döner. Aynı sözleşme tek kez listelenir, arama 150 ms gecikmeli ve eski isteklere karşı korumalıdır.
 - Eşleştirme sıkılaştırıldı: kısa terimler ("it", "13", "ber") artık her yerde eşleşmez.
-- Yeniden düzenleme: `common.js` (diller, normalize, JSON önbelleği, dil düğmeleri), `tax-section.js`; `helpLinks` artık `{label, url}` nesneleridir; RAG indeksi sözlüğü `concepts.json`'dan okur ve `idf`/boş alanlar çıkarıldığı için ~%30 küçüldü.
+- Yeniden düzenleme: `common.js` (diller, normalize, JSON önbelleği, dil düğmeleri), `tax-section.js`; `helpLinks` artık `{label, url}` nesneleridir; RAG indeksi sözlüğü `concepts.json`'dan okur.
 
 ### Fixed
 - Vergi tablosunda başlıklar ve iki bağlantı "undefined" görünüyordu (var olmayan çeviri anahtarları).
 - KV konu etiketlerinde "Urlaubsgeld ve Weihnachtsgeld" yanlışlıkla "Yıllık izin" olarak çevriliyordu; Kündigung/Karenz/Abfertigung gibi etiketler eklendi.
-- `kv_fulltext` kayıtlarının tamamı aynı yer tutucu metindi (585 kopya); indeksten çıkarıldı, CI'daki `--fetch-sections` adımı kaldırıldı.
+- `kv_fulltext` kayıtlarının tamamı aynı yer tutucu metindi (585 kopya); `--fetch-sections` ve tarayıcı kodu kaldırıldı.
 - KV sonuç kartlarının stili yoktu.
 
 ### Removed

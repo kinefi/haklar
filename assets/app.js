@@ -16,6 +16,7 @@
   const searchInputEl = document.querySelector("#guideSearch");
   const searchStatusEl = document.querySelector("#guideSearchStatus");
   const conceptHintEl = document.querySelector("#conceptHint");
+  const suggestionsEl = document.querySelector("#searchSuggestions");
   const noCardResultsEl = document.querySelector("#noCardResults");
   const ragResultsEl = document.querySelector("#ragSearchResults");
 
@@ -24,6 +25,7 @@
     content: null,       // content/<dil>.json
     icons: null,         // content/card-icons.json
     taxBundle: null,     // vergi dilimleri (yüklenemezse null)
+    cardMeta: {},        // content/card-meta.json -> reviewed
     shared: {}           // content/shared-ui.json içinden seçili dil
   };
   let renderRequest = 0;
@@ -56,6 +58,9 @@
       links.push(...window.haklarTax.extraLinks(taxBundle, language));
     }
 
+    const reviewLine = buildReviewLine(card);
+    if (reviewLine) body.append(reviewLine);
+
     body.append(el("div", { class: "sources" },
       el("span", { text: `${content.sources}:` }),
       ...links.map((link) => externalLink(link.url, link.label))
@@ -64,6 +69,27 @@
     const details = el("details", { class: "card" }, summary, body);
     details.open = autoOpen;
     return details;
+  }
+
+  const STALE_AFTER_DAYS = 365;
+
+  // Son kontrol tarihi: vergi kartı veriyi CI'ın yenilediği tarihten, diğerleri card-meta.json'dan alır.
+  function reviewedDate(card) {
+    const value = card.id === "tax" ? state.taxBundle?.taxData?.updatedAt : state.cardMeta[card.id];
+    const date = value ? new Date(value) : null;
+    return date && !Number.isNaN(date.valueOf()) ? date : null;
+  }
+
+  function buildReviewLine(card) {
+    const date = reviewedDate(card);
+    if (!date) return null;
+    const stale = (Date.now() - date.valueOf()) / 86_400_000 > STALE_AFTER_DAYS;
+    const formatted = new Intl.DateTimeFormat(LANGUAGES[state.language].locale, { dateStyle: "medium", timeZone: "UTC" }).format(date);
+    return el("p", { class: stale ? "review-line stale" : "review-line" },
+      `${state.shared.lastChecked}: `,
+      el("time", { datetime: date.toISOString().slice(0, 10), text: formatted }),
+      stale ? ` · ${state.shared.staleNote}` : null
+    );
   }
 
   function cardSearchText(card) {
@@ -128,6 +154,30 @@
     );
   }
 
+  // ---------- Sık arananlar ----------
+
+  function renderSuggestions() {
+    const terms = state.shared.suggestions || [];
+    suggestionsEl.replaceChildren(
+      el("span", { text: `${state.shared.suggestionsLabel} ` }),
+      ...terms.map((term) => {
+        const button = el("button", { type: "button", class: "concept-chip", text: term });
+        button.addEventListener("click", () => {
+          searchInputEl.value = term;
+          runSearch();
+          searchInputEl.focus();
+        });
+        return button;
+      })
+    );
+  }
+
+  // Arama dosyalarını kullanıcı yazmaya başlamadan önce (odaklanınca) arka planda indir.
+  function warmUpSearch() {
+    window.haklarRAG.loadRagIndex().catch(() => {});
+    window.haklar.loadJson("content/collective-agreements.json").catch(() => {});
+  }
+
   // ---------- Arama ----------
 
   async function runSearch() {
@@ -140,6 +190,7 @@
     if (request !== searchRequest) return;
 
     const context = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
+    suggestionsEl.hidden = Boolean(rawQuery);
 
     let ragResults = [];
     if (context && rawQuery.length >= 2) {
@@ -180,13 +231,14 @@
 
   async function render(language) {
     const request = ++renderRequest;
-    let content, icons, shared, taxBundle;
+    let content, icons, shared, taxBundle, cardMeta;
     try {
-      [content, icons, shared, taxBundle] = await Promise.all([
+      [content, icons, shared, taxBundle, cardMeta] = await Promise.all([
         loadJson(`content/${language}.json`),
         loadJson("content/card-icons.json"),
         loadJson("content/shared-ui.json"),
         window.haklarTax.loadBundle(),
+        loadJson("content/card-meta.json").catch(() => ({ reviewed: {} })),
         window.haklarSemantic.ready
       ]);
     } catch (error) {
@@ -199,7 +251,7 @@
     if (request !== renderRequest) return;
 
     loadErrorEl.hidden = true;
-    Object.assign(state, { language, content, icons, taxBundle, shared: shared[language] || shared.en });
+    Object.assign(state, { language, content, icons, taxBundle, cardMeta: cardMeta.reviewed || {}, shared: shared[language] || shared.en });
 
     document.documentElement.lang = LANGUAGES[language].html;
     document.title = `${content.title} · ${content.brand}`;
@@ -215,9 +267,11 @@
       render(code).catch((error) => console.error(error));
     });
     renderHelpLinks(content.helpLinks);
+    renderSuggestions();
     runSearch();
   }
 
   searchInputEl.addEventListener("input", scheduleSearch);
+  searchInputEl.addEventListener("focus", warmUpSearch, { once: true });
   render(window.haklar.initialLanguage()).catch((error) => console.error("Language content could not be loaded.", error));
 })();

@@ -1,0 +1,17 @@
+{
+  "_comment": "Kart içeriğinin en son ne zaman kaynaktan kontrol edildiği (YYYY-AA-GG). null = henüz işaretlenmedi, tarih gösterilmez. İşaretlemek için: python3 scripts/mark-reviewed.py <kart-id> ... ('tax' kartı tarihini vergi verisinden otomatik alır.)",
+  "reviewed": {
+    "collective-agreements": null,
+    "working-hours": null,
+    "overtime": null,
+    "leave": null,
+    "care": null,
+    "employment": null,
+    "sonderzahlungen": null,
+    "vorsorge": null,
+    "termination": null,
+    "workwear": null,
+    "family": null,
+    "tax": null
+  }
+}

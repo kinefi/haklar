@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """
-Build a static, client-side RAG (Retrieval-Augmented Generation / Semantic Search)
-index from Austrian collective agreements (kollektivvertrag.at) and multilingual
-worker rights guides.
-
-Designed to work alongside `scripts/update-kv-catalog.py` with zero runtime
-backend required (pure static JSON + TF-IDF/BM25 + dense-optional hybrid vectors).
+Build the small static search index (guide cards, company notes, tax text) used by the
+browser. Collective agreements are NOT indexed here: the browser searches
+content/collective-agreements.json directly. Concept tags come from content/concepts.json.
 
 Usage:
   python3 scripts/build-rag-index.py
-  python3 scripts/build-rag-index.py --limit 60 --fetch-sections
   python3 scripts/build-rag-index.py --with-embeddings --model paraphrase-multilingual-MiniLM-L12-v2
 """
 
@@ -102,112 +98,10 @@ def tokenize(text: str) -> list[str]:
     return [t for t in raw_tokens if t not in STOPWORDS]
 
 
-class KVSectionParser(HTMLParser):
-    """Extracts structured headings, paragraphs, and table rows from a kollektivvertrag.at page."""
-
-    def __init__(self) -> None:
-        super().__init__()
-        self.in_main = False
-        self.skip_depth = 0
-        self.current_tag: str | None = None
-        self.current_heading = "Allgemein"
-        self.buffer: list[str] = []
-        self.sections: list[dict[str, str]] = []
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attr_dict = dict(attrs)
-        if tag in {"script", "style", "nav", "header", "footer", "noscript"}:
-            self.skip_depth += 1
-            return
-        if self.skip_depth > 0:
-            return
-        if tag in {"main", "article"} or "kv-content" in (attr_dict.get("class") or ""):
-            self.in_main = True
-        if tag in {"h1", "h2", "h3", "h4", "p", "li", "tr"}:
-            self._flush()
-            self.current_tag = tag
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag in {"script", "style", "nav", "header", "footer", "noscript"} and self.skip_depth > 0:
-            self.skip_depth -= 1
-            return
-        if self.skip_depth > 0:
-            return
-        if tag == self.current_tag:
-            self._flush()
-            self.current_tag = None
-
-    def handle_data(self, data: str) -> None:
-        if self.skip_depth == 0 and self.current_tag:
-            cleaned = re.sub(r"\s+", " ", data).strip()
-            if cleaned:
-                self.buffer.append(cleaned)
-
-    def _flush(self) -> None:
-        if not self.buffer:
-            return
-        text = " ".join(self.buffer).strip()
-        self.buffer.clear()
-        if len(text) < 4:
-            return
-        if self.current_tag in {"h1", "h2", "h3", "h4"}:
-            self.current_heading = text[:160]
-        elif self.in_main or len(text) > 35:
-            self.sections.append({
-                "heading": self.current_heading,
-                "text": text
-            })
-
-
-def fetch_html(url: str, timeout: int = 20) -> str:
-    req = Request(url, headers={"User-Agent": USER_AGENT, "Accept-Language": "de-AT,de;q=0.9"})
-    with urlopen(req, timeout=timeout) as resp:
-        charset = resp.headers.get_content_charset() or "utf-8"
-        return resp.read().decode(charset, errors="replace")
-
-
-def chunk_sections(
-    sections: list[dict[str, str]],
-    max_chars: int = 750,
-    overlap_chars: int = 120
-) -> list[dict[str, str]]:
-    """Overlapping semantic chunker preserving section headings."""
-    chunks: list[dict[str, str]] = []
-    cur_heading = ""
-    cur_text = ""
-
-    for sec in sections:
-        heading = sec["heading"]
-        text = sec["text"]
-        if heading != cur_heading and cur_text:
-            chunks.append({"heading": cur_heading, "text": cur_text.strip()})
-            cur_text = ""
-        cur_heading = heading
-
-        if len(cur_text) + len(text) + 1 <= max_chars:
-            cur_text = f"{cur_text} {text}".strip()
-        else:
-            if cur_text:
-                chunks.append({"heading": cur_heading, "text": cur_text.strip()})
-                tail = cur_text[-overlap_chars:].strip()
-                cur_text = f"{tail} {text}".strip()
-            else:
-                # Split oversized single paragraph
-                for start in range(0, len(text), max_chars - overlap_chars):
-                    part = text[start : start + max_chars].strip()
-                    if part:
-                        chunks.append({"heading": cur_heading, "text": part})
-                cur_text = ""
-
-    if cur_text:
-        chunks.append({"heading": cur_heading, "text": cur_text.strip()})
-    return chunks
-
-
 @dataclass
 class RAGChunk:
     id: str
-    sourceType: str          # "kv_catalog" | "kv_fulltext" | "company_kv" | "guide_card" | "tax_2026"
+    sourceType: str          # "company_kv" | "guide_card" | "tax_2026"
     lang: str                # "de" | "tr" | "hr" | ... | "multi"
     title: str
     section: str
@@ -224,97 +118,11 @@ def detect_concepts(text: str, concepts: dict[str, set[str]]) -> list[str]:
     return [cid for cid, terms in concepts.items() if any(contains_term(padded, t) for t in terms)]
 
 
-# Placeholder text that kollektivvertrag.at serves on every page; it carries no agreement content.
-BOILERPLATE_PREFIXES = ("alle angaben ohne gewahr",)
-
-
-def is_boilerplate(text: str) -> bool:
-    return normalize_text(text).startswith(BOILERPLATE_PREFIXES)
-
-
-def build_raw_chunks(fetch_sections: bool, limit: int, delay: float) -> list[dict[str, Any]]:
+def build_raw_chunks() -> list[dict[str, Any]]:
     raw_docs: list[dict[str, Any]] = []
 
-    # 1. Collective agreements from collective-agreements.json (generated by update-kv-catalog.py)
-    if CATALOG_PATH.exists():
-        catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
-        agreements = catalog.get("agreements", [])
-        # Prioritize popular agreements first when limiting remote fetches
-        ordered = sorted(
-            agreements,
-            key=lambda a: (a.get("popularOrder") is None, a.get("popularOrder") or 9999, a.get("title", ""))
-        )
-
-        fetched_count = 0
-        seen_fulltext: set[str] = set()
-        for ag in ordered:
-            title = ag.get("title", "")
-            url = ag.get("url", "")
-            topics = ag.get("topics") or []
-            regions = ag.get("regions") or []
-            emp_types = ag.get("employmentTypes") or []
-            valid_from = ag.get("validFrom") or ""
-
-            summary_parts = [f"Kollektivvertrag: {title}."]
-            if valid_from:
-                summary_parts.append(f"Gültig ab: {valid_from[:10]}.")
-            if emp_types:
-                summary_parts.append(f"Gilt für: {', '.join(emp_types)}.")
-            if regions:
-                summary_parts.append(f"Bundesländer: {', '.join(regions)}.")
-            if topics:
-                summary_parts.append(f"Enthaltene Themen & Regelungen: {', '.join(topics)}.")
-
-            raw_docs.append({
-                "sourceType": "kv_catalog",
-                "lang": "de",
-                "title": title,
-                "section": "Übersicht & Themen",
-                "text": " ".join(summary_parts),
-                "url": url,
-                "meta": {
-                    "groupId": ag.get("groupId"),
-                    "variantId": ag.get("variantId"),
-                    "popularOrder": ag.get("popularOrder"),
-                    "validFrom": valid_from,
-                    "regions": regions,
-                    "employmentTypes": emp_types,
-                    "topics": topics
-                }
-            })
-
-            # Optionally fetch actual KV text sections from kollektivvertrag.at
-            if fetch_sections and url and (limit is None or fetched_count < limit):
-                try:
-                    html = fetch_html(url)
-                    parser = KVSectionParser()
-                    parser.feed(html)
-                    parser._flush()
-                    chunks = [
-                        ch for ch in chunk_sections(parser.sections)
-                        if not is_boilerplate(ch["text"]) and ch["text"] not in seen_fulltext
-                    ]
-                    seen_fulltext.update(ch["text"] for ch in chunks)
-                    for idx, ch in enumerate(chunks[:18]):
-                        raw_docs.append({
-                            "sourceType": "kv_fulltext",
-                            "lang": "de",
-                            "title": title,
-                            "section": ch["heading"],
-                            "text": ch["text"],
-                            "url": url,
-                            "meta": {
-                                "groupId": ag.get("groupId"),
-                                "chunkIndex": idx
-                            }
-                        })
-                    fetched_count += 1
-                    total_to_fetch = len(ordered) if limit is None else limit
-                    print(f"[{fetched_count}/{total_to_fetch}] Indexed {len(chunks[:18])} sections from: {title}")
-                    if delay > 0:
-                        time.sleep(delay)
-                except (HTTPError, URLError, TimeoutError) as exc:
-                    print(f"[WARN] Could not fetch {url}: {exc}")
+    # Toplu sözleşmeler (collective-agreements.json) bu indekse girmez: tarayıcı doğrudan o dosyadan arar
+    # (assets/rag-retriever.js -> rankAgreements). Böylece veri iki kez yüklenmez/saklanmaz.
 
     # 2. Company / Employer KV mappings (content/employer-kv.json)
     if EMPLOYER_KV_PATH.exists():
@@ -484,23 +292,6 @@ def compute_bm25_and_vectors(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build client-side RAG search index from KV catalog & guides.")
     parser.add_argument(
-        "--fetch-sections",
-        action="store_true",
-        help="Fetch live HTML sections from kollektivvertrag.at URLs listed in collective-agreements.json"
-    )
-    parser.add_argument(
-        "--limit",
-        type=int,
-        default=None,
-        help="Max number of KV pages to crawl when --fetch-sections is enabled (default: 40)"
-    )
-    parser.add_argument(
-        "--delay",
-        type=float,
-        default=0.35,
-        help="Polite delay in seconds between HTTP requests (default: 0.35)"
-    )
-    parser.add_argument(
         "--with-embeddings",
         action="store_true",
         help="Also compute dense multilingual embeddings using sentence-transformers"
@@ -518,11 +309,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    raw_docs = build_raw_chunks(
-        fetch_sections=args.fetch_sections,
-        limit=args.limit,
-        delay=args.delay
-    )
+    raw_docs = build_raw_chunks()
     index_payload = compute_bm25_and_vectors(
         raw_docs,
         load_concepts(),

@@ -3,54 +3,153 @@
     "volunteerNote": "Bu uygulama tamamen gönüllü olarak, çeşitli kaynaklardan derlenen bilgilerle hazırlanmıştır. Yasal bir sorumluluk üstlenmez; bilgiler eksik veya güncelliğini yitirmiş olabilir. Yasal konularda lütfen Arbeiterkammer (AK) ve sendikanızla görüşün.",
     "ragTitle": "İlgili toplu sözleşmeler ve mevzuat",
     "viewSource": "Kaynağa git",
-    "conceptHint": "Almancada:"
+    "conceptHint": "Almancada:",
+    "suggestionsLabel": "Sık arananlar:",
+    "lastChecked": "Son kontrol",
+    "staleNote": "12 aydan eski; güncel durumu kaynaktan kontrol edin.",
+    "suggestions": [
+      "annelik",
+      "kovulma",
+      "ikramiye",
+      "fazla mesai",
+      "hastalık",
+      "vergi dilimi"
+    ]
   },
   "hr": {
     "volunteerNote": "Ova je aplikacija u potpunosti volonterski izrađena na temelju informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastarjeli. Za pravna pitanja obratite se Arbeiterkammeru (AK) i svom sindikatu.",
     "ragTitle": "Povezani kolektivni ugovori i propisi",
     "viewSource": "Otvori izvor",
-    "conceptHint": "Na njemačkom:"
+    "conceptHint": "Na njemačkom:",
+    "suggestionsLabel": "Česte pretrage:",
+    "lastChecked": "Zadnja provjera",
+    "staleNote": "Starije od 12 mjeseci; provjerite aktualno stanje u izvoru.",
+    "suggestions": [
+      "trudnoća",
+      "otkaz",
+      "regres",
+      "prekovremeni rad",
+      "bolovanje",
+      "porezni razredi"
+    ]
   },
   "sr": {
     "volunteerNote": "Ova aplikacija je u potpunosti volonterski napravljena na osnovu informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastareli. Za pravna pitanja obratite se Arbeiterkammer-u (AK) i svom sindikatu.",
     "ragTitle": "Povezani kolektivni ugovori i propisi",
     "viewSource": "Otvori izvor",
-    "conceptHint": "Na nemačkom:"
+    "conceptHint": "Na nemačkom:",
+    "suggestionsLabel": "Česte pretrage:",
+    "lastChecked": "Poslednja provera",
+    "staleNote": "Starije od 12 meseci; proverite aktuelno stanje u izvoru.",
+    "suggestions": [
+      "trudnoća",
+      "otkaz",
+      "regres",
+      "prekovremeni rad",
+      "bolovanje",
+      "porezni razredi"
+    ]
   },
   "bs": {
     "volunteerNote": "Ova aplikacija je u potpunosti volonterski izrađena na osnovu informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastarjeli. Za pravna pitanja obratite se Arbeiterkammeru (AK) i svom sindikatu.",
     "ragTitle": "Povezani kolektivni ugovori i propisi",
     "viewSource": "Otvori izvor",
-    "conceptHint": "Na njemačkom:"
+    "conceptHint": "Na njemačkom:",
+    "suggestionsLabel": "Česte pretrage:",
+    "lastChecked": "Posljednja provjera",
+    "staleNote": "Starije od 12 mjeseci; provjerite aktuelno stanje u izvoru.",
+    "suggestions": [
+      "trudnoća",
+      "otkaz",
+      "regres",
+      "prekovremeni rad",
+      "bolovanje",
+      "porezni razredi"
+    ]
   },
   "ro": {
     "volunteerNote": "Această aplicație a fost realizată integral în mod voluntar, pe baza unor informații din diverse surse. Nu își asumă nicio răspundere juridică; informațiile pot fi incomplete sau depășite. Pentru chestiuni juridice, vă rugăm să vă adresați Arbeiterkammer (AK) și sindicatului dumneavoastră.",
     "ragTitle": "Contracte colective și reglementări relevante",
     "viewSource": "Deschide sursa",
-    "conceptHint": "În germană:"
+    "conceptHint": "În germană:",
+    "suggestionsLabel": "Căutări frecvente:",
+    "lastChecked": "Ultima verificare",
+    "staleNote": "Mai vechi de 12 luni; verificați situația actuală la sursă.",
+    "suggestions": [
+      "maternitate",
+      "concediere",
+      "bonus",
+      "ore suplimentare",
+      "concediu medical",
+      "transe de impozitare"
+    ]
   },
   "hu": {
     "volunteerNote": "Ezt az alkalmazást teljes egészében önkéntesen, különböző forrásokból származó információk összegyűjtésével készítették. Jogi felelősséget nem vállal; az információk hiányosak vagy elavultak lehetnek. Jogi kérdésekben kérjük, forduljon az Arbeiterkammerhez (AK) és a szakszervezetéhez.",
     "ragTitle": "Kapcsolódó kollektív szerződések és előírások",
     "viewSource": "Forrás megnyitása",
-    "conceptHint": "Németül:"
+    "conceptHint": "Németül:",
+    "suggestionsLabel": "Gyakori keresések:",
+    "lastChecked": "Utolsó ellenőrzés",
+    "staleNote": "12 hónapnál régebbi; ellenőrizze a jelenlegi állapotot a forrásnál.",
+    "suggestions": [
+      "szülési szabadság",
+      "felmondás",
+      "jutalom",
+      "túlóra",
+      "betegszabadság",
+      "adósáv"
+    ]
   },
   "sl": {
     "volunteerNote": "Ta aplikacija je v celoti nastala prostovoljno, na podlagi informacij iz različnih virov. Ne prevzema nobene pravne odgovornosti; informacije so lahko nepopolne ali zastarele. Za pravna vprašanja se obrnite na Arbeiterkammer (AK) in svoj sindikat.",
     "ragTitle": "Povezane kolektivne pogodbe in predpisi",
     "viewSource": "Odpri vir",
-    "conceptHint": "V nemščini:"
+    "conceptHint": "V nemščini:",
+    "suggestionsLabel": "Pogosta iskanja:",
+    "lastChecked": "Zadnja preveritev",
+    "staleNote": "Starejše od 12 mesecev; preverite trenutno stanje pri viru.",
+    "suggestions": [
+      "porodniški dopust",
+      "odpoved",
+      "nagrada",
+      "nadure",
+      "bolniška",
+      "davčni razredi"
+    ]
   },
   "de": {
     "volunteerNote": "Diese Anwendung wurde ausschließlich ehrenamtlich aus verschiedenen Quellen zusammengestellt. Sie übernimmt keine rechtliche Haftung; die Angaben können unvollständig oder veraltet sein. Bitte klären Sie rechtliche Fragen mit der Arbeiterkammer (AK) und Ihrer Gewerkschaft.",
     "ragTitle": "Passende Kollektivverträge und Vorschriften",
     "viewSource": "Zur Quelle",
-    "conceptHint": "Auf Deutsch:"
+    "conceptHint": "Auf Deutsch:",
+    "suggestionsLabel": "Häufige Suchen:",
+    "lastChecked": "Zuletzt geprüft",
+    "staleNote": "Älter als 12 Monate; bitte aktuellen Stand an der Quelle prüfen.",
+    "suggestions": [
+      "Mutterschutz",
+      "Kündigung",
+      "Sonderzahlungen",
+      "Überstunden",
+      "Krankenstand",
+      "Steuerstufen"
+    ]
   },
   "en": {
     "volunteerNote": "This app was put together entirely by volunteers from various sources. It accepts no legal responsibility, and the information may be incomplete or out of date. For legal matters, please consult the Arbeiterkammer (AK) and your trade union.",
     "ragTitle": "Related collective agreements and regulations",
     "viewSource": "View source",
-    "conceptHint": "In German:"
+    "conceptHint": "In German:",
+    "suggestionsLabel": "Popular searches:",
+    "lastChecked": "Last checked",
+    "staleNote": "Older than 12 months; please check the source for the current position.",
+    "suggestions": [
+      "maternity leave",
+      "dismissal",
+      "bonus",
+      "overtime",
+      "sick leave",
+      "tax brackets"
+    ]
   }
 }
