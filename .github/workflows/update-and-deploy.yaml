@@ -37,7 +37,10 @@ jobs:
         run: python3 scripts/update-tax-brackets.py
 
       - name: Rebuild RAG Index
-        run: python3 scripts/build-rag-index.py --fetch-sections
+        run: python3 scripts/build-rag-index.py
+
+      - name: Run search tests
+        run: node --test tests/search.test.mjs
 
       - name: Commit and push updated JSON files
         run: |

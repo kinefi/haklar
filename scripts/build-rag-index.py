@@ -291,6 +291,9 @@ def compute_bm25_and_vectors(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build client-side RAG search index from KV catalog & guides.")
+    # Eski workflow dosyaları bu seçeneği hâlâ geçebilir; artık hiçbir şey yapmaz.
+    parser.add_argument("--fetch-sections", "--limit", "--delay", dest="deprecated", nargs="?", const=True,
+                        help=argparse.SUPPRESS)
     parser.add_argument(
         "--with-embeddings",
         action="store_true",
@@ -308,6 +311,8 @@ def main() -> None:
         help=f"Output JSON index path (default: {OUTPUT_INDEX_PATH})"
     )
     args = parser.parse_args()
+    if args.deprecated:
+        print("[bilgi] --fetch-sections/--limit/--delay artık kullanılmıyor, yok sayıldı.")
 
     raw_docs = build_raw_chunks()
     index_payload = compute_bm25_and_vectors(
