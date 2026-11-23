@@ -255,6 +255,93 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] čiščenje stavb
 - [ ] čistilni servis
 
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] delo od doma
+- [ ] delo na domu
+- [ ] delo na daljavo
+- [ ] home office
+- [ ] homeoffice
+- [ ] teledelo
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] dodatki
+- [ ] dodatek za nočno delo
+- [ ] dodatek za delo ob nedeljah
+- [ ] dodatek za izmensko delo
+- [ ] dodatek za nevarnost
+- [ ] dodatek za nadurno delo
+- [ ] dodatek za težke pogoje
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] brezposelnost
+- [ ] nadomestilo za brezposelnost
+- [ ] zavarovanje za primer brezposelnosti
+- [ ] brezposeln
+- [ ] iskanje zaposlitve
+- [ ] AMS
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] pokojnina
+- [ ] upokojitev
+- [ ] starostna pokojnina
+- [ ] pokojninsko zavarovanje
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] diskriminacija
+- [ ] enako obravnavanje
+- [ ] enako plačilo
+- [ ] nadlegovanje
+- [ ] spolno nadlegovanje
+- [ ] rasizem
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] neizplačana plača
+- [ ] zaostanek plače
+- [ ] stečaj
+- [ ] insolventnost
+- [ ] zastaranje
+- [ ] rok zastaranja
+- [ ] tožba za plačo
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] izobraževanje
+- [ ] usposabljanje
+- [ ] tečaj
+- [ ] tečaj nemščine
+- [ ] izpopolnjevanje
+- [ ] izobraževalni dopust
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] frizer
+- [ ] pek
+- [ ] mesar
+- [ ] les
+- [ ] mizar
+- [ ] vrtnar
+- [ ] avtomehanik
+- [ ] obrt
+- [ ] kozmetik
+
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 
 ### sl

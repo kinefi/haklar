@@ -26,7 +26,9 @@
     icons: null,         // content/card-icons.json
     taxBundle: null,     // vergi dilimleri (yüklenemezse null)
     cardMeta: {},        // content/card-meta.json -> reviewed
-    shared: {}           // content/shared-ui.json içinden seçili dil
+    shared: {},          // content/shared-ui.json içinden seçili dil
+    topicMap: {},        // content/catalog-ui.json -> KV konu çevirileri (seçili dil)
+    context: null        // son arama bağlamı (konu vurgusu için)
   };
   let renderRequest = 0;
   let searchRequest = 0;
@@ -99,10 +101,22 @@
 
   // ---------- KV / mevzuat sonuçları ----------
 
-  function resultSummary(item) {
-    if (item.meta?.topics?.length) return item.meta.topics.join(" · ");
-    const text = item.text || "";
-    return text.length > 220 ? `${text.slice(0, 220)}…` : text;
+  function resultBody(item) {
+    const topics = item.meta?.topics;
+    if (!topics?.length) {
+      const text = item.text || "";
+      return el("p", { text: text.length > 220 ? `${text.slice(0, 220)}…` : text });
+    }
+    // Aramayla eşleşen konu başlığı ★ ile vurgulanır; kullanıcı sözleşmede hangi bölüme bakacağını görür.
+    const byLabel = new Map();
+    for (const topic of topics) {
+      const label = window.haklar.translateTopic(topic, state.topicMap);
+      if (!byLabel.has(label)) byLabel.set(label, topic);
+    }
+    return el("ul", { class: "topic-list" }, ...[...byLabel].map(([label, topic]) => {
+      const hit = state.context && window.haklarSemantic.scoreDocument(topic, state.context) > 0;
+      return el("li", { class: hit ? "topic-hit" : null, title: hit ? state.shared.topicMatch : null, text: label });
+    }));
   }
 
   function buildRagCard(item) {
@@ -114,9 +128,13 @@
     return el("div", { class: "rag-result-card" },
       el("h4", {}, item.title || "—", isGermanSource ? el("span", { class: "lang-badge", lang: "de", text: "DE" }) : null),
       item.section ? el("span", { class: "rag-meta", text: item.section }) : null,
-      el("p", { text: resultSummary(item) }),
+      resultBody(item),
       link
     );
+  }
+
+  function externalLinkSameTab(url, label) {
+    return el("a", { href: url, class: "finder-link", text: label });
   }
 
   function renderRagResults(results) {
@@ -128,6 +146,7 @@
     ragResultsEl.hidden = false;
     ragResultsEl.replaceChildren(
       el("h3", { class: "rag-results-title", text: state.shared.ragTitle }),
+      externalLinkSameTab("collective-agreements.html#finder", state.shared.findAgreement),
       el("div", { class: "rag-results-list" }, ...results.map(buildRagCard))
     );
   }
@@ -190,6 +209,7 @@
     if (request !== searchRequest) return;
 
     const context = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
+    state.context = context;
     suggestionsEl.hidden = Boolean(rawQuery);
 
     let ragResults = [];
@@ -231,14 +251,15 @@
 
   async function render(language) {
     const request = ++renderRequest;
-    let content, icons, shared, taxBundle, cardMeta;
+    let content, icons, shared, taxBundle, cardMeta, catalogUi;
     try {
-      [content, icons, shared, taxBundle, cardMeta] = await Promise.all([
+      [content, icons, shared, taxBundle, cardMeta, catalogUi] = await Promise.all([
         loadJson(`content/${language}.json`),
         loadJson("content/card-icons.json"),
         loadJson("content/shared-ui.json"),
         window.haklarTax.loadBundle(),
         loadJson("content/card-meta.json").catch(() => ({ reviewed: {} })),
+        loadJson("content/catalog-ui.json").catch(() => ({})),
         window.haklarSemantic.ready
       ]);
     } catch (error) {
@@ -251,7 +272,7 @@
     if (request !== renderRequest) return;
 
     loadErrorEl.hidden = true;
-    Object.assign(state, { language, content, icons, taxBundle, cardMeta: cardMeta.reviewed || {}, shared: shared[language] || shared.en });
+    Object.assign(state, { language, content, icons, taxBundle, cardMeta: cardMeta.reviewed || {}, topicMap: catalogUi[language]?.topics || {}, shared: shared[language] || shared.en });
 
     document.documentElement.lang = LANGUAGES[language].html;
     document.title = `${content.title} · ${content.brand}`;

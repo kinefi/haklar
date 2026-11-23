@@ -260,6 +260,95 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] tisztítás
 - [ ] takarítási szolgáltatás
 
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] otthoni munkavégzés
+- [ ] távmunka
+- [ ] home office
+- [ ] homeoffice
+- [ ] otthonról dolgozás
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] pótlék
+- [ ] pótlékok
+- [ ] éjszakai pótlék
+- [ ] vasárnapi pótlék
+- [ ] műszakpótlék
+- [ ] veszélyességi pótlék
+- [ ] túlóra pótlék
+- [ ] szennyezési pótlék
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] munkanélküliség
+- [ ] munkanélküli segély
+- [ ] álláskeresési járadék
+- [ ] munkanélküli-biztosítás
+- [ ] álláskeresés
+- [ ] AMS
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] nyugdíj
+- [ ] nyugdíjazás
+- [ ] öregségi nyugdíj
+- [ ] nyugdíjbiztosítás
+- [ ] részmunkaidő nyugdíj előtt
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] diszkrimináció
+- [ ] egyenlő bánásmód
+- [ ] egyenlő bér
+- [ ] zaklatás
+- [ ] szexuális zaklatás
+- [ ] rasszizmus
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] kifizetetlen bér
+- [ ] bértartozás
+- [ ] fizetésképtelenség
+- [ ] csőd
+- [ ] elévülés
+- [ ] jogvesztő határidő
+- [ ] bérper
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] továbbképzés
+- [ ] képzés
+- [ ] tanfolyam
+- [ ] németkurzus
+- [ ] szakképzés
+- [ ] tanulmányi szabadság
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] fodrász
+- [ ] pék
+- [ ] hentes
+- [ ] fa
+- [ ] asztalos
+- [ ] kertész
+- [ ] autószerelő
+- [ ] kisipar
+- [ ] szakma
+- [ ] kozmetikus
+
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 
 ### hu

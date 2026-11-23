@@ -340,6 +340,12 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] Software
 - [ ] Fabrik
 - [ ] Produktion
+- [ ] Eisen
+- [ ] Bergbau
+- [ ] Chemische Industrie
+- [ ] Elektro
+- [ ] Brotindustrie
+- [ ] Papier
 
 ### `transport` · Almanca: Güterbeförderung, Lenkzeiten
 
@@ -355,6 +361,10 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] Taxi
 - [ ] Busfahrer
 - [ ] Spedition
+- [ ] Kleintransport
+- [ ] Autobus
+- [ ] Postbus
+- [ ] Personenbeförderung
 
 ### `care_social` · Almanca: Sozialwirtschaft (SWÖ), Pflege
 
@@ -369,6 +379,13 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] Altenpflege
 - [ ] Heimhilfe
 - [ ] Kindergarten
+- [ ] Ordenskrankenhaus
+- [ ] Ordenskrankenhäuser
+- [ ] Soziale Dienste
+- [ ] Gesundheitsbetriebe
+- [ ] Pflegeheim
+- [ ] Alten- und Pflegeheime
+- [ ] Sozial- und Gesundheit
 
 ### `cleaning` · Almanca: Reinigung, Denkmal-, Fassaden- und Gebäudereiniger
 
@@ -381,6 +398,134 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] Raumpfleger
 - [ ] Putzen
 - [ ] Reinigungsdienst
+- [ ] Gebäudereiniger
+- [ ] Textilreiniger
+- [ ] Reiniger
+- [ ] Wäscher
+
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] Telearbeit
+- [ ] Homeoffice
+- [ ] Home-Office
+- [ ] Heimarbeit
+- [ ] Arbeiten von zu Hause
+- [ ] Telearbeitsvereinbarung
+- [ ] Homeoffice-Pauschale
+- [ ] Arbeitsplatz zu Hause
+- [ ] Homeoffice Vereinbarung
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] Zulage
+- [ ] Zulagen
+- [ ] Zuschlag
+- [ ] Zuschläge
+- [ ] Schmutzzulage
+- [ ] Erschwerniszulage
+- [ ] Gefahrenzulage
+- [ ] Nachtzuschlag
+- [ ] Nachtzulage
+- [ ] Sonntagszuschlag
+- [ ] Feiertagszuschlag
+- [ ] Schichtzulage
+- [ ] Funktionszulage
+- [ ] Überstundenzuschlag
+- [ ] Wegzeitvergütung
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] Arbeitslosengeld
+- [ ] Arbeitslosenversicherung
+- [ ] AMS
+- [ ] Arbeitsmarktservice
+- [ ] Notstandshilfe
+- [ ] Arbeitslosigkeit
+- [ ] arbeitslos
+- [ ] Arbeitssuche
+- [ ] Anwartschaft
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] Pension
+- [ ] Pensionierung
+- [ ] Alterspension
+- [ ] Pensionsantritt
+- [ ] Altersteilzeit
+- [ ] Pensionsversicherung
+- [ ] Pensionskonto
+- [ ] Rente
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] Diskriminierung
+- [ ] Gleichbehandlung
+- [ ] Gleichbehandlungsgesetz
+- [ ] Gleichbehandlungsanwaltschaft
+- [ ] Belästigung
+- [ ] sexuelle Belästigung
+- [ ] Benachteiligung
+- [ ] Equal Pay
+- [ ] gleicher Lohn
+- [ ] Ungleichbehandlung
+- [ ] Rassismus
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] Lohnrückstand
+- [ ] Lohnrückstände
+- [ ] ausstehender Lohn
+- [ ] Lohn nicht bezahlt
+- [ ] Insolvenz
+- [ ] Insolvenzentgelt
+- [ ] Insolvenz-Entgelt
+- [ ] Konkurs
+- [ ] Lohnklage
+- [ ] Verjährung
+- [ ] Verfallsfrist
+- [ ] Nachzahlung
+- [ ] Unterentlohnung
+- [ ] Lohn- und Sozialdumping
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] Weiterbildung
+- [ ] Fortbildung
+- [ ] Bildungsfreistellung
+- [ ] Schulung
+- [ ] Ausbildung
+- [ ] Qualifizierung
+- [ ] Deutschkurs
+- [ ] Weiterbildungszeit
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] Friseur
+- [ ] Friseure
+- [ ] Bäcker
+- [ ] Fleischer
+- [ ] Fleischergewerbe
+- [ ] Holzverarbeitende
+- [ ] Holz
+- [ ] Tischlerei
+- [ ] Gärtner
+- [ ] Kfz
+- [ ] Kraftfahrzeug
+- [ ] Handwerk
+- [ ] Kosmetiker
+- [ ] Fußpfleger
 
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 

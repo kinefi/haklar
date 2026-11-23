@@ -270,6 +270,95 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] servicii de curățenie
 - [ ] curățenie clădiri
 
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] munca de acasă
+- [ ] telemuncă
+- [ ] munca la domiciliu
+- [ ] home office
+- [ ] muncă de la distanță
+- [ ] homeoffice
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] sporuri
+- [ ] spor
+- [ ] spor de noapte
+- [ ] spor de periculozitate
+- [ ] spor de weekend
+- [ ] spor pentru ore suplimentare
+- [ ] spor pentru munca în ture
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] șomaj
+- [ ] indemnizație de șomaj
+- [ ] asigurare de șomaj
+- [ ] șomer
+- [ ] căutare loc de muncă
+- [ ] AMS
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] pensie
+- [ ] pensionare
+- [ ] pensie de limită de vârstă
+- [ ] asigurare de pensie
+- [ ] program redus înainte de pensionare
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] discriminare
+- [ ] egalitate de tratament
+- [ ] salariu egal
+- [ ] hărțuire
+- [ ] hărțuire sexuală
+- [ ] rasism
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] salariu neplătit
+- [ ] salarii restante
+- [ ] insolvență
+- [ ] faliment
+- [ ] prescripție
+- [ ] termen de decădere
+- [ ] acțiune în instanță pentru salariu
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] formare profesională
+- [ ] instruire
+- [ ] curs
+- [ ] curs de germană
+- [ ] perfecționare
+- [ ] concediu de studii
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] coafor
+- [ ] frizer
+- [ ] brutar
+- [ ] măcelar
+- [ ] lemn
+- [ ] tâmplar
+- [ ] grădinar
+- [ ] mecanic auto
+- [ ] meserii
+- [ ] cosmetician
+
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 
 ### ro

@@ -311,6 +311,106 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] housekeeping
 - [ ] cleaning services
 
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] working from home
+- [ ] remote work
+- [ ] home office
+- [ ] homeoffice
+- [ ] telework
+- [ ] teleworking
+- [ ] hybrid work
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] allowances
+- [ ] supplements
+- [ ] premium pay
+- [ ] night supplement
+- [ ] sunday supplement
+- [ ] shift allowance
+- [ ] hazard pay
+- [ ] dirty work allowance
+- [ ] overtime premium
+- [ ] travel time pay
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] unemployment
+- [ ] unemployment benefit
+- [ ] jobless
+- [ ] job seeker
+- [ ] jobseeker
+- [ ] unemployment insurance
+- [ ] AMS
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] pension
+- [ ] retirement
+- [ ] retire
+- [ ] old-age pension
+- [ ] pension insurance
+- [ ] partial retirement
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] discrimination
+- [ ] equal treatment
+- [ ] equal pay
+- [ ] harassment
+- [ ] sexual harassment
+- [ ] racism
+- [ ] unfair treatment
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] unpaid wages
+- [ ] wages owed
+- [ ] unpaid salary
+- [ ] back pay
+- [ ] insolvency
+- [ ] bankruptcy
+- [ ] limitation period
+- [ ] time limit for claims
+- [ ] underpayment
+- [ ] wage claim
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] training
+- [ ] further education
+- [ ] education leave
+- [ ] course
+- [ ] german course
+- [ ] qualification
+- [ ] upskilling
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] hairdresser
+- [ ] baker
+- [ ] butcher
+- [ ] wood
+- [ ] carpenter
+- [ ] gardener
+- [ ] car mechanic
+- [ ] trades
+- [ ] crafts
+- [ ] beautician
+
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 
 ### en

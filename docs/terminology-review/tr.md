@@ -25,6 +25,11 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] işsizlik maaşı
 - [ ] iş sözleşmesinin sona ermesi
 - [ ] çalışma belgesi
+- [ ] işten atmak
+- [ ] işten attı
+- [ ] kapı dışarı
+- [ ] iş akdi feshi
+- [ ] işten çıkarıldım
 
 İlişkili kavramlar: `severance`
 
@@ -37,6 +42,8 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] birikim
 - [ ] vorsorgekasse fonu
 - [ ] işten ayrılma tazminatı
+- [ ] kıdem parası
+- [ ] kıdem tazminatı hakkı
 
 İlişkili kavramlar: `termination`
 
@@ -72,6 +79,10 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] zamlar
 - [ ] maaş tablosu
 - [ ] kıdem kademesi
+- [ ] maaşım
+- [ ] asgari maaş
+- [ ] ne kadar maaş
+- [ ] brüt maaş
 
 İlişkili kavramlar: `tax_payslip`, `bonus`
 
@@ -92,6 +103,9 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] pazar çalışması
 - [ ] zaman dengeleme
 - [ ] hazır bekleme
+- [ ] fazla çalışma
+- [ ] haftalık çalışma saati
+- [ ] kaç saat çalışmalıyım
 
 ### `annual_leave` · Almanca: Urlaub, Feiertag, Urlaubsanspruch
 
@@ -104,6 +118,9 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] tatil
 - [ ] kullanılmamış izin
 - [ ] ek izin
+- [ ] yıllık izin hakkı
+- [ ] izin hakkı
+- [ ] kaç gün izin
 
 ### `sick_leave` · Almanca: Krankenstand, Entgeltfortzahlung, Pflegefreistellung
 
@@ -118,6 +135,9 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] hastalık parası
 - [ ] sağlık sigortası
 - [ ] hastalık izni
+- [ ] doktora gitmek
+- [ ] hastalık raporu
+- [ ] hasta olunca
 
 İlişkili kavramlar: `accident`
 
@@ -334,6 +354,113 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] temizlikçi
 - [ ] cephe temizliği
 - [ ] ev temizliği
+
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] evden çalışma
+- [ ] ev ofisi
+- [ ] uzaktan çalışma
+- [ ] home office
+- [ ] homeoffice
+- [ ] teleçalışma
+- [ ] evden çalışma ödeneği
+- [ ] evden çalışmak
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] zam ödeneği
+- [ ] ek ödenek
+- [ ] tehlike zammı
+- [ ] kirli iş zammı
+- [ ] gece zammı
+- [ ] pazar zammı
+- [ ] vardiya zammı
+- [ ] tatil çalışma zammı
+- [ ] fazla mesai zammı
+- [ ] ağır iş ödeneği
+- [ ] yol süresi ödemesi
+- [ ] mesai ücreti
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] işsizlik maaşı
+- [ ] işsizlik ödeneği
+- [ ] işsizlik sigortası
+- [ ] işsiz
+- [ ] iş arama
+- [ ] işsiz kalmak
+- [ ] AMS
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] emeklilik
+- [ ] emekli
+- [ ] emeklilik maaşı
+- [ ] yaşlılık aylığı
+- [ ] yarı zamanlı emeklilik
+- [ ] emeklilik sigortası
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] ayrımcılık
+- [ ] eşit muamele
+- [ ] eşit işe eşit ücret
+- [ ] taciz
+- [ ] cinsel taciz
+- [ ] dezavantajlı muamele
+- [ ] ırkçılık
+- [ ] eşit ücret
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] ödenmeyen maaş
+- [ ] maaş ödenmedi
+- [ ] maaş alacağı
+- [ ] işveren iflası
+- [ ] iflas
+- [ ] zamanaşımı
+- [ ] hak düşürücü süre
+- [ ] maaş davası
+- [ ] eksik ödeme
+- [ ] geriye dönük ödeme
+- [ ] maaşımı alamadım
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] eğitim
+- [ ] meslek eğitimi
+- [ ] hizmet içi eğitim
+- [ ] kurs
+- [ ] Almanca kursu
+- [ ] eğitim izni
+- [ ] mesleki gelişim
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] kuaför
+- [ ] berber
+- [ ] fırın
+- [ ] fırıncı
+- [ ] kasap
+- [ ] ahşap
+- [ ] marangoz
+- [ ] bahçıvan
+- [ ] oto tamir
+- [ ] zanaat
+- [ ] esnaf
+- [ ] kozmetik
 
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 

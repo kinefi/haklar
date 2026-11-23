@@ -100,6 +100,14 @@
     }));
   }
 
+  // KV konu etiketini ("Kündigung und Verfall ...") seçili dile çevirir; eşleşme yoksa Almanca kalır.
+  // topicMap: content/catalog-ui.json -> <dil>.topics (sıra önemlidir, ilk eşleşme kazanır).
+  function translateTopic(topic, topicMap) {
+    const normalized = normalize(topic);
+    const match = Object.entries(topicMap || {}).find(([phrase]) => normalized.includes(phrase));
+    return match ? match[1] : topic;
+  }
+
   // ---- Küçük DOM yardımcıları ----
   function el(tag, props = {}, ...children) {
     const node = document.createElement(tag);
@@ -139,7 +147,7 @@
   }
 
   const api = {
-    LANGUAGES, DEFAULT_LANGUAGE, normalize, words, loadJson,
+    LANGUAGES, DEFAULT_LANGUAGE, normalize, words, translateTopic, loadJson,
     initialLanguage, rememberLanguage, renderLanguageSwitcher,
     el, externalLink, applyStrings, applySharedUi
   };

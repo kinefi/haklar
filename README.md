@@ -10,6 +10,7 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 - Mobil uyumlu, büyük ve anlaşılır konu kartları
 - A–Z grup kayıtlarını mevcut sözleşme varyantlarına genişleten ayrı, aranabilir toplu sözleşme sayfası
 - Büyük şirketlerin ilgili KV başlıkları altında kaynak bağlantılı örnekleri
+- Toplu sözleşmelerde "Hangi sözleşme benim için geçerli?" sihirbazı (sektör, işçi türü, eyalet); 
 - Toplu sözleşmelerde bölüm kısayolları; tam liste yalnızca arama yapılınca gösterilir
 - Maaş/vergi sayfası: KV ücret baremini bulma yönergesi ve RIS §33'e dayalı 2026 gelir vergisi dilimleri
 - Toplu sözleşme verisini kollektivvertrag.at A–Z dizininden yenileyen betik

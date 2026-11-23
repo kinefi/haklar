@@ -332,6 +332,108 @@ Teşekkürler! Lütfen aşağıdaki terimlerin **günlük konuşmada işçilerin
 - [ ] cistac
 - [ ] usluge čišćenja
 
+### `telework` · Almanca: Telearbeit, Homeoffice
+
+- [ ] rad od kuće
+- [ ] rad od kuce
+- [ ] rad kod kuće
+- [ ] kućni ured
+- [ ] homeoffice
+- [ ] home office
+- [ ] telerad
+- [ ] rad na daljinu
+
+İlişkili kavramlar: `working_hours`
+
+### `allowances` · Almanca: Zulagen, Zuschläge, Schmutzzulage
+
+- [ ] dodatak
+- [ ] dodaci
+- [ ] dodatak za prljav rad
+- [ ] dodatak za noćni rad
+- [ ] dodatak za rad nedjeljom
+- [ ] dodatak za smjenski rad
+- [ ] dodatak za opasnost
+- [ ] dodatak za prekovremeni rad
+- [ ] naknada za put do posla
+
+İlişkili kavramlar: `wages`, `working_hours`
+
+### `unemployment` · Almanca: Arbeitslosengeld, AMS, Notstandshilfe
+
+- [ ] nezaposlenost
+- [ ] naknada za nezaposlene
+- [ ] osiguranje za slučaj nezaposlenosti
+- [ ] nezaposlen
+- [ ] traženje posla
+- [ ] AMS
+
+İlişkili kavramlar: `termination`
+
+### `retirement` · Almanca: Pension, Altersteilzeit
+
+- [ ] mirovina
+- [ ] umirovljenje
+- [ ] penzija
+- [ ] penzionisanje
+- [ ] starosna mirovina
+- [ ] starosna penzija
+- [ ] mirovinsko osiguranje
+- [ ] penzijsko osiguranje
+
+İlişkili kavramlar: `severance`
+
+### `discrimination` · Almanca: Diskriminierung, Gleichbehandlung
+
+- [ ] diskriminacija
+- [ ] jednako postupanje
+- [ ] jednaka plaća
+- [ ] jednaka plata
+- [ ] uznemiravanje
+- [ ] seksualno uznemiravanje
+- [ ] nejednako postupanje
+- [ ] rasizam
+
+İlişkili kavramlar: `works_council`
+
+### `unpaid_wages` · Almanca: Lohnrückstand, Insolvenz-Entgelt, Verjährung
+
+- [ ] neisplaćena plaća
+- [ ] neisplaćena plata
+- [ ] plata nije isplaćena
+- [ ] stečaj
+- [ ] insolventnost
+- [ ] zastara
+- [ ] rokovi zastare
+- [ ] tužba za plaću
+- [ ] nedovoljna plaća
+
+İlişkili kavramlar: `termination`
+
+### `training` · Almanca: Weiterbildung, Bildungsfreistellung
+
+- [ ] obrazovanje
+- [ ] usavršavanje
+- [ ] edukacija
+- [ ] tečaj
+- [ ] kurs njemačkog
+- [ ] kurs nemačkog
+- [ ] obuka
+- [ ] izobrazba
+
+### `crafts` · Almanca: Friseure, Bäcker, Fleischer, Holz
+
+- [ ] frizer
+- [ ] pekar
+- [ ] mesar
+- [ ] drvo
+- [ ] stolar
+- [ ] vrtlar
+- [ ] auto mehaničar
+- [ ] obrt
+- [ ] zanat
+- [ ] kozmetičar
+
 ## Arayüz metinleri (içerik çevirisi kontrolü)
 
 ### hr

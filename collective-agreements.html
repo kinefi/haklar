@@ -31,11 +31,26 @@
     </section>
 
     <nav class="section-jump" aria-label="Bölümlere git" data-employer-nav>
+      <a href="#finder" data-shared="finderNav">Hangi sözleşme?</a>
       <a href="#popularSection" data-employer-ui="jumpPopular">Sık arananlar</a>
       <a href="#catalogSearch" data-employer-ui="jumpCatalog">KV ara</a>
     </nav>
 
     <main>
+      <section class="finder" id="finder" aria-labelledby="finderTitle">
+        <h2 id="finderTitle" data-shared="finderTitle">Sana hangi sözleşme uygulanır?</h2>
+        <p data-shared="finderIntro"></p>
+        <div class="finder-fields">
+          <label><span data-shared="finderSector">Sektör</span><select id="finderSector"></select></label>
+          <label><span data-shared="finderType">Çalışan grubu</span><select id="finderType"></select></label>
+          <label><span data-shared="finderRegion">Eyalet</span><select id="finderRegion"></select></label>
+        </div>
+        <p class="finder-help" data-shared="typeHelp"></p>
+        <p class="finder-status" id="finderStatus" aria-live="polite"></p>
+        <p class="finder-tip" data-shared="finderTip"></p>
+        <button type="button" class="concept-chip" id="finderReset" data-shared="finderReset" hidden>Seçimleri temizle</button>
+      </section>
+
       <section class="catalog-search" id="catalogSearch" role="search">
         <label for="agreementSearch" data-catalog="searchLabel">Sözleşme veya sektör ara</label>
         <input id="agreementSearch" type="search" autocomplete="off" placeholder="Sektör adı veya sözleşme başlığı">

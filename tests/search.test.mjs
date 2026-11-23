@@ -105,3 +105,31 @@ test("card-meta.json yalnızca var olan kartları içerir; tarihler geçerli", (
     assert.ok(date === null || !Number.isNaN(Date.parse(date)), `${id}: geçersiz tarih`);
   }
 });
+
+test("sihirbaz: her sektör ve her sektör etiketi 9 dilde, en az 3 sözleşmeye ulaşır", () => {
+  const sectors = ["hospitality", "retail", "construction", "industry", "transport", "care_social", "cleaning", "crafts"];
+  const { words } = require("../assets/common.js");
+  const ui = read("content/shared-ui.json");
+  for (const lang of Object.keys(ui)) {
+    for (const s of sectors) assert.ok(ui[lang].sectors?.[s], `${lang}.sectors.${s}`);
+  }
+  for (const s of sectors) {
+    const hits = agreements.filter((a) => semantic.countConceptHits(` ${words(a.title)} `, s) > 0);
+    assert.ok(hits.length >= 3, `${s}: ${hits.length} sözleşme`);
+  }
+});
+
+test("yeni kavramlar: günlük ifadeler doğru kavrama gider", () => {
+  const cases = {
+    "evden çalışma": "telework", "home office": "telework", "rad od kuće": "telework",
+    "işsizlik maaşı": "unemployment", "Arbeitslosengeld": "unemployment",
+    "emeklilik": "retirement", "nyugdíj": "retirement",
+    "ayrımcılık": "discrimination", "sexuelle Belästigung": "discrimination",
+    "maaşımı alamadım": "unpaid_wages", "Verjährung": "unpaid_wages", "insolvency": "unpaid_wages",
+    "gece zammı": "allowances", "Schmutzzulage": "allowances",
+    "Deutschkurs": "training", "Almanca kursu": "training"
+  };
+  for (const [q, id] of Object.entries(cases)) {
+    assert.ok(semantic.expandQuery(q).concepts.some((c) => c.id === id), `${q} -> ${id}`);
+  }
+});

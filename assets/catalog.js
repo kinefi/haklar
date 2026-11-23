@@ -1,4 +1,4 @@
-const { LANGUAGES: languages, loadJson, normalize, renderLanguageSwitcher, applySharedUi } = window.haklar;
+const { LANGUAGES: languages, loadJson, normalize, words, renderLanguageSwitcher, applySharedUi } = window.haklar;
 
 const languageNav = document.querySelector("#languages");
 const searchInput = document.querySelector("#agreementSearch");
@@ -12,13 +12,21 @@ const allAgreementsSection = document.querySelector(".all-agreements");
 let catalog;
 let translations;
 let employerData;
+let shared;
 let currentLanguage = "tr";
+let activeContext = null;   // aktif arama bağlamı (konu vurgusu için)
+const profile = { sector: "", type: "", region: "" };   // "Hangi sözleşme?" seçimleri
+const SECTOR_IDS = ["hospitality", "retail", "construction", "industry", "transport", "care_social", "cleaning", "crafts"];
+const TYPE_IDS = ["arb", "ang"];
+const finderEls = {
+  sector: document.querySelector("#finderSector"),
+  type: document.querySelector("#finderType"),
+  region: document.querySelector("#finderRegion"),
+  status: document.querySelector("#finderStatus"),
+  reset: document.querySelector("#finderReset")
+};
 
-function translateTopic(topic, ui) {
-  const normalized = normalize(topic);
-  const match = Object.entries(ui.topics).find(([phrase]) => normalized.includes(phrase));
-  return match ? match[1] : topic;
-}
+const translateTopic = (topic, ui) => window.haklar.translateTopic(topic, ui.topics);
 
 function formatDate(value, locale) {
   if (!value) return "";
@@ -39,7 +47,12 @@ const regionNames = {
   w: "Wien"
 };
 
-function makeAgreementCard(agreement, ui, locale) {
+function typeLabel(type) {
+  const strings = shared[currentLanguage];
+  return type === "arb" ? strings.typeArb : type === "ang" ? strings.typeAng : type;
+}
+
+function makeAgreementCard(agreement, ui, locale, reasons = []) {
   const card = document.createElement("article");
   card.className = "agreement-card";
 
@@ -63,7 +76,8 @@ function makeAgreementCard(agreement, ui, locale) {
 
   const applicability = [];
   if (agreement.employmentTypes.length) {
-    applicability.push(`${ui.workerTypes}: ${agreement.employmentTypes.join(", ")}`);
+    const typeLabels = agreement.employmentTypes.map((type) => typeLabel(type));
+    applicability.push(`${ui.workerTypes}: ${typeLabels.join(", ")}`);
   }
   if (agreement.regions.length) {
     const regions = agreement.regions.map((region) => regionNames[region] || region);
@@ -86,6 +100,10 @@ function makeAgreementCard(agreement, ui, locale) {
       topics.forEach((topic) => {
         const item = document.createElement("li");
         item.textContent = topic;
+        if (activeContext && window.haklarSemantic.scoreDocument(topic, activeContext) > 0) {
+          item.className = "topic-hit";
+          item.title = shared[currentLanguage].topicMatch;
+        }
         topicList.append(item);
       });
     } else {
@@ -139,14 +157,73 @@ function makeAgreementCard(agreement, ui, locale) {
     : ui.openAgreement;
 
   card.append(heading);
+  if (reasons.length) {
+    const matched = document.createElement("p");
+    matched.className = "match-line";
+    matched.textContent = `${shared[currentLanguage].finderMatched} ${reasons.join(" · ")}`;
+    card.append(matched);
+  }
   if (date.textContent) card.append(date);
   if (applicabilityText.textContent) card.append(applicabilityText);
   card.append(...contents, openLink);
   return card;
 }
 
-function renderList(container, agreements, ui, locale) {
-  container.replaceChildren(...agreements.map((agreement) => makeAgreementCard(agreement, ui, locale)));
+function renderList(container, agreements, ui, locale, reasonsFor = () => []) {
+  container.replaceChildren(...agreements.map((agreement) => makeAgreementCard(agreement, ui, locale, reasonsFor(agreement))));
+}
+
+// ---------- "Sana hangi sözleşme uygulanır?" ----------
+
+const profileActive = () => Boolean(profile.sector || profile.type || profile.region);
+
+function sectorScore(agreement, sector) {
+  const names = [agreement.title, ...(agreement.companyExamples || []).map((example) => example.name)];
+  return window.haklarSemantic.countConceptHits(` ${words(names.join(" "))} `, sector);
+}
+
+// Seçimlere uyuyor mu? Bölge/grup bilgisi olmayan kayıtlar (yalnızca şirket örneği) seçim yapılınca elenir.
+function matchesProfile(agreement) {
+  if (profile.region || profile.type) {
+    if (agreement.sourceOnly) return false;
+    if (profile.region && agreement.regions.length && !agreement.regions.includes(profile.region)) return false;
+    if (profile.type && !agreement.employmentTypes.includes(profile.type)) return false;
+  }
+  if (profile.sector) return !agreement.sourceOnly && sectorScore(agreement, profile.sector) > 0;
+  return true;
+}
+
+function profileReasons(agreement) {
+  const strings = shared[currentLanguage];
+  const reasons = [];
+  if (profile.sector) reasons.push(strings.sectors[profile.sector]);
+  if (profile.type) reasons.push(typeLabel(profile.type));
+  if (profile.region && agreement.regions.includes(profile.region)) reasons.push(regionNames[profile.region]);
+  return reasons;
+}
+
+function fillSelect(select, options, current) {
+  const strings = shared[currentLanguage];
+  select.replaceChildren(
+    new Option(strings.finderAny, ""),
+    ...options.map(([value, label]) => new Option(label, value))
+  );
+  select.value = current;
+}
+
+function renderFinderControls() {
+  const strings = shared[currentLanguage];
+  fillSelect(finderEls.sector, SECTOR_IDS.map((id) => [id, strings.sectors[id]]), profile.sector);
+  fillSelect(finderEls.type, TYPE_IDS.map((id) => [id, typeLabel(id)]), profile.type);
+  fillSelect(finderEls.region, Object.entries(regionNames), profile.region);
+  finderEls.reset.hidden = !profileActive();
+}
+
+function onProfileChange() {
+  profile.sector = finderEls.sector.value;
+  profile.type = finderEls.type.value;
+  profile.region = finderEls.region.value;
+  renderAgreements();
 }
 
 function attachCompanyExamples() {
@@ -184,6 +261,8 @@ function renderAgreements() {
   const ui = translations[currentLanguage];
   const rawQuery = searchInput.value.trim();
   const queryContext = rawQuery ? window.haklarSemantic.expandQuery(rawQuery) : null;
+  activeContext = queryContext;
+  const filtering = Boolean(queryContext) || profileActive();
 
   let scored = catalog.agreements.map((agreement) => {
     if (!queryContext) return { agreement, score: 1 };
@@ -210,20 +289,35 @@ function renderAgreements() {
       .sort((a, b) => b.score - a.score);
   }
 
+  if (profileActive()) {
+    scored = scored.filter((item) => matchesProfile(item.agreement));
+    if (!queryContext) {
+      // Sorgu yoksa: sektör eşleşmesi güçlü olan ve öne çıkarılan sözleşmeler önce.
+      scored.sort((a, b) => (profile.sector ? sectorScore(b.agreement, profile.sector) - sectorScore(a.agreement, profile.sector) : 0)
+        || (a.agreement.popularOrder ?? 9999) - (b.agreement.popularOrder ?? 9999));
+    }
+  }
+
   const filtered = scored.map((item) => item.agreement);
 
-  resultCount.textContent = rawQuery
+  const strings = shared[currentLanguage];
+  finderEls.reset.hidden = !profileActive();
+  finderEls.status.textContent = profileActive()
+    ? (filtered.length ? strings.finderCount.replace("{n}", filtered.length) : strings.finderNone)
+    : "";
+  resultCount.textContent = filtering
     ? `${filtered.length} ${ui.resultUnit}`
     : employerData.ui[currentLanguage].searchHint;
   noResults.textContent = ui.noResults;
-  noResults.hidden = !rawQuery || filtered.length !== 0;
+  noResults.hidden = !filtering || filtered.length !== 0;
   popularContainer.replaceChildren();
 
-  if (rawQuery) {
+  if (filtering) {
     popularSection.hidden = true;
     document.querySelector(".section-jump a[href='#popularSection']").hidden = true;
     allAgreementsSection.hidden = false;
-    renderList(allContainer, filtered, ui, languages[currentLanguage].locale);
+    renderList(allContainer, filtered, ui, languages[currentLanguage].locale,
+      profileActive() ? profileReasons : undefined);
     return;
   }
 
@@ -252,15 +346,17 @@ function setLanguage(language) {
   searchInput.placeholder = ui.searchPlaceholder;
   renderLanguageSwitcher(languageNav, language, setLanguage);
   applySharedUi(language);
+  renderFinderControls();
   renderAgreements();
 }
 
 async function init() {
   try {
-    [catalog, translations, employerData] = await Promise.all([
+    [catalog, translations, employerData, shared] = await Promise.all([
       loadJson("content/collective-agreements.json"),
       loadJson("content/catalog-ui.json"),
-      loadJson("content/employer-kv.json")
+      loadJson("content/employer-kv.json"),
+      loadJson("content/shared-ui.json")
     ]);
   } catch (error) {
     catalogError.textContent = "Katalog verileri yüklenemedi. Sayfayı yenileyin.";
@@ -271,8 +367,19 @@ async function init() {
 
   await window.haklarSemantic.ready;
   attachCompanyExamples();
-  searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
+  const params = new URLSearchParams(window.location.search);
+  searchInput.value = params.get("q") || "";
+  // Bağlantıyla ön seçim: collective-agreements.html?sector=hospitality&type=arb&region=w
+  if (SECTOR_IDS.includes(params.get("sector"))) profile.sector = params.get("sector");
+  if (TYPE_IDS.includes(params.get("type"))) profile.type = params.get("type");
+  if (Object.hasOwn(regionNames, params.get("region"))) profile.region = params.get("region");
   searchInput.addEventListener("input", renderAgreements);
+  [finderEls.sector, finderEls.type, finderEls.region].forEach((select) => select.addEventListener("change", onProfileChange));
+  finderEls.reset.addEventListener("click", () => {
+    Object.assign(profile, { sector: "", type: "", region: "" });
+    renderFinderControls();
+    renderAgreements();
+  });
   if (catalog.failures.length) {
     catalogError.textContent = translations[currentLanguage]?.partial || translations.tr.partial;
     catalogError.hidden = false;

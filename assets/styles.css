@@ -137,15 +137,31 @@
 
     .rag-results-section { margin-top: 30px; }
     .rag-results-title { margin: 0 0 14px; font-size: 20px; letter-spacing: -.02em; }
+    .rag-results-section .finder-link, .finder-link { display: inline-block; margin: 0 0 14px; font-weight: 800; }
     .rag-results-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px; }
     .rag-result-card { min-width: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
     .rag-result-card h4 { margin: 0; font-size: 17px; line-height: 1.35; }
     .rag-result-card .rag-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .rag-result-card .topic-list { margin: 10px 0 0; padding-left: 18px; font-size: 15px; }
     .rag-result-card p { margin: 10px 0 0; font-size: 15px; }
     .rag-result-card a { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 800; }
     .lang-badge { display: inline-block; margin-left: 8px; padding: 1px 7px; border-radius: 6px; background: #edf3e6; color: #2e503d; font-size: 12px; font-weight: 800; vertical-align: middle; }
 
     .volunteer-note { margin: 0; padding: 0 0 36px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .finder { margin: 0 0 28px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+    .finder h2 { margin: 0 0 6px; font-size: 22px; letter-spacing: -.02em; }
+    .finder > p { margin: 0 0 14px; color: var(--muted); }
+    .finder-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .finder-fields label { display: grid; gap: 6px; font-size: 14px; font-weight: 750; }
+    .finder-fields select { min-height: 46px; padding: 8px 12px; border: 1px solid #bdcabb; border-radius: 12px; background: #fff; color: var(--ink, inherit); font: inherit; font-weight: 500; }
+    .finder .finder-help { margin: 12px 0 0; font-size: 13px; }
+    .finder .finder-status { margin: 14px 0 0; color: var(--ink, inherit); font-weight: 800; }
+    .finder .finder-tip { margin: 6px 0 0; font-size: 13px; }
+    .finder .concept-chip { margin-top: 12px; }
+    .match-line { margin: 8px 0 0; color: var(--green-dark); font-size: 13px; font-weight: 750; }
+    .topic-list li.topic-hit { font-weight: 800; }
+    .topic-list li.topic-hit::after { content: " ★"; color: var(--green); }
 
     .catalog-search { display: grid; grid-template-columns: 1fr; gap: 7px; margin: 0 0 34px; }
     .catalog-search label { font-weight: 800; }
@@ -200,6 +216,7 @@
       .cards { grid-template-columns: 1fr; gap: 10px; }
       .agreement-grid { grid-template-columns: 1fr; gap: 10px; }
       .rag-results-list { grid-template-columns: 1fr; gap: 10px; }
+      .finder-fields { grid-template-columns: 1fr; }
       .card summary { min-height: 96px; padding: 16px; }
       .card-body { padding: 0 18px 20px 78px; }
       .help { grid-template-columns: 1fr; padding: 22px; }

@@ -3,6 +3,19 @@
 Bu projedeki tüm önemli değişiklikler bu dosyada belgelenmektedir.
 Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) standardını temel alır.
 
+## [1.6.0] - 2026-11-23
+
+### Added
+- **"Hangi sözleşme benim için geçerli?" sihirbazı** (Toplu sözleşmeler sayfası): sektör, işçi/memur-hizmetli (Arbeiter/Angestellte) ve eyalet seçimine göre liste süzülür ve sıralanır; her kayıtta neden eşleştiği yazılır. Seçimler URL'e yazılır (`?sector=&type=&region=&q=`), paylaşılabilir.
+- **Ana sayfa aramasından KV'ye geçiş:** arama sonuçlarında bulunan sözleşmeler için konu başlıkları (★ ile işaretli eşleşen konu) ve katalog sayfasına bağlantı.
+- **Sözlük 22 → 30 kavram:** evden çalışma, zamlar/ödenekler, işsizlik, emeklilik, ayrımcılık/eşit muamele, ödenmeyen maaş/zamanaşımı/iflas, eğitim, zanaat sektörü; günlük Türkçe ifadeler; sektör terimleri genişletildi (temizlik, metal/elektro, taşıma/otobüs, hastane/bakım).
+- Testler: sektör kapsamı ve yeni kavramlar (14 test).
+
+### Notes
+- Konuya özel (derin) bağlantı eklenmedi: kollektivvertrag.at `topic-id` eşlemesi doğrulanamadı. Yerine eşleşen konu ★ ile vurgulanır.
+- Sözleşme metinleri hâlâ alınmıyor (ÖGB telif şartı); yalnızca katalog üst verisi kullanılır.
+- Veriler (`collective-agreements.json`, `income-tax-current.json`) 22.11.2026 CI çıktısıyla güncel.
+
 ## [1.5.0] - 2026-11-22
 
 ### Added

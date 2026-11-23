@@ -14,7 +14,34 @@
       "fazla mesai",
       "hastalık",
       "vergi dilimi"
-    ]
+    ],
+    "finderTitle": "Sana hangi sözleşme uygulanır?",
+    "finderIntro": "Sektörünü, çalışan grubunu ve eyaletini seç; uygun olabilecek sözleşmeleri listeleyelim. Bu bir ön elemedir, kesin cevap değildir.",
+    "finderSector": "Sektör",
+    "finderType": "Çalışan grubu",
+    "finderRegion": "Eyalet",
+    "finderAny": "Seçilmedi",
+    "typeHelp": "İşçi (Arbeiter): ağırlıklı olarak fiziksel veya zanaat işi. Büro çalışanı (Angestellte): büro, satış, teknik veya idari iş. Emin değilsen işverenine veya sendikaya sor.",
+    "typeArb": "İşçi (Arbeiter)",
+    "typeAng": "Büro çalışanı (Angestellte)",
+    "finderCount": "{n} olası sözleşme",
+    "finderNone": "Bu seçimle eşleşen sözleşme bulunamadı. Seçimlerden birini kaldırmayı dene.",
+    "finderTip": "Hangi sözleşmenin geçerli olduğu işverenin üye olduğu kuruluşa da bağlıdır. Kesin cevap için işverenine, işyeri temsilcine veya AK'ya sor.",
+    "finderReset": "Seçimleri temizle",
+    "finderMatched": "Eşleşen:",
+    "topicMatch": "bu aramayla eşleşen konu",
+    "findAgreement": "Sana hangi sözleşme uygulanır? →",
+    "sectors": {
+      "hospitality": "Otel ve restoran (Gastgewerbe)",
+      "retail": "Ticaret ve mağaza (Handel)",
+      "construction": "İnşaat (Bau)",
+      "industry": "Sanayi, metal ve IT",
+      "transport": "Nakliye ve lojistik",
+      "care_social": "Bakım ve sosyal hizmetler (SWÖ)",
+      "cleaning": "Temizlik",
+      "crafts": "Zanaat ve esnaf (kuaför, fırın, kasap, ahşap)"
+    },
+    "finderNav": "Hangi sözleşme?"
   },
   "hr": {
     "volunteerNote": "Ova je aplikacija u potpunosti volonterski izrađena na temelju informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastarjeli. Za pravna pitanja obratite se Arbeiterkammeru (AK) i svom sindikatu.",
@@ -31,7 +58,34 @@
       "prekovremeni rad",
       "bolovanje",
       "porezni razredi"
-    ]
+    ],
+    "finderTitle": "Koji kolektivni ugovor vrijedi za mene?",
+    "finderIntro": "Odaberite sektor, skupinu zaposlenih i saveznu zemlju pa ćemo prikazati ugovore koji bi mogli vrijediti. To je samo preliminarni odabir, a ne konačan odgovor.",
+    "finderSector": "Sektor",
+    "finderType": "Skupina zaposlenih",
+    "finderRegion": "Savezna zemlja",
+    "finderAny": "Nije odabrano",
+    "typeHelp": "Radnik (Arbeiter): pretežno fizički ili zanatski rad. Službenik (Angestellte): uredski, prodajni, tehnički ili administrativni rad. Ako niste sigurni, pitajte poslodavca ili sindikat.",
+    "typeArb": "Radnik (Arbeiter)",
+    "typeAng": "Službenik (Angestellte)",
+    "finderCount": "{n} mogući ugovor(a)",
+    "finderNone": "Nijedan ugovor ne odgovara ovom odabiru. Pokušajte ukloniti jedan od odabira.",
+    "finderTip": "Koji ugovor vrijedi ovisi i o tome kojoj organizaciji poslodavac pripada. Za pouzdan odgovor pitajte poslodavca, radničko vijeće ili AK.",
+    "finderReset": "Očisti odabir",
+    "finderMatched": "Podudara se:",
+    "topicMatch": "tema koja odgovara pretrazi",
+    "findAgreement": "Koji ugovor vrijedi za mene? →",
+    "sectors": {
+      "hospitality": "Hoteli i restorani",
+      "retail": "Trgovina",
+      "construction": "Građevina",
+      "industry": "Industrija, metal i IT",
+      "transport": "Prijevoz i logistika",
+      "care_social": "Njega i socijalne usluge",
+      "cleaning": "Čišćenje",
+      "crafts": "Obrt (frizer, pekar, mesar, drvo)"
+    },
+    "finderNav": "Koji ugovor?"
   },
   "sr": {
     "volunteerNote": "Ova aplikacija je u potpunosti volonterski napravljena na osnovu informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastareli. Za pravna pitanja obratite se Arbeiterkammer-u (AK) i svom sindikatu.",
@@ -48,7 +102,34 @@
       "prekovremeni rad",
       "bolovanje",
       "porezni razredi"
-    ]
+    ],
+    "finderTitle": "Koji kolektivni ugovor važi za mene?",
+    "finderIntro": "Izaberite sektor, grupu zaposlenih i saveznu pokrajinu pa ćemo prikazati ugovore koji bi mogli da važe. To je samo preliminarni izbor, a ne konačan odgovor.",
+    "finderSector": "Sektor",
+    "finderType": "Grupa zaposlenih",
+    "finderRegion": "Savezna pokrajina",
+    "finderAny": "Nije izabrano",
+    "typeHelp": "Radnik (Arbeiter): pretežno fizički ili zanatski rad. Službenik (Angestellte): kancelarijski, prodajni, tehnički ili administrativni rad. Ako niste sigurni, pitajte poslodavca ili sindikat.",
+    "typeArb": "Radnik (Arbeiter)",
+    "typeAng": "Službenik (Angestellte)",
+    "finderCount": "{n} moguć(ih) ugovor(a)",
+    "finderNone": "Nijedan ugovor ne odgovara ovom izboru. Pokušajte da uklonite jedan od izbora.",
+    "finderTip": "Koji ugovor važi zavisi i od toga kojoj organizaciji poslodavac pripada. Za pouzdan odgovor pitajte poslodavca, radnički savet ili AK.",
+    "finderReset": "Očisti izbor",
+    "finderMatched": "Podudara se:",
+    "topicMatch": "tema koja odgovara pretrazi",
+    "findAgreement": "Koji ugovor važi za mene? →",
+    "sectors": {
+      "hospitality": "Hoteli i restorani",
+      "retail": "Trgovina",
+      "construction": "Građevinarstvo",
+      "industry": "Industrija, metal i IT",
+      "transport": "Prevoz i logistika",
+      "care_social": "Nega i socijalne usluge",
+      "cleaning": "Čišćenje",
+      "crafts": "Zanatstvo (frizer, pekar, mesar, drvo)"
+    },
+    "finderNav": "Koji ugovor?"
   },
   "bs": {
     "volunteerNote": "Ova aplikacija je u potpunosti volonterski izrađena na osnovu informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastarjeli. Za pravna pitanja obratite se Arbeiterkammeru (AK) i svom sindikatu.",
@@ -65,7 +146,34 @@
       "prekovremeni rad",
       "bolovanje",
       "porezni razredi"
-    ]
+    ],
+    "finderTitle": "Koji kolektivni ugovor vrijedi za mene?",
+    "finderIntro": "Odaberite sektor, grupu zaposlenih i saveznu zemlju pa ćemo prikazati ugovore koji bi mogli vrijediti. To je samo preliminarni izbor, a ne konačan odgovor.",
+    "finderSector": "Sektor",
+    "finderType": "Grupa zaposlenih",
+    "finderRegion": "Savezna zemlja",
+    "finderAny": "Nije odabrano",
+    "typeHelp": "Radnik (Arbeiter): pretežno fizički ili zanatski rad. Službenik (Angestellte): uredski, prodajni, tehnički ili administrativni rad. Ako niste sigurni, pitajte poslodavca ili sindikat.",
+    "typeArb": "Radnik (Arbeiter)",
+    "typeAng": "Službenik (Angestellte)",
+    "finderCount": "{n} mogući ugovor(a)",
+    "finderNone": "Nijedan ugovor ne odgovara ovom izboru. Pokušajte ukloniti jedan od izbora.",
+    "finderTip": "Koji ugovor vrijedi ovisi i o tome kojoj organizaciji poslodavac pripada. Za pouzdan odgovor pitajte poslodavca, radničko vijeće ili AK.",
+    "finderReset": "Očisti odabir",
+    "finderMatched": "Podudara se:",
+    "topicMatch": "tema koja odgovara pretrazi",
+    "findAgreement": "Koji ugovor vrijedi za mene? →",
+    "sectors": {
+      "hospitality": "Hoteli i restorani",
+      "retail": "Trgovina",
+      "construction": "Građevinarstvo",
+      "industry": "Industrija, metal i IT",
+      "transport": "Prijevoz i logistika",
+      "care_social": "Njega i socijalne usluge",
+      "cleaning": "Čišćenje",
+      "crafts": "Zanatstvo (frizer, pekar, mesar, drvo)"
+    },
+    "finderNav": "Koji ugovor?"
   },
   "ro": {
     "volunteerNote": "Această aplicație a fost realizată integral în mod voluntar, pe baza unor informații din diverse surse. Nu își asumă nicio răspundere juridică; informațiile pot fi incomplete sau depășite. Pentru chestiuni juridice, vă rugăm să vă adresați Arbeiterkammer (AK) și sindicatului dumneavoastră.",
@@ -82,7 +190,34 @@
       "ore suplimentare",
       "concediu medical",
       "transe de impozitare"
-    ]
+    ],
+    "finderTitle": "Ce contract colectiv mi se aplică?",
+    "finderIntro": "Alegeți sectorul, categoria de angajați și landul federal, iar noi afișăm contractele care ar putea fi aplicabile. Este doar o triere preliminară, nu un răspuns definitiv.",
+    "finderSector": "Sector",
+    "finderType": "Categoria de angajați",
+    "finderRegion": "Landul federal",
+    "finderAny": "Neales",
+    "typeHelp": "Muncitor (Arbeiter): în principal muncă fizică sau meșteșugărească. Funcționar (Angestellte): muncă de birou, vânzări, tehnică sau administrativă. Dacă nu sunteți sigur, întrebați angajatorul sau sindicatul.",
+    "typeArb": "Muncitor (Arbeiter)",
+    "typeAng": "Funcționar (Angestellte)",
+    "finderCount": "{n} contracte posibile",
+    "finderNone": "Niciun contract nu corespunde acestei selecții. Încercați să eliminați una dintre opțiuni.",
+    "finderTip": "Contractul aplicabil depinde și de organizația din care face parte angajatorul. Pentru un răspuns sigur, întrebați angajatorul, comitetul de întreprindere sau AK.",
+    "finderReset": "Șterge selecția",
+    "finderMatched": "Corespunde:",
+    "topicMatch": "temă care corespunde căutării",
+    "findAgreement": "Ce contract mi se aplică? →",
+    "sectors": {
+      "hospitality": "Hoteluri și restaurante",
+      "retail": "Comerț",
+      "construction": "Construcții",
+      "industry": "Industrie, metal și IT",
+      "transport": "Transport și logistică",
+      "care_social": "Îngrijire și servicii sociale",
+      "cleaning": "Curățenie",
+      "crafts": "Meserii (coafor, brutar, măcelar, lemn)"
+    },
+    "finderNav": "Ce contract?"
   },
   "hu": {
     "volunteerNote": "Ezt az alkalmazást teljes egészében önkéntesen, különböző forrásokból származó információk összegyűjtésével készítették. Jogi felelősséget nem vállal; az információk hiányosak vagy elavultak lehetnek. Jogi kérdésekben kérjük, forduljon az Arbeiterkammerhez (AK) és a szakszervezetéhez.",
@@ -99,7 +234,34 @@
       "túlóra",
       "betegszabadság",
       "adósáv"
-    ]
+    ],
+    "finderTitle": "Melyik kollektív szerződés vonatkozik rám?",
+    "finderIntro": "Válassza ki az ágazatot, a munkavállalói csoportot és a tartományt, és megmutatjuk, mely szerződések jöhetnek szóba. Ez csak előszűrés, nem végleges válasz.",
+    "finderSector": "Ágazat",
+    "finderType": "Munkavállalói csoport",
+    "finderRegion": "Tartomány",
+    "finderAny": "Nincs kiválasztva",
+    "typeHelp": "Fizikai munkás (Arbeiter): főleg fizikai vagy kétkezi munka. Alkalmazott (Angestellte): irodai, értékesítési, műszaki vagy ügyintézői munka. Ha bizonytalan, kérdezze meg a munkáltatót vagy a szakszervezetet.",
+    "typeArb": "Fizikai munkás (Arbeiter)",
+    "typeAng": "Alkalmazott (Angestellte)",
+    "finderCount": "{n} lehetséges szerződés",
+    "finderNone": "Nincs a választásnak megfelelő szerződés. Próbáljon meg egy szűrőt eltávolítani.",
+    "finderTip": "Hogy melyik szerződés érvényes, az is függ attól, melyik szervezetnek tagja a munkáltató. Biztos válaszért kérdezze meg a munkáltatót, az üzemi tanácsot vagy az AK-t.",
+    "finderReset": "Szűrők törlése",
+    "finderMatched": "Egyezik:",
+    "topicMatch": "a kereséssel egyező téma",
+    "findAgreement": "Melyik szerződés vonatkozik rám? →",
+    "sectors": {
+      "hospitality": "Szállodák és éttermek",
+      "retail": "Kereskedelem",
+      "construction": "Építőipar",
+      "industry": "Ipar, fém és IT",
+      "transport": "Szállítás és logisztika",
+      "care_social": "Ápolás és szociális szolgáltatások",
+      "cleaning": "Takarítás",
+      "crafts": "Kisipar (fodrász, pék, hentes, fa)"
+    },
+    "finderNav": "Melyik szerződés?"
   },
   "sl": {
     "volunteerNote": "Ta aplikacija je v celoti nastala prostovoljno, na podlagi informacij iz različnih virov. Ne prevzema nobene pravne odgovornosti; informacije so lahko nepopolne ali zastarele. Za pravna vprašanja se obrnite na Arbeiterkammer (AK) in svoj sindikat.",
@@ -116,7 +278,34 @@
       "nadure",
       "bolniška",
       "davčni razredi"
-    ]
+    ],
+    "finderTitle": "Katera kolektivna pogodba velja zame?",
+    "finderIntro": "Izberite sektor, skupino zaposlenih in zvezno deželo, mi pa prikažemo pogodbe, ki bi lahko veljale. To je le predizbor, ne dokončen odgovor.",
+    "finderSector": "Sektor",
+    "finderType": "Skupina zaposlenih",
+    "finderRegion": "Zvezna dežela",
+    "finderAny": "Ni izbrano",
+    "typeHelp": "Delavec (Arbeiter): pretežno fizično ali obrtno delo. Uslužbenec (Angestellte): pisarniško, prodajno, tehnično ali administrativno delo. Če niste prepričani, vprašajte delodajalca ali sindikat.",
+    "typeArb": "Delavec (Arbeiter)",
+    "typeAng": "Uslužbenec (Angestellte)",
+    "finderCount": "{n} možnih pogodb",
+    "finderNone": "Nobena pogodba ne ustreza izboru. Poskusite odstraniti eno od izbir.",
+    "finderTip": "Katera pogodba velja, je odvisno tudi od tega, katere organizacije član je delodajalec. Za zanesljiv odgovor vprašajte delodajalca, svet delavcev ali AK.",
+    "finderReset": "Počisti izbiro",
+    "finderMatched": "Ujema se:",
+    "topicMatch": "tema, ki ustreza iskanju",
+    "findAgreement": "Katera pogodba velja zame? →",
+    "sectors": {
+      "hospitality": "Hoteli in restavracije",
+      "retail": "Trgovina",
+      "construction": "Gradbeništvo",
+      "industry": "Industrija, kovine in IT",
+      "transport": "Prevoz in logistika",
+      "care_social": "Nega in socialne storitve",
+      "cleaning": "Čiščenje",
+      "crafts": "Obrt (frizer, pek, mesar, les)"
+    },
+    "finderNav": "Katera pogodba?"
   },
   "de": {
     "volunteerNote": "Diese Anwendung wurde ausschließlich ehrenamtlich aus verschiedenen Quellen zusammengestellt. Sie übernimmt keine rechtliche Haftung; die Angaben können unvollständig oder veraltet sein. Bitte klären Sie rechtliche Fragen mit der Arbeiterkammer (AK) und Ihrer Gewerkschaft.",
@@ -133,7 +322,34 @@
       "Überstunden",
       "Krankenstand",
       "Steuerstufen"
-    ]
+    ],
+    "finderTitle": "Welcher Kollektivvertrag gilt für mich?",
+    "finderIntro": "Wählen Sie Branche, Beschäftigtengruppe und Bundesland, dann zeigen wir mögliche Kollektivverträge. Das ist nur eine Vorauswahl, keine verbindliche Antwort.",
+    "finderSector": "Branche",
+    "finderType": "Beschäftigtengruppe",
+    "finderRegion": "Bundesland",
+    "finderAny": "Keine Auswahl",
+    "typeHelp": "Arbeiter: überwiegend körperliche oder handwerkliche Tätigkeit. Angestellte: Büro-, Verkaufs-, technische oder verwaltende Tätigkeit. Im Zweifel fragen Sie Ihren Arbeitgeber oder die Gewerkschaft.",
+    "typeArb": "Arbeiter:innen",
+    "typeAng": "Angestellte",
+    "finderCount": "{n} mögliche Kollektivverträge",
+    "finderNone": "Keine Kollektivverträge für diese Auswahl gefunden. Entfernen Sie eine der Auswahlen.",
+    "finderTip": "Welcher Kollektivvertrag gilt, hängt auch davon ab, welcher Organisation der Arbeitgeber angehört. Fragen Sie für eine verbindliche Antwort Ihren Arbeitgeber, den Betriebsrat oder die AK.",
+    "finderReset": "Auswahl zurücksetzen",
+    "finderMatched": "Passt zu:",
+    "topicMatch": "Thema passend zur Suche",
+    "findAgreement": "Welcher Kollektivvertrag gilt für mich? →",
+    "sectors": {
+      "hospitality": "Hotel und Gastronomie",
+      "retail": "Handel",
+      "construction": "Bau",
+      "industry": "Industrie, Metall und IT",
+      "transport": "Transport und Logistik",
+      "care_social": "Pflege und Sozialwirtschaft",
+      "cleaning": "Reinigung",
+      "crafts": "Handwerk und Gewerbe (Friseur, Bäcker, Fleischer, Holz)"
+    },
+    "finderNav": "Welcher KV?"
   },
   "en": {
     "volunteerNote": "This app was put together entirely by volunteers from various sources. It accepts no legal responsibility, and the information may be incomplete or out of date. For legal matters, please consult the Arbeiterkammer (AK) and your trade union.",
@@ -150,6 +366,33 @@
       "overtime",
       "sick leave",
       "tax brackets"
-    ]
+    ],
+    "finderTitle": "Which collective agreement applies to me?",
+    "finderIntro": "Choose your sector, employee group and federal state and we will list the agreements that may apply. This is only a first filter, not a definitive answer.",
+    "finderSector": "Sector",
+    "finderType": "Employee group",
+    "finderRegion": "Federal state",
+    "finderAny": "Not selected",
+    "typeHelp": "Arbeiter: mainly manual or trade work. Angestellte: office, sales, technical or administrative work. If you are unsure, ask your employer or union.",
+    "typeArb": "Blue-collar (Arbeiter)",
+    "typeAng": "White-collar (Angestellte)",
+    "finderCount": "{n} possible agreements",
+    "finderNone": "No agreements match this selection. Try removing one of the choices.",
+    "finderTip": "Which agreement applies also depends on which organisation your employer belongs to. For a definitive answer, ask your employer, your works council or the AK.",
+    "finderReset": "Clear selection",
+    "finderMatched": "Matches:",
+    "topicMatch": "topic matching your search",
+    "findAgreement": "Which agreement applies to me? →",
+    "sectors": {
+      "hospitality": "Hotels and restaurants",
+      "retail": "Retail and trade",
+      "construction": "Construction",
+      "industry": "Industry, metal and IT",
+      "transport": "Transport and logistics",
+      "care_social": "Care and social services",
+      "cleaning": "Cleaning",
+      "crafts": "Crafts and trades (hairdresser, bakery, butcher, wood)"
+    },
+    "finderNav": "Which agreement?"
   }
 }
