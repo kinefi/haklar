@@ -1,6 +1,6 @@
 {
   "source": "https://www.kollektivvertrag.at/sitemap",
-  "retrievedAt": "2026-11-22",
+  "retrievedAt": "2026-11-23",
   "listingCount": 462,
   "entryCount": 585,
   "unavailableListings": [
@@ -20,14 +20,14 @@
       "reason": "Variant group ID nicht gefunden: oesterreichische-bundesbahnen-oebb"
     },
     {
-      "title": "Papier Pappe Verarbeitende Industrie Konsolidiert",
-      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=papier-pappe-verarbeitende-industrie-konsolidiert&variant-id=SI-2455_de&topic-id=1",
-      "reason": "Variant group ID nicht gefunden: papier-pappe-verarbeitende-industrie-konsolidiert"
-    },
-    {
       "title": "Papier Pappe Verarbeitende Industrie",
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=papier-pappe-verarbeitende-industrie&variant-id=SI-2459_de&topic-id=1",
       "reason": "Variant group ID nicht gefunden: papier-pappe-verarbeitende-industrie"
+    },
+    {
+      "title": "Papier Pappe Verarbeitende Industrie Konsolidiert",
+      "url": "https://www.kollektivvertrag.at/kv?variant-group-id=papier-pappe-verarbeitende-industrie-konsolidiert&variant-id=SI-2455_de&topic-id=1",
+      "reason": "Variant group ID nicht gefunden: papier-pappe-verarbeitende-industrie-konsolidiert"
     },
     {
       "title": "Verband Förderung Tierzucht Milchwirtschaft",
@@ -321,8 +321,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=ages-oesterr-agentur-fuer-gesundheit-ernaehrungssicherheit-gmbh&variant-id=SI-2755_de&topic-id=1",
       "groupId": "ages-oesterr-agentur-fuer-gesundheit-ernaehrungssicherheit-gmbh",
       "variantId": "SI-2755_de",
-      "validFrom": "2026-09-14T07:25:08.804Z",
-      "lastContentUpdate": "2026-09-14T07:25:08.804Z",
+      "validFrom": "2026-11-20T11:56:19.241Z",
+      "lastContentUpdate": "2026-11-20T11:56:19.241Z",
       "employmentTypes": [
         "ang"
       ],
@@ -341,12 +341,11 @@
         "göd"
       ],
       "topics": [
-        "Arbeitszeit, Überstunden und Urlaub",
-        "Mindestgehälter und Zulagen",
+        "Kündigung, Verfall von Ansprüchen und Urlaub",
+        "Gehälter, Zulagen, Sonderzahlungen und Prämien",
         "Einstufung und Vorrückung",
-        "Kündigung und Verfall von Ansprüchen",
-        "Karenz, Elternzeit und Pflegefreistellung",
-        "Zulagen, Prämien und Sonderzahlungen"
+        "Arbeitszeit und Überstunden",
+        "Dienstverhinderung und Freistellungen"
       ],
       "popularOrder": null
     },
@@ -355,8 +354,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=agrana-staerke&variant-id=SI-2001_de&topic-id=1",
       "groupId": "agrana-staerke",
       "variantId": "SI-2001_de",
-      "validFrom": "2026-06-25T15:24:01.094Z",
-      "lastContentUpdate": "2026-06-25T15:24:01.094Z",
+      "validFrom": "2026-11-12T12:34:51.394Z",
+      "lastContentUpdate": "2026-11-12T12:34:51.394Z",
       "employmentTypes": [
         "arb"
       ],
@@ -368,13 +367,13 @@
         "pro-ge"
       ],
       "topics": [
-        "Löhne und Zulagen in der Stärkeindustrie",
-        "Einstufung nach Qualifikation",
-        "Arbeitszeit, Überstunden und Schichtarbeit",
+        "Löhne und Zulagen",
+        "Einstufung in Lohngruppen",
+        "Arbeitszeit und Überstunden",
         "Kündigung und Verfall von Ansprüchen",
-        "Umziehzeiten für Arbeitskleidung",
+        "Bezahlte Umziehzeiten bei Hygieneanforderungen",
         "Betriebliche Pensionsversicherung",
-        "Jubiläumszuwendungen für langjährige Mitarbeiter"
+        "Umwandlung von Jubiläumsgeld in Freizeit"
       ],
       "popularOrder": null
     },
@@ -609,8 +608,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=arbeitsmarktservice&variant-id=SI-2013_de&topic-id=1",
       "groupId": "arbeitsmarktservice",
       "variantId": "SI-2013_de",
-      "validFrom": "2026-06-25T15:24:02.955Z",
-      "lastContentUpdate": "2026-06-25T15:24:02.955Z",
+      "validFrom": "2026-11-20T12:28:43.045Z",
+      "lastContentUpdate": "2026-11-20T12:28:43.045Z",
       "employmentTypes": [
         "ang"
       ],
@@ -629,13 +628,13 @@
         "göd"
       ],
       "topics": [
-        "Gehälter und Zulagen 2026",
+        "Gehälter und Zulagen ab 2026",
         "Einstufung und Vorrückung",
-        "Arbeitszeit, Überstunden und Urlaub",
-        "Kündigung und Verfallsfristen",
+        "Arbeitszeit und Überstunden",
+        "Kündigung und Verfall von Ansprüchen",
         "Urlaub und Zusatzurlaub",
-        "Entgeltfortzahlung bei Krankheit und Pflegefreistellung",
-        "Versetzung, Karenz und besondere Freistellungen"
+        "Kündigung und Beendigung des Dienstverhältnisses",
+        "Entgeltfortzahlung bei Krankheit und Pflegefreistellung"
       ],
       "popularOrder": null
     },
@@ -668,8 +667,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=arzt-angestellte&variant-id=SI-2014_de&topic-id=1",
       "groupId": "arzt-angestellte",
       "variantId": "SI-2014_de",
-      "validFrom": "2026-10-08T11:30:42.156Z",
-      "lastContentUpdate": "2026-10-08T11:30:42.156Z",
+      "validFrom": "2026-11-12T12:34:51.486Z",
+      "lastContentUpdate": "2026-11-12T12:34:51.486Z",
       "employmentTypes": [
         "ang"
       ],
@@ -680,8 +679,9 @@
         "gpa"
       ],
       "topics": [
-        "Arbeitszeit, Überstunden, Urlaub und Dienstverhinderung",
-        "Einstufung, Gehälter und Sonderzahlungen",
+        "Arbeitszeit, Überstunden und Dienstverhinderung",
+        "Gehälter, Sonderzahlungen und Zulagen für Röntgen- und Laborarbeit",
+        "Berufsgruppen und Einstufung in Arztpraxen",
         "Kündigung und Verfall von Ansprüchen"
       ],
       "popularOrder": null
@@ -1640,8 +1640,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=bauhilfsgewerbe-gbh&variant-id=SI-2059_de&topic-id=1",
       "groupId": "bauhilfsgewerbe-gbh",
       "variantId": "SI-2059_de",
-      "validFrom": "2026-06-26T08:49:41.253Z",
-      "lastContentUpdate": "2026-06-26T08:49:41.253Z",
+      "validFrom": "2026-11-20T09:04:22.996Z",
+      "lastContentUpdate": "2026-11-20T09:04:22.996Z",
       "employmentTypes": [
         "arb"
       ],
@@ -1660,10 +1660,9 @@
         "gbh"
       ],
       "topics": [
-        "Löhne, Zulagen, Sonderzahlungen und Reisekosten",
-        "Arbeitszeit, Überstunden und Zuschläge",
-        "Kündigung, Verfall von Ansprüchen und Abfertigung",
-        "Dienstverhinderung und bezahlte Freistellung"
+        "Kündigung, Dienstverhinderung und Fristen",
+        "Arbeitszeit, Überstunden und Reisekosten",
+        "Einstufung, Löhne, Zulagen und Sonderzahlungen"
       ],
       "popularOrder": null
     },
@@ -2099,8 +2098,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=bodenleger&variant-id=SI-2080_de&topic-id=1",
       "groupId": "bodenleger",
       "variantId": "SI-2080_de",
-      "validFrom": "2026-06-25T15:24:20.969Z",
-      "lastContentUpdate": "2026-06-25T15:24:20.969Z",
+      "validFrom": "2026-11-19T23:28:54.869Z",
+      "lastContentUpdate": "2026-11-19T23:28:54.869Z",
       "employmentTypes": [
         "arb"
       ],
@@ -2119,10 +2118,11 @@
         "gbh"
       ],
       "topics": [
-        "Löhne, Zulagen, Sonderzahlungen und Reisekosten",
-        "Arbeitszeit und Überstunden",
+        "Löhne, Zulagen und Reisekosten",
+        "Einstufung nach Qualifikation",
+        "Arbeitszeit, Überstunden und Zuschläge",
         "Kündigung und Verfall von Ansprüchen",
-        "Bezahlte Dienstverhinderung"
+        "Lohnfortzahlung bei Dienstverhinderung"
       ],
       "popularOrder": null
     },
@@ -2131,8 +2131,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=brauereien&variant-id=SI-2082_de&topic-id=1",
       "groupId": "brauereien",
       "variantId": "SI-2082_de",
-      "validFrom": "2026-10-23T07:10:05.588Z",
-      "lastContentUpdate": "2026-10-23T07:10:05.588Z",
+      "validFrom": "2026-11-18T13:00:42.748Z",
+      "lastContentUpdate": "2026-11-18T13:00:42.748Z",
       "employmentTypes": [
         "arb"
       ],
@@ -2151,11 +2151,12 @@
         "pro-ge"
       ],
       "topics": [
-        "Einstufung, Sonderzahlungen und Haustrunk",
-        "Löhne und Lehrlingsentschädigung",
+        "Löhne und Gehälter in Brauereien",
+        "Einstufung und Tätigkeitsgruppen",
         "Arbeitszeit und Überstunden",
-        "Kündigung und Verfall von Ansprüchen",
-        "Zulagen für besondere Arbeitsbedingungen"
+        "Kündigung und Beendigung des Arbeitsverhältnisses",
+        "Stammarbeiter-Sonderzahlung",
+        "Zulagen für Erschwernisse und Gefahren"
       ],
       "popularOrder": null
     },
@@ -2294,8 +2295,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=brunnenmeister-grundbau-tiefbohrunternehmer&variant-id=CL-2791_de&topic-id=1",
       "groupId": "brunnenmeister-grundbau-tiefbohrunternehmer",
       "variantId": "CL-2791_de",
-      "validFrom": "2026-06-25T15:24:00.317Z",
-      "lastContentUpdate": "2026-06-25T15:24:00.317Z",
+      "validFrom": "2026-11-19T23:28:54.338Z",
+      "lastContentUpdate": "2026-11-19T23:28:54.338Z",
       "employmentTypes": [
         "arb"
       ],
@@ -2314,10 +2315,11 @@
         "gbh"
       ],
       "topics": [
-        "Löhne, Einstufung und Zulagen für erschwerte Arbeitsbedingungen",
-        "Arbeitszeit, Überstunden und Schichtarbeit",
+        "Löhne, Zulagen für erschwerte Arbeiten und Reisekosten",
+        "Einstufung in Beschäftigungsgruppen",
+        "Arbeitszeit und Überstunden",
         "Kündigung und Verfall von Ansprüchen",
-        "Weihnachtsgeld"
+        "Weihnachtsgeld und Urlaubsgeld"
       ],
       "popularOrder": null
     },
@@ -3092,8 +3094,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=dachdeckergewerbe&variant-id=SI-2109_de&topic-id=1",
       "groupId": "dachdeckergewerbe",
       "variantId": "SI-2109_de",
-      "validFrom": "2026-06-26T08:12:23.168Z",
-      "lastContentUpdate": "2026-06-26T08:12:23.168Z",
+      "validFrom": "2026-11-20T09:42:45.443Z",
+      "lastContentUpdate": "2026-11-20T09:42:45.443Z",
       "employmentTypes": [
         "arb"
       ],
@@ -3112,10 +3114,11 @@
         "gbh"
       ],
       "topics": [
-        "Arbeitszeit, Überstunden und Dienstverhinderung",
-        "Löhne, Zulagen, Weihnachtsgeld und Kosten bei auswärtigen Baustellen",
+        "Arbeitszeit, Überstunden, Zuschläge und Dienstverhinderung",
+        "Löhne, Zulagen und Weihnachtsgeld",
         "Einstufung nach Qualifikation und Tätigkeit",
-        "Kündigung und Verfall von Ansprüchen"
+        "Fristen bei Kündigung und Geltendmachung von Ansprüchen",
+        "Trennungsgeld und Reisekosten bei auswärtigen Einsätzen"
       ],
       "popularOrder": null
     },
@@ -3774,8 +3777,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=elektro-u-elektronikindustrie&variant-id=SI-2130_de&topic-id=1",
       "groupId": "elektro-u-elektronikindustrie",
       "variantId": "SI-2130_de",
-      "validFrom": "2026-09-08T12:34:31.180Z",
-      "lastContentUpdate": "2026-09-08T12:34:31.180Z",
+      "validFrom": "2026-11-13T09:27:54.919Z",
+      "lastContentUpdate": "2026-11-13T09:27:54.919Z",
       "employmentTypes": [
         "arb"
       ],
@@ -3794,13 +3797,13 @@
         "pro-ge"
       ],
       "topics": [
-        "Mindestlöhne und Zulagen 2026",
+        "Mindestlöhne und Gehälter 2026",
         "Einstufung und Vorrückung in Beschäftigungsgruppen",
-        "Arbeitszeit und Überstunden",
+        "Arbeitszeit und flexible Arbeitszeitmodelle",
         "Kündigung und Verfall von Ansprüchen",
-        "Sonderzahlungen (Urlaubs- und Weihnachtsgeld)",
-        "Dienstreisen und Reisekosten",
-        "Abfertigung bei Beendigung"
+        "Dienstreisen und Montage: Spesen und Entschädigungen",
+        "Urlaubs- und Weihnachtsgeld",
+        "Entgeltfortzahlung und Zuschuss bei Krankheit"
       ],
       "popularOrder": null
     },
@@ -3880,8 +3883,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=essig-essenzen-spirituosenindustrie&variant-id=SI-2136_de&topic-id=1",
       "groupId": "essig-essenzen-spirituosenindustrie",
       "variantId": "SI-2136_de",
-      "validFrom": "2026-06-25T15:24:43.801Z",
-      "lastContentUpdate": "2026-06-25T15:24:43.801Z",
+      "validFrom": "2026-11-16T14:29:52.161Z",
+      "lastContentUpdate": "2026-11-16T14:29:52.161Z",
       "employmentTypes": [
         "arb"
       ],
@@ -3900,12 +3903,13 @@
         "pro-ge"
       ],
       "topics": [
-        "Löhne und Zulagen für Mitarbeiter und Fahrer",
+        "Löhne und Zulagen 2026",
         "Einstufung und Lohngruppen",
-        "Arbeitszeiten, Überstunden und Nachtarbeit",
-        "Fristen für Ansprüche und Kündigung",
-        "Zusätzlicher Krankengeldzuschuss bei Arbeitsunfall",
-        "Prämien für Lehrlinge"
+        "Arbeitszeit und Überstunden",
+        "Kündigung und Verfall von Ansprüchen",
+        "Umziehzeiten und bezahlte Pausen",
+        "Prämien für Lehrlinge",
+        "Zehrgelder für Außendienst"
       ],
       "popularOrder": null
     },
@@ -4047,8 +4051,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=film-musikwirtschaft&variant-id=SI-2025_de&topic-id=1",
       "groupId": "film-musikwirtschaft",
       "variantId": "SI-2025_de",
-      "validFrom": "2026-06-25T15:24:04.538Z",
-      "lastContentUpdate": "2026-06-25T15:24:04.538Z",
+      "validFrom": "2026-11-19T23:28:54.461Z",
+      "lastContentUpdate": "2026-11-19T23:28:54.461Z",
       "employmentTypes": [
         "arb",
         "ang"
@@ -4068,13 +4072,13 @@
         "younion"
       ],
       "topics": [
-        "Mindestlöhne, Gehälter und Sonderzahlungen",
+        "Löhne, Gehälter und Sonderzahlungen 2026",
         "Einstufung und Vorrückung in Verwendungsgruppen",
-        "Arbeitszeit, Überstunden und Schichtarbeit",
-        "Kündigung und Verfall von Ansprüchen",
-        "Weihnachts- und Urlaubsgeld",
-        "Dienstreisen und Reisekosten",
-        "Dienstverhinderung bei Familienereignissen"
+        "Arbeitszeit, Überstunden und Zuschläge",
+        "Kündigung, Verjährung und Verfall von Ansprüchen",
+        "Weihnachts- und Urlaubsgeld (13. und 14. Monatsgehalt)",
+        "Dienstreisen und Reisekostenersatz",
+        "Urlaub und Freistellungen"
       ],
       "popularOrder": null
     },
@@ -5990,8 +5994,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=glasergewerbe&variant-id=SI-2214_de&topic-id=1",
       "groupId": "glasergewerbe",
       "variantId": "SI-2214_de",
-      "validFrom": "2026-06-25T15:25:04.443Z",
-      "lastContentUpdate": "2026-06-25T15:25:04.443Z",
+      "validFrom": "2026-11-20T09:42:46.203Z",
+      "lastContentUpdate": "2026-11-20T09:42:46.203Z",
       "employmentTypes": [
         "arb"
       ],
@@ -6010,12 +6014,11 @@
         "gbh"
       ],
       "topics": [
-        "Löhne und Zulagen nach Berufsjahren und Qualifikation",
+        "Löhne, Zulagen, Taggeld und Reisekosten",
         "Arbeitszeit, Überstunden und flexible Arbeitszeitmodelle",
-        "Kündigung und Verfall von Ansprüchen",
-        "Urlaubs- und Weihnachtsgeld",
-        "Entgeltfortzahlung bei Dienstverhinderung",
-        "Taggeld und Reisekosten"
+        "Verfallsfristen und Kündigung des Arbeitsverhältnisses",
+        "Sonderzahlungen: Urlaubs- und Weihnachtsgeld",
+        "Dienstverhinderung und Entgeltfortzahlung"
       ],
       "popularOrder": null
     },
@@ -6024,8 +6027,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=glashuetten&variant-id=SI-2215_de&topic-id=1",
       "groupId": "glashuetten",
       "variantId": "SI-2215_de",
-      "validFrom": "2026-06-26T10:45:24.124Z",
-      "lastContentUpdate": "2026-06-26T10:45:24.124Z",
+      "validFrom": "2026-11-13T08:45:09.997Z",
+      "lastContentUpdate": "2026-11-13T08:45:09.997Z",
       "employmentTypes": [
         "arb"
       ],
@@ -6044,12 +6047,12 @@
         "pro-ge"
       ],
       "topics": [
-        "Einstufung, Löhne und Zulagen",
-        "Arbeitszeit, Schichten und Überstunden",
+        "Löhne und Einstufung in Lohngruppen",
+        "Arbeitszeit, Überstunden und Schichtarbeit",
         "Kündigung und Verfall von Ansprüchen",
-        "Urlaubszuschuss und Weihnachtsgeld",
+        "Urlaubsgeld und Weihnachtsgeld",
         "Abfertigung bei Beendigung des Arbeitsverhältnisses",
-        "Bezahlte Freistellung bei wichtigen Anlässen"
+        "Dienstverhinderung und Entgeltfortzahlung"
       ],
       "popularOrder": null
     },
@@ -6235,8 +6238,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=hafner-platten-fliesenleger-keramiker&variant-id=SI-2224_de&topic-id=1",
       "groupId": "hafner-platten-fliesenleger-keramiker",
       "variantId": "SI-2224_de",
-      "validFrom": "2026-06-26T09:05:21.730Z",
-      "lastContentUpdate": "2026-06-26T09:05:21.730Z",
+      "validFrom": "2026-11-19T23:28:56.748Z",
+      "lastContentUpdate": "2026-11-19T23:28:56.748Z",
       "employmentTypes": [
         "arb"
       ],
@@ -6255,13 +6258,12 @@
         "gbh"
       ],
       "topics": [
-        "Stundenlöhne und Lehrlingseinkommen",
-        "Einstufung nach Qualifikation",
-        "Arbeitszeit und Überstunden",
+        "Arbeitszeit, Zuschläge und Reisekosten",
+        "Mindestlöhne und Lehrlingseinkommen",
+        "Einstufung nach Qualifikation und Verwendung",
         "Kündigung und Verfall von Ansprüchen",
-        "Weihnachts- und Urlaubsgeld",
-        "Reisekosten und Taggeld bei Baustellen",
-        "Dienstverhinderung und bezahlte Freistellung"
+        "Weihnachtsgeld und Urlaubszuschuss",
+        "Dienstverhinderung bei persönlichen Anlässen"
       ],
       "popularOrder": null
     },
@@ -6787,8 +6789,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=holzbau-meistergewerbe&variant-id=SI-2734_de&topic-id=1",
       "groupId": "holzbau-meistergewerbe",
       "variantId": "SI-2734_de",
-      "validFrom": "2026-06-25T15:27:38.907Z",
-      "lastContentUpdate": "2026-06-25T15:27:38.907Z",
+      "validFrom": "2026-11-20T09:42:48.702Z",
+      "lastContentUpdate": "2026-11-20T09:42:48.702Z",
       "employmentTypes": [
         "arb"
       ],
@@ -6807,9 +6809,12 @@
         "gbh"
       ],
       "topics": [
-        "Löhne, Zulagen, Reisekosten und Sonderzahlungen",
+        "Löhne, Zulagen, Sonderzahlungen und Reisekosten",
+        "Einstufung nach Tätigkeiten",
         "Arbeitszeit und Überstunden",
-        "Kündigungsfristen und Verfall von Ansprüchen"
+        "Kündigung und Verfall von Ansprüchen",
+        "Weihnachtsgeld und Sonderzahlungen",
+        "Zulagen für besondere Arbeitsbedingungen"
       ],
       "popularOrder": null
     },
@@ -8025,8 +8030,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=karitative-einrichtungen-kathol-kirche-caritas&variant-id=SI-2302_de&topic-id=1",
       "groupId": "karitative-einrichtungen-kathol-kirche-caritas",
       "variantId": "SI-2302_de",
-      "validFrom": "2026-09-24T10:59:51.807Z",
-      "lastContentUpdate": "2026-09-24T10:59:51.807Z",
+      "validFrom": "2026-11-23T07:48:36.934Z",
+      "lastContentUpdate": "2026-11-23T07:48:36.934Z",
       "employmentTypes": [
         "arb",
         "ang"
@@ -8047,13 +8052,13 @@
         "gpa"
       ],
       "topics": [
-        "Mindestgehälter und Zulagen für karitative Einrichtungen 2026",
-        "Einstufung und Vorrückung in Verwendungsgruppen",
-        "Arbeitszeiten, Überstunden und Nachtdienste",
-        "Kündigung und Verfall von Ansprüchen",
-        "Urlaub und zusätzliche freie Tage",
-        "Urlaubs- und Weihnachtsgeld (Sonderzahlungen)",
-        "Karenz und Elternzeit"
+        "Gehälter und Zulagen",
+        "Einstufung nach Berufsgruppen",
+        "Arbeitszeit und Überstunden",
+        "Fristen und Kündigungsregelungen",
+        "Urlaub und freie Tage",
+        "Elternkarenz und Pflegekarenz",
+        "Sonderzahlungen und Zuschläge"
       ],
       "popularOrder": null
     },
@@ -8726,8 +8731,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=krankenhaus-barmherzige-brueder&variant-id=SI-2332_de&topic-id=1",
       "groupId": "krankenhaus-barmherzige-brueder",
       "variantId": "SI-2332_de",
-      "validFrom": "2026-10-29T12:52:05.194Z",
-      "lastContentUpdate": "2026-10-29T12:52:05.194Z",
+      "validFrom": "2026-11-19T23:28:57.097Z",
+      "lastContentUpdate": "2026-11-19T23:28:57.097Z",
       "employmentTypes": [
         "arb",
         "ang"
@@ -8739,13 +8744,12 @@
         "vida"
       ],
       "topics": [
-        "Gehälter und Löhne im Krankenhaus 2026",
-        "Einstufung und Verwendungsgruppen",
-        "Arbeitszeit und Überstunden",
-        "Kündigung und Verfall von Ansprüchen",
-        "Urlaub und Zusatzurlaub im Krankenhaus",
+        "Urlaub, Zusatzurlaub und Kündigung",
+        "Gehälter und Zulagen im Krankenhaus 2026",
+        "Einstufung und Einreihung nach Tätigkeiten",
+        "Arbeitszeit, Überstunden und Rufbereitschaft",
         "Sonderzahlungen und Jubiläumsgelder",
-        "Karenz und bezahlte Freistellung bei familiären Ereignissen"
+        "Altersteilzeit und Karenz nach Mutterschutz"
       ],
       "popularOrder": null
     },
@@ -9061,12 +9065,12 @@
         "ang"
       ],
       "regions": [
-        "s",
-        "w",
-        "st",
         "nö",
         "b",
-        "k"
+        "s",
+        "k",
+        "w",
+        "st"
       ],
       "unions": [
         "gpa"
@@ -10399,8 +10403,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=maler&variant-id=SI-2388_de&topic-id=1",
       "groupId": "maler",
       "variantId": "SI-2388_de",
-      "validFrom": "2026-09-29T15:22:19.736Z",
-      "lastContentUpdate": "2026-09-29T15:22:19.736Z",
+      "validFrom": "2026-11-20T09:42:47.171Z",
+      "lastContentUpdate": "2026-11-20T09:42:47.171Z",
       "employmentTypes": [
         "arb"
       ],
@@ -10419,10 +10423,11 @@
         "gbh"
       ],
       "topics": [
-        "Einstufung, Löhne, Sonderzahlungen und Zulagen",
+        "Löhne, Zulagen und Sonderzahlungen",
+        "Einstufung nach Qualifikation und Verwendung",
         "Arbeitszeit, Überstunden und flexible Arbeitszeitmodelle",
-        "Kündigung und Verfall von Ansprüchen",
-        "Reisekosten und Auslösen bei auswärtigen Arbeiten"
+        "Kündigung, Verfall von Ansprüchen und Fristen",
+        "Reisekosten und Wegegeld für Auswärtstätigkeiten"
       ],
       "popularOrder": null
     },
@@ -10767,8 +10772,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=milchindustrie-konsolidiert&variant-id=SI-2398_de&topic-id=1",
       "groupId": "milchindustrie-konsolidiert",
       "variantId": "SI-2398_de",
-      "validFrom": "2026-06-25T15:26:01.571Z",
-      "lastContentUpdate": "2026-06-25T15:26:01.571Z",
+      "validFrom": "2026-11-18T13:31:01.524Z",
+      "lastContentUpdate": "2026-11-18T13:31:01.524Z",
       "employmentTypes": [
         "ang"
       ],
@@ -10787,13 +10792,13 @@
         "gpa"
       ],
       "topics": [
-        "Aktuelle Gehälter und Löhne in der Milchindustrie",
-        "Einstufung und Verwendungsgruppen für Angestellte",
-        "Arbeitszeiten und Überstunden in der Milchindustrie",
-        "Fristen und Verfall von Ansprüchen",
-        "Milch-, Butter- und Käsezuwendungen",
-        "Zulagen für besondere Arbeitsbedingungen",
-        "Regelungen für Lehrlinge und Ferialjobs"
+        "Gehälter und Zulagen 2025",
+        "Einstufung und Vorrückung",
+        "Arbeitszeiten und Überstunden",
+        "Fristen für Ansprüche",
+        "Urlaubs- und Weihnachtsgeld",
+        "Dienstreisen und Reisekosten",
+        "Abfertigung und Austritt"
       ],
       "popularOrder": null
     },
@@ -11229,8 +11234,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=museen-stadt-wien-wiss-anstalt-oeffentlichen-rechtes&variant-id=SI-2709_de&topic-id=1",
       "groupId": "museen-stadt-wien-wiss-anstalt-oeffentlichen-rechtes",
       "variantId": "SI-2709_de",
-      "validFrom": "2026-06-25T15:27:32.701Z",
-      "lastContentUpdate": "2026-06-25T15:27:32.701Z",
+      "validFrom": "2026-11-20T10:06:56.097Z",
+      "lastContentUpdate": "2026-11-20T10:06:56.097Z",
       "employmentTypes": [
         "arb",
         "ang"
@@ -11242,12 +11247,13 @@
         "younion"
       ],
       "topics": [
-        "Beendigung des Arbeitsverhältnisses und Ansprüche",
-        "Mindestgehälter und Zulagen",
-        "Einstufung und Vorrückung nach Verwendungsgruppen",
-        "Arbeitszeit, Überstunden und Teilzeit",
-        "Urlaub und Zusatzurlaub für Versehrte",
-        "Dienstverhinderung, Pflegefreistellung und Karenz"
+        "Gehälter, Zulagen und Sonderzahlungen",
+        "Einstufung in Verwendungsgruppen und Vorrückung",
+        "Arbeitszeit, Überstunden und Zuschläge",
+        "Kündigung, Beendigung und Verfall von Ansprüchen",
+        "Urlaub und Zusatzurlaub für Menschen mit Behinderung",
+        "Karenz, Pflegefreistellung und Sonderurlaub",
+        "Sonderzahlungen und Beendigung des Arbeitsverhältnisses"
       ],
       "popularOrder": null
     },
@@ -11382,8 +11388,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=muehlenindustrie-konsolidiert&variant-id=SI-2422_de&topic-id=1",
       "groupId": "muehlenindustrie-konsolidiert",
       "variantId": "SI-2422_de",
-      "validFrom": "2026-08-21T11:22:41.894Z",
-      "lastContentUpdate": "2026-08-21T11:22:41.894Z",
+      "validFrom": "2026-11-16T14:29:53.374Z",
+      "lastContentUpdate": "2026-11-16T14:29:53.374Z",
       "employmentTypes": [
         "ang"
       ],
@@ -11402,13 +11408,12 @@
         "gpa"
       ],
       "topics": [
-        "Mindestgehälter und Zulagen",
-        "Einstufung und Vorrückung",
-        "Arbeitszeit und Überstunden",
+        "Mindestgehälter und Sonderzahlungen",
+        "Einstufung und Vorrückung in Verwendungsgruppen",
+        "Arbeitszeit, Überstunden und Zuschläge",
         "Fristen und Verfall von Ansprüchen",
-        "Weihnachts- und Urlaubsgeld",
         "Dienstreisen und Reisekosten",
-        "Dienstverhinderung bei persönlichen Anlässen"
+        "Bezahlte Freistellung bei persönlichen Anlässen"
       ],
       "popularOrder": null
     },
@@ -12262,8 +12267,8 @@
         "arb"
       ],
       "regions": [
-        "oö",
         "b",
+        "oö",
         "k"
       ],
       "unions": [
@@ -12466,8 +12471,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=pflasterer&variant-id=SI-2461_de&topic-id=1",
       "groupId": "pflasterer",
       "variantId": "SI-2461_de",
-      "validFrom": "2026-06-25T15:26:23.264Z",
-      "lastContentUpdate": "2026-06-25T15:26:23.264Z",
+      "validFrom": "2026-11-19T23:28:58.643Z",
+      "lastContentUpdate": "2026-11-19T23:28:58.643Z",
       "employmentTypes": [
         "arb"
       ],
@@ -12486,10 +12491,11 @@
         "gbh"
       ],
       "topics": [
-        "Arbeitszeit und Dienstverhinderung",
-        "Löhne, Zulagen, Reisekosten und Sonderzahlung",
-        "Einstufung nach Qualifikation",
-        "Kündigung und Verfall von Ansprüchen"
+        "Löhne, Zulagen, Weihnachtsgeld und Reisekosten",
+        "Einstufung nach Qualifikation und Tätigkeit",
+        "Arbeitszeit, Überstunden und Zuschläge",
+        "Kündigung und Verfall von Ansprüchen",
+        "Bezahlte Dienstverhinderung"
       ],
       "popularOrder": null
     },
@@ -13642,10 +13648,10 @@
         "ang"
       ],
       "regions": [
-        "k",
         "oö",
+        "v",
         "s",
-        "v"
+        "k"
       ],
       "unions": [
         "gpa"
@@ -14906,8 +14912,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=steinarbeitergewerbe&variant-id=SI-2540_de&topic-id=1",
       "groupId": "steinarbeitergewerbe",
       "variantId": "SI-2540_de",
-      "validFrom": "2026-08-11T15:57:53.646Z",
-      "lastContentUpdate": "2026-08-11T15:57:53.646Z",
+      "validFrom": "2026-11-19T23:28:59.202Z",
+      "lastContentUpdate": "2026-11-19T23:28:59.202Z",
       "employmentTypes": [
         "arb"
       ],
@@ -14927,7 +14933,8 @@
       ],
       "topics": [
         "Kündigung und Abfertigung",
-        "Löhne, Zulagen, Sonderzahlungen und Reisekosten",
+        "Löhne, Sonderzahlungen, Fahrtkosten und Taggelder",
+        "Einstufung und Vorrückung",
         "Arbeitszeit, Überstunden und Zuschläge"
       ],
       "popularOrder": null
@@ -14972,8 +14979,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=steinarbeitergewerbe-bauhilfsgewerbe&variant-id=SI-2957_de&topic-id=1",
       "groupId": "steinarbeitergewerbe-bauhilfsgewerbe",
       "variantId": "SI-2957_de",
-      "validFrom": "2026-08-14T07:42:45.005Z",
-      "lastContentUpdate": "2026-08-14T07:42:45.005Z",
+      "validFrom": "2026-11-19T23:29:01.348Z",
+      "lastContentUpdate": "2026-11-19T23:29:01.348Z",
       "employmentTypes": [
         "arb"
       ],
@@ -14992,11 +14999,12 @@
         "gbh"
       ],
       "topics": [
-        "Einstufung, Löhne und Zulagen",
-        "Arbeitszeit und Überstunden",
+        "Mindestlöhne und Sonderzahlungen",
+        "Einstufung nach Qualifikation und Tätigkeit",
+        "Arbeitszeit, Überstunden und Zuschläge",
         "Kündigung und Verfall von Ansprüchen",
         "Taggeld bei Baustelleneinsätzen",
-        "Zulagen für Staub, Hitze und Gefahr",
+        "Zulagen für erschwerte Arbeitsbedingungen",
         "Schlechtwetterentschädigung"
       ],
       "popularOrder": null
@@ -15463,8 +15471,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=tapezierergewerbe&variant-id=SI-2553_de&topic-id=1",
       "groupId": "tapezierergewerbe",
       "variantId": "SI-2553_de",
-      "validFrom": "2026-06-25T15:26:56.317Z",
-      "lastContentUpdate": "2026-06-25T15:26:56.317Z",
+      "validFrom": "2026-11-20T09:04:24.027Z",
+      "lastContentUpdate": "2026-11-20T09:04:24.027Z",
       "employmentTypes": [
         "arb"
       ],
@@ -15483,11 +15491,13 @@
         "gbh"
       ],
       "topics": [
-        "Einstufung, Löhne, Zulagen und Sonderzahlungen",
-        "Arbeitszeit, Überstunden und flexible Arbeitszeitmodelle",
+        "Löhne und Sonderzahlungen",
+        "Einstufung und Vorrückung",
+        "Arbeitszeit und Überstunden",
         "Kündigung und Verfall von Ansprüchen",
-        "Dienstreisen, Taggeld und Fahrtkosten",
-        "Bezahlte Freistellung bei persönlichen Ereignissen"
+        "Reisekosten und Spesen bei Dienstreisen",
+        "Sonderzahlungen und Prämien",
+        "Bezahlte Freistellung bei Dienstverhinderung"
       ],
       "popularOrder": null
     },
@@ -15789,8 +15799,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=textilreiniger-waescher-faerber&variant-id=SI-2108_de&topic-id=1",
       "groupId": "textilreiniger-waescher-faerber",
       "variantId": "SI-2108_de",
-      "validFrom": "2026-11-05T15:11:07.219Z",
-      "lastContentUpdate": "2026-11-05T15:11:07.219Z",
+      "validFrom": "2026-11-20T10:45:45.769Z",
+      "lastContentUpdate": "2026-11-20T10:45:45.769Z",
       "employmentTypes": [
         "arb"
       ],
@@ -15809,13 +15819,12 @@
         "pro-ge"
       ],
       "topics": [
-        "Löhne und Lehrlingseinkommen",
-        "Lohngruppen und Einstufung",
-        "Arbeitszeit, Überstunden und Zuschläge",
+        "Arbeitszeit, Überstunden und Zuschläge für Nacht- und Feiertagsarbeit",
+        "Löhne und Sonderzahlungen",
+        "Einstufung nach Tätigkeiten",
         "Kündigung und Verfall von Ansprüchen",
-        "Urlaubszuschuss und Weihnachtsgeld",
-        "Bezahlte Freistellung bei Dienstverhinderung",
-        "Zuschläge für Nacht-, Sonn- und Feiertagsarbeit"
+        "Urlaubsgeld und Weihnachtsgeld",
+        "Bezahlte Freistellung bei persönlichen Ereignissen"
       ],
       "popularOrder": null
     },
@@ -16597,8 +16606,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=wiener-symphoniker-orchesterangehoerige&variant-id=SI-2603_de&topic-id=1",
       "groupId": "wiener-symphoniker-orchesterangehoerige",
       "variantId": "SI-2603_de",
-      "validFrom": "2026-07-13T10:26:48.736Z",
-      "lastContentUpdate": "2026-07-13T10:26:48.736Z",
+      "validFrom": "2026-11-23T09:53:59.761Z",
+      "lastContentUpdate": "2026-11-23T09:53:59.761Z",
       "employmentTypes": [
         "ang"
       ],
@@ -16618,12 +16627,12 @@
       ],
       "topics": [
         "Gehälter und Zulagen für Orchestermusiker",
-        "Einstufung und Funktionen im Orchester",
-        "Arbeitszeit und Überstunden für Orchestermusiker",
+        "Einstufung und Positionen im Orchester",
+        "Arbeitszeit und Diensteinteilung",
         "Kündigung und Verfall von Ansprüchen",
-        "Dienstreisen und Reisekosten",
-        "Anstellung und Beendigung des Arbeitsverhältnisses",
-        "Krankheit, Urlaub und Dienstfreistellung"
+        "Dienstreisen und Reisekostenersatz",
+        "Krankenstand und Entgeltfortzahlung",
+        "Kündigung und Abfertigung"
       ],
       "popularOrder": null
     },
@@ -16884,8 +16893,8 @@
       "url": "https://www.kollektivvertrag.at/kv?variant-group-id=zahnarzt-angestellte&variant-id=SI-2615_de&topic-id=1",
       "groupId": "zahnarzt-angestellte",
       "variantId": "SI-2615_de",
-      "validFrom": "2026-06-25T15:27:22.442Z",
-      "lastContentUpdate": "2026-06-25T15:27:22.442Z",
+      "validFrom": "2026-11-20T10:59:04.019Z",
+      "lastContentUpdate": "2026-11-20T10:59:04.019Z",
       "employmentTypes": [
         "ang"
       ],
@@ -16904,13 +16913,11 @@
         "gpa"
       ],
       "topics": [
-        "Mindestgehälter und Zulagen für Zahnarztpraxen",
-        "Berufsgruppen und Einstufung in Zahnarztpraxen",
+        "Löhne, Zulagen, Sonderzahlungen und Urlaub",
+        "Berufsgruppen und Tätigkeiten in Zahnarztpraxen",
         "Arbeitszeit und Überstunden",
         "Kündigung und Verfall von Ansprüchen",
-        "Ausbildung zur zahnärztlichen Assistentin",
-        "Dienstverhinderung bei persönlichen Anlässen",
-        "Sonderzahlungen und Zulagen"
+        "Ausbildung zur zahnärztlichen Assistentin"
       ],
       "popularOrder": null
     },
