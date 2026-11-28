@@ -1,13 +1,13 @@
 /**
  * Haklar - ana sayfa: çok dilli rehber kartları, kavram tabanlı arama ve KV sonuçları.
- * Bağımlılıklar: common.js, semantic.js, rag-retriever.js, tax-section.js
+ * Bağımlılıklar: common.js, semantic.js, search-retriever.js, tax-section.js
  */
 (() => {
   "use strict";
 
   const { LANGUAGES, loadJson, el, externalLink, renderLanguageSwitcher, applySharedUi } = window.haklar;
   const SEARCH_DEBOUNCE_MS = 150;
-  const RAG_TOP_K = 6;
+  const SEARCH_TOP_K = 6;
 
   const languagesEl = document.querySelector("#languages");
   const cardsEl = document.querySelector("#cards");
@@ -18,7 +18,7 @@
   const conceptHintEl = document.querySelector("#conceptHint");
   const suggestionsEl = document.querySelector("#searchSuggestions");
   const noCardResultsEl = document.querySelector("#noCardResults");
-  const ragResultsEl = document.querySelector("#ragSearchResults");
+  const searchResultsEl = document.querySelector("#searchResultsSection");
 
   const state = {
     language: "tr",
@@ -27,7 +27,6 @@
     taxBundle: null,     // vergi dilimleri (yüklenemezse null)
     cardMeta: {},        // content/card-meta.json -> reviewed
     shared: {},          // content/shared-ui.json içinden seçili dil
-    topicMap: {},        // content/catalog-ui.json -> KV konu çevirileri (seçili dil)
     context: null        // son arama bağlamı (konu vurgusu için)
   };
   let renderRequest = 0;
@@ -107,27 +106,22 @@
       const text = item.text || "";
       return el("p", { text: text.length > 220 ? `${text.slice(0, 220)}…` : text });
     }
-    // Aramayla eşleşen konu başlığı ★ ile vurgulanır; kullanıcı sözleşmede hangi bölüme bakacağını görür.
-    const byLabel = new Map();
-    for (const topic of topics) {
-      const label = window.haklar.translateTopic(topic, state.topicMap);
-      if (!byLabel.has(label)) byLabel.set(label, topic);
-    }
-    return el("ul", { class: "topic-list" }, ...[...byLabel].map(([label, topic]) => {
-      const hit = state.context && window.haklarSemantic.scoreDocument(topic, state.context) > 0;
-      return el("li", { class: hit ? "topic-hit" : null, title: hit ? state.shared.topicMatch : null, text: label });
-    }));
+    // Konu başlıkları seçili dilde; aramayla eşleşen başlık ★ ile vurgulanır, varsa sözleşmenin o bölümüne bağlanır.
+    return el("ul", { class: "topic-list" }, ...window.haklar.renderTopicItems(
+      { url: item.url, topics, topicIds: item.meta.topicIds },
+      { language: state.language, semantic: window.haklarSemantic, context: state.context, matchTitle: state.shared.topicMatch }
+    ));
   }
 
-  function buildRagCard(item) {
+  function buildResultCard(item) {
     const { shared, language } = state;
     const isGermanSource = item.lang === "de" && language !== "de";
     const link = item.url && item.url.startsWith("http")
       ? externalLink(item.url, `${shared.viewSource} ↗`)
       : null;
-    return el("div", { class: "rag-result-card" },
+    return el("div", { class: "search-result-card" },
       el("h4", {}, item.title || "—", isGermanSource ? el("span", { class: "lang-badge", lang: "de", text: "DE" }) : null),
-      item.section ? el("span", { class: "rag-meta", text: item.section }) : null,
+      item.section ? el("span", { class: "search-result-meta", text: item.section }) : null,
       resultBody(item),
       link
     );
@@ -137,17 +131,17 @@
     return el("a", { href: url, class: "finder-link", text: label });
   }
 
-  function renderRagResults(results) {
+  function renderSearchResults(results) {
     if (!results.length) {
-      ragResultsEl.hidden = true;
-      ragResultsEl.replaceChildren();
+      searchResultsEl.hidden = true;
+      searchResultsEl.replaceChildren();
       return;
     }
-    ragResultsEl.hidden = false;
-    ragResultsEl.replaceChildren(
-      el("h3", { class: "rag-results-title", text: state.shared.ragTitle }),
+    searchResultsEl.hidden = false;
+    searchResultsEl.replaceChildren(
+      el("h3", { class: "search-results-title", text: state.shared.resultsTitle }),
       externalLinkSameTab("collective-agreements.html#finder", state.shared.findAgreement),
-      el("div", { class: "rag-results-list" }, ...results.map(buildRagCard))
+      el("div", { class: "search-results-list" }, ...results.map(buildResultCard))
     );
   }
 
@@ -193,7 +187,7 @@
 
   // Arama dosyalarını kullanıcı yazmaya başlamadan önce (odaklanınca) arka planda indir.
   function warmUpSearch() {
-    window.haklarRAG.loadRagIndex().catch(() => {});
+    window.haklarSearch.loadSearchIndex().catch(() => {});
     window.haklar.loadJson("content/collective-agreements.json").catch(() => {});
   }
 
@@ -212,10 +206,10 @@
     state.context = context;
     suggestionsEl.hidden = Boolean(rawQuery);
 
-    let ragResults = [];
+    let searchResults = [];
     if (context && rawQuery.length >= 2) {
       try {
-        ragResults = await window.haklarRAG.retrieve(rawQuery, { language, topK: RAG_TOP_K });
+        searchResults = await window.haklarSearch.retrieve(rawQuery, { language, topK: SEARCH_TOP_K });
       } catch (error) {
         console.error("KV search failed.", error);
       }
@@ -230,12 +224,12 @@
 
     const autoOpen = Boolean(context && matched.length > 0 && matched.length <= 2);
     cardsEl.replaceChildren(...matched.map(({ card }) => buildCard(card, autoOpen)));
-    renderRagResults(ragResults);
+    renderSearchResults(searchResults);
     renderConceptHint(context ? context.hints : []);
 
     searchStatusEl.textContent = context ? `${matched.length} / ${content.cards.length}` : "";
     noCardResultsEl.textContent = content.noResults;
-    noCardResultsEl.hidden = !context || matched.length > 0 || ragResults.length > 0;
+    noCardResultsEl.hidden = !context || matched.length > 0 || searchResults.length > 0;
   }
 
   function scheduleSearch() {
@@ -251,15 +245,14 @@
 
   async function render(language) {
     const request = ++renderRequest;
-    let content, icons, shared, taxBundle, cardMeta, catalogUi;
+    let content, icons, shared, taxBundle, cardMeta;
     try {
-      [content, icons, shared, taxBundle, cardMeta, catalogUi] = await Promise.all([
+      [content, icons, shared, taxBundle, cardMeta] = await Promise.all([
         loadJson(`content/${language}.json`),
         loadJson("content/card-icons.json"),
         loadJson("content/shared-ui.json"),
         window.haklarTax.loadBundle(),
         loadJson("content/card-meta.json").catch(() => ({ reviewed: {} })),
-        loadJson("content/catalog-ui.json").catch(() => ({})),
         window.haklarSemantic.ready
       ]);
     } catch (error) {
@@ -272,7 +265,7 @@
     if (request !== renderRequest) return;
 
     loadErrorEl.hidden = true;
-    Object.assign(state, { language, content, icons, taxBundle, cardMeta: cardMeta.reviewed || {}, topicMap: catalogUi[language]?.topics || {}, shared: shared[language] || shared.en });
+    Object.assign(state, { language, content, icons, taxBundle, cardMeta: cardMeta.reviewed || {}, shared: shared[language] || shared.en });
 
     document.documentElement.lang = LANGUAGES[language].html;
     document.title = `${content.title} · ${content.brand}`;

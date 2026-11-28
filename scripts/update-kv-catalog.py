@@ -77,6 +77,31 @@ def fetch(url):
         return response.read().decode("utf-8", errors="replace")
 
 
+def topic_id(topic):
+    """Kaynaktaki konu nesnesinin kimliği (alan adı kaynakta 'id' veya 'topicId' olabilir)."""
+    for key in ("id", "topicId", "topic-id"):
+        value = topic.get(key)
+        if value not in (None, ""):
+            return str(value)
+    return None
+
+
+def group_id_of(url):
+    return parse_qs(urlparse(url).query).get("variant-group-id", [""])[0]
+
+
+def previous_records():
+    """Önceki çalıştırmanın kayıtları (groupId -> kayıtlar); okunamayan sayfalar için yedek."""
+    try:
+        old = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    by_group = {}
+    for record in old.get("agreements", []):
+        by_group.setdefault(record.get("groupId"), []).append(record)
+    return by_group
+
+
 def load_entry(entry):
     time.sleep(0.15)
     page = fetch(entry["url"])
@@ -116,6 +141,7 @@ def load_entry(entry):
         if not variant_id:
             continue
         validity = (variant.get("properties") or {}).get("validity") or {}
+        topics = [topic for topic in variant.get("topics", []) if topic.get("title")]
         parsed_url = urlparse(entry["url"])
         variant_query = parse_qs(parsed_url.query)
         variant_query["variant-id"] = [variant_id]
@@ -130,11 +156,11 @@ def load_entry(entry):
             "employmentTypes": (variant.get("facetMapping") or {}).get("employmentTypes", []),
             "regions": (variant.get("facetMapping") or {}).get("provinces", []),
             "unions": (variant.get("properties") or {}).get("unions", []),
-            "topics": [
-                topic["title"]
-                for topic in variant.get("topics", [])
-                if topic.get("title")
-            ],
+            "topics": [topic["title"] for topic in topics],
+            # Konu kimlikleri: kollektivvertrag.at bağlantısındaki topic-id parametresi için.
+            # Kaynakta kimlik yoksa alan yazılmaz; arayüz o zaman sözleşmenin başına bağlanır.
+            **({"topicIds": [topic_id(topic) for topic in topics]}
+               if topics and all(topic_id(topic) is not None for topic in topics) else {}),
             "popularOrder": (
                 POPULAR_GROUPS.get(group_id)
                 if variant_id == popular_variant_id
@@ -153,6 +179,7 @@ def main():
     if not entries:
         raise RuntimeError("The official A–Z catalogue returned no agreement entries.")
 
+    previous = previous_records()
     results = []
     failures = []
     unavailable = []
@@ -166,9 +193,15 @@ def main():
                 unavailable.append({"title": entry["title"], "url": entry["url"], "reason": str(error)})
                 print(f"Unavailable in source: {entry['title']}: {error}", file=sys.stderr)
             except (HTTPError, URLError, TimeoutError, ValueError, json.JSONDecodeError) as error:
-                failures.append({"title": entry["title"], "url": entry["url"], "error": str(error)})
-                print(f"Could not read {entry['title']}: {error}", file=sys.stderr)
+                kept = previous.get(group_id_of(entry["url"]), [])
+                results.extend(kept)
+                failures.append({"title": entry["title"], "url": entry["url"], "error": str(error),
+                                 "keptPreviousRecords": len(kept)})
+                print(f"Could not read {entry['title']}: {error} (kept {len(kept)} previous records)",
+                      file=sys.stderr)
 
+    # Aynı varyant hem yeni hem eski kayıtlardan gelirse bir kez tut.
+    results = list({record["variantId"]: record for record in results}.values())
     results.sort(key=lambda item: (item["popularOrder"] is None, item["popularOrder"] or 999, item["title"].casefold()))
     document = {
         "source": SITEMAP_URL,
@@ -184,8 +217,13 @@ def main():
         f"Wrote {len(results)} agreement variants from {len(entries)} catalogue listings "
         f"to {OUTPUT.relative_to(ROOT)}; {len(unavailable)} listings no longer exist."
     )
+    # Birkaç geçici hata yayını durdurmasın: eski kayıtlar korunur, sayfada uyarı gösterilir.
+    # Hatalar çoksa (kaynak değişmiş olabilir) iş başarısız olur ki biri baksın.
+    allowed = max(10, len(entries) // 20)
+    if len(failures) > allowed:
+        raise RuntimeError(f"{len(failures)} agreement pages could not be read (limit {allowed}).")
     if failures:
-        raise RuntimeError(f"{len(failures)} agreement records could not be refreshed.")
+        print(f"[uyarı] {len(failures)} sayfa okunamadı; önceki kayıtlar korundu.", file=sys.stderr)
 
 
 if __name__ == "__main__":

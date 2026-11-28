@@ -13,10 +13,12 @@ let catalog;
 let translations;
 let employerData;
 let shared;
+let kvFacts = null;     // content/kv-facts.json (isteğe bağlı; yüklenemezse bölüm gösterilmez)
+let kvFactsUi = null;   // content/kv-facts-ui.json
 let currentLanguage = "tr";
 let activeContext = null;   // aktif arama bağlamı (konu vurgusu için)
 const profile = { sector: "", type: "", region: "" };   // "Hangi sözleşme?" seçimleri
-const SECTOR_IDS = ["hospitality", "retail", "construction", "industry", "transport", "care_social", "cleaning", "crafts"];
+const SECTOR_IDS = ["hospitality", "retail", "construction", "industry", "transport", "care_social", "cleaning", "crafts", "agriculture", "security"];
 const TYPE_IDS = ["arb", "ang"];
 const finderEls = {
   sector: document.querySelector("#finderSector"),
@@ -25,8 +27,6 @@ const finderEls = {
   status: document.querySelector("#finderStatus"),
   reset: document.querySelector("#finderReset")
 };
-
-const translateTopic = (topic, ui) => window.haklar.translateTopic(topic, ui.topics);
 
 function formatDate(value, locale) {
   if (!value) return "";
@@ -50,6 +50,42 @@ const regionNames = {
 function typeLabel(type) {
   const strings = shared[currentLanguage];
   return type === "arb" ? strings.typeArb : type === "ang" ? strings.typeAng : type;
+}
+
+// "Önemli rakamlar": kaynaklı, dilden bağımsız rakamlar + seçili dildeki şablonlar (assets/kv-facts.js).
+function makeFactsSection(agreement, locale) {
+  const entry = window.haklarFacts.entryFor(kvFacts, agreement);
+  const ui = kvFactsUi?.[currentLanguage];
+  if (!entry || !ui) return null;
+  const el = window.haklar.el;
+  const rows = window.haklarFacts.factRows(entry, currentLanguage, ui, locale);
+  const list = el("dl", { class: "kv-facts-list" });
+  for (const row of rows) {
+    const value = el("dd", {},
+      el("strong", { text: row.value || null }),
+      row.items.length ? el("ul", {}, ...row.items.map((text) => el("li", { text }))) : null,
+      row.meta ? el("span", { class: "kv-facts-meta", text: row.meta }) : null,
+      row.note || row.source ? el("details", { class: "kv-facts-note" },
+        el("summary", { text: ui.details }),
+        row.note ? el("p", { lang: row.noteLang, text: row.note }) : null,
+        row.source ? el("a", { href: row.source.url, target: "_blank", rel: "noopener noreferrer", lang: "de",
+          text: `${ui.source}: ${row.source.label}` }) : null) : null);
+    list.append(el("dt", { text: row.name }), value);
+  }
+  return el("details", { class: "kv-facts" },
+    el("summary", { text: `${ui.title} · ${ui.checked} ${window.haklarFacts.formatDate(entry.checkedAt, locale)}` }),
+    entry.reviewed ? null : el("p", { class: "kv-facts-unreviewed", text: ui.unreviewed }),
+    list,
+    el("p", { class: "kv-facts-disclaimer", text: ui.disclaimer }));
+}
+
+// Konularında "Verfall von Ansprüchen" (hak düşürücü süre) geçen sözleşmeler için kısa uyarı.
+function makeDeadlineWarning(agreement) {
+  const ui = kvFactsUi?.[currentLanguage];
+  if (!ui) return null;
+  const hasDeadlines = agreement.topics.some((topic) =>
+    window.haklarSemantic.topicConcepts(topic).includes("claim_deadlines"));
+  return hasDeadlines ? window.haklar.el("p", { class: "deadline-warning", text: ui.deadlineWarning }) : null;
 }
 
 function makeAgreementCard(agreement, ui, locale, reasons = []) {
@@ -95,24 +131,25 @@ function makeAgreementCard(agreement, ui, locale, reasons = []) {
 
     const topicList = document.createElement("ul");
     topicList.className = "topic-list";
-    const topics = [...new Set(agreement.topics.map((topic) => translateTopic(topic, ui)))];
-    if (topics.length) {
-      topics.forEach((topic) => {
-        const item = document.createElement("li");
-        item.textContent = topic;
-        if (activeContext && window.haklarSemantic.scoreDocument(topic, activeContext) > 0) {
-          item.className = "topic-hit";
-          item.title = shared[currentLanguage].topicMatch;
-        }
-        topicList.append(item);
-      });
+    if (agreement.topics.length) {
+      topicList.append(...window.haklar.renderTopicItems(agreement, {
+        language: currentLanguage,
+        semantic: window.haklarSemantic,
+        context: activeContext,
+        matchTitle: shared[currentLanguage].topicMatch
+      }));
     } else {
       const item = document.createElement("li");
       item.textContent = ui.topicUnavailable;
       topicList.append(item);
     }
     contents.push(topicHeading, topicList);
+    const warning = makeDeadlineWarning(agreement);
+    if (warning) contents.push(warning);
   }
+
+  const facts = makeFactsSection(agreement, locale);
+  if (facts) contents.push(facts);
 
   if (agreement.companyExamples?.length) {
     const examples = document.createElement("section");
@@ -269,7 +306,7 @@ function renderAgreements() {
     const searchable = [
       agreement.title,
       ...agreement.topics,
-      ...agreement.topics.map((topic) => translateTopic(topic, ui)),
+      ...agreement.topics.flatMap((topic) => window.haklarSemantic.topicLabels(topic, currentLanguage)),
       ...agreement.employmentTypes,
       ...agreement.regions.map((region) => regionNames[region] || region),
       ...(agreement.companyExamples || []).flatMap((example) => [
@@ -365,6 +402,10 @@ async function init() {
     return;
   }
 
+  [kvFacts, kvFactsUi] = await Promise.all([
+    loadJson("content/kv-facts.json").catch(() => null),
+    loadJson("content/kv-facts-ui.json").catch(() => null)
+  ]);
   await window.haklarSemantic.ready;
   attachCompanyExamples();
   const params = new URLSearchParams(window.location.search);
@@ -373,7 +414,11 @@ async function init() {
   if (SECTOR_IDS.includes(params.get("sector"))) profile.sector = params.get("sector");
   if (TYPE_IDS.includes(params.get("type"))) profile.type = params.get("type");
   if (Object.hasOwn(regionNames, params.get("region"))) profile.region = params.get("region");
-  searchInput.addEventListener("input", renderAgreements);
+  let searchTimer;
+  searchInput.addEventListener("input", () => {   // yazarken her tuşta değil, kısa bir duraklamadan sonra ara
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(renderAgreements, 120);
+  });
   [finderEls.sector, finderEls.type, finderEls.region].forEach((select) => select.addEventListener("change", onProfileChange));
   finderEls.reset.addEventListener("click", () => {
     Object.assign(profile, { sector: "", type: "", region: "" });

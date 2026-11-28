@@ -24,7 +24,7 @@ LANGUAGE_FILES = {
     "en": ("English", ["en"]),
     "de": ("Deutsch", ["de"]),
 }
-UI_KEYS = ["volunteerNote", "ragTitle", "viewSource", "conceptHint", "suggestionsLabel", "lastChecked", "staleNote"]
+UI_KEYS = ["volunteerNote", "resultsTitle", "viewSource", "conceptHint", "suggestionsLabel", "lastChecked", "staleNote"]
 
 
 def main() -> None:
@@ -41,6 +41,7 @@ def main() -> None:
             "- Yanlış çeviri veya yanlış anlama yaratabilecek terimleri işaretleyin.",
             "- Eksik gündelik kelimeleri, argo/halk ağzı söyleyişleri ve yaygın yazım hatalarını ekleyin (aksan olmadan yazılanlar dahil).",
             "- Çok genel kelimeler (ör. \"çocuk\", \"hasta\") tek başına her yerde eşleşir; gerekirse daha özgül ifade önerin.",
+            "- **Ekrandaki ad** satırları KV konu başlıklarının çevirisidir: kısa, anlaşılır ve doğru mu?",
             "- Geri bildirim: issue açın veya `content/concepts.json` içinde ilgili dil listesini düzenleyen bir pull request gönderin.",
             "",
             "## Kavramlar",
@@ -50,6 +51,12 @@ def main() -> None:
             terms = definition["terms"].get(key, [])
             german = ", ".join(definition.get("display", []))
             lines.append(f"### `{concept_id}` · Almanca: {german}")
+            lines.append("")
+            # Ekranda görünen kısa ad (KV konu başlıklarının çevirisi bundan üretilir).
+            for ui_lang in ui_langs:
+                label = definition.get("labels", {}).get(ui_lang)
+                if label:
+                    lines.append(f"- Ekrandaki ad ({ui_lang}): **{label}**")
             lines.append("")
             lines.extend(f"- [ ] {term}" for term in terms) if terms else lines.append("- _(terim yok)_")
             related = ", ".join(f"`{r}`" for r in definition.get("related", []))

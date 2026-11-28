@@ -135,16 +135,16 @@
     .concept-chip { min-height: 34px; padding: 4px 12px; border: 1px solid #bdcabb; border-radius: 999px; background: var(--card); color: var(--green-dark); cursor: pointer; font-size: 14px; font-weight: 750; }
     .concept-chip:hover { border-color: var(--green); }
 
-    .rag-results-section { margin-top: 30px; }
-    .rag-results-title { margin: 0 0 14px; font-size: 20px; letter-spacing: -.02em; }
-    .rag-results-section .finder-link, .finder-link { display: inline-block; margin: 0 0 14px; font-weight: 800; }
-    .rag-results-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px; }
-    .rag-result-card { min-width: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
-    .rag-result-card h4 { margin: 0; font-size: 17px; line-height: 1.35; }
-    .rag-result-card .rag-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
-    .rag-result-card .topic-list { margin: 10px 0 0; padding-left: 18px; font-size: 15px; }
-    .rag-result-card p { margin: 10px 0 0; font-size: 15px; }
-    .rag-result-card a { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 800; }
+    .search-results-section { margin-top: 30px; }
+    .search-results-title { margin: 0 0 14px; font-size: 20px; letter-spacing: -.02em; }
+    .search-results-section .finder-link, .finder-link { display: inline-block; margin: 0 0 14px; font-weight: 800; }
+    .search-results-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px; }
+    .search-result-card { min-width: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+    .search-result-card h4 { margin: 0; font-size: 17px; line-height: 1.35; }
+    .search-result-card .search-result-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .search-result-card .topic-list { margin: 10px 0 0; padding-left: 18px; font-size: 15px; }
+    .search-result-card p { margin: 10px 0 0; font-size: 15px; }
+    .search-result-card a { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 800; }
     .lang-badge { display: inline-block; margin-left: 8px; padding: 1px 7px; border-radius: 6px; background: #edf3e6; color: #2e503d; font-size: 12px; font-weight: 800; vertical-align: middle; }
 
     .volunteer-note { margin: 0; padding: 0 0 36px; color: var(--muted); font-size: 13px; line-height: 1.55; }
@@ -162,6 +162,8 @@
     .match-line { margin: 8px 0 0; color: var(--green-dark); font-size: 13px; font-weight: 750; }
     .topic-list li.topic-hit { font-weight: 800; }
     .topic-list li.topic-hit::after { content: " ★"; color: var(--green); }
+    /* Konu, sözleşmenin ilgili bölümüne bağlıysa (topic-id) */
+    .topic-list li a, .search-result-card .topic-list li a { display: inline; margin: 0; color: inherit; font-size: inherit; font-weight: inherit; text-decoration: underline dotted; text-underline-offset: 2px; }
 
     .catalog-search { display: grid; grid-template-columns: 1fr; gap: 7px; margin: 0 0 34px; }
     .catalog-search label { font-weight: 800; }
@@ -183,6 +185,21 @@
     .company-examples ul { margin: 6px 0 0; padding-left: 18px; }
     .company-examples li { margin-top: 5px; }
     .company-examples p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+    /* Hak düşürücü süre uyarısı ve "önemli rakamlar" (content/kv-facts.json) */
+    .deadline-warning { margin: 10px 0 0; padding: 8px 12px; border-left: 4px solid #c27a1a; border-radius: 8px; background: #fdf4e3; color: #6b3d0a; font-size: 13px; line-height: 1.45; }
+    .kv-facts { margin-top: 14px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+    .kv-facts > summary { cursor: pointer; font-weight: 800; font-size: 14px; }
+    .kv-facts-unreviewed { margin: 8px 0 0; color: #8a4b12; font-size: 13px; }
+    .kv-facts-list { display: grid; grid-template-columns: minmax(0, 11em) minmax(0, 1fr); gap: 8px 14px; margin: 10px 0 0; font-size: 14px; }
+    .kv-facts-list dt { color: var(--muted); }
+    .kv-facts-list dd { margin: 0; }
+    .kv-facts-list dd ul { margin: 2px 0 0; padding-left: 18px; }
+    .kv-facts-meta { display: block; color: var(--muted); font-size: 12px; }
+    .kv-facts-note summary { cursor: pointer; color: var(--muted); font-size: 12px; }
+    .kv-facts-note p { margin: 4px 0; font-size: 13px; }
+    .kv-facts-note a { font-size: 12px; overflow-wrap: anywhere; }
+    .kv-facts-disclaimer { margin: 10px 0 0; color: var(--muted); font-size: 12px; }
+    @media (max-width: 560px) { .kv-facts-list { grid-template-columns: 1fr; gap: 2px; } .kv-facts-list dd { margin-bottom: 8px; } }
     .all-agreements { margin-top: 38px; }
 
     .help {
@@ -215,7 +232,7 @@
       .section-heading p { margin-top: 9px; }
       .cards { grid-template-columns: 1fr; gap: 10px; }
       .agreement-grid { grid-template-columns: 1fr; gap: 10px; }
-      .rag-results-list { grid-template-columns: 1fr; gap: 10px; }
+      .search-results-list { grid-template-columns: 1fr; gap: 10px; }
       .finder-fields { grid-template-columns: 1fr; }
       .card summary { min-height: 96px; padding: 16px; }
       .card-body { padding: 0 18px 20px 78px; }

@@ -3,6 +3,33 @@
 Bu projedeki tüm önemli değişiklikler bu dosyada belgelenmektedir.
 Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) standardını temel alır.
 
+## [1.7.0] - 2026-11-28
+
+### Fixed
+- **Yayın bir hafta geride kalıyordu:** yayın işi, veri güncellemesinden önceki commit'i yayınlıyordu (bot commit'i `[skip ci]` taşıdığı için yeni veri ancak bir sonraki çalışmada çıkıyordu). Güncelleme, test ve yayın artık tek işte.
+- KV betiği tek bir sayfa okunamadığında tüm yayını durduruyordu; artık önceki kayıtları korur, yalnızca çok sayıda hatada başarısız olur.
+- Yanlış eşleşmeler: "Leiharbeit" → evden çalışma, "Mobbing" → iş kazası, "Pflegefreistellung" → bakım sektörü, "asgari ücret" → yıllık izin/hastalık, "yarı zamanlı" → emeklilik, "Urlaubsgeld" → yıllık izin vb. Nedenleri: çok sözcüklü terimlerde ön ek eşleşmesi ve en uzun eşleşme kuralının olmaması.
+- `node --test tests/` Node 22'de dosya bulamıyordu → `node --test tests/*.test.mjs`.
+
+### Changed
+- **Sözlük 30 → 62 kavram, ~3.300 terim.** Geniş kavramlar bölündü (fazla mesai, gece/vardiya, pazar/tatil çalışması, mola, yarı zamanlı, nöbet; ücret ↔ ücret grubu/kademe; yıllık izin ↔ resmi tatil ↔ ücretli mazeret izni ↔ yakın bakımı izni). Yeni: taşeron/kiralık işçilik, mini iş, sigortasız/kayıt dışı çalışma, sahte serbest çalışma, all-in sözleşme, bahşiş, rekabet yasağı/eğitim masrafı, çalışma belgesi, oturum/çalışma izni, mobbing/taciz, hak düşürücü süreler, çıraklık, yemek/konaklama, akord, toplu sözleşme zammı/grev, kısa çalışma/kötü hava, disiplin/sorumluluk, iş mahkemesi, sabbatical, sözleşme kapsamı; sektörler: tarım/ormancılık, güvenlik.
+- **KV konu başlıkları kavramlara bağlandı** (`content/topic-concepts.json`, %99,8 kapsam). Başlıkların çevirisi kavram adlarından gelir: Türkçede 380 çevrilmemiş başlık → 6. Eski kısmi çeviri haritası (`catalog-ui.json → topics`) kaldırıldı.
+- **"RAG" adı bırakıldı:** `rag-index.json` → `search-index.json`, `build-rag-index.py` → `build-search-index.py`, `rag-retriever.js` → `search-retriever.js`, `window.haklarRAG` → `window.haklarSearch`. Arama yanıt üretmez, yalnızca kaynak bulur.
+- Arama indeksi 247 KB → 55 KB (aramada zaten kullanılmayan rehber kartları çıkarıldı); kullanılmayan embedding kodu ve içe aktarmalar silindi.
+- Katalog araması yazarken 120 ms bekler; kavram eşleşmeleri önbelleğe alınır.
+
+### Added
+- **Önemli rakamlar (pilot: Hotel- und Gastgewerbe, Handelsangestellte, Bau Arbeiter):** en düşük ve örnek asgari ücret, son zam, haftalık süre, 13./14. maaş, fazla mesai zammı, hak düşürücü süre, ihbar süresi, ücretli mazeret izni. Rakamlar 9 dilde biçimlenir; ayrıntı Almanca/İngilizce, her biri kaynak bağlantılı. Gönüllü kontrolü yapılana kadar "henüz kontrol edilmedi" notu gösterilir.
+- **Hak düşürücü süre uyarısı:** konularında "Verfall" geçen sözleşmelerde 9 dilde kısa uyarı.
+- **Konuya özel bağlantılar:** kaynak konu kimliği verirse (`topicIds`) her konu sözleşmenin ilgili bölümüne bağlanır.
+- Sihirbaza tarım/ormancılık ve güvenlik sektörleri.
+- Altın sorgu seti (`tests/golden-queries.json`, ~190 sorgu, `expect`/`forbid`), sözlük ve konu haritası testleri, önemli rakamlar testleri (29 test).
+- Gönüllü gözden geçirme dosyalarında kavramların ekrandaki adları.
+
+### Notes
+- `topicIds` alan adı (`id`) kaynakta doğrulanmadı; ilk CI çalışmasından sonra `collective-agreements.json` içinde `topicIds` görünüyorsa ve bir bağlantı doğru bölümü açıyorsa özellik etkindir.
+- Önemli rakamlar 28.11.2026'da WKO ve GPA kaynaklarından derlendi; Handel 2027 zammı henüz belirlenmemişti (müzakereler sürüyor).
+
 ## [1.6.0] - 2026-11-23
 
 ### Added

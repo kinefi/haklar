@@ -100,12 +100,42 @@
     }));
   }
 
-  // KV konu etiketini ("Kündigung und Verfall ...") seçili dile çevirir; eşleşme yoksa Almanca kalır.
-  // topicMap: content/catalog-ui.json -> <dil>.topics (sıra önemlidir, ilk eşleşme kazanır).
-  function translateTopic(topic, topicMap) {
-    const normalized = normalize(topic);
-    const match = Object.entries(topicMap || {}).find(([phrase]) => normalized.includes(phrase));
-    return match ? match[1] : topic;
+  // ---- KV konu başlıkları ----
+  // Konu bağlantısı: kaynak konu kimliği verdiyse sözleşmenin o bölümü (topic-id), yoksa sözleşmenin başı.
+  function topicUrl(agreementUrl, topicId) {
+    if (topicId === undefined || topicId === null || !agreementUrl) return agreementUrl;
+    try {
+      const url = new URL(agreementUrl);
+      url.searchParams.set("topic-id", topicId);
+      return url.toString();
+    } catch (error) {
+      return agreementUrl;
+    }
+  }
+
+  /**
+   * KV konu başlıklarını liste öğeleri olarak üretir: seçili dildeki kavram adları (semantic.topicLabels),
+   * Almanca asıl başlık ipucu olarak, aramayla eşleşen başlık ★ (topic-hit), kimlik varsa bölüme bağlantı.
+   * agreement: { url, topics, topicIds? }; options: { language, semantic, context, matchTitle }
+   */
+  function renderTopicItems(agreement, options) {
+    const { language, semantic, context, matchTitle } = options;
+    const seen = new Set();
+    const items = [];
+    agreement.topics.forEach((topic, index) => {
+      const labels = semantic.topicLabels(topic, language);
+      const text = [...new Set(labels)].join(" · ");
+      if (seen.has(text)) return;
+      seen.add(text);
+      const hit = Boolean(context) && (semantic.topicMatches(topic, context) || semantic.scoreDocument(topic, context) >= 100);
+      const topicId = agreement.topicIds ? agreement.topicIds[index] : undefined;
+      const title = [language === "de" ? null : topic, hit ? matchTitle : null].filter(Boolean).join(" · ") || null;
+      const content = topicId !== undefined
+        ? el("a", { href: topicUrl(agreement.url, topicId), target: "_blank", rel: "noopener noreferrer", text })
+        : text;
+      items.push(el("li", { class: hit ? "topic-hit" : null, title }, content));
+    });
+    return items;
   }
 
   // ---- Küçük DOM yardımcıları ----
@@ -147,7 +177,7 @@
   }
 
   const api = {
-    LANGUAGES, DEFAULT_LANGUAGE, normalize, words, translateTopic, loadJson,
+    LANGUAGES, DEFAULT_LANGUAGE, normalize, words, loadJson, topicUrl, renderTopicItems,
     initialLanguage, rememberLanguage, renderLanguageSwitcher,
     el, externalLink, applyStrings, applySharedUi
   };

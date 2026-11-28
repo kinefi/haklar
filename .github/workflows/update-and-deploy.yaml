@@ -1,4 +1,4 @@
-name: Update KV Catalog, Tax Brackets & RAG Index & Deploy
+name: Update KV Catalog, Tax Brackets & Search Index & Deploy
 
 on:
   push:
@@ -10,17 +10,20 @@ on:
 
 permissions:
   contents: write
-  pages: write      
-  id-token: write   
+  pages: write
+  id-token: write
 
-# Eskileri otomatik iptal eden ayar:
+# Aynı anda tek çalışma; yarıda kalan bir yayını iptal etmemek için cancel-in-progress kapalı.
 concurrency:
   group: "pages-and-update"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  update-content:
+  update-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,44 +33,47 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Birkaç KV sayfası okunamazsa betik önceki kayıtları korur ve yalnızca çok sayıda hata olursa başarısız olur.
       - name: Update collective agreements catalog
         run: python3 scripts/update-kv-catalog.py
 
       - name: Update Austrian Income Tax Brackets
         run: python3 scripts/update-tax-brackets.py
 
-      - name: Rebuild RAG Index
-        run: python3 scripts/build-rag-index.py
+      - name: Rebuild search index and topic map
+        run: |
+          python3 scripts/build-search-index.py
+          node scripts/build-topic-map.mjs
 
       - name: Run search tests
-        run: node --test tests/search.test.mjs
+        run: node --test tests/*.test.mjs
 
       - name: Commit and push updated JSON files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/collective-agreements.json content/income-tax-current.json content/rag-index.json
+          git add content/collective-agreements.json content/income-tax-current.json content/search-index.json content/topic-concepts.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): update KV catalog, tax brackets and RAG index [skip ci]"
+            git commit -m "chore(data): update KV catalog, tax brackets and search index [skip ci]"
             git push
           else
             echo "No changes to commit."
           fi
 
-  deploy-pages:
-    needs: update-content
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
+      # Yayın aynı işte, güncellenmiş dosyalarla yapılır. (Önceden ayrı iş, güncellemeden önceki commit'i
+      # yayınlıyordu; yeni veri ancak bir sonraki çalışmada siteye çıkıyordu.)
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Eğer özel bir build klasörün varsa (örn: 'dist'), burayı güncelleyebilirsin.
+          path: "."
 
       - name: Deploy to GitHub Pages
         id: deployment

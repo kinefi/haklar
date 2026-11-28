@@ -1,0 +1,182 @@
+{
+  "tr": {
+    "title": "Önemli rakamlar", "checked": "Kontrol tarihi", "from": "geçerlilik", "group": "Grup",
+    "unreviewed": "Henüz bir gönüllü tarafından kontrol edilmedi. Karar vermeden önce kaynağa bakın.",
+    "disclaimer": "Brüt, tam zamanlı asgari tutarlar. Kıdem kademeleri ve özel durumlar için kaynağa bakın.",
+    "details": "Ayrıntı (Almanca)", "source": "Kaynak",
+    "deadlineWarning": "Bu sözleşmede hak düşürücü süreler var: ödenmeyen fazla mesai gibi alacaklar birkaç ay içinde (çoğu zaman yazılı olarak) istenmezse kaybolabilir.",
+    "facts": { "min_pay_lowest": "En düşük asgari ücret", "min_pay_typical": "Kalifiye çalışan (örnek)", "latest_raise": "Son zam", "weekly_hours": "Haftalık çalışma süresi", "special_payments": "13. ve 14. maaş", "overtime_premium": "Fazla mesai zammı", "claim_deadline": "Hak düşürücü süre", "notice_period": "İhbar süresi", "special_leave": "Ücretli mazeret izni" },
+    "units": { "eur_month": "{amount} brüt/ay", "eur_hour": "{amount} brüt/saat", "percent": "{amount}", "hours_week": "haftada {n} saat", "months": "{n} ay", "weeks": "{n} hafta", "days": "{n} gün" },
+    "items": { "wedding": "Kendi düğünün", "death_close": "Yakın aile üyesinin ölümü", "moving": "Taşınma" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Tatil parası 30 Haziran'a, Noel ikramiyesi 30 Kasım'a kadar (tutar için ayrıntıya bakın)",
+      "sp_one_month_each_handel": "Her biri bir aylık maaş: tatil parası 30 Haziran'a, Noel ikramiyesi 1 Aralık'a kadar",
+      "sp_bau": "Noel ikramiyesi çalışılan saatlere göre; tatil parası BUAK üzerinden ödenir",
+      "notice_law": "Bu sözleşme değil, kanun belirler (AngG/ABGB)",
+      "notice_bau": "iki taraf için; 10 ve 15 yıldan sonra daha uzun",
+      "claim_hotel": "yazılı olarak; fazla mesai: bordrodan sonra, diğer alacaklar: iş bitince",
+      "claim_after_due_written": "ödeme gününden itibaren, yazılı olarak",
+      "claim_bau": "bordroyu aldıktan sonra (iş bitince 3 ay)"
+    }
+  },
+  "hr": {
+    "title": "Važni iznosi", "checked": "Provjereno", "from": "vrijedi od", "group": "Grupa",
+    "unreviewed": "Još nije provjerio volonter. Prije odluke pogledajte izvor.",
+    "disclaimer": "Bruto minimalni iznosi za puno radno vrijeme. Za stupnjeve staža i posebne slučajeve pogledajte izvor.",
+    "details": "Detalji (njemački)", "source": "Izvor",
+    "deadlineWarning": "Ovaj ugovor ima rokove za potraživanja: npr. neplaćeni prekovremeni sati mogu propasti ako ih ne zatražite (često pisano) u roku od nekoliko mjeseci.",
+    "facts": { "min_pay_lowest": "Najniža minimalna plaća", "min_pay_typical": "Kvalificirani radnik (primjer)", "latest_raise": "Zadnje povećanje", "weekly_hours": "Tjedno radno vrijeme", "special_payments": "13. i 14. plaća", "overtime_premium": "Dodatak za prekovremeni rad", "claim_deadline": "Rok za potraživanja", "notice_period": "Otkazni rok", "special_leave": "Plaćeni dopust" },
+    "units": { "eur_month": "{amount} bruto/mjesečno", "eur_hour": "{amount} bruto/sat", "percent": "{amount}", "hours_week": "{n} sati tjedno", "months": "{n} mj.", "weeks": "{n} tj.", "days": "{n} dana" },
+    "items": { "wedding": "Vlastito vjenčanje", "death_close": "Smrt bliskog člana obitelji", "moving": "Selidba" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Regres do 30. lipnja, božićnica do 30. studenoga (iznos u detaljima)",
+      "sp_one_month_each_handel": "Po jedna mjesečna plaća: regres do 30. lipnja, božićnica do 1. prosinca",
+      "sp_bau": "Božićnica prema odrađenim satima; regres se isplaćuje preko BUAK-a",
+      "notice_law": "Određuje zakon (AngG/ABGB), ne ovaj ugovor",
+      "notice_bau": "za obje strane; dulje nakon 10 i 15 godina",
+      "claim_hotel": "pisano; prekovremeni: nakon obračuna, ostalo: nakon prestanka rada",
+      "claim_after_due_written": "od dospijeća, pisano",
+      "claim_bau": "nakon primitka obračuna (3 mj. nakon prestanka rada)"
+    }
+  },
+  "sr": {
+    "title": "Važni iznosi", "checked": "Provereno", "from": "važi od", "group": "Grupa",
+    "unreviewed": "Još nije proverio volonter. Pre odluke pogledajte izvor.",
+    "disclaimer": "Bruto minimalni iznosi za puno radno vreme. Za stepene staža i posebne slučajeve pogledajte izvor.",
+    "details": "Detalji (nemački)", "source": "Izvor",
+    "deadlineWarning": "Ovaj ugovor ima rokove za potraživanja: npr. neplaćeni prekovremeni sati mogu propasti ako ih ne zatražite (često pismeno) u roku od nekoliko meseci.",
+    "facts": { "min_pay_lowest": "Najniža minimalna plata", "min_pay_typical": "Kvalifikovani radnik (primer)", "latest_raise": "Poslednje povećanje", "weekly_hours": "Nedeljno radno vreme", "special_payments": "13. i 14. plata", "overtime_premium": "Dodatak za prekovremeni rad", "claim_deadline": "Rok za potraživanja", "notice_period": "Otkazni rok", "special_leave": "Plaćeno odsustvo" },
+    "units": { "eur_month": "{amount} bruto/mesečno", "eur_hour": "{amount} bruto/sat", "percent": "{amount}", "hours_week": "{n} sati nedeljno", "months": "{n} mes.", "weeks": "{n} ned.", "days": "{n} dana" },
+    "items": { "wedding": "Sopstveno venčanje", "death_close": "Smrt bliskog člana porodice", "moving": "Selidba" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Regres do 30. juna, božićnica do 30. novembra (iznos u detaljima)",
+      "sp_one_month_each_handel": "Po jedna mesečna plata: regres do 30. juna, božićnica do 1. decembra",
+      "sp_bau": "Božićnica prema odrađenim satima; regres se isplaćuje preko BUAK-a",
+      "notice_law": "Određuje zakon (AngG/ABGB), ne ovaj ugovor",
+      "notice_bau": "za obe strane; duže posle 10 i 15 godina",
+      "claim_hotel": "pismeno; prekovremeni: posle obračuna, ostalo: posle prestanka rada",
+      "claim_after_due_written": "od dospeća, pismeno",
+      "claim_bau": "posle prijema obračuna (3 mes. posle prestanka rada)"
+    }
+  },
+  "bs": {
+    "title": "Važni iznosi", "checked": "Provjereno", "from": "važi od", "group": "Grupa",
+    "unreviewed": "Još nije provjerio volonter. Prije odluke pogledajte izvor.",
+    "disclaimer": "Bruto minimalni iznosi za puno radno vrijeme. Za stepene staža i posebne slučajeve pogledajte izvor.",
+    "details": "Detalji (njemački)", "source": "Izvor",
+    "deadlineWarning": "Ovaj ugovor ima rokove za potraživanja: npr. neplaćeni prekovremeni sati mogu propasti ako ih ne zatražite (često pismeno) u roku od nekoliko mjeseci.",
+    "facts": { "min_pay_lowest": "Najniža minimalna plata", "min_pay_typical": "Kvalifikovani radnik (primjer)", "latest_raise": "Posljednje povećanje", "weekly_hours": "Sedmično radno vrijeme", "special_payments": "13. i 14. plata", "overtime_premium": "Dodatak za prekovremeni rad", "claim_deadline": "Rok za potraživanja", "notice_period": "Otkazni rok", "special_leave": "Plaćeno odsustvo" },
+    "units": { "eur_month": "{amount} bruto/mjesečno", "eur_hour": "{amount} bruto/sat", "percent": "{amount}", "hours_week": "{n} sati sedmično", "months": "{n} mj.", "weeks": "{n} sedm.", "days": "{n} dana" },
+    "items": { "wedding": "Vlastito vjenčanje", "death_close": "Smrt bliskog člana porodice", "moving": "Selidba" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Regres do 30. juna, božićnica do 30. novembra (iznos u detaljima)",
+      "sp_one_month_each_handel": "Po jedna mjesečna plata: regres do 30. juna, božićnica do 1. decembra",
+      "sp_bau": "Božićnica prema odrađenim satima; regres se isplaćuje preko BUAK-a",
+      "notice_law": "Određuje zakon (AngG/ABGB), ne ovaj ugovor",
+      "notice_bau": "za obje strane; duže nakon 10 i 15 godina",
+      "claim_hotel": "pismeno; prekovremeni: nakon obračuna, ostalo: nakon prestanka rada",
+      "claim_after_due_written": "od dospijeća, pismeno",
+      "claim_bau": "nakon prijema obračuna (3 mj. nakon prestanka rada)"
+    }
+  },
+  "ro": {
+    "title": "Cifre importante", "checked": "Verificat la", "from": "valabil de la", "group": "Grupa",
+    "unreviewed": "Încă nu a fost verificat de un voluntar. Consultați sursa înainte de a decide.",
+    "disclaimer": "Sume minime brute pentru normă întreagă. Pentru trepte de vechime și cazuri speciale, consultați sursa.",
+    "details": "Detalii (germană)", "source": "Sursa",
+    "deadlineWarning": "Acest contract are termene de decădere: de ex. orele suplimentare neplătite se pot pierde dacă nu le cereți (adesea în scris) în câteva luni.",
+    "facts": { "min_pay_lowest": "Cel mai mic salariu minim", "min_pay_typical": "Muncitor calificat (exemplu)", "latest_raise": "Ultima majorare", "weekly_hours": "Program săptămânal", "special_payments": "Al 13-lea și al 14-lea salariu", "overtime_premium": "Spor pentru ore suplimentare", "claim_deadline": "Termen de decădere", "notice_period": "Preaviz", "special_leave": "Zile libere plătite" },
+    "units": { "eur_month": "{amount} brut/lună", "eur_hour": "{amount} brut/oră", "percent": "{amount}", "hours_week": "{n} ore pe săptămână", "months": "{n} luni", "weeks": "{n} săptămâni", "days": "{n} zile" },
+    "items": { "wedding": "Propria nuntă", "death_close": "Decesul unei rude apropiate", "moving": "Mutare" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Prima de vacanță până la 30 iunie, prima de Crăciun până la 30 noiembrie (suma în detalii)",
+      "sp_one_month_each_handel": "Câte un salariu lunar: prima de vacanță până la 30 iunie, prima de Crăciun până la 1 decembrie",
+      "sp_bau": "Prima de Crăciun după orele lucrate; prima de vacanță se plătește prin BUAK",
+      "notice_law": "Stabilit de lege (AngG/ABGB), nu de acest contract",
+      "notice_bau": "pentru ambele părți; mai lung după 10 și 15 ani",
+      "claim_hotel": "în scris; ore suplimentare: după fluturaș, restul: după încetarea contractului",
+      "claim_after_due_written": "de la scadență, în scris",
+      "claim_bau": "după primirea fluturașului (3 luni după încetarea contractului)"
+    }
+  },
+  "hu": {
+    "title": "Fontos számok", "checked": "Ellenőrizve", "from": "érvényes", "group": "Csoport",
+    "unreviewed": "Önkéntes még nem ellenőrizte. Döntés előtt nézze meg a forrást.",
+    "disclaimer": "Bruttó, teljes munkaidős minimális összegek. Szolgálati fokozatokért és különleges esetekért nézze meg a forrást.",
+    "details": "Részletek (németül)", "source": "Forrás",
+    "deadlineWarning": "Ebben a szerződésben jogvesztő határidők vannak: pl. a kifizetetlen túlóra elveszhet, ha néhány hónapon belül (gyakran írásban) nem követeli.",
+    "facts": { "min_pay_lowest": "Legalacsonyabb minimálbér", "min_pay_typical": "Szakmunkás (példa)", "latest_raise": "Legutóbbi emelés", "weekly_hours": "Heti munkaidő", "special_payments": "13. és 14. havi fizetés", "overtime_premium": "Túlórapótlék", "claim_deadline": "Jogvesztő határidő", "notice_period": "Felmondási idő", "special_leave": "Fizetett távollét" },
+    "units": { "eur_month": "{amount} bruttó/hó", "eur_hour": "{amount} bruttó/óra", "percent": "{amount}", "hours_week": "heti {n} óra", "months": "{n} hónap", "weeks": "{n} hét", "days": "{n} nap" },
+    "items": { "wedding": "Saját esküvő", "death_close": "Közeli családtag halála", "moving": "Költözés" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Szabadságpénz június 30-ig, karácsonyi pénz november 30-ig (összeg a részletekben)",
+      "sp_one_month_each_handel": "Egy-egy havi fizetés: szabadságpénz június 30-ig, karácsonyi pénz december 1-ig",
+      "sp_bau": "Karácsonyi pénz a ledolgozott órák alapján; a szabadságpénzt a BUAK fizeti",
+      "notice_law": "A törvény határozza meg (AngG/ABGB), nem ez a szerződés",
+      "notice_bau": "mindkét félre; 10 és 15 év után hosszabb",
+      "claim_hotel": "írásban; túlóra: a bérjegyzék után, egyéb: a munkaviszony vége után",
+      "claim_after_due_written": "az esedékességtől, írásban",
+      "claim_bau": "a bérelszámolás kézhezvétele után (a munkaviszony vége után 3 hónap)"
+    }
+  },
+  "sl": {
+    "title": "Pomembni zneski", "checked": "Preverjeno", "from": "velja od", "group": "Skupina",
+    "unreviewed": "Prostovoljec tega še ni preveril. Pred odločitvijo preverite vir.",
+    "disclaimer": "Bruto minimalni zneski za polni delovni čas. Za stopnje delovne dobe in posebne primere preverite vir.",
+    "details": "Podrobnosti (nemško)", "source": "Vir",
+    "deadlineWarning": "Ta pogodba ima roke za uveljavljanje zahtevkov: npr. neplačane nadure lahko zapadejo, če jih ne zahtevate (pogosto pisno) v nekaj mesecih.",
+    "facts": { "min_pay_lowest": "Najnižja minimalna plača", "min_pay_typical": "Kvalificiran delavec (primer)", "latest_raise": "Zadnje povišanje", "weekly_hours": "Tedenski delovni čas", "special_payments": "13. in 14. plača", "overtime_premium": "Dodatek za nadure", "claim_deadline": "Rok za zahtevke", "notice_period": "Odpovedni rok", "special_leave": "Plačana odsotnost" },
+    "units": { "eur_month": "{amount} bruto/mesec", "eur_hour": "{amount} bruto/uro", "percent": "{amount}", "hours_week": "{n} ur na teden", "months": "{n} mes.", "weeks": "{n} ted.", "days": "{n} dni" },
+    "items": { "wedding": "Lastna poroka", "death_close": "Smrt bližnjega družinskega člana", "moving": "Selitev" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Regres do 30. junija, božičnica do 30. novembra (znesek v podrobnostih)",
+      "sp_one_month_each_handel": "Po ena mesečna plača: regres do 30. junija, božičnica do 1. decembra",
+      "sp_bau": "Božičnica glede na opravljene ure; regres izplača BUAK",
+      "notice_law": "Določa zakon (AngG/ABGB), ne ta pogodba",
+      "notice_bau": "za obe strani; daljši po 10 in 15 letih",
+      "claim_hotel": "pisno; nadure: po obračunu, drugo: po koncu zaposlitve",
+      "claim_after_due_written": "od zapadlosti, pisno",
+      "claim_bau": "po prejemu obračuna (3 mes. po koncu zaposlitve)"
+    }
+  },
+  "de": {
+    "title": "Wichtige Zahlen", "checked": "Geprüft am", "from": "gültig ab", "group": "Gruppe",
+    "unreviewed": "Noch nicht von Freiwilligen geprüft. Vor einer Entscheidung die Quelle ansehen.",
+    "disclaimer": "Brutto-Mindestbeträge bei Vollzeit. Vorrückungsstufen und Sonderfälle siehe Quelle.",
+    "details": "Details", "source": "Quelle",
+    "deadlineWarning": "Dieser KV hat Verfallsfristen: Ansprüche wie unbezahlte Überstunden können verfallen, wenn sie nicht innerhalb weniger Monate (oft schriftlich) geltend gemacht werden.",
+    "facts": { "min_pay_lowest": "Niedrigster Mindestlohn", "min_pay_typical": "Fachkraft (Beispiel)", "latest_raise": "Letzte Erhöhung", "weekly_hours": "Wochenarbeitszeit", "special_payments": "Sonderzahlungen", "overtime_premium": "Überstundenzuschlag", "claim_deadline": "Verfallsfrist", "notice_period": "Kündigungsfrist", "special_leave": "Bezahlte Dienstverhinderung" },
+    "units": { "eur_month": "{amount} brutto/Monat", "eur_hour": "{amount} brutto/Stunde", "percent": "{amount}", "hours_week": "{n} Stunden pro Woche", "months": "{n} Monate", "weeks": "{n} Woche(n)", "days": "{n} Tag(e)" },
+    "items": { "wedding": "Eigene Hochzeit", "death_close": "Tod naher Angehöriger", "moving": "Wohnungswechsel" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Urlaubsgeld bis 30. Juni, Weihnachtsgeld bis 30. November (Höhe siehe Details)",
+      "sp_one_month_each_handel": "Je ein Monatsgehalt: Urlaubsbeihilfe bis 30. Juni, Weihnachtsremuneration bis 1. Dezember",
+      "sp_bau": "Weihnachtsgeld nach geleisteten Stunden; Urlaubszuschuss über die BUAK",
+      "notice_law": "Gesetzlich geregelt (AngG/ABGB), nicht im KV",
+      "notice_bau": "für beide Seiten; länger nach 10 und 15 Jahren",
+      "claim_hotel": "schriftlich; Überstunden: nach der Abrechnung, sonst: nach Ende des Dienstverhältnisses",
+      "claim_after_due_written": "ab Fälligkeit, schriftlich",
+      "claim_bau": "nach Erhalt der Abrechnung (3 Monate nach Ende des Dienstverhältnisses)"
+    }
+  },
+  "en": {
+    "title": "Key figures", "checked": "Checked", "from": "valid from", "group": "Group",
+    "unreviewed": "Not yet checked by a volunteer. Look at the source before you rely on it.",
+    "disclaimer": "Gross minimum amounts for full-time work. For seniority steps and special cases, see the source.",
+    "details": "Details", "source": "Source",
+    "deadlineWarning": "This agreement has claim deadlines: claims such as unpaid overtime can be lost if you don't raise them (often in writing) within a few months.",
+    "facts": { "min_pay_lowest": "Lowest minimum pay", "min_pay_typical": "Skilled worker (example)", "latest_raise": "Latest raise", "weekly_hours": "Weekly working hours", "special_payments": "13th and 14th salary", "overtime_premium": "Overtime premium", "claim_deadline": "Claim deadline", "notice_period": "Notice period", "special_leave": "Paid leave for personal events" },
+    "units": { "eur_month": "{amount} gross/month", "eur_hour": "{amount} gross/hour", "percent": "{amount}", "hours_week": "{n} hours per week", "months": "{n} months", "weeks": "{n} week(s)", "days": "{n} day(s)" },
+    "items": { "wedding": "Your own wedding", "death_close": "Death of a close family member", "moving": "Moving house" },
+    "phrases": {
+      "sp_due_30_6_30_11": "Holiday bonus by 30 June, Christmas bonus by 30 November (amount: see details)",
+      "sp_one_month_each_handel": "One monthly salary each: holiday bonus by 30 June, Christmas bonus by 1 December",
+      "sp_bau": "Christmas bonus based on hours worked; holiday bonus paid via BUAK",
+      "notice_law": "Set by law (AngG/ABGB), not by this agreement",
+      "notice_bau": "for both sides; longer after 10 and 15 years",
+      "claim_hotel": "in writing; overtime: after the payslip, other claims: after the job ends",
+      "claim_after_due_written": "from the due date, in writing",
+      "claim_bau": "after receiving the pay statement (3 months after the job ends)"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "tr": {
     "volunteerNote": "Bu uygulama tamamen gönüllü olarak, çeşitli kaynaklardan derlenen bilgilerle hazırlanmıştır. Yasal bir sorumluluk üstlenmez; bilgiler eksik veya güncelliğini yitirmiş olabilir. Yasal konularda lütfen Arbeiterkammer (AK) ve sendikanızla görüşün.",
-    "ragTitle": "İlgili toplu sözleşmeler ve mevzuat",
+    "resultsTitle": "İlgili toplu sözleşmeler ve mevzuat",
     "viewSource": "Kaynağa git",
     "conceptHint": "Almancada:",
     "suggestionsLabel": "Sık arananlar:",
@@ -39,13 +39,15 @@
       "transport": "Nakliye ve lojistik",
       "care_social": "Bakım ve sosyal hizmetler (SWÖ)",
       "cleaning": "Temizlik",
-      "crafts": "Zanaat ve esnaf (kuaför, fırın, kasap, ahşap)"
+      "crafts": "Zanaat ve esnaf (kuaför, fırın, kasap, ahşap)",
+      "agriculture": "Tarım ve ormancılık",
+      "security": "Güvenlik hizmetleri"
     },
     "finderNav": "Hangi sözleşme?"
   },
   "hr": {
     "volunteerNote": "Ova je aplikacija u potpunosti volonterski izrađena na temelju informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastarjeli. Za pravna pitanja obratite se Arbeiterkammeru (AK) i svom sindikatu.",
-    "ragTitle": "Povezani kolektivni ugovori i propisi",
+    "resultsTitle": "Povezani kolektivni ugovori i propisi",
     "viewSource": "Otvori izvor",
     "conceptHint": "Na njemačkom:",
     "suggestionsLabel": "Česte pretrage:",
@@ -83,13 +85,15 @@
       "transport": "Prijevoz i logistika",
       "care_social": "Njega i socijalne usluge",
       "cleaning": "Čišćenje",
-      "crafts": "Obrt (frizer, pekar, mesar, drvo)"
+      "crafts": "Obrt (frizer, pekar, mesar, drvo)",
+      "agriculture": "Poljoprivreda i šumarstvo",
+      "security": "Zaštitarske usluge"
     },
     "finderNav": "Koji ugovor?"
   },
   "sr": {
     "volunteerNote": "Ova aplikacija je u potpunosti volonterski napravljena na osnovu informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastareli. Za pravna pitanja obratite se Arbeiterkammer-u (AK) i svom sindikatu.",
-    "ragTitle": "Povezani kolektivni ugovori i propisi",
+    "resultsTitle": "Povezani kolektivni ugovori i propisi",
     "viewSource": "Otvori izvor",
     "conceptHint": "Na nemačkom:",
     "suggestionsLabel": "Česte pretrage:",
@@ -127,13 +131,15 @@
       "transport": "Prevoz i logistika",
       "care_social": "Nega i socijalne usluge",
       "cleaning": "Čišćenje",
-      "crafts": "Zanatstvo (frizer, pekar, mesar, drvo)"
+      "crafts": "Zanatstvo (frizer, pekar, mesar, drvo)",
+      "agriculture": "Poljoprivreda i šumarstvo",
+      "security": "Obezbeđenje"
     },
     "finderNav": "Koji ugovor?"
   },
   "bs": {
     "volunteerNote": "Ova aplikacija je u potpunosti volonterski izrađena na osnovu informacija iz različitih izvora. Ne preuzima nikakvu pravnu odgovornost; podaci mogu biti nepotpuni ili zastarjeli. Za pravna pitanja obratite se Arbeiterkammeru (AK) i svom sindikatu.",
-    "ragTitle": "Povezani kolektivni ugovori i propisi",
+    "resultsTitle": "Povezani kolektivni ugovori i propisi",
     "viewSource": "Otvori izvor",
     "conceptHint": "Na njemačkom:",
     "suggestionsLabel": "Česte pretrage:",
@@ -171,13 +177,15 @@
       "transport": "Prijevoz i logistika",
       "care_social": "Njega i socijalne usluge",
       "cleaning": "Čišćenje",
-      "crafts": "Zanatstvo (frizer, pekar, mesar, drvo)"
+      "crafts": "Zanatstvo (frizer, pekar, mesar, drvo)",
+      "agriculture": "Poljoprivreda i šumarstvo",
+      "security": "Zaštitarske usluge"
     },
     "finderNav": "Koji ugovor?"
   },
   "ro": {
     "volunteerNote": "Această aplicație a fost realizată integral în mod voluntar, pe baza unor informații din diverse surse. Nu își asumă nicio răspundere juridică; informațiile pot fi incomplete sau depășite. Pentru chestiuni juridice, vă rugăm să vă adresați Arbeiterkammer (AK) și sindicatului dumneavoastră.",
-    "ragTitle": "Contracte colective și reglementări relevante",
+    "resultsTitle": "Contracte colective și reglementări relevante",
     "viewSource": "Deschide sursa",
     "conceptHint": "În germană:",
     "suggestionsLabel": "Căutări frecvente:",
@@ -215,13 +223,15 @@
       "transport": "Transport și logistică",
       "care_social": "Îngrijire și servicii sociale",
       "cleaning": "Curățenie",
-      "crafts": "Meserii (coafor, brutar, măcelar, lemn)"
+      "crafts": "Meserii (coafor, brutar, măcelar, lemn)",
+      "agriculture": "Agricultură și silvicultură",
+      "security": "Servicii de pază"
     },
     "finderNav": "Ce contract?"
   },
   "hu": {
     "volunteerNote": "Ezt az alkalmazást teljes egészében önkéntesen, különböző forrásokból származó információk összegyűjtésével készítették. Jogi felelősséget nem vállal; az információk hiányosak vagy elavultak lehetnek. Jogi kérdésekben kérjük, forduljon az Arbeiterkammerhez (AK) és a szakszervezetéhez.",
-    "ragTitle": "Kapcsolódó kollektív szerződések és előírások",
+    "resultsTitle": "Kapcsolódó kollektív szerződések és előírások",
     "viewSource": "Forrás megnyitása",
     "conceptHint": "Németül:",
     "suggestionsLabel": "Gyakori keresések:",
@@ -259,13 +269,15 @@
       "transport": "Szállítás és logisztika",
       "care_social": "Ápolás és szociális szolgáltatások",
       "cleaning": "Takarítás",
-      "crafts": "Kisipar (fodrász, pék, hentes, fa)"
+      "crafts": "Kisipar (fodrász, pék, hentes, fa)",
+      "agriculture": "Mezőgazdaság és erdészet",
+      "security": "Vagyonvédelem"
     },
     "finderNav": "Melyik szerződés?"
   },
   "sl": {
     "volunteerNote": "Ta aplikacija je v celoti nastala prostovoljno, na podlagi informacij iz različnih virov. Ne prevzema nobene pravne odgovornosti; informacije so lahko nepopolne ali zastarele. Za pravna vprašanja se obrnite na Arbeiterkammer (AK) in svoj sindikat.",
-    "ragTitle": "Povezane kolektivne pogodbe in predpisi",
+    "resultsTitle": "Povezane kolektivne pogodbe in predpisi",
     "viewSource": "Odpri vir",
     "conceptHint": "V nemščini:",
     "suggestionsLabel": "Pogosta iskanja:",
@@ -303,13 +315,15 @@
       "transport": "Prevoz in logistika",
       "care_social": "Nega in socialne storitve",
       "cleaning": "Čiščenje",
-      "crafts": "Obrt (frizer, pek, mesar, les)"
+      "crafts": "Obrt (frizer, pek, mesar, les)",
+      "agriculture": "Kmetijstvo in gozdarstvo",
+      "security": "Varovanje"
     },
     "finderNav": "Katera pogodba?"
   },
   "de": {
     "volunteerNote": "Diese Anwendung wurde ausschließlich ehrenamtlich aus verschiedenen Quellen zusammengestellt. Sie übernimmt keine rechtliche Haftung; die Angaben können unvollständig oder veraltet sein. Bitte klären Sie rechtliche Fragen mit der Arbeiterkammer (AK) und Ihrer Gewerkschaft.",
-    "ragTitle": "Passende Kollektivverträge und Vorschriften",
+    "resultsTitle": "Passende Kollektivverträge und Vorschriften",
     "viewSource": "Zur Quelle",
     "conceptHint": "Auf Deutsch:",
     "suggestionsLabel": "Häufige Suchen:",
@@ -347,13 +361,15 @@
       "transport": "Transport und Logistik",
       "care_social": "Pflege und Sozialwirtschaft",
       "cleaning": "Reinigung",
-      "crafts": "Handwerk und Gewerbe (Friseur, Bäcker, Fleischer, Holz)"
+      "crafts": "Handwerk und Gewerbe (Friseur, Bäcker, Fleischer, Holz)",
+      "agriculture": "Land- und Forstwirtschaft",
+      "security": "Bewachung"
     },
     "finderNav": "Welcher KV?"
   },
   "en": {
     "volunteerNote": "This app was put together entirely by volunteers from various sources. It accepts no legal responsibility, and the information may be incomplete or out of date. For legal matters, please consult the Arbeiterkammer (AK) and your trade union.",
-    "ragTitle": "Related collective agreements and regulations",
+    "resultsTitle": "Related collective agreements and regulations",
     "viewSource": "View source",
     "conceptHint": "In German:",
     "suggestionsLabel": "Popular searches:",
@@ -391,7 +407,9 @@
       "transport": "Transport and logistics",
       "care_social": "Care and social services",
       "cleaning": "Cleaning",
-      "crafts": "Crafts and trades (hairdresser, bakery, butcher, wood)"
+      "crafts": "Crafts and trades (hairdresser, bakery, butcher, wood)",
+      "agriculture": "Agriculture and forestry",
+      "security": "Security services"
     },
     "finderNav": "Which agreement?"
   }

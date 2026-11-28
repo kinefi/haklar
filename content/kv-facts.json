@@ -1,0 +1,281 @@
+{
+  "_comment": "Seçili toplu sözleşmeler için kaynaklı önemli rakamlar (pilot). Her bilgi bir kaynak URL'si taşır. reviewed=false olan kayıtlar sayfada 'henüz gönüllü kontrolünden geçmedi' notuyla gösterilir; bir gönüllü kaynağı kontrol edince reviewed=true ve reviewedAt yazılır. Sözleşme metni kopyalanmaz: yalnızca rakamlar ve kendi cümlelerimiz. Tutarlar brüt ve tam zamanlı asgari tutarlardır.",
+  "version": 1,
+  "agreements": [
+    {
+      "groupId": "hotel-gastgewerbe",
+      "employmentTypes": ["arb", "ang"],
+      "checkedAt": "2026-11-28",
+      "reviewed": false,
+      "facts": [
+        {
+          "id": "min_pay_lowest", "amount": 2096.5, "unit": "eur_month",
+          "group": "Lohngruppe 5 / Beschäftigungsgruppe 5", "validFrom": "2026-10-01",
+          "note": {
+            "de": "Bis zum 5. Dienstjahr, in ganz Österreich gleich (z. B. Hilfskraft im Service). Ab dem 6. Dienstjahr mehr (Wien: 2.148,90 €).",
+            "en": "Up to the 5th year of service, same across Austria (e.g. service helper). More from the 6th year (Vienna: EUR 2,148.90)."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/gehaltsordnungen-gastronomie-hotellerie-oktober-2026", "label": "WKO · Gehaltsordnungen Gastronomie und Hotellerie ab 1.10.2026" },
+          "confidence": "high"
+        },
+        {
+          "id": "min_pay_typical", "amount": 2232, "unit": "eur_month",
+          "group": "Lohngruppe 3 (Facharbeiter/innen, z. B. Koch/Köchin)", "validFrom": "2026-10-01",
+          "note": {
+            "de": "Bis zum 5. Dienstjahr in Tirol und Wien-Gastronomie; Wien-Hotellerie und Wiener Kaffeehäuser: 2.330 €. Arbeiter-Lohntafeln sind je Bundesland verschieden.",
+            "en": "Up to the 5th year of service in Tyrol and Vienna restaurants; Vienna hotels and coffee houses: EUR 2,330. Worker wage tables differ by federal state."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/lohnordnung-gastronomie-hotellerie-tirol-2026", "label": "WKO · Lohnordnung Gastronomie und Hotellerie Tirol ab 1.10.2026" },
+          "confidence": "high"
+        },
+        {
+          "id": "latest_raise", "amount": 3, "unit": "percent", "validFrom": "2026-10-01",
+          "note": {
+            "de": "Durchschnittlich +3 % als Fixbeträge je Gruppe (z. B. LG 5 +70,50 €), dazu eine Einmalzahlung bis 275 € brutto (Lehrlinge 175 €), zahlbar bis 31.12.2026. Für Teilzeit, Eintritte nach 1.5.2026 u. a. weniger oder keine Einmalzahlung.",
+            "en": "On average +3% as fixed amounts per group (e.g. LG 5 +EUR 70.50), plus a one-off payment of up to EUR 275 gross (apprentices EUR 175), payable by 31 Dec 2026. Reduced or none for part-time staff, people hired after 1 May 2026 and others."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertragsabschluss-hotel-gastgewerbe-2026", "label": "WKO · KV-Abschluss Hotel- und Gastgewerbe 2026" },
+          "confidence": "high"
+        },
+        {
+          "id": "weekly_hours", "amount": 40, "unit": "hours_week",
+          "note": {
+            "de": "Bei Durchrechnung sind einzelne Wochen bis 48 Stunden möglich.",
+            "en": "With averaging, individual weeks of up to 48 hours are possible."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-hotel-und-gastgewerbe-2024", "label": "WKO · KV Hotel- und Gastgewerbe ab 1.11.2024, Abschnitt IV" },
+          "confidence": "high"
+        },
+        {
+          "id": "special_payments", "phrase": "sp_due_30_6_30_11",
+          "note": {
+            "de": "Urlaubsgeld und Weihnachtsgeld nach dem Probemonat; Grundlage ist der Ist-Lohn des Fälligkeitsmonats für die vereinbarte Normalarbeitszeit. Für Eintritte vor 1.11.2024 können Übergangsregeln gelten.",
+            "en": "Holiday and Christmas bonus after the probation month; calculated on the actual wage of the month they fall due, for the agreed normal hours. Transitional rules may apply to people hired before 1 Nov 2024."
+          },
+          "source": { "url": "https://www.wko.at/oe/kollektivvertrag/kollektivvertrag-hotel-gastgewerbe-2024.pdf", "label": "WKO · KV Hotel- und Gastgewerbe 2024 (PDF), Abschnitt XX" },
+          "confidence": "medium"
+        },
+        {
+          "id": "overtime_premium", "amount": 50, "unit": "percent",
+          "note": {
+            "de": "50 % des Normalstundenlohns (1/173 des Monatslohns). Nachtarbeitszuschlag (0–6 Uhr) laut Lohnordnung, z. B. Wien-Hotellerie 28,50 €. Feiertagsarbeit: zusätzlich 1/173 des Monatslohns pro Stunde.",
+            "en": "50% of the normal hourly wage (1/173 of monthly wage). Night premium (0:00–6:00) per wage table, e.g. Vienna hotels EUR 28.50. Public-holiday work: an extra 1/173 of monthly wage per hour."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-hotel-und-gastgewerbe-2024", "label": "WKO · KV Hotel- und Gastgewerbe 2024, Abschnitte X, XV, XXI" },
+          "confidence": "high"
+        },
+        {
+          "id": "claim_deadline", "amount": 4, "unit": "months", "phrase": "claim_hotel",
+          "note": {
+            "de": "Überstundenentgelt: binnen 4 Monaten nach der Abrechnung schriftlich geltend machen. Sonstige Ansprüche: binnen 4 Monaten nach Ende des Arbeitsverhältnisses schriftlich.",
+            "en": "Overtime pay: claim in writing within 4 months after the pay statement. Other claims: in writing within 4 months after the employment ends."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-hotel-und-gastgewerbe-2024", "label": "WKO · KV Hotel- und Gastgewerbe 2024, Abschnitte X.7, XII.4" },
+          "confidence": "high"
+        },
+        {
+          "id": "notice_period", "phrase": "notice_law",
+          "note": {
+            "de": "Der KV nennt nur die Kündigungstermine (15. oder Monatsletzter) und einen Probemonat; die Fristen folgen dem Gesetz (ABGB/AngG).",
+            "en": "The KV only sets the termination dates (15th or last day of the month) and a one-month probation; the periods follow the law (ABGB/AngG)."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-hotel-und-gastgewerbe-2024", "label": "WKO · KV Hotel- und Gastgewerbe 2024" },
+          "confidence": "medium"
+        },
+        {
+          "id": "special_leave",
+          "items": [
+            { "key": "wedding", "amount": 2, "unit": "days" },
+            { "key": "death_close", "amount": 2, "unit": "days" },
+            { "key": "moving", "amount": 1, "unit": "days" }
+          ],
+          "note": {
+            "de": "Tod von Eltern, Ehe-/Lebenspartner/in oder Kindern im gemeinsamen Haushalt 2 Tage (sonst 1 Tag für das Begräbnis); Wohnungswechsel mit eigenem Mobiliar bis zu 1 Tag. Weitere Anlässe im KV, Abschnitt XXII.",
+            "en": "Death of parents, spouse/partner or children in the same household 2 days (otherwise 1 day for the funeral); moving with own furniture up to 1 day. More occasions in the KV, section XXII."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-hotel-und-gastgewerbe-2024", "label": "WKO · KV Hotel- und Gastgewerbe 2024, Abschnitt XXII.2" },
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "groupId": "handelsangestellte",
+      "employmentTypes": ["ang"],
+      "checkedAt": "2026-11-28",
+      "reviewed": false,
+      "facts": [
+        {
+          "id": "min_pay_lowest", "amount": 2090, "unit": "eur_month",
+          "group": "Beschäftigungsgruppe A, Stufe 1", "validFrom": "2026-01-01",
+          "note": {
+            "de": "1.–3. Jahr, Vollzeit 38,5 Stunden (z. B. Lagerhilfskräfte).",
+            "en": "Years 1–3, full time 38.5 hours (e.g. warehouse helpers)."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/gehaltstafeln-angestellte-handel-2026", "label": "WKO · Gehaltstafeln Angestellte im Handel ab 1.1.2026" },
+          "confidence": "high"
+        },
+        {
+          "id": "min_pay_typical", "amount": 2251, "unit": "eur_month",
+          "group": "Beschäftigungsgruppe C, Stufe 1 (Verkauf mit Lehre)", "validFrom": "2026-01-01",
+          "note": {
+            "de": "Verkauf ohne kaufmännische Ausbildung: Gruppe B, 2.156 €.",
+            "en": "Sales staff without commercial training: group B, EUR 2,156."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/gehaltstafeln-angestellte-handel-2026", "label": "WKO · Gehaltstafeln Angestellte im Handel ab 1.1.2026" },
+          "confidence": "high"
+        },
+        {
+          "id": "latest_raise", "amount": 2.55, "unit": "percent", "validFrom": "2026-01-01",
+          "note": {
+            "de": "Erhöhung für 2026. Die Verhandlungen für 2027 waren am 25.11.2026 noch offen (Arbeitgeber: 2,1 % + 350 € Einmalzahlung; GPA: 3,8 %; Streikfreigabe durch den ÖGB). Aktuellen Stand prüfen.",
+            "en": "Increase for 2026. The 2027 talks were still open on 25 Nov 2026 (employers: 2.1% + EUR 350 one-off; GPA: 3.8%; strikes approved by the ÖGB). Check the latest status."
+          },
+          "source": { "url": "https://www.wko.at/oe/oesterreich/handel-kv-abschluss", "label": "WKO · Handel KV-Abschluss" },
+          "confidence": "high"
+        },
+        {
+          "id": "weekly_hours", "amount": 38.5, "unit": "hours_week",
+          "note": { "de": "Ohne Ruhepausen.", "en": "Excluding breaks." },
+          "source": { "url": "https://www.gpa.at/content/dam/gpa/downloads/kollektivvertrag/handel/handelsangestellte/2026/Kollekttivvertrag_2026_Handelsangestellte.pdf", "label": "GPA · KV Handelsangestellte 2026 (PDF), Abschnitt 2 A.1" },
+          "confidence": "high"
+        },
+        {
+          "id": "special_payments", "phrase": "sp_one_month_each_handel",
+          "note": {
+            "de": "Weihnachtsremuneration 100 % des Novembergehalts, spätestens 1. Dezember; Urlaubsbeihilfe 100 % des Monatsgehalts bei Urlaubsantritt, spätestens 30. Juni.",
+            "en": "Christmas bonus 100% of the November salary, by 1 December; holiday bonus 100% of the monthly salary when leave starts, by 30 June."
+          },
+          "source": { "url": "https://www.gpa.at/content/dam/gpa/downloads/kollektivvertrag/handel/handelsangestellte/2026/Kollekttivvertrag_2026_Handelsangestellte.pdf", "label": "GPA · KV Handelsangestellte 2026 (PDF), 6.1.1 / 6.2.1" },
+          "confidence": "high"
+        },
+        {
+          "id": "overtime_premium", "amount": 50, "unit": "percent",
+          "note": {
+            "de": "50 % (Stundenbasis 1/158 des Monatsgehalts); 100 % zwischen 20 und 6 Uhr sowie an Sonn- und Feiertagen; 70 % in erweiterten Öffnungszeiten. Einzelheiten im KV prüfen.",
+            "en": "50% (hourly base 1/158 of monthly salary); 100% between 20:00 and 6:00 and on Sundays/public holidays; 70% during extended opening hours. Check the details in the KV."
+          },
+          "source": { "url": "https://www.gpa.at/content/dam/gpa/downloads/kollektivvertrag/handel/handelsangestellte/2026/Kollekttivvertrag_2026_Handelsangestellte.pdf", "label": "GPA · KV Handelsangestellte 2026 (PDF), Abschnitt 2 G.2" },
+          "confidence": "medium"
+        },
+        {
+          "id": "claim_deadline", "amount": 6, "unit": "months", "phrase": "claim_after_due_written",
+          "note": {
+            "de": "Binnen 6 Monaten nach Fälligkeit schriftlich geltend machen (Einstufung: 1 Jahr; Reisekosten: 3 Monate nach der Dienstreise).",
+            "en": "Claim in writing within 6 months of the due date (classification: 1 year; travel expenses: 3 months after the trip)."
+          },
+          "source": { "url": "https://www.gpa.at/content/dam/gpa/downloads/kollektivvertrag/handel/handelsangestellte/2026/Kollekttivvertrag_2026_Handelsangestellte.pdf", "label": "GPA · KV Handelsangestellte 2026 (PDF), Abschnitt 7 A" },
+          "confidence": "high"
+        },
+        {
+          "id": "notice_period", "phrase": "notice_law",
+          "note": {
+            "de": "Fristen nach dem Angestelltengesetz; nach mehr als 5 Jahren im Betrieb Kündigung durch den Arbeitgeber nur zum Quartalsende. Erster Monat ist Probemonat.",
+            "en": "Periods follow the Salaried Employees Act (AngG); after more than 5 years, employer notice only to the end of a calendar quarter. First month is probation."
+          },
+          "source": { "url": "https://www.gpa.at/content/dam/gpa/downloads/kollektivvertrag/handel/handelsangestellte/2026/Kollekttivvertrag_2026_Handelsangestellte.pdf", "label": "GPA · KV Handelsangestellte 2026 (PDF), J.1 / J.2" },
+          "confidence": "medium"
+        },
+        {
+          "id": "special_leave",
+          "items": [
+            { "key": "wedding", "amount": 3, "unit": "days" },
+            { "key": "death_close", "amount": 2, "unit": "days" },
+            { "key": "moving", "amount": 2, "unit": "days" }
+          ],
+          "note": {
+            "de": "Arbeitstage. Tod der Ehegattin/Lebensgefährtin im gemeinsamen Haushalt 2 Tage; Tod von Eltern, Schwiegereltern oder Kindern 1 Tag (+1 für das Begräbnis); Wohnungswechsel höchstens 2 Tage pro Halbjahr. Der KV nennt diese Fälle als Beispiele.",
+            "en": "Working days. Death of spouse/partner in the same household 2 days; death of parents, parents-in-law or children 1 day (+1 for the funeral); moving up to 2 days per half-year. The KV lists these as examples."
+          },
+          "source": { "url": "https://www.gpa.at/content/dam/gpa/downloads/kollektivvertrag/handel/handelsangestellte/2026/Kollekttivvertrag_2026_Handelsangestellte.pdf", "label": "GPA · KV Handelsangestellte 2026 (PDF), Abschnitt 1 G.1" },
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "groupId": "bauindustrie-baugewerbe",
+      "employmentTypes": ["arb"],
+      "checkedAt": "2026-11-28",
+      "reviewed": false,
+      "facts": [
+        {
+          "id": "min_pay_lowest", "amount": 17.03, "unit": "eur_hour",
+          "group": "Lohngruppe IV, Bauhilfsarbeiter", "validFrom": "2026-05-01",
+          "note": { "de": "Lehrlinge und Praktikanten erhalten weniger.", "en": "Apprentices and interns receive less." },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/lohnordnung-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · Lohnordnung Bau Arbeiter ab 1.5.2026" },
+          "confidence": "high"
+        },
+        {
+          "id": "min_pay_typical", "amount": 19.99, "unit": "eur_hour",
+          "group": "Lohngruppe II b, Facharbeiter", "validFrom": "2026-05-01",
+          "note": { "de": "Lohngruppe II a: 21,96 €/Stunde.", "en": "Wage group II a: EUR 21.96/hour." },
+          "source": { "url": "https://www.wko.at/oe/kollektivvertrag/lohnerhoehungen-bau-ab-01.05.2026.pdf", "label": "WKO · Lohnerhöhungen Bau ab 1.5.2026 (PDF)" },
+          "confidence": "high"
+        },
+        {
+          "id": "latest_raise", "amount": 3.6, "unit": "percent", "validFrom": "2026-05-01",
+          "note": {
+            "de": "Zweites Jahr eines Zweijahresabschlusses (2025: +2,7 %); Überzahlungen bleiben erhalten. Nächste Runde voraussichtlich Frühjahr 2027.",
+            "en": "Second year of a two-year deal (2025: +2.7%); pay above the minimum is kept. Next round expected in spring 2027."
+          },
+          "source": { "url": "https://www.wko.at/oe/kollektivvertrag/lohnerhoehungen-bau-ab-01.05.2026.pdf", "label": "WKO · Lohnerhöhungen Bau ab 1.5.2026 (PDF)" },
+          "confidence": "high"
+        },
+        {
+          "id": "weekly_hours", "amount": 39, "unit": "hours_week",
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · KV Bau Arbeiter ab 1.5.2026, § 2" },
+          "confidence": "high"
+        },
+        {
+          "id": "special_payments", "phrase": "sp_bau",
+          "note": {
+            "de": "Weihnachtsgeld: 3,41 Stundenlöhne (KV-Lohn + 20 %) je 39 gearbeiteter Stunden im Kalenderjahr, im ersten Dezemberdrittel. Der Urlaubszuschuss ist Teil des Urlaubsentgelts und wird über die BUAK bezahlt.",
+            "en": "Christmas bonus: 3.41 hourly wages (KV wage + 20%) per 39 hours worked in the calendar year, paid in early December. The holiday bonus is part of holiday pay and is paid via BUAK."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · KV Bau Arbeiter 2026, § 12" },
+          "confidence": "high"
+        },
+        {
+          "id": "overtime_premium", "amount": 50, "unit": "percent",
+          "note": {
+            "de": "Überstunden 5–20 Uhr 50 %, 20–5 Uhr 100 %; Sonntagsarbeit 100 %; Feiertagsarbeit 50 % bzw. 100 %. Genaue Bedingungen in § 4 Abs. 3.",
+            "en": "Overtime 5:00–20:00 50%, 20:00–5:00 100%; Sunday work 100%; public-holiday work 50% or 100%. Exact conditions in § 4(3)."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · KV Bau Arbeiter 2026, § 4 Abs. 3" },
+          "confidence": "medium"
+        },
+        {
+          "id": "claim_deadline", "amount": 6, "unit": "months", "phrase": "claim_bau",
+          "note": {
+            "de": "Binnen 6 Monaten nach Erhalt der Abrechnung; nach Ende des Arbeitsverhältnisses binnen 3 Monaten; lehnt der Arbeitgeber ab, binnen 8 Wochen klagen. Schriftlich ist zum Nachweis ratsam.",
+            "en": "Within 6 months of receiving the pay statement; after the employment ends within 3 months; if the employer refuses, sue within 8 weeks. Doing it in writing is advisable as proof."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · KV Bau Arbeiter 2026, § 14" },
+          "confidence": "high"
+        },
+        {
+          "id": "notice_period", "amount": 1, "unit": "weeks", "phrase": "notice_bau",
+          "note": {
+            "de": "Für beide Seiten: 1 Woche in den ersten 10 Jahren, 2 Wochen nach 10 Jahren, 3 Wochen nach 15 Jahren.",
+            "en": "For both sides: 1 week in the first 10 years, 2 weeks after 10 years, 3 weeks after 15 years."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · KV Bau Arbeiter 2026, § 15" },
+          "confidence": "high"
+        },
+        {
+          "id": "special_leave",
+          "items": [
+            { "key": "wedding", "amount": 1, "unit": "days" },
+            { "key": "death_close", "amount": 2, "unit": "days" },
+            { "key": "moving", "amount": 1, "unit": "days" }
+          ],
+          "note": {
+            "de": "Arbeitstage. Eigene standesamtliche Trauung 1 Tag; Tod von Ehegatt/in, Lebensgefährt/in, Eltern oder Kindern 2 Tage; Übersiedlung 1 Tag.",
+            "en": "Working days. Own civil wedding 1 day; death of spouse, partner, parents or children 2 days; moving 1 day."
+          },
+          "source": { "url": "https://www.wko.at/kollektivvertrag/kollektivvertrag-baugewerbe-bauindustrie-arbeiter-2026", "label": "WKO · KV Bau Arbeiter 2026, § 7" },
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}

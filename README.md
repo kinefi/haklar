@@ -17,7 +17,9 @@ Avusturya'da çalışanlar için sade ve çok dilli bir hak rehberi. Türkçe, H
 - Çalışma saatleri, fazla mesai, izin, hastalık ve iş kıyafeti gibi konularda kısa bilgiler
 - Arbeiterkammer (AK), ÖGB ve resmi Avusturya mevzuat sistemi RIS bağlantıları
 - Dil içeriklerinin ve ortak kart simgelerinin `content/` altındaki JSON dosyalarında saklanması
-- Diller arası kavram sözlüğü: "annelik" aratınca Mutterschutz, Wochengeld ve Karenz bulunur; Almanca karşılıklar arama kutusunun altında ipucu olarak gösterilir
+- Diller arası kavram sözlüğü (62 kavram): "annelik" aratınca Mutterschutz, Wochengeld ve Karenz bulunur; Almanca karşılıklar arama kutusunun altında ipucu olarak gösterilir
+- KV konu başlıkları kavramlara bağlanır ve 9 dilde gösterilir (Almanca asıl başlık ipucu olarak); hak düşürücü süresi olan sözleşmelerde uyarı
+- Seçili sözleşmelerde kaynaklı "önemli rakamlar" (asgari ücret, son zam, fazla mesai zammı, hak düşürücü süre, ücretli mazeret izni…)
 - Arama yalnızca seçili dildeki kayıtları döndürür (toplu sözleşmeler kaynağı gereği Almanca olduğundan her dilde görünür)
 - Harici JavaScript paketi, derleme adımı veya kullanıcı verisi toplanması olmadan çalışma
 
@@ -29,16 +31,29 @@ Maaş/vergi sayfasının çevirileri `content/pay-ui.json`, yıllık vergi dilim
 
 ## Kavram sözlüğü ve arama
 
-Diller arası eşleştirme tek bir dosyadadır: `content/concepts.json`. Her kavramın (ör. `maternity`) dillere göre terimleri, Almanca resmi karşılıkları (`display`) ve ilişkili kavramları (`related`) vardır; `sh` anahtarı Hırvatça, Sırpça ve Boşnakça için ortaktır. Yeni bir terim eklemek için ilgili dilin listesine yazmanız yeterlidir. Tarayıcı (`assets/semantic.js`) ve indeks betiği (`scripts/build-rag-index.py`) aynı dosyayı okur.
+Diller arası eşleştirme tek bir dosyadadır: `content/concepts.json`. Her kavramın (ör. `maternity`):
 
-Sözlüğü veya içeriği değiştirdikten sonra arama indeksini yenileyin ve testleri çalıştırın:
+- `terms`: aramada eşleşen ifadeler, dil başına (`sh` = Hırvatça, Sırpça ve Boşnakça ortak),
+- `labels`: 9 arayüz dilindeki kısa adı (KV konu başlıklarının çevirisi buradan üretilir),
+- `display`: Almanca resmi karşılıklar (arama ipucu), `related`: ilişkili kavramlar.
+
+Yeni bir terim eklemek için ilgili dilin listesine yazmanız yeterlidir. Eşleşme kuralları: 5+ harfli terimler sözcük başında eşleşir (Türkçe ekler, Almanca bileşik sözcükler), kısa terimler tam sözcük olarak; **en uzun eşleşme kazanır** ("Pflegefreistellung" bakım sektörünü, "godišnji odmor" molayı tetiklemez). Tarayıcı (`assets/semantic.js`) ve betikler aynı dosyayı okur.
+
+**KV konu başlıkları:** `scripts/build-topic-map.mjs` katalogdaki ~1.500 konu başlığını kavramlara bağlar ve `content/topic-concepts.json` yazar (eşlenemeyenleri listeler). Otomatik eşleme yanlışsa `content/topic-overrides.json` içine elle düzeltme yazın.
+
+**Önemli rakamlar:** `content/kv-facts.json` (rakamlar + kaynak URL'si) ve `content/kv-facts-ui.json` (9 dilde metinler). Sözleşme metni kopyalanmaz; yalnızca rakamlar ve kendi cümlelerimiz. Bir gönüllü kaynağı kontrol edince ilgili kayıtta `"reviewed": true` yapın; o zamana kadar sayfada "henüz kontrol edilmedi" notu görünür.
+
+Sözlüğü veya içeriği değiştirdikten sonra:
 
 ```bash
-python3 scripts/build-rag-index.py
-node --test tests/search.test.mjs
+node scripts/build-topic-map.mjs          # KV konu haritası
+python3 scripts/build-search-index.py     # şirket notları + vergi indeksi
+node --test tests/*.test.mjs              # altın sorgular dahil tüm testler
 ```
 
-İki sayfada ortak metinler (gönüllü uyarısı, arama başlıkları, "sık arananlar" önerileri) `content/shared-ui.json` içindedir. Toplu sözleşmeler `rag-index.json` içinde değil, doğrudan `content/collective-agreements.json` üzerinden aranır; bu yüzden indeks küçük (~240 KB) kalır ve arama dosyaları arama kutusuna odaklanınca arka planda yüklenir.
+`tests/golden-queries.json` gerçek kullanıcı sorgularından oluşan bir settir: her sorgu için bulunması gereken (`expect`) ve bulunmaması gereken (`forbid`) kavramlar yazılır. Sözlükte yapılan her değişiklik bu sete karşı denenir; gönüllülerden gelen "şunu aradım, bulamadım" bildirimleri buraya yeni satır olarak eklenir.
+
+İki sayfada ortak metinler (gönüllü uyarısı, arama başlıkları, "sık arananlar" önerileri) `content/shared-ui.json` içindedir. Toplu sözleşmeler `search-index.json` içinde değil, doğrudan `content/collective-agreements.json` üzerinden aranır; rehber kartları da ayrıca puanlandığından indeks küçüktür (~55 KB). Arama yapay zekâ yanıtı üretmez; yalnızca ilgili kaynakları bulur.
 
 ### Terimleri gönüllülerle gözden geçirme
 
@@ -61,7 +76,11 @@ python3 scripts/mark-reviewed.py --all           # hepsi
 python3 scripts/update-kv-catalog.py
 ```
 
-Güncelleme kaynağı kodda ve oluşturulan JSON dosyasında belirtilir. A–Z dizininde kalmış ancak artık kaynakta bulunmayan gruplar `unavailableListings` içinde kaydedilir ve sayfada uyarı gösterilir. Ağ veya veri okuma hataları `failures` alanında tutulur ve betiğin başarısız çıkmasına neden olur.
+Güncelleme kaynağı kodda ve oluşturulan JSON dosyasında belirtilir. A–Z dizininde kalmış ancak artık kaynakta bulunmayan gruplar `unavailableListings` içinde kaydedilir ve sayfada uyarı gösterilir. Okunamayan sayfalar `failures` alanında tutulur; o sözleşmelerin önceki kayıtları korunur ve sayfada uyarı gösterilir. Hata sayısı 10'u veya listenin %5'ini aşarsa betik başarısız olur (kaynak sayfa yapısı değişmiş olabilir).
+
+Kaynak, konu başlıklarıyla birlikte konu kimliği veriyorsa betik bunları `topicIds` olarak kaydeder; sayfada her konu sözleşmenin ilgili bölümüne (`topic-id`) bağlanır. Kimlik yoksa konular sözleşmenin başına bağlanır.
+
+GitHub Actions (`.github/workflows/update-and-deploy.yaml`) her pazartesi ve her `main` gönderiminde verileri yeniler, testleri çalıştırır ve **aynı işte** yeni verilerle yayınlar.
 
 ## Önizleme
 

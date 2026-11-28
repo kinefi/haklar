@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Build the small static search index (guide cards, company notes, tax text) used by the
-browser. Collective agreements are NOT indexed here: the browser searches
-content/collective-agreements.json directly. Concept tags come from content/concepts.json.
+Build the small static search index (company notes, tax text) used by the browser.
+
+- Guide cards are NOT indexed: the home page scores them directly from content/<lang>.json.
+- Collective agreements are NOT indexed: the browser searches content/collective-agreements.json
+  directly, using content/topic-concepts.json (scripts/build-topic-map.mjs) for topic labels.
+- Concept tags come from content/concepts.json (same matching rules as assets/semantic.js).
 
 Usage:
-  python3 scripts/build-rag-index.py
-  python3 scripts/build-rag-index.py --with-embeddings --model paraphrase-multilingual-MiniLM-L12-v2
+  python3 scripts/build-search-index.py
 """
 
 from __future__ import annotations
@@ -16,28 +18,19 @@ import hashlib
 import json
 import math
 import re
-import time
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
-from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.error import HTTPError, URLError
-from urllib.parse import urljoin
-from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = ROOT / "content"
-CATALOG_PATH = CONTENT_DIR / "collective-agreements.json"
 EMPLOYER_KV_PATH = CONTENT_DIR / "employer-kv.json"
 TAX_PATH = CONTENT_DIR / "income-tax-current.json"
 PAY_UI_PATH = CONTENT_DIR / "pay-ui.json"
-OUTPUT_INDEX_PATH = CONTENT_DIR / "rag-index.json"
-
-BASE_URL = "https://www.kollektivvertrag.at"
-USER_AGENT = "HaklarRAGIndexer/1.0 (+https://github.com/haklar; educational worker-rights guide)"
+OUTPUT_INDEX_PATH = CONTENT_DIR / "search-index.json"
 
 CONCEPTS_PATH = CONTENT_DIR / "concepts.json"
 GERMAN_DIGRAPHS = {"ä": "ae", "ö": "oe", "ü": "ue", "Ä": "Ae", "Ö": "Oe", "Ü": "Ue"}
@@ -79,17 +72,56 @@ def contains_term(padded_words: str, term: str) -> bool:
     return (" " + term) in padded_words if len(term) >= 5 else (" " + term + " ") in padded_words
 
 
-def load_concepts(path: Path = CONCEPTS_PATH) -> dict[str, set[str]]:
-    """concepts.json -> {concept_id: {normalized terms}} (single source of truth shared with the browser)."""
+@dataclass
+class ConceptIndex:
+    terms: dict[str, set[str]]          # concept id -> normalized terms
+    owners: dict[str, set[str]]         # term -> concept ids
+    containers: dict[str, list[tuple[str, int]]]  # term -> (longer term of another concept containing it, offset)
+
+
+def load_concepts(path: Path = CONCEPTS_PATH) -> ConceptIndex:
+    """concepts.json -> ConceptIndex (single source of truth shared with the browser)."""
     data = json.loads(path.read_text(encoding="utf-8"))
-    concepts: dict[str, set[str]] = {}
+    terms: dict[str, set[str]] = {}
+    owners: dict[str, set[str]] = {}
     for concept_id, definition in data["concepts"].items():
-        terms: set[str] = set()
+        concept_terms: set[str] = set()
         for term_list in definition.get("terms", {}).values():
             for raw in term_list:
-                terms |= term_variants(raw)
-        concepts[concept_id] = terms
-    return concepts
+                concept_terms |= term_variants(raw)
+        terms[concept_id] = concept_terms
+        for term in concept_terms:
+            owners.setdefault(term, set()).add(concept_id)
+    containers: dict[str, list[tuple[str, int]]] = {}
+    for other in sorted(owners):
+        for offset in range(len(other)):
+            if offset > 0 and other[offset - 1] != " ":
+                continue
+            for end in range(offset + 2, len(other) + 1):
+                if offset == 0 and end == len(other):
+                    continue
+                term = other[offset:end]
+                if term not in owners:
+                    continue
+                if len(term) < 5 and end < len(other) and other[end] != " ":
+                    continue
+                if owners[other] - owners[term]:
+                    containers.setdefault(term, []).append((other, offset))
+    return ConceptIndex(terms, owners, containers)
+
+
+def term_matches(padded: str, term: str, concept_id: str, index: ConceptIndex) -> bool:
+    """Mirrors `termPosition()` in assets/semantic.js: longest match wins ("pflege" vs "pflegefreistellung")."""
+    needle = " " + term if len(term) >= 5 else " " + term + " "
+    start = padded.find(needle)
+    while start >= 0:
+        dominated = any(concept_id not in index.owners[other] and start - offset >= 0
+                        and padded.startswith(" " + other, start - offset)
+                        for other, offset in index.containers.get(term, ()))
+        if not dominated:
+            return True
+        start = padded.find(needle, start + 1)
+    return False
 
 
 def tokenize(text: str) -> list[str]:
@@ -99,9 +131,9 @@ def tokenize(text: str) -> list[str]:
 
 
 @dataclass
-class RAGChunk:
+class IndexChunk:
     id: str
-    sourceType: str          # "company_kv" | "guide_card" | "tax_2026"
+    sourceType: str          # "company_kv" | "tax_2026"
     lang: str                # "de" | "tr" | "hr" | ... | "multi"
     title: str
     section: str
@@ -110,19 +142,18 @@ class RAGChunk:
     meta: dict[str, Any]
     concepts: list[str]
     tf: dict[str, float]     # Sparse BM25/TF-IDF term weights
-    embedding: list[float] | None = None
 
 
-def detect_concepts(text: str, concepts: dict[str, set[str]]) -> list[str]:
+def detect_concepts(text: str, index: ConceptIndex) -> list[str]:
     padded = f" {words(text)} "
-    return [cid for cid, terms in concepts.items() if any(contains_term(padded, t) for t in terms)]
+    return [cid for cid, terms in index.terms.items() if any(term_matches(padded, t, cid, index) for t in terms)]
 
 
 def build_raw_chunks() -> list[dict[str, Any]]:
     raw_docs: list[dict[str, Any]] = []
 
     # Toplu sözleşmeler (collective-agreements.json) bu indekse girmez: tarayıcı doğrudan o dosyadan arar
-    # (assets/rag-retriever.js -> rankAgreements). Böylece veri iki kez yüklenmez/saklanmaz.
+    # (assets/search-retriever.js -> rankAgreements). Böylece veri iki kez yüklenmez/saklanmaz.
 
     # 2. Company / Employer KV mappings (content/employer-kv.json)
     if EMPLOYER_KV_PATH.exists():
@@ -141,29 +172,7 @@ def build_raw_chunks() -> list[dict[str, Any]]:
                     "meta": {"companyId": entry.get("id"), "groupId": entry.get("groupId")}
                 })
 
-    # 3. Multilingual worker rights guide cards (content/<lang>.json)
-    for lang_file in sorted(CONTENT_DIR.glob("*.json")):
-        if lang_file.stem not in {"tr", "de", "en", "hr", "sr", "bs", "ro", "hu", "sl"}:
-            continue
-        lang = lang_file.stem
-        doc = json.loads(lang_file.read_text(encoding="utf-8"))
-        for card in doc.get("cards", []):
-            card_text = " ".join([
-                card.get("title", ""),
-                card.get("teaser", ""),
-                card.get("intro", ""),
-                *card.get("bullets", [])
-            ])
-            first_link = (card.get("links") or [{}])[0].get("url", f"index.html#{card.get('id')}")
-            raw_docs.append({
-                "sourceType": "guide_card",
-                "lang": lang,
-                "title": card.get("title", ""),
-                "section": card.get("teaser", ""),
-                "text": card_text,
-                "url": first_link,
-                "meta": {"cardId": card.get("id")}
-            })
+    # Rehber kartları indekse girmez: ana sayfa onları content/<dil>.json'dan doğrudan puanlar.
 
     # 4. 2026 Income Tax Brackets (content/income-tax-current.json + pay-ui.json)
     if TAX_PATH.exists() and PAY_UI_PATH.exists():
@@ -194,16 +203,8 @@ def build_raw_chunks() -> list[dict[str, Any]]:
     return raw_docs
 
 
-def compute_bm25_and_vectors(
-    raw_docs: list[dict[str, Any]],
-    concepts: dict[str, set[str]],
-    with_embeddings: bool = False,
-    model_name: str = "paraphrase-multilingual-MiniLM-L12-v2"
-) -> dict[str, Any]:
-    """
-    Computes BM25 / TF-IDF sparse representations + concept tags for all chunks,
-    and optionally adds dense multilingual sentence-transformer embeddings.
-    """
+def compute_bm25(raw_docs: list[dict[str, Any]], concepts: ConceptIndex) -> dict[str, Any]:
+    """Computes BM25 sparse term weights + concept tags for all chunks."""
     tokenized_docs: list[list[str]] = []
     df_counter: Counter[str] = Counter()
 
@@ -226,19 +227,6 @@ def compute_bm25_and_vectors(
         if df <= max_df:
             idf[term] = round(math.log(1.0 + (num_docs - df + 0.5) / (df + 0.5)), 4)
 
-    dense_vectors: list[list[float]] | None = None
-    if with_embeddings:
-        try:
-            from sentence_transformers import SentenceTransformer  # type: ignore
-            print(f"Encoding {len(raw_docs)} chunks with {model_name}...")
-            st_model = SentenceTransformer(model_name)
-            texts = [f"{d['title']} | {d['section']} | {d['text']}" for d in raw_docs]
-            emb = st_model.encode(texts, normalize_embeddings=True, show_progress_bar=True)
-            dense_vectors = [[round(float(x), 5) for x in row] for row in emb]
-        except ImportError:
-            print("[WARN] sentence-transformers not installed. Falling back to sparse BM25 + concept vectors.")
-            print("       Install via: pip install sentence-transformers")
-
     chunks: list[dict[str, Any]] = []
     for idx, (d, tokens) in enumerate(zip(raw_docs, tokenized_docs)):
         tf_counts = Counter(tokens)
@@ -258,7 +246,7 @@ def compute_bm25_and_vectors(
             f"{d['sourceType']}:{d['lang']}:{d['title']}:{d['section']}:{idx}".encode("utf-8")
         ).hexdigest()[:14]
 
-        chunk_obj = RAGChunk(
+        chunk_obj = IndexChunk(
             id=chunk_id,
             sourceType=d["sourceType"],
             lang=d["lang"],
@@ -268,42 +256,23 @@ def compute_bm25_and_vectors(
             url=d["url"],
             meta=d["meta"],
             concepts=chunk_concepts,
-            tf=top_terms,
-            embedding=dense_vectors[idx] if dense_vectors else None
+            tf=top_terms
         )
-        chunk_dict = asdict(chunk_obj)
-        if chunk_dict["embedding"] is None:
-            del chunk_dict["embedding"]  # keep the JSON small when no dense vectors were requested
-        chunks.append(chunk_dict)
+        chunks.append(asdict(chunk_obj))
 
     return {
-        "version": 2,
+        "version": 3,
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "stats": {
             "totalChunks": len(chunks),
-            "vocabSize": len(idf),
-            "hasDenseEmbeddings": dense_vectors is not None,
-            "embeddingModel": model_name if dense_vectors is not None else None
+            "vocabSize": len(idf)
         },
         "chunks": chunks
     }
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build client-side RAG search index from KV catalog & guides.")
-    # Eski workflow dosyaları bu seçeneği hâlâ geçebilir; artık hiçbir şey yapmaz.
-    parser.add_argument("--fetch-sections", "--limit", "--delay", dest="deprecated", nargs="?", const=True,
-                        help=argparse.SUPPRESS)
-    parser.add_argument(
-        "--with-embeddings",
-        action="store_true",
-        help="Also compute dense multilingual embeddings using sentence-transformers"
-    )
-    parser.add_argument(
-        "--model",
-        default="paraphrase-multilingual-MiniLM-L12-v2",
-        help="SentenceTransformer model name when --with-embeddings is used"
-    )
+    parser = argparse.ArgumentParser(description="Build the client-side search index (company notes, tax text).")
     parser.add_argument(
         "--output",
         type=Path,
@@ -311,17 +280,8 @@ def main() -> None:
         help=f"Output JSON index path (default: {OUTPUT_INDEX_PATH})"
     )
     args = parser.parse_args()
-    if args.deprecated:
-        print("[bilgi] --fetch-sections/--limit/--delay artık kullanılmıyor, yok sayıldı.")
 
-    raw_docs = build_raw_chunks()
-    index_payload = compute_bm25_and_vectors(
-        raw_docs,
-        load_concepts(),
-        with_embeddings=args.with_embeddings,
-        model_name=args.model
-    )
-
+    index_payload = compute_bm25(build_raw_chunks(), load_concepts())
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(index_payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     size_kb = args.output.stat().st_size / 1024

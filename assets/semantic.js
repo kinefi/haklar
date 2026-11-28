@@ -5,7 +5,11 @@
  * sorgusu `maternity` kavramına eşleşir ve Almanca "Mutterschutz", "Wochengeld" gibi
  * karşılıklarını ve ilgili "Karenz" kavramını arama terimlerine ekler.
  *
- * Tarayıcıda window.haklarSemantic, Node testlerinde module.exports olarak kullanılır.
+ * KV konu başlıkları (ör. "Kündigung und Verfall von Ansprüchen") content/topic-concepts.json
+ * ile kavramlara bağlanır (scripts/build-topic-map.mjs üretir); başlığın çevirisi kavramların
+ * `labels` alanından gelir. Haritada olmayan yeni başlıklar çalışma anında aynı kurallarla eşlenir.
+ *
+ * Tarayıcıda window.haklarSemantic, Node testlerinde ve betiklerde module.exports olarak kullanılır.
  */
 (() => {
   "use strict";
@@ -58,9 +62,9 @@
     return [...variants];
   }
 
-  /** concepts.json verisinden bir arama motoru kurar. */
-  function createEngine(data) {
-    const concepts = new Map();   // id -> { id, kind, display, related, terms: Set<string> }
+  /** concepts.json verisinden (ve isteğe bağlı topic-concepts.json haritasından) bir arama motoru kurar. */
+  function createEngine(data, topicMapData) {
+    const concepts = new Map();   // id -> { id, kind, display, related, labels, terms: Set<string> }
     const termIndex = new Map();  // normalleştirilmiş terim -> Set<conceptId>
 
     for (const [id, definition] of Object.entries((data && data.concepts) || {})) {
@@ -79,11 +83,50 @@
         kind: definition.kind || "topic",
         display: definition.display || [],
         related: definition.related || [],
+        labels: definition.labels || {},
         terms
       });
     }
 
-    const fuzzyCandidates = [...termIndex.keys()].filter((term) => term.length >= 6 && !term.includes(" "));
+    // En uzun eşleşme kuralı: bir terim, başka bir kavramın onu içeren daha uzun terimi aynı yerde eşleşiyorsa
+    // sayılmaz. Örn. "pflege" (bakım sektörü) "pflegefreistellung" içinde, "odmor" (mola) "godisnji odmor"
+    // (yıllık izin) içinde. containers: terim -> [{ other, offset }] (other terimi, offset konumunda terimi içerir).
+    const allTerms = [...termIndex.keys()].sort();
+    const containers = new Map();
+    for (const other of allTerms) {
+      const otherOwners = termIndex.get(other);
+      for (let offset = 0; offset < other.length; offset++) {
+        if (offset > 0 && other[offset - 1] !== " ") continue; // yalnızca sözcük başlarında
+        for (let end = offset + 2; end <= other.length; end++) {
+          if (offset === 0 && end === other.length) continue;
+          const term = other.slice(offset, end);
+          const owners = termIndex.get(term);
+          if (!owners) continue;
+          if (term.length < 5 && end < other.length && other[end] !== " ") continue; // kısa terim: tam sözcük
+          if (![...otherOwners].some((id) => !owners.has(id))) continue;
+          if (!containers.has(term)) containers.set(term, []);
+          containers.get(term).push({ other, offset });
+        }
+      }
+    }
+
+    /** Terimin metindeki geçerli (başka kavramın daha uzun terimiyle örtülmeyen) ilk konumu; yoksa -1. */
+    function termPosition(paddedWords, term, conceptId) {
+      const needle = term.length >= 5 ? " " + term : " " + term + " ";
+      const covers = containers.get(term);
+      let from = 0;
+      for (;;) {
+        const index = paddedWords.indexOf(needle, from);
+        if (index < 0) return -1;
+        const dominated = covers && covers.some(({ other, offset }) =>
+          (!conceptId || !termIndex.get(other).has(conceptId)) && index - offset >= 0
+          && paddedWords.startsWith(" " + other, index - offset));
+        if (!dominated) return index;
+        from = index + 1;
+      }
+    }
+
+    const fuzzyCandidates = allTerms.filter((term) => term.length >= 6 && !term.includes(" "));
     const fuzzyCache = new Map();
 
     function fuzzyConceptsForToken(token) {
@@ -113,19 +156,37 @@
         if ((weights.get(id) || 0) < weight) weights.set(id, weight);
       };
 
+      // 1) Tam terim eşleşmeleri (en uzun eşleşme kuralıyla).
+      const covered = new Set(); // tam eşleşen terimlerin içinde kalan sorgu sözcükleri
       for (const [term, ids] of termIndex) {
-        let weight = 0;
-        if (containsTerm(padded, term)) {
-          weight = 1;
-        } else if (normalizedQuery.length >= MIN_PREFIX_QUERY && term.startsWith(normalizedQuery)) {
-          weight = 0.7;
-        } else if (tokens.some((token) => token.length >= MIN_PREFIX_TOKEN && term.startsWith(token))) {
-          weight = 0.6;
+        for (const id of ids) {
+          if (termPosition(padded, term, id) >= 0) {
+            raise(id, 1);
+            term.split(" ").forEach((part) => tokens.forEach((token) => {
+              if (part.startsWith(token) || token.startsWith(part)) covered.add(token);
+            }));
+          }
         }
-        if (weight) ids.forEach((id) => raise(id, weight));
       }
 
-      // Hiçbir kavram bulunamadıysa yazım hatalarını dene.
+      // 2) Yazarken: sorgunun tamamı bir terimin başıysa ("mutters" -> mutterschutz). Tam eşleşme varsa atlanır.
+      if (!weights.size && normalizedQuery.length >= MIN_PREFIX_QUERY) {
+        for (const [term, ids] of termIndex) {
+          if (term.startsWith(normalizedQuery)) ids.forEach((id) => raise(id, 0.7));
+        }
+      }
+
+      // 3) Tek sözcüklü terimler için sözcük ön eki ("kündigungs" -> kündigungsfrist); başka bir tam eşleşmenin
+      //    parçası olan sözcükler ("asgari ücret" içindeki "ücret") için yapılmaz.
+      const loose = tokens.filter((token) => token.length >= MIN_PREFIX_TOKEN && !covered.has(token));
+      if (loose.length) {
+        for (const [term, ids] of termIndex) {
+          if (term.includes(" ")) continue;
+          if (loose.some((token) => term.startsWith(token))) ids.forEach((id) => raise(id, 0.6));
+        }
+      }
+
+      // 4) Hiçbir kavram bulunamadıysa yazım hatalarını dene.
       if (!weights.size) {
         for (const token of tokens) fuzzyConceptsForToken(token).forEach((id) => raise(id, 0.5));
       }
@@ -164,13 +225,69 @@
       return concept ? [...concept.terms] : [];
     }
 
-    // paddedWords: " sözcük sözcük " biçimli metin
+    // paddedWords: " sözcük sözcük " biçimli metin. Sonuçlar önbelleğe alınır: yazarken aynı belgeler
+    // (KV kayıtları, kartlar) aynı kavramlarla tekrar tekrar puanlanır.
+    const hitCache = new Map();
+    const HIT_CACHE_LIMIT = 20000;
     function countConceptHits(paddedWords, id) {
       const concept = concepts.get(id);
       if (!concept) return 0;
+      const key = id + "\u0000" + paddedWords;
+      const cached = hitCache.get(key);
+      if (cached !== undefined) return cached;
       let hits = 0;
-      for (const term of concept.terms) if (containsTerm(paddedWords, term)) hits += 1;
+      for (const term of concept.terms) if (termPosition(paddedWords, term, id) >= 0) hits += 1;
+      if (hitCache.size >= HIT_CACHE_LIMIT) hitCache.clear();
+      hitCache.set(key, hits);
       return hits;
+    }
+
+    /**
+     * Metinde geçen kavramlar, metindeki ilk konumlarına göre sıralı.
+     * options.kind: yalnızca bu türdeki kavramlar ("topic" | "sector").
+     */
+    function detectConcepts(text, options = {}) {
+      const padded = ` ${words(text)} `;
+      const found = [];
+      for (const concept of concepts.values()) {
+        if (options.kind && concept.kind !== options.kind) continue;
+        let first = -1;
+        for (const term of concept.terms) {
+          const position = termPosition(padded, term, concept.id);
+          if (position >= 0 && (first < 0 || position < first)) first = position;
+        }
+        if (first >= 0) found.push({ id: concept.id, position: first });
+      }
+      return found.sort((a, b) => a.position - b.position).map((item) => item.id);
+    }
+
+    // ---- KV konu başlığı -> kavramlar ----
+    const topicMap = new Map(Object.entries((topicMapData && topicMapData.topics) || {}));
+    const topicCache = new Map();
+    function topicConcepts(label) {
+      if (topicMap.has(label)) return topicMap.get(label);
+      if (!topicCache.has(label)) topicCache.set(label, detectConcepts(label, { kind: "topic" }));
+      return topicCache.get(label);
+    }
+
+    function label(id, language) {
+      const concept = concepts.get(id);
+      if (!concept) return id;
+      return concept.labels[language] || concept.labels.en || concept.display[0] || id;
+    }
+
+    /** KV konu başlığının seçili dildeki karşılıkları; eşlenemeyen başlık Almanca kalır. */
+    function topicLabels(topic, language) {
+      if (language === "de") return [topic];
+      const ids = topicConcepts(topic);
+      return ids.length ? ids.map((id) => label(id, language)) : [topic];
+    }
+
+    /** Başlık, sorgunun birincil kavramlarından birini taşıyor mu (★ vurgusu için). */
+    function topicMatches(topic, context) {
+      if (!context || !context.concepts) return false;
+      const ids = new Set(topicConcepts(topic));
+      return context.concepts.some((concept) => concept.primary && ids.has(concept.id));
     }
 
     /** Belgenin (kart, KV başlığı vb.) sorguyla ne kadar eşleştiğini puanlar. 0 = eşleşme yok. */
@@ -207,7 +324,12 @@
       return score;
     }
 
-    return { expandQuery, scoreDocument, countConceptHits, conceptTerms, hasConcept: (id) => concepts.has(id) };
+    return {
+      expandQuery, scoreDocument, countConceptHits, conceptTerms, detectConcepts,
+      topicConcepts, topicLabels, topicMatches, label,
+      hasConcept: (id) => concepts.has(id),
+      conceptIds: (kind) => [...concepts.values()].filter((c) => !kind || c.kind === kind).map((c) => c.id)
+    };
   }
 
   const api = { createEngine, containsTerm, levenshtein };
@@ -217,8 +339,12 @@
   } else {
     // Tarayıcı: sözlük yüklenene kadar boş motor; ready çözülünce gerçek motor devreye girer.
     let engine = createEngine({ concepts: {} });
-    const ready = common.loadJson("content/concepts.json")
-      .then((data) => { engine = createEngine(data); })
+    const topicMapRequest = common.loadJson("content/topic-concepts.json").catch((error) => {
+      console.warn("Could not load content/topic-concepts.json; topic labels are matched at runtime.", error);
+      return null;
+    });
+    const ready = Promise.all([common.loadJson("content/concepts.json"), topicMapRequest])
+      .then(([data, topicMap]) => { engine = createEngine(data, topicMap); })
       .catch((error) => console.error("Could not load content/concepts.json; falling back to plain text search.", error));
 
     window.haklarSemantic = {
@@ -226,6 +352,10 @@
       expandQuery: (query) => engine.expandQuery(query),
       scoreDocument: (text, context) => engine.scoreDocument(text, context),
       countConceptHits: (padded, id) => engine.countConceptHits(padded, id),
+      topicConcepts: (topic) => engine.topicConcepts(topic),
+      topicLabels: (topic, language) => engine.topicLabels(topic, language),
+      topicMatches: (topic, context) => engine.topicMatches(topic, context),
+      label: (id, language) => engine.label(id, language),
       containsTerm
     };
   }

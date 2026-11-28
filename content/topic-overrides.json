@@ -1,0 +1,14 @@
+{
+  "_comment": "Elle düzeltmeler: KV konu başlığı -> kavram kimlikleri (otomatik eşlemenin yerine geçer). Boş liste = başlık Almanca kalsın. Değiştirdikten sonra: node scripts/build-topic-map.mjs",
+  "topics": {
+    "Milch- und Butterdeputate": [
+      "board_lodging"
+    ],
+    "Rechte an journalistischen Arbeiten und Honorare": [
+      "wages"
+    ],
+    "Sozialfonds für Reinigungskräfte": [
+      "allowances"
+    ]
+  }
+}

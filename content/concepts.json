@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "description": "Diller arası kavram sözlüğü. Tek kaynak: semantic.js (tarayıcı) ve scripts/build-rag-index.py bu dosyayı okur. 'display' Almanca resmi terimlerdir ve arama kutusunun altında ipucu olarak gösterilir. 'terms' içinde 'sh' anahtarı Hırvatça, Sırpça ve Boşnakça için ortaktır. 'related' bağlı kavramları daha düşük ağırlıkla genişletir. Terimler aksan/büyük-küçük harf farkından bağımsız karşılaştırılır; Almanca ä/ö/ü için ae/oe/ue yazımı otomatik eklenir.",
+  "version": 2,
+  "description": "Diller arası kavram sözlüğü. terms: aramada eşleşen ifadeler (sh = hr/sr/bs ortak). labels: kavramın 9 arayüz dilindeki kısa adı (KV konu başlıklarının çevirisi bunlardan üretilir). display: Almanca resmi karşılıklar (arama ipucu). related: yarı ağırlıkla eklenen ilgili kavramlar.",
   "concepts": {
     "termination": {
       "kind": "topic",
@@ -9,8 +9,22 @@
         "Entlassung"
       ],
       "related": [
-        "severance"
+        "severance",
+        "unemployment",
+        "claim_deadlines",
+        "reference"
       ],
+      "labels": {
+        "tr": "İşten çıkış ve fesih",
+        "hr": "Otkaz",
+        "sr": "Otkaz",
+        "bs": "Otkaz",
+        "ro": "Concediere și demisie",
+        "hu": "Felmondás",
+        "sl": "Odpoved",
+        "de": "Kündigung",
+        "en": "Dismissal and notice"
+      },
       "terms": {
         "de": [
           "Kündigung",
@@ -23,10 +37,7 @@
           "Arbeitsende",
           "Beendigung des Arbeitsverhältnisses",
           "Kündigungsschutz",
-          "Anfechtung",
-          "Verfall von Ansprüchen",
-          "Dienstzeugnis",
-          "Arbeitslosengeld"
+          "Anfechtung"
         ],
         "tr": [
           "işten atılma",
@@ -40,14 +51,17 @@
           "ihbar",
           "işten ayrılma",
           "çıkış",
-          "işsizlik maaşı",
           "iş sözleşmesinin sona ermesi",
-          "çalışma belgesi",
           "işten atmak",
           "işten attı",
           "kapı dışarı",
           "iş akdi feshi",
-          "işten çıkarıldım"
+          "işten çıkarıldım",
+          "işten atıl",
+          "işten çıkar",
+          "kovul",
+          "işten ayrıl",
+          "istifa et"
         ],
         "sh": [
           "otkaz",
@@ -60,8 +74,7 @@
           "sporazumni raskid",
           "sporazumni prestanak",
           "ostavka",
-          "otkaz ugovora o radu",
-          "nezaposlenost"
+          "otkaz ugovora o radu"
         ],
         "ro": [
           "concediere",
@@ -69,8 +82,7 @@
           "preaviz",
           "încetarea contractului de muncă",
           "încetare contract",
-          "reziliere",
-          "șomaj"
+          "reziliere"
         ],
         "hu": [
           "felmondás",
@@ -78,8 +90,7 @@
           "felmondási idő",
           "azonnali hatályú felmondás",
           "közös megegyezés",
-          "munkaviszony megszűnése",
-          "álláskeresési támogatás"
+          "munkaviszony megszűnése"
         ],
         "sl": [
           "odpoved",
@@ -87,8 +98,7 @@
           "odpuščanje",
           "prenehanje delovnega razmerja",
           "sporazumna razveza",
-          "odstop",
-          "brezposelnost"
+          "odstop"
         ],
         "en": [
           "dismissal",
@@ -101,7 +111,6 @@
           "resign",
           "quit",
           "notice period",
-          "unemployment benefit",
           "end of employment"
         ]
       }
@@ -115,6 +124,17 @@
       "related": [
         "termination"
       ],
+      "labels": {
+        "tr": "Kıdem tazminatı (Abfertigung)",
+        "hr": "Otpremnina (Abfertigung)",
+        "sr": "Otpremnina (Abfertigung)",
+        "bs": "Otpremnina (Abfertigung)",
+        "ro": "Indemnizație (Abfertigung)",
+        "hu": "Végkielégítés (Abfertigung)",
+        "sl": "Odpravnina (Abfertigung)",
+        "de": "Abfertigung",
+        "en": "Severance pay (Abfertigung)"
+      },
       "terms": {
         "de": [
           "Abfertigung",
@@ -186,6 +206,17 @@
       "related": [
         "wages"
       ],
+      "labels": {
+        "tr": "13. ve 14. maaş",
+        "hr": "13. i 14. plaća",
+        "sr": "13. i 14. plata",
+        "bs": "13. i 14. plata",
+        "ro": "Al 13-lea și al 14-lea salariu",
+        "hu": "13. és 14. havi fizetés",
+        "sl": "13. in 14. plača",
+        "de": "Sonderzahlungen",
+        "en": "13th and 14th salary"
+      },
       "terms": {
         "de": [
           "Sonderzahlung",
@@ -203,7 +234,32 @@
           "Prämie",
           "Bonus",
           "Jubiläumsgeld",
-          "Aliquotierung"
+          "Aliquotierung",
+          "Jubiläum",
+          "Jubiläumszahlung",
+          "Jubiläumszahlungen",
+          "Jubiläumszuwendung",
+          "Jubiläumszuwendungen",
+          "Dienstjubiläum",
+          "Dienstjubiläen",
+          "Treueprämie",
+          "Treueprämien",
+          "langjährige Mitarbeiter",
+          "Mitarbeiterprämie",
+          "Mitarbeiterprämien",
+          "Belohnung",
+          "Mitarbeiterbelohnungen",
+          "Zusatzzahlung",
+          "zusätzliche Zahlungen",
+          "Extrazahlung",
+          "Extrageld",
+          "Geldleistungen",
+          "Zusatzverdienste",
+          "Erfolgsbeteiligung",
+          "Gewinnbeteiligung",
+          "Urlaubs- und Weihnachtsgeld",
+          "Urlaubs- und Weihnachtsremuneration",
+          "Sonderzahlungen (Urlaubs- und Weihnachtsgeld)"
         ],
         "tr": [
           "ikramiye",
@@ -280,13 +336,26 @@
       "kind": "topic",
       "display": [
         "Mindestlohn",
-        "Einstufung",
+        "Lohntabelle",
         "Gehaltstafel"
       ],
       "related": [
+        "classification",
         "tax_payslip",
-        "bonus"
+        "bonus",
+        "allowances"
       ],
+      "labels": {
+        "tr": "Ücret ve maaş tablosu",
+        "hr": "Plaća i tablice plaća",
+        "sr": "Plata i platne tabele",
+        "bs": "Plata i platne tabele",
+        "ro": "Salariu și grila salarială",
+        "hu": "Bér és bértábla",
+        "sl": "Plača in plačne tabele",
+        "de": "Löhne und Gehälter",
+        "en": "Pay and pay tables"
+      },
       "terms": {
         "de": [
           "Mindestlohn",
@@ -297,36 +366,53 @@
           "Lohnordnung",
           "Gehaltstafel",
           "Gehaltsordnung",
-          "Verwendungsgruppe",
-          "Beschäftigungsgruppe",
-          "Einstufung",
-          "Vorrückung",
-          "Vordienstzeiten",
-          "Zulage",
-          "Zulagen",
           "Lohn",
           "Gehalt",
-          "Lohnerhöhung",
-          "Istlohn"
+          "Istlohn",
+          "Lohntabelle",
+          "Lohntafel",
+          "Gehaltstabelle",
+          "Mindestlohntabelle",
+          "Löhne",
+          "Gehälter",
+          "Entgelt",
+          "Stundenlohn",
+          "Monatslohn",
+          "Bruttolohn",
+          "Lohnordnungen",
+          "Gehaltsordnungen",
+          "Lehrlingseinkommen",
+          "Provision",
+          "Provisionen",
+          "Verkaufsprovision",
+          "Verkaufsprovisionen",
+          "Bezahlung",
+          "Entlohnung",
+          "Vergütung",
+          "Gage",
+          "Gagen",
+          "Mindestgage",
+          "Mindestgagen",
+          "Bezüge",
+          "Mindestbezüge"
         ],
         "tr": [
           "asgari ücret",
           "taban maaş",
           "ücret",
           "maaş",
-          "maaş zammı",
-          "zam",
           "ücret skalası",
-          "ücret grubu",
-          "kademe",
-          "ek ödenek",
-          "zamlar",
           "maaş tablosu",
-          "kıdem kademesi",
           "maaşım",
           "asgari maaş",
           "ne kadar maaş",
-          "brüt maaş"
+          "brüt maaş",
+          "saatlik ücret",
+          "aylık maaş",
+          "ücret tablosu",
+          "ne kadar kazanırım",
+          "prim komisyon",
+          "satış primi"
         ],
         "sh": [
           "minimalac",
@@ -334,22 +420,20 @@
           "minimalna plaća",
           "osnovna plata",
           "osnovna plaća",
-          "platni razred",
           "plata",
           "plaća",
-          "dodatak",
-          "povećanje plaće",
-          "povećanje plate",
-          "kolektivna plata"
+          "kolektivna plata",
+          "satnica",
+          "mjesečna plata",
+          "mesečna plata",
+          "koliko se plaća"
         ],
         "ro": [
           "salariu minim",
           "salariu",
           "grila de salarizare",
-          "grupa salarială",
-          "sporuri",
-          "majorare salarială",
-          "spor"
+          "salariu pe oră",
+          "salariu lunar"
         ],
         "hu": [
           "minimálbér",
@@ -357,18 +441,15 @@
           "bér",
           "fizetés",
           "bértarifa",
-          "bérbesorolás",
-          "pótlék",
-          "béremelés"
+          "órabér",
+          "havibér"
         ],
         "sl": [
           "minimalna plača",
           "osnovna plača",
           "plača",
-          "plačni razred",
-          "dodatek",
-          "povišanje plače",
-          "tarifna skupina"
+          "urna postavka",
+          "mesečna plača"
         ],
         "en": [
           "minimum wage",
@@ -377,11 +458,12 @@
           "wage",
           "salary",
           "pay scale",
-          "pay grade",
-          "classification",
-          "allowance",
-          "pay rise",
-          "raise"
+          "hourly wage",
+          "monthly wage",
+          "pay table",
+          "wage table",
+          "commission",
+          "sales commission"
         ]
       }
     },
@@ -389,117 +471,102 @@
       "kind": "topic",
       "display": [
         "Arbeitszeit",
-        "Überstunden",
-        "Ruhezeit"
+        "Normalarbeitszeit",
+        "Durchrechnung"
       ],
-      "related": [],
+      "related": [
+        "overtime",
+        "night_shift",
+        "rest_breaks",
+        "part_time"
+      ],
+      "labels": {
+        "tr": "Çalışma saatleri",
+        "hr": "Radno vrijeme",
+        "sr": "Radno vreme",
+        "bs": "Radno vrijeme",
+        "ro": "Program de lucru",
+        "hu": "Munkaidő",
+        "sl": "Delovni čas",
+        "de": "Arbeitszeit",
+        "en": "Working hours"
+      },
       "terms": {
         "de": [
           "Arbeitszeit",
           "Arbeitszeiten",
           "Normalarbeitszeit",
-          "Überstunden",
-          "Überstundenzuschlag",
-          "Mehrarbeit",
-          "Zuschlag",
-          "Nachtarbeit",
-          "Schichtarbeit",
-          "Ruhezeit",
-          "Ruhepause",
-          "Pause",
-          "Teilzeit",
           "Vollzeit",
           "Dienstplan",
           "Gleitzeit",
-          "Sonntagsarbeit",
-          "Zeitausgleich",
-          "Bereitschaft"
+          "Durchrechnung",
+          "Durchrechnungszeitraum",
+          "Höchstarbeitszeit",
+          "Arbeitszeitaufzeichnung",
+          "Arbeitszeitaufzeichnungen",
+          "Viertagewoche",
+          "4-Tage-Woche",
+          "Wochenarbeitszeit",
+          "Arbeitszeitmodell",
+          "Arbeitszeitmodelle",
+          "Zeitkonto",
+          "Dekadenarbeit",
+          "Arbeitsblöcke",
+          "Freizeitblöcke"
         ],
         "tr": [
           "çalışma saati",
           "çalışma saatleri",
-          "fazla mesai",
           "mesai",
-          "mola",
-          "dinlenme",
-          "vardiya",
-          "gece çalışması",
-          "yarı zamanlı",
-          "part time",
           "tam zamanlı",
           "çalışma planı",
-          "pazar çalışması",
-          "zaman dengeleme",
-          "hazır bekleme",
-          "fazla çalışma",
           "haftalık çalışma saati",
-          "kaç saat çalışmalıyım"
+          "kaç saat çalışmalıyım",
+          "haftalık saat",
+          "çalışma süresi",
+          "saat kaydı",
+          "günde kaç saat"
         ],
         "sh": [
           "radno vrijeme",
           "radno vreme",
-          "prekovremeni rad",
-          "prekovremeni",
-          "prekovremeno",
-          "pauza",
-          "odmor",
-          "smjena",
-          "smena",
-          "noćni rad",
-          "nocni rad",
-          "nepuno radno vrijeme",
-          "nepuno radno vreme",
           "puno radno vrijeme",
-          "raspored rada"
+          "raspored rada",
+          "evidencija radnog vremena",
+          "sati rada",
+          "koliko sati"
         ],
         "ro": [
           "program de lucru",
           "timp de lucru",
-          "ore suplimentare",
-          "pauză",
-          "pauza",
-          "tură",
-          "muncă de noapte",
-          "program redus",
           "normă întreagă",
-          "timp de odihnă"
+          "ore de lucru",
+          "pontaj"
         ],
         "hu": [
           "munkaidő",
-          "túlóra",
-          "szünet",
-          "pihenőidő",
-          "műszak",
-          "éjszakai munka",
-          "részmunkaidő",
           "teljes munkaidő",
           "beosztás",
-          "készenlét"
+          "munkaidő-nyilvántartás",
+          "heti munkaidő"
         ],
         "sl": [
           "delovni čas",
-          "nadure",
-          "odmor",
-          "izmena",
-          "nočno delo",
-          "krajši delovni čas",
           "polni delovni čas",
-          "razpored dela"
+          "razpored dela",
+          "evidenca delovnega časa",
+          "tedenski delovni čas"
         ],
         "en": [
           "working hours",
           "work hours",
-          "overtime",
-          "break",
-          "rest period",
-          "shift",
-          "shift work",
-          "night work",
-          "part-time",
           "full-time",
           "rota",
           "flexitime",
-          "on call"
+          "weekly hours",
+          "time records",
+          "hours of work",
+          "four-day week"
         ]
       }
     },
@@ -507,10 +574,24 @@
       "kind": "topic",
       "display": [
         "Urlaub",
-        "Feiertag",
-        "Urlaubsanspruch"
+        "Urlaubsanspruch",
+        "Urlaubsersatzleistung"
       ],
-      "related": [],
+      "related": [
+        "public_holidays",
+        "special_leave"
+      ],
+      "labels": {
+        "tr": "Yıllık izin",
+        "hr": "Godišnji odmor",
+        "sr": "Godišnji odmor",
+        "bs": "Godišnji odmor",
+        "ro": "Concediu de odihnă",
+        "hu": "Éves szabadság",
+        "sl": "Letni dopust",
+        "de": "Urlaub",
+        "en": "Annual leave"
+      },
       "terms": {
         "de": [
           "Urlaub",
@@ -518,19 +599,18 @@
           "Urlaubstage",
           "Zusatzurlaub",
           "Urlaubsentgelt",
-          "Feiertag",
-          "Feiertage",
-          "Feiertagsarbeit",
           "Resturlaub",
-          "Urlaubsverbrauch"
+          "Urlaubsverbrauch",
+          "Urlaubsersatzleistung",
+          "Urlaubsjahr",
+          "Urlaubsanspruch Teilzeit",
+          "Urlaubsausmaß"
         ],
         "tr": [
           "yıllık izin",
           "izin",
           "izin günleri",
           "ücretli izin",
-          "resmi tatil",
-          "bayram",
           "tatil",
           "kullanılmamış izin",
           "ek izin",
@@ -543,9 +623,6 @@
           "godisnji odmor",
           "godišnji",
           "dopust",
-          "praznik",
-          "državni praznik",
-          "blagdan",
           "neiskorišteni odmor",
           "neiskorišćeni odmor"
         ],
@@ -553,8 +630,6 @@
           "concediu anual",
           "concediu de odihnă",
           "concediu",
-          "sărbătoare legală",
-          "sărbătoare",
           "zile libere",
           "zile de concediu"
         ],
@@ -562,15 +637,11 @@
           "szabadság",
           "éves szabadság",
           "pótszabadság",
-          "ünnepnap",
-          "munkaszüneti nap",
           "igénybe nem vett szabadság"
         ],
         "sl": [
           "letni dopust",
           "dopust",
-          "praznik",
-          "dela prost dan",
           "dodatni dopust"
         ],
         "en": [
@@ -578,7 +649,6 @@
           "vacation",
           "holiday",
           "holidays",
-          "public holiday",
           "paid leave",
           "time off",
           "days off",
@@ -590,12 +660,23 @@
       "kind": "topic",
       "display": [
         "Krankenstand",
-        "Entgeltfortzahlung",
-        "Pflegefreistellung"
+        "Entgeltfortzahlung"
       ],
       "related": [
-        "accident"
+        "accident",
+        "care_leave"
       ],
+      "labels": {
+        "tr": "Hastalık ve ücretin devamı",
+        "hr": "Bolovanje i naknada",
+        "sr": "Bolovanje i naknada",
+        "bs": "Bolovanje i naknada",
+        "ro": "Concediu medical și plata",
+        "hu": "Betegség és bérfizetés",
+        "sl": "Bolniška in nadomestilo",
+        "de": "Krankenstand und Entgeltfortzahlung",
+        "en": "Sick leave and sick pay"
+      },
       "terms": {
         "de": [
           "Krankheit",
@@ -604,14 +685,15 @@
           "Krankenstandsbestätigung",
           "Arzt",
           "Entgeltfortzahlung",
-          "Pflegefreistellung",
-          "Pflegekarenz",
-          "Pflegeteilzeit",
-          "Dienstverhinderung",
           "Dienstverhinderung wegen Krankheit",
           "Krankengeld",
           "Krankenversicherung",
-          "e-card"
+          "e-card",
+          "Entgelt bei Krankheit",
+          "Krankenentgelt",
+          "Arbeitsunfähigkeit",
+          "Kur",
+          "Rehabilitation"
         ],
         "tr": [
           "hastalık",
@@ -620,7 +702,6 @@
           "istirahat raporu",
           "doktor",
           "hekim",
-          "bakım izni",
           "ücretin devamı",
           "hastalık parası",
           "sağlık sigortası",
@@ -636,8 +717,6 @@
           "lijecnik",
           "lekar",
           "doktor",
-          "njega člana obitelji",
-          "njega clana porodice",
           "naknada za bolovanje",
           "zdravstveno osiguranje"
         ],
@@ -646,7 +725,6 @@
           "boala",
           "concediu medical",
           "medic",
-          "îngrijirea unui membru de familie",
           "indemnizație de boală",
           "asigurare de sănătate"
         ],
@@ -655,7 +733,6 @@
           "betegszabadság",
           "táppénz",
           "orvos",
-          "ápolási szabadság",
           "egészségbiztosítás",
           "keresőképtelenség"
         ],
@@ -664,7 +741,6 @@
           "bolniška",
           "bolniški stalež",
           "zdravnik",
-          "nega družinskega člana",
           "nadomestilo za bolezen",
           "zdravstveno zavarovanje"
         ],
@@ -676,8 +752,6 @@
           "doctor",
           "medical certificate",
           "sick pay",
-          "care leave",
-          "caring leave",
           "health insurance"
         ]
       }
@@ -691,6 +765,17 @@
       "related": [
         "parental_leave"
       ],
+      "labels": {
+        "tr": "Annelik koruması",
+        "hr": "Zaštita majčinstva",
+        "sr": "Zaštita materinstva",
+        "bs": "Zaštita majčinstva",
+        "ro": "Protecția maternității",
+        "hu": "Anyaság védelme",
+        "sl": "Varstvo materinstva",
+        "de": "Mutterschutz",
+        "en": "Maternity protection"
+      },
       "terms": {
         "de": [
           "Mutterschutz",
@@ -816,6 +901,17 @@
       "related": [
         "maternity"
       ],
+      "labels": {
+        "tr": "Ebeveyn izni (Karenz)",
+        "hr": "Roditeljski dopust (Karenz)",
+        "sr": "Roditeljsko odsustvo (Karenz)",
+        "bs": "Roditeljsko odsustvo (Karenz)",
+        "ro": "Concediu parental (Karenz)",
+        "hu": "Szülői szabadság (Karenz)",
+        "sl": "Starševski dopust (Karenz)",
+        "de": "Karenz und Elternteilzeit",
+        "en": "Parental leave (Karenz)"
+      },
       "terms": {
         "de": [
           "Karenz",
@@ -933,6 +1029,17 @@
       "related": [
         "wages"
       ],
+      "labels": {
+        "tr": "Vergi ve maaş bordrosu",
+        "hr": "Porez i obračun plaće",
+        "sr": "Porez i obračun plate",
+        "bs": "Porez i obračun plate",
+        "ro": "Impozit și fluturaș de salariu",
+        "hu": "Adó és bérjegyzék",
+        "sl": "Davek in plačilna lista",
+        "de": "Steuer und Lohnzettel",
+        "en": "Tax and payslip"
+      },
       "terms": {
         "de": [
           "Lohnzettel",
@@ -1051,6 +1158,17 @@
       "related": [
         "working_hours"
       ],
+      "labels": {
+        "tr": "İş kıyafeti ve malzemesi",
+        "hr": "Radna odjeća i oprema",
+        "sr": "Radna odeća i oprema",
+        "bs": "Radna odjeća i oprema",
+        "ro": "Îmbrăcăminte și echipament de lucru",
+        "hu": "Munkaruha és munkaeszközök",
+        "sl": "Delovna obleka in oprema",
+        "de": "Arbeitskleidung und Arbeitsmittel",
+        "en": "Work clothing and equipment"
+      },
       "terms": {
         "de": [
           "Arbeitskleidung",
@@ -1059,7 +1177,22 @@
           "Umkleidezeit",
           "Uniform",
           "Reinigung der Arbeitskleidung",
-          "Arbeitsschuhe"
+          "Arbeitsschuhe",
+          "Hygienekleidung",
+          "Kleidergeld",
+          "Wäschegeld",
+          "Werkzeuggeld",
+          "Werkzeug",
+          "Umziehen",
+          "Arbeitsmaterial",
+          "Arbeitsmaterialien",
+          "Arbeitsmittel",
+          "Kostenerstattung",
+          "Umziehzeit",
+          "Umziehzeiten",
+          "Gewand",
+          "Arbeitsgewand",
+          "Schutzausrüstung"
         ],
         "tr": [
           "iş kıyafeti",
@@ -1120,8 +1253,22 @@
         "Probezeit"
       ],
       "related": [
+        "contract_types",
+        "apprenticeship",
+        "undeclared_work",
         "wages"
       ],
+      "labels": {
+        "tr": "İş sözleşmesi ve işe başlama",
+        "hr": "Ugovor o radu i početak rada",
+        "sr": "Ugovor o radu i početak rada",
+        "bs": "Ugovor o radu i početak rada",
+        "ro": "Contract de muncă și angajare",
+        "hu": "Munkaszerződés és munkakezdés",
+        "sl": "Pogodba o zaposlitvi in začetek dela",
+        "de": "Dienstvertrag und Arbeitsbeginn",
+        "en": "Employment contract and starting work"
+      },
       "terms": {
         "de": [
           "Dienstvertrag",
@@ -1134,11 +1281,13 @@
           "Kettenvertrag",
           "Anmeldung",
           "Sozialversicherung Anmeldung",
-          "freier Dienstvertrag",
-          "Werkvertrag",
-          "Lehrling",
-          "Lehrlingsentschädigung",
-          "Praktikum"
+          "Einstellung",
+          "Arbeitsbeginn",
+          "Dienstantritt",
+          "Vorstellungsgespräch",
+          "Vertragsbeginn",
+          "Neuaufnahme",
+          "Probespiel"
         ],
         "tr": [
           "iş sözleşmesi",
@@ -1149,10 +1298,8 @@
           "işe başlama",
           "işe giriş",
           "sigorta kaydı",
-          "çırak",
-          "stajyer",
-          "staj",
-          "serbest sözleşme"
+          "işe alım",
+          "iş görüşmesi"
         ],
         "sh": [
           "ugovor o radu",
@@ -1161,38 +1308,32 @@
           "određeno vrijeme",
           "odredeno vreme",
           "prijava na osiguranje",
-          "naučnik",
-          "naucnik",
-          "šegrt",
-          "praksa",
-          "pripravnik"
+          "zapošljavanje",
+          "razgovor za posao"
         ],
         "ro": [
           "contract de muncă",
           "perioadă de probă",
           "durată determinată",
           "înregistrare",
-          "ucenic",
-          "practică",
-          "stagiu"
+          "angajare",
+          "interviu"
         ],
         "hu": [
           "munkaszerződés",
           "próbaidő",
           "határozott idejű",
           "bejelentés",
-          "tanuló",
-          "gyakornok",
-          "gyakornoki"
+          "felvétel",
+          "állásinterjú"
         ],
         "sl": [
           "pogodba o zaposlitvi",
           "poskusno delo",
           "določen čas",
           "prijava",
-          "vajenec",
-          "praksa",
-          "pripravnik"
+          "zaposlitev",
+          "razgovor za službo"
         ],
         "en": [
           "employment contract",
@@ -1202,10 +1343,9 @@
           "probationary period",
           "fixed-term",
           "registration",
-          "apprentice",
-          "apprenticeship",
-          "internship",
-          "intern"
+          "hiring",
+          "job interview",
+          "starting a job"
         ]
       }
     },
@@ -1217,6 +1357,17 @@
         "Arbeiterkammer"
       ],
       "related": [],
+      "labels": {
+        "tr": "İşyeri temsilcisi ve sendika",
+        "hr": "Radničko vijeće i sindikat",
+        "sr": "Radnički savet i sindikat",
+        "bs": "Radničko vijeće i sindikat",
+        "ro": "Reprezentanți și sindicat",
+        "hu": "Üzemi tanács és szakszervezet",
+        "sl": "Svet delavcev in sindikat",
+        "de": "Betriebsrat und Gewerkschaft",
+        "en": "Works council and union"
+      },
       "terms": {
         "de": [
           "Betriebsrat",
@@ -1238,7 +1389,6 @@
           "sendikalar",
           "işçi odası",
           "hukuki koruma",
-          "toplu pazarlık",
           "iş yeri anlaşması"
         ],
         "sh": [
@@ -1292,8 +1442,20 @@
         "AUVA"
       ],
       "related": [
-        "sick_leave"
+        "sick_leave",
+        "harassment"
       ],
+      "labels": {
+        "tr": "İş kazası, sağlık ve güvenlik",
+        "hr": "Nesreća na radu, zdravlje i zaštita",
+        "sr": "Nesreća na radu, zdravlje i zaštita",
+        "bs": "Nesreća na radu, zdravlje i zaštita",
+        "ro": "Accident de muncă, sănătate și protecție",
+        "hu": "Munkabaleset, egészség és munkavédelem",
+        "sl": "Nesreča pri delu, zdravje in varnost",
+        "de": "Arbeitsunfall und Arbeitnehmerschutz",
+        "en": "Work accidents, health and safety"
+      },
       "terms": {
         "de": [
           "Arbeitsunfall",
@@ -1304,8 +1466,21 @@
           "AUVA",
           "Arbeitsinspektorat",
           "Unfallversicherung",
-          "Mobbing",
-          "Gefahr"
+          "Gefahr",
+          "Gesundheitsschutz",
+          "Sicherheitsvertrauensperson",
+          "Schutzausrüstung",
+          "Unfall",
+          "Supervision",
+          "psychische Belastung",
+          "psychologische Unterstützung",
+          "psychologische Betreuung",
+          "Belastung",
+          "Belastungssituationen",
+          "Impfung",
+          "Impfungen",
+          "Gesundheit am Arbeitsplatz",
+          "Gesundheitsförderung"
         ],
         "tr": [
           "iş kazası",
@@ -1315,8 +1490,8 @@
           "iş sağlığı",
           "iş müfettişliği",
           "kaza sigortası",
-          "mobbing",
-          "psikolojik taciz"
+          "iş sağlığı ve güvenliği",
+          "psikolojik destek"
         ],
         "sh": [
           "nesreća na radu",
@@ -1326,32 +1501,28 @@
           "zaštita na radu",
           "zastita na radu",
           "inspekcija rada",
-          "osiguranje od nezgode",
-          "mobing"
+          "osiguranje od nezgode"
         ],
         "ro": [
           "accident de muncă",
           "boală profesională",
           "protecția muncii",
           "inspecția muncii",
-          "asigurare de accidente",
-          "mobbing"
+          "asigurare de accidente"
         ],
         "hu": [
           "munkabaleset",
           "foglalkozási megbetegedés",
           "munkavédelem",
           "munkavédelmi hatóság",
-          "balesetbiztosítás",
-          "mobbing"
+          "balesetbiztosítás"
         ],
         "sl": [
           "nesreča pri delu",
           "poklicna bolezen",
           "varnost pri delu",
           "inšpekcija dela",
-          "nezgodno zavarovanje",
-          "mobing"
+          "nezgodno zavarovanje"
         ],
         "en": [
           "work accident",
@@ -1361,8 +1532,8 @@
           "health and safety",
           "labour inspectorate",
           "accident insurance",
-          "bullying",
-          "mobbing"
+          "mental health at work",
+          "occupational health"
         ]
       }
     },
@@ -1374,6 +1545,17 @@
         "Taggeld"
       ],
       "related": [],
+      "labels": {
+        "tr": "Yol ve seyahat giderleri",
+        "hr": "Putni troškovi",
+        "sr": "Putni troškovi",
+        "bs": "Putni troškovi",
+        "ro": "Cheltuieli de deplasare",
+        "hu": "Útiköltség",
+        "sl": "Potni stroški",
+        "de": "Reisekosten",
+        "en": "Travel expenses"
+      },
       "terms": {
         "de": [
           "Reisekosten",
@@ -1384,7 +1566,34 @@
           "Nächtigungsgeld",
           "Kilometergeld",
           "Fahrtkosten",
-          "Auslöse"
+          "Auslöse",
+          "Diäten",
+          "Tagesdiäten",
+          "Reiseaufwandsentschädigung",
+          "Wegzeit",
+          "Fahrtkostenersatz",
+          "Montage",
+          "Montagezulage",
+          "Außendienst",
+          "Trennungsgeld",
+          "Heimfahrt",
+          "Tagegeld",
+          "Tagesgeld",
+          "Tagesgelder",
+          "Tageszulage",
+          "Tageszulagen",
+          "auswärtige Fahrten",
+          "auswärtige Arbeit",
+          "auswärtig",
+          "Übernachtung",
+          "Spesen",
+          "Spesenvergütung",
+          "Spesenvergütungen",
+          "Aufwandsentschädigung",
+          "Dienstort",
+          "Gastspiele",
+          "Tournee",
+          "Tourneen"
         ],
         "tr": [
           "seyahat giderleri",
@@ -1394,7 +1603,10 @@
           "görev yolculuğu",
           "gündelik",
           "konaklama ödeneği",
-          "kilometre parası"
+          "kilometre parası",
+          "harcırah",
+          "yol parası",
+          "günlük harcırah"
         ],
         "sh": [
           "putni troškovi",
@@ -1403,21 +1615,24 @@
           "sluzbeno putovanje",
           "dnevnica",
           "naknada za smještaj",
-          "kilometraža"
+          "kilometraža",
+          "dnevnice"
         ],
         "ro": [
           "cheltuieli de deplasare",
           "delegație",
           "diurnă",
           "indemnizație de cazare",
-          "decontare kilometri"
+          "decontare kilometri",
+          "decont transport"
         ],
         "hu": [
           "utazási költség",
           "kiküldetés",
           "napidíj",
           "szállásköltség",
-          "kilométerpénz"
+          "kilométerpénz",
+          "útiköltség"
         ],
         "sl": [
           "potni stroški",
@@ -1432,7 +1647,3134 @@
           "business trip",
           "per diem",
           "mileage",
-          "accommodation allowance"
+          "accommodation allowance",
+          "daily allowance",
+          "travel allowance"
+        ]
+      }
+    },
+    "telework": {
+      "kind": "topic",
+      "display": [
+        "Telearbeit",
+        "Homeoffice"
+      ],
+      "related": [
+        "working_hours"
+      ],
+      "labels": {
+        "tr": "Evden çalışma",
+        "hr": "Rad od kuće",
+        "sr": "Rad od kuće",
+        "bs": "Rad od kuće",
+        "ro": "Muncă de acasă",
+        "hu": "Otthoni munka",
+        "sl": "Delo od doma",
+        "de": "Homeoffice",
+        "en": "Working from home"
+      },
+      "terms": {
+        "de": [
+          "Telearbeit",
+          "Homeoffice",
+          "Home-Office",
+          "Heimarbeit",
+          "Arbeiten von zu Hause",
+          "Telearbeitsvereinbarung",
+          "Homeoffice-Pauschale",
+          "Arbeitsplatz zu Hause",
+          "Homeoffice Vereinbarung",
+          "Arbeit von zuhause",
+          "von zuhause",
+          "zuhause"
+        ],
+        "tr": [
+          "evden çalışma",
+          "ev ofisi",
+          "uzaktan çalışma",
+          "home office",
+          "homeoffice",
+          "teleçalışma",
+          "evden çalışma ödeneği",
+          "evden çalışmak"
+        ],
+        "sh": [
+          "rad od kuće",
+          "rad od kuce",
+          "rad kod kuće",
+          "kućni ured",
+          "homeoffice",
+          "home office",
+          "telerad",
+          "rad na daljinu"
+        ],
+        "ro": [
+          "munca de acasă",
+          "telemuncă",
+          "munca la domiciliu",
+          "home office",
+          "muncă de la distanță",
+          "homeoffice"
+        ],
+        "hu": [
+          "otthoni munkavégzés",
+          "távmunka",
+          "home office",
+          "homeoffice",
+          "otthonról dolgozás"
+        ],
+        "sl": [
+          "delo od doma",
+          "delo na domu",
+          "delo na daljavo",
+          "home office",
+          "homeoffice",
+          "teledelo"
+        ],
+        "en": [
+          "working from home",
+          "remote work",
+          "home office",
+          "homeoffice",
+          "telework",
+          "teleworking",
+          "hybrid work"
+        ]
+      }
+    },
+    "allowances": {
+      "kind": "topic",
+      "display": [
+        "Zulagen",
+        "Zuschläge",
+        "Schmutzzulage"
+      ],
+      "related": [
+        "wages",
+        "working_hours"
+      ],
+      "labels": {
+        "tr": "Zamlar ve ek ödemeler",
+        "hr": "Dodaci",
+        "sr": "Dodaci",
+        "bs": "Dodaci",
+        "ro": "Sporuri",
+        "hu": "Pótlékok",
+        "sl": "Dodatki",
+        "de": "Zulagen und Zuschläge",
+        "en": "Allowances and supplements"
+      },
+      "terms": {
+        "de": [
+          "Zulage",
+          "Zulagen",
+          "Zuschlag",
+          "Zuschläge",
+          "Schmutzzulage",
+          "Erschwerniszulage",
+          "Gefahrenzulage",
+          "Nachtzuschlag",
+          "Nachtzulage",
+          "Sonntagszuschlag",
+          "Feiertagszuschlag",
+          "Schichtzulage",
+          "Funktionszulage",
+          "Überstundenzuschlag",
+          "Wegzeitvergütung",
+          "Zulagen und Zuschläge",
+          "Fremdsprachenzulage",
+          "Kompetenzzulage",
+          "Stollenzulage",
+          "Höhenzulage",
+          "Kleiderpauschale",
+          "Kinderzulage",
+          "Familienzulage",
+          "Pflegezuschuss",
+          "Zuschuss",
+          "Zuschüsse"
+        ],
+        "tr": [
+          "zam ödeneği",
+          "ek ödenek",
+          "tehlike zammı",
+          "kirli iş zammı",
+          "gece zammı",
+          "pazar zammı",
+          "vardiya zammı",
+          "tatil çalışma zammı",
+          "fazla mesai zammı",
+          "ağır iş ödeneği",
+          "yol süresi ödemesi",
+          "mesai ücreti"
+        ],
+        "sh": [
+          "dodatak",
+          "dodaci",
+          "dodatak za prljav rad",
+          "dodatak za noćni rad",
+          "dodatak za rad nedjeljom",
+          "dodatak za smjenski rad",
+          "dodatak za opasnost",
+          "dodatak za prekovremeni rad",
+          "naknada za put do posla"
+        ],
+        "ro": [
+          "sporuri",
+          "spor",
+          "spor de noapte",
+          "spor de periculozitate",
+          "spor de weekend",
+          "spor pentru ore suplimentare",
+          "spor pentru munca în ture"
+        ],
+        "hu": [
+          "pótlék",
+          "pótlékok",
+          "éjszakai pótlék",
+          "vasárnapi pótlék",
+          "műszakpótlék",
+          "veszélyességi pótlék",
+          "túlóra pótlék",
+          "szennyezési pótlék"
+        ],
+        "sl": [
+          "dodatki",
+          "dodatek za nočno delo",
+          "dodatek za delo ob nedeljah",
+          "dodatek za izmensko delo",
+          "dodatek za nevarnost",
+          "dodatek za nadurno delo",
+          "dodatek za težke pogoje",
+          "dodatek"
+        ],
+        "en": [
+          "allowances",
+          "supplements",
+          "premium pay",
+          "night supplement",
+          "sunday supplement",
+          "shift allowance",
+          "hazard pay",
+          "dirty work allowance",
+          "overtime premium",
+          "travel time pay",
+          "allowance"
+        ]
+      }
+    },
+    "unemployment": {
+      "kind": "topic",
+      "display": [
+        "Arbeitslosengeld",
+        "AMS",
+        "Notstandshilfe"
+      ],
+      "related": [
+        "termination"
+      ],
+      "labels": {
+        "tr": "İşsizlik",
+        "hr": "Nezaposlenost",
+        "sr": "Nezaposlenost",
+        "bs": "Nezaposlenost",
+        "ro": "Șomaj",
+        "hu": "Munkanélküliség",
+        "sl": "Brezposelnost",
+        "de": "Arbeitslosigkeit",
+        "en": "Unemployment"
+      },
+      "terms": {
+        "de": [
+          "Arbeitslosengeld",
+          "Arbeitslosenversicherung",
+          "AMS",
+          "Arbeitsmarktservice",
+          "Notstandshilfe",
+          "Arbeitslosigkeit",
+          "arbeitslos",
+          "Arbeitssuche",
+          "Anwartschaft"
+        ],
+        "tr": [
+          "işsizlik maaşı",
+          "işsizlik ödeneği",
+          "işsizlik sigortası",
+          "işsiz",
+          "iş arama",
+          "işsiz kalmak",
+          "AMS"
+        ],
+        "sh": [
+          "nezaposlenost",
+          "naknada za nezaposlene",
+          "osiguranje za slučaj nezaposlenosti",
+          "nezaposlen",
+          "traženje posla",
+          "AMS"
+        ],
+        "ro": [
+          "șomaj",
+          "indemnizație de șomaj",
+          "asigurare de șomaj",
+          "șomer",
+          "căutare loc de muncă",
+          "AMS"
+        ],
+        "hu": [
+          "munkanélküliség",
+          "munkanélküli segély",
+          "álláskeresési járadék",
+          "munkanélküli-biztosítás",
+          "álláskeresés",
+          "AMS",
+          "álláskeresési támogatás"
+        ],
+        "sl": [
+          "brezposelnost",
+          "nadomestilo za brezposelnost",
+          "zavarovanje za primer brezposelnosti",
+          "brezposeln",
+          "iskanje zaposlitve",
+          "AMS"
+        ],
+        "en": [
+          "unemployment",
+          "unemployment benefit",
+          "jobless",
+          "job seeker",
+          "jobseeker",
+          "unemployment insurance",
+          "AMS"
+        ]
+      }
+    },
+    "retirement": {
+      "kind": "topic",
+      "display": [
+        "Pension",
+        "Altersteilzeit"
+      ],
+      "related": [
+        "severance"
+      ],
+      "labels": {
+        "tr": "Emeklilik",
+        "hr": "Mirovina",
+        "sr": "Penzija",
+        "bs": "Penzija",
+        "ro": "Pensie",
+        "hu": "Nyugdíj",
+        "sl": "Pokojnina",
+        "de": "Pension",
+        "en": "Retirement"
+      },
+      "terms": {
+        "de": [
+          "Pension",
+          "Pensionierung",
+          "Alterspension",
+          "Pensionsantritt",
+          "Altersteilzeit",
+          "Pensionsversicherung",
+          "Pensionskonto",
+          "Rente",
+          "Altersvorsorge",
+          "betriebliche Altersvorsorge",
+          "Firmenpension",
+          "Betriebspension"
+        ],
+        "tr": [
+          "emeklilik",
+          "emekli",
+          "emeklilik maaşı",
+          "yaşlılık aylığı",
+          "yarı zamanlı emeklilik",
+          "emeklilik sigortası"
+        ],
+        "sh": [
+          "mirovina",
+          "umirovljenje",
+          "penzija",
+          "penzionisanje",
+          "starosna mirovina",
+          "starosna penzija",
+          "mirovinsko osiguranje",
+          "penzijsko osiguranje"
+        ],
+        "ro": [
+          "pensie",
+          "pensionare",
+          "pensie de limită de vârstă",
+          "asigurare de pensie",
+          "program redus înainte de pensionare"
+        ],
+        "hu": [
+          "nyugdíj",
+          "nyugdíjazás",
+          "öregségi nyugdíj",
+          "nyugdíjbiztosítás",
+          "részmunkaidő nyugdíj előtt"
+        ],
+        "sl": [
+          "pokojnina",
+          "upokojitev",
+          "starostna pokojnina",
+          "pokojninsko zavarovanje"
+        ],
+        "en": [
+          "pension",
+          "retirement",
+          "retire",
+          "old-age pension",
+          "pension insurance",
+          "partial retirement"
+        ]
+      }
+    },
+    "discrimination": {
+      "kind": "topic",
+      "display": [
+        "Diskriminierung",
+        "Gleichbehandlung"
+      ],
+      "related": [
+        "harassment",
+        "works_council"
+      ],
+      "labels": {
+        "tr": "Ayrımcılık ve eşit muamele",
+        "hr": "Diskriminacija i jednako postupanje",
+        "sr": "Diskriminacija i jednako postupanje",
+        "bs": "Diskriminacija i jednako postupanje",
+        "ro": "Discriminare și tratament egal",
+        "hu": "Diszkrimináció és egyenlő bánásmód",
+        "sl": "Diskriminacija in enako obravnavanje",
+        "de": "Diskriminierung und Gleichbehandlung",
+        "en": "Discrimination and equal treatment"
+      },
+      "terms": {
+        "de": [
+          "Diskriminierung",
+          "Gleichbehandlung",
+          "Gleichbehandlungsgesetz",
+          "Gleichbehandlungsanwaltschaft",
+          "Benachteiligung",
+          "Equal Pay",
+          "gleicher Lohn",
+          "Ungleichbehandlung",
+          "Rassismus",
+          "Diversität",
+          "Vielfalt",
+          "Inklusion"
+        ],
+        "tr": [
+          "ayrımcılık",
+          "eşit muamele",
+          "eşit işe eşit ücret",
+          "dezavantajlı muamele",
+          "ırkçılık",
+          "eşit ücret"
+        ],
+        "sh": [
+          "diskriminacija",
+          "jednako postupanje",
+          "jednaka plaća",
+          "jednaka plata",
+          "nejednako postupanje",
+          "rasizam"
+        ],
+        "ro": [
+          "discriminare",
+          "egalitate de tratament",
+          "salariu egal",
+          "rasism"
+        ],
+        "hu": [
+          "diszkrimináció",
+          "egyenlő bánásmód",
+          "egyenlő bér",
+          "rasszizmus"
+        ],
+        "sl": [
+          "diskriminacija",
+          "enako obravnavanje",
+          "enako plačilo",
+          "rasizem"
+        ],
+        "en": [
+          "discrimination",
+          "equal treatment",
+          "equal pay",
+          "racism",
+          "unfair treatment"
+        ]
+      }
+    },
+    "unpaid_wages": {
+      "kind": "topic",
+      "display": [
+        "Lohnrückstand",
+        "Insolvenz-Entgelt",
+        "Verjährung"
+      ],
+      "related": [
+        "claim_deadlines",
+        "termination"
+      ],
+      "labels": {
+        "tr": "Ödenmeyen maaş",
+        "hr": "Neisplaćena plaća",
+        "sr": "Neisplaćena plata",
+        "bs": "Neisplaćena plata",
+        "ro": "Salariu neplătit",
+        "hu": "Kifizetetlen bér",
+        "sl": "Neizplačana plača",
+        "de": "Lohnrückstand und Insolvenz",
+        "en": "Unpaid wages"
+      },
+      "terms": {
+        "de": [
+          "Lohnrückstand",
+          "Lohnrückstände",
+          "ausstehender Lohn",
+          "Lohn nicht bezahlt",
+          "Insolvenz",
+          "Insolvenzentgelt",
+          "Insolvenz-Entgelt",
+          "Konkurs",
+          "Lohnklage",
+          "Verjährung",
+          "Nachzahlung",
+          "Unterentlohnung",
+          "Lohn- und Sozialdumping"
+        ],
+        "tr": [
+          "ödenmeyen maaş",
+          "maaş ödenmedi",
+          "maaş alacağı",
+          "işveren iflası",
+          "iflas",
+          "zamanaşımı",
+          "maaş davası",
+          "eksik ödeme",
+          "geriye dönük ödeme",
+          "maaşımı alamadım"
+        ],
+        "sh": [
+          "neisplaćena plaća",
+          "neisplaćena plata",
+          "plata nije isplaćena",
+          "stečaj",
+          "insolventnost",
+          "zastara",
+          "rokovi zastare",
+          "tužba za plaću",
+          "nedovoljna plaća"
+        ],
+        "ro": [
+          "salariu neplătit",
+          "salarii restante",
+          "insolvență",
+          "faliment",
+          "prescripție",
+          "acțiune în instanță pentru salariu"
+        ],
+        "hu": [
+          "kifizetetlen bér",
+          "bértartozás",
+          "fizetésképtelenség",
+          "csőd",
+          "elévülés",
+          "bérper"
+        ],
+        "sl": [
+          "neizplačana plača",
+          "zaostanek plače",
+          "stečaj",
+          "insolventnost",
+          "zastaranje",
+          "rok zastaranja",
+          "tožba za plačo"
+        ],
+        "en": [
+          "unpaid wages",
+          "wages owed",
+          "unpaid salary",
+          "back pay",
+          "insolvency",
+          "bankruptcy",
+          "limitation period",
+          "underpayment",
+          "wage claim"
+        ]
+      }
+    },
+    "training": {
+      "kind": "topic",
+      "display": [
+        "Weiterbildung",
+        "Bildungsfreistellung"
+      ],
+      "related": [],
+      "labels": {
+        "tr": "Eğitim ve kurs",
+        "hr": "Obrazovanje i tečajevi",
+        "sr": "Obrazovanje i kursevi",
+        "bs": "Obrazovanje i kursevi",
+        "ro": "Formare și cursuri",
+        "hu": "Képzés és tanfolyamok",
+        "sl": "Izobraževanje in tečaji",
+        "de": "Weiterbildung",
+        "en": "Training and courses"
+      },
+      "terms": {
+        "de": [
+          "Weiterbildung",
+          "Fortbildung",
+          "Bildungsfreistellung",
+          "Schulung",
+          "Ausbildung",
+          "Qualifizierung",
+          "Deutschkurs",
+          "Weiterbildungszeit",
+          "Bildungskarenz",
+          "Bildungsteilzeit",
+          "Weiterbildungsgeld",
+          "Bildungsurlaub",
+          "Umschulung",
+          "berufliche Anpassung",
+          "Bauhandwerkerschule"
+        ],
+        "tr": [
+          "eğitim",
+          "meslek eğitimi",
+          "hizmet içi eğitim",
+          "kurs",
+          "Almanca kursu",
+          "eğitim izni",
+          "mesleki gelişim",
+          "eğitim karenzi",
+          "eğitim izni ücretli"
+        ],
+        "sh": [
+          "obrazovanje",
+          "usavršavanje",
+          "edukacija",
+          "tečaj",
+          "kurs njemačkog",
+          "kurs nemačkog",
+          "obuka",
+          "izobrazba",
+          "obrazovni dopust"
+        ],
+        "ro": [
+          "formare profesională",
+          "instruire",
+          "curs",
+          "curs de germană",
+          "perfecționare",
+          "concediu de studii",
+          "concediu de formare"
+        ],
+        "hu": [
+          "továbbképzés",
+          "képzés",
+          "tanfolyam",
+          "németkurzus",
+          "szakképzés",
+          "tanulmányi szabadság",
+          "képzési szabadság"
+        ],
+        "sl": [
+          "izobraževanje",
+          "usposabljanje",
+          "tečaj",
+          "tečaj nemščine",
+          "izpopolnjevanje",
+          "izobraževalni dopust",
+          "študijski dopust"
+        ],
+        "en": [
+          "training",
+          "further education",
+          "education leave",
+          "course",
+          "german course",
+          "qualification",
+          "upskilling",
+          "educational leave",
+          "study leave"
+        ]
+      }
+    },
+    "overtime": {
+      "kind": "topic",
+      "display": [
+        "Überstunden",
+        "Mehrarbeit",
+        "Zeitausgleich"
+      ],
+      "related": [
+        "working_hours",
+        "allowances",
+        "all_in"
+      ],
+      "labels": {
+        "tr": "Fazla mesai",
+        "hr": "Prekovremeni rad",
+        "sr": "Prekovremeni rad",
+        "bs": "Prekovremeni rad",
+        "ro": "Ore suplimentare",
+        "hu": "Túlóra",
+        "sl": "Nadure",
+        "de": "Überstunden",
+        "en": "Overtime"
+      },
+      "terms": {
+        "de": [
+          "Überstundenzuschlag",
+          "Überstundenentgelt",
+          "Überstundenpauschale",
+          "Überstundenarbeit",
+          "Überstunden",
+          "Mehrarbeit",
+          "Zeitausgleich"
+        ],
+        "tr": [
+          "fazla mesai ücreti",
+          "mesaiye kalmak",
+          "fazla saat",
+          "fazla mesai",
+          "zaman dengeleme",
+          "fazla çalışma"
+        ],
+        "sh": [
+          "prekovremeni sati",
+          "prekovremeni sat",
+          "prekovremeni rad",
+          "prekovremeni",
+          "prekovremeno"
+        ],
+        "ro": [
+          "oră suplimentară",
+          "muncă suplimentară",
+          "ore suplimentare"
+        ],
+        "hu": [
+          "túlórák",
+          "rendkívüli munkaidő",
+          "túlmunka",
+          "túlóra"
+        ],
+        "sl": [
+          "nadurno delo",
+          "nadura",
+          "nadure"
+        ],
+        "en": [
+          "extra hours",
+          "overtime pay",
+          "time off in lieu",
+          "overtime"
+        ]
+      }
+    },
+    "night_shift": {
+      "kind": "topic",
+      "display": [
+        "Nachtarbeit",
+        "Schichtarbeit"
+      ],
+      "related": [
+        "working_hours",
+        "allowances"
+      ],
+      "labels": {
+        "tr": "Gece ve vardiyalı çalışma",
+        "hr": "Noćni i smjenski rad",
+        "sr": "Noćni i smenski rad",
+        "bs": "Noćni i smjenski rad",
+        "ro": "Muncă de noapte și în ture",
+        "hu": "Éjszakai és műszakos munka",
+        "sl": "Nočno in izmensko delo",
+        "de": "Nacht- und Schichtarbeit",
+        "en": "Night and shift work"
+      },
+      "terms": {
+        "de": [
+          "Nachtschicht",
+          "Wechselschicht",
+          "Schichtdienst",
+          "Schichtplan",
+          "Nachtdienst",
+          "Schicht",
+          "Nachtarbeit",
+          "Schichtarbeit"
+        ],
+        "tr": [
+          "gece vardiyası",
+          "gece mesaisi",
+          "vardiyalı çalışma",
+          "gece işi",
+          "vardiya",
+          "gece çalışması"
+        ],
+        "sh": [
+          "noćna smjena",
+          "nocna smena",
+          "noćna smena",
+          "smjenski rad",
+          "smenski rad",
+          "smjena",
+          "smena",
+          "noćni rad",
+          "nocni rad"
+        ],
+        "ro": [
+          "tură de noapte",
+          "lucru în ture",
+          "schimb de noapte",
+          "tură",
+          "muncă de noapte"
+        ],
+        "hu": [
+          "éjszakai műszak",
+          "váltott műszak",
+          "éjszakás",
+          "műszak",
+          "éjszakai munka"
+        ],
+        "sl": [
+          "nočna izmena",
+          "izmensko delo",
+          "izmena",
+          "nočno delo"
+        ],
+        "en": [
+          "night shift",
+          "shifts",
+          "rotating shift",
+          "shift",
+          "shift work",
+          "night work"
+        ]
+      }
+    },
+    "sunday_holiday_work": {
+      "kind": "topic",
+      "display": [
+        "Sonntagsarbeit",
+        "Feiertagsarbeit",
+        "Wochenendruhe"
+      ],
+      "related": [
+        "night_shift",
+        "public_holidays",
+        "allowances"
+      ],
+      "labels": {
+        "tr": "Pazar ve tatil günü çalışma",
+        "hr": "Rad nedjeljom i praznikom",
+        "sr": "Rad nedeljom i praznikom",
+        "bs": "Rad nedjeljom i praznikom",
+        "ro": "Muncă duminica și de sărbători",
+        "hu": "Vasárnapi és ünnepnapi munka",
+        "sl": "Delo ob nedeljah in praznikih",
+        "de": "Sonn- und Feiertagsarbeit",
+        "en": "Sunday and holiday work"
+      },
+      "terms": {
+        "de": [
+          "Sonntagsruhe",
+          "Wochenendarbeit",
+          "Wochenruhe",
+          "Ersatzruhe",
+          "Arbeitsruhegesetz",
+          "ARG",
+          "Sonntagsarbeit",
+          "Feiertagsarbeit",
+          "freie Wochenenden",
+          "Wochenende",
+          "Wochenenden"
+        ],
+        "tr": [
+          "pazar mesaisi",
+          "hafta sonu çalışma",
+          "hafta sonu mesaisi",
+          "bayramda çalışma",
+          "tatilde çalışma",
+          "pazar çalışması"
+        ],
+        "sh": [
+          "rad nedjeljom",
+          "rad nedeljom",
+          "rad vikendom",
+          "rad praznikom",
+          "rad na praznik"
+        ],
+        "ro": [
+          "muncă duminica",
+          "muncă în weekend",
+          "muncă de sărbători"
+        ],
+        "hu": [
+          "vasárnapi munka",
+          "hétvégi munka",
+          "ünnepnapi munka"
+        ],
+        "sl": [
+          "delo ob nedeljah",
+          "delo ob vikendih",
+          "delo na praznik"
+        ],
+        "en": [
+          "sunday work",
+          "weekend work",
+          "working on public holidays",
+          "weekly rest"
+        ]
+      }
+    },
+    "rest_breaks": {
+      "kind": "topic",
+      "display": [
+        "Ruhepause",
+        "Ruhezeit"
+      ],
+      "related": [
+        "working_hours"
+      ],
+      "labels": {
+        "tr": "Mola ve dinlenme süreleri",
+        "hr": "Pauze i odmor",
+        "sr": "Pauze i odmor",
+        "bs": "Pauze i odmor",
+        "ro": "Pauze și repaus",
+        "hu": "Szünetek és pihenőidő",
+        "sl": "Odmori in počitek",
+        "de": "Pausen und Ruhezeiten",
+        "en": "Breaks and rest periods"
+      },
+      "terms": {
+        "de": [
+          "Ruhepausen",
+          "Pausen",
+          "tägliche Ruhezeit",
+          "Mittagspause",
+          "Erholungspause",
+          "Ruhezeit",
+          "Ruhepause",
+          "Pause",
+          "Kurzpause",
+          "Kurzpausen"
+        ],
+        "tr": [
+          "öğle arası",
+          "yemek molası",
+          "dinlenme süresi",
+          "molalar",
+          "mola",
+          "dinlenme"
+        ],
+        "sh": [
+          "pauza za ručak",
+          "dnevni odmor",
+          "vrijeme odmora",
+          "vreme odmora",
+          "pauza",
+          "odmor"
+        ],
+        "ro": [
+          "pauză de masă",
+          "repaus",
+          "pauză",
+          "pauza",
+          "timp de odihnă"
+        ],
+        "hu": [
+          "ebédszünet",
+          "munkaközi szünet",
+          "szünet",
+          "pihenőidő"
+        ],
+        "sl": [
+          "malica",
+          "dnevni počitek",
+          "počitek",
+          "odmor"
+        ],
+        "en": [
+          "lunch break",
+          "rest break",
+          "breaks",
+          "daily rest",
+          "break",
+          "rest period"
+        ]
+      }
+    },
+    "part_time": {
+      "kind": "topic",
+      "display": [
+        "Teilzeit",
+        "Mehrarbeit"
+      ],
+      "related": [
+        "working_hours",
+        "marginal_employment"
+      ],
+      "labels": {
+        "tr": "Yarı zamanlı çalışma",
+        "hr": "Rad s nepunim radnim vremenom",
+        "sr": "Rad sa nepunim radnim vremenom",
+        "bs": "Rad s nepunim radnim vremenom",
+        "ro": "Muncă cu timp parțial",
+        "hu": "Részmunkaidő",
+        "sl": "Krajši delovni čas",
+        "de": "Teilzeit und Mehrarbeit",
+        "en": "Part-time work"
+      },
+      "terms": {
+        "de": [
+          "Teilzeitarbeit",
+          "Teilzeitkraft",
+          "Mehrarbeitszuschlag",
+          "Mehrstunden",
+          "Stundenreduktion",
+          "Teilzeit",
+          "Mehrarbeit"
+        ],
+        "tr": [
+          "yarım gün",
+          "kısmi süreli",
+          "part-time",
+          "yarı zamanlı",
+          "part time"
+        ],
+        "sh": [
+          "pola radnog vremena",
+          "skraćeno radno vrijeme",
+          "skraćeno radno vreme",
+          "nepuno radno vrijeme",
+          "nepuno radno vreme"
+        ],
+        "ro": [
+          "jumătate de normă",
+          "timp parțial",
+          "part-time",
+          "program redus"
+        ],
+        "hu": [
+          "részmunkaidős",
+          "félállás",
+          "rövidített munkaidő",
+          "részmunkaidő"
+        ],
+        "sl": [
+          "polovični delovni čas",
+          "skrajšani delovni čas",
+          "krajši delovni čas"
+        ],
+        "en": [
+          "part time",
+          "reduced hours",
+          "part-time"
+        ]
+      }
+    },
+    "on_call": {
+      "kind": "topic",
+      "display": [
+        "Rufbereitschaft",
+        "Arbeitsbereitschaft"
+      ],
+      "related": [
+        "working_hours"
+      ],
+      "labels": {
+        "tr": "Nöbet ve hazır bekleme",
+        "hr": "Pripravnost i dežurstvo",
+        "sr": "Pripravnost i dežurstvo",
+        "bs": "Pripravnost i dežurstvo",
+        "ro": "Gardă și disponibilitate",
+        "hu": "Készenlét és ügyelet",
+        "sl": "Pripravljenost in dežurstvo",
+        "de": "Rufbereitschaft",
+        "en": "On-call duty"
+      },
+      "terms": {
+        "de": [
+          "Rufbereitschaft",
+          "Arbeitsbereitschaft",
+          "Bereitschaftsdienst",
+          "Journaldienst",
+          "Bereitschaftszeit",
+          "Bereitschaft"
+        ],
+        "tr": [
+          "nöbet",
+          "icap nöbeti",
+          "çağrı üzerine çalışma",
+          "hazır bekleme"
+        ],
+        "sh": [
+          "pripravnost",
+          "dežurstvo",
+          "dezurstvo"
+        ],
+        "ro": [
+          "gardă",
+          "permanență",
+          "disponibilitate"
+        ],
+        "hu": [
+          "ügyelet",
+          "készenléti szolgálat",
+          "készenlét"
+        ],
+        "sl": [
+          "pripravljenost",
+          "dežurstvo"
+        ],
+        "en": [
+          "on-call",
+          "standby",
+          "on call duty",
+          "on call"
+        ]
+      }
+    },
+    "public_holidays": {
+      "kind": "topic",
+      "display": [
+        "Feiertag",
+        "Feiertagsentgelt"
+      ],
+      "related": [
+        "annual_leave",
+        "sunday_holiday_work"
+      ],
+      "labels": {
+        "tr": "Resmi tatiller",
+        "hr": "Praznici",
+        "sr": "Praznici",
+        "bs": "Praznici",
+        "ro": "Sărbători legale",
+        "hu": "Ünnepnapok",
+        "sl": "Prazniki",
+        "de": "Feiertage",
+        "en": "Public holidays"
+      },
+      "terms": {
+        "de": [
+          "Feiertagsentgelt",
+          "gesetzlicher Feiertag",
+          "Feiertagsruhe",
+          "Karfreitag",
+          "persönlicher Feiertag",
+          "Feiertag",
+          "Feiertage",
+          "Heiligabend",
+          "Silvester",
+          "24. Dezember",
+          "31. Dezember"
+        ],
+        "tr": [
+          "bayram tatili",
+          "resmi tatiller",
+          "tatil günü",
+          "resmi tatil",
+          "bayram",
+          "noel arifesi",
+          "yılbaşı"
+        ],
+        "sh": [
+          "praznici",
+          "blagdani",
+          "neradni dan",
+          "praznik",
+          "državni praznik",
+          "blagdan",
+          "badnjak",
+          "badnja večer",
+          "silvestrovo"
+        ],
+        "ro": [
+          "sărbători legale",
+          "zi liberă legală",
+          "sărbătoare legală",
+          "sărbătoare"
+        ],
+        "hu": [
+          "ünnepnapok",
+          "munkaszüneti napok",
+          "ünnepnap",
+          "munkaszüneti nap"
+        ],
+        "sl": [
+          "prazniki",
+          "državni praznik",
+          "praznik",
+          "dela prost dan"
+        ],
+        "en": [
+          "bank holiday",
+          "public holidays",
+          "statutory holiday",
+          "public holiday",
+          "christmas eve",
+          "new year's eve"
+        ]
+      }
+    },
+    "special_leave": {
+      "kind": "topic",
+      "display": [
+        "Dienstverhinderung",
+        "bezahlte Freistellung",
+        "Sonderurlaub"
+      ],
+      "related": [
+        "annual_leave",
+        "care_leave"
+      ],
+      "labels": {
+        "tr": "Ücretli mazeret izni (düğün, cenaze, taşınma)",
+        "hr": "Plaćeni dopust (vjenčanje, smrt, selidba)",
+        "sr": "Plaćeno odsustvo (venčanje, smrt, selidba)",
+        "bs": "Plaćeno odsustvo (vjenčanje, smrt, selidba)",
+        "ro": "Zile libere plătite (nuntă, deces, mutare)",
+        "hu": "Fizetett távollét (esküvő, haláleset, költözés)",
+        "sl": "Plačana odsotnost (poroka, smrt, selitev)",
+        "de": "Bezahlte Dienstverhinderung",
+        "en": "Paid leave for personal events (wedding, death, moving)"
+      },
+      "terms": {
+        "de": [
+          "Dienstverhinderung",
+          "Arbeitsverhinderung",
+          "Freistellung",
+          "bezahlte Freistellung",
+          "Sonderurlaub",
+          "Sonderfreizeit",
+          "Hochzeit",
+          "Eheschließung",
+          "Trauung",
+          "Verpartnerung",
+          "Todesfall",
+          "Begräbnis",
+          "Beerdigung",
+          "Übersiedlung",
+          "Wohnungswechsel",
+          "Umzug",
+          "Familienereignis",
+          "Familienereignisse",
+          "familiäre Ereignisse",
+          "persönliche Anlässe",
+          "persönliche Ereignisse",
+          "besondere Anlässe",
+          "wichtige Ereignisse",
+          "Geburt eines Kindes",
+          "Arztbesuch",
+          "Behördenweg",
+          "Dienstfreistellung",
+          "freie Tage",
+          "familiären Ereignissen",
+          "Familienereignissen"
+        ],
+        "tr": [
+          "mazeret izni",
+          "ücretli mazeret izni",
+          "düğün izni",
+          "evlilik izni",
+          "cenaze izni",
+          "ölüm izni",
+          "taşınma izni",
+          "doğum izni baba",
+          "özel izin",
+          "evlenme izni",
+          "vefat izni"
+        ],
+        "sh": [
+          "plaćeni dopust",
+          "placeni dopust",
+          "slobodni dani",
+          "vjenčanje",
+          "venčanje",
+          "smrt člana porodice",
+          "smrt u porodici",
+          "smrt u obitelji",
+          "selidba",
+          "pogreb",
+          "sahrana",
+          "izvanredni dopust",
+          "plaćeno odsustvo"
+        ],
+        "ro": [
+          "concediu pentru evenimente familiale",
+          "zile libere plătite",
+          "căsătorie",
+          "deces",
+          "înmormântare",
+          "mutare",
+          "învoire"
+        ],
+        "hu": [
+          "rendkívüli szabadság",
+          "fizetett távollét",
+          "esküvő",
+          "házasságkötés",
+          "haláleset",
+          "temetés",
+          "költözés",
+          "munkaidő-kedvezmény"
+        ],
+        "sl": [
+          "izredni dopust",
+          "plačana odsotnost",
+          "poroka",
+          "smrt v družini",
+          "pogreb",
+          "selitev"
+        ],
+        "en": [
+          "special leave",
+          "compassionate leave",
+          "bereavement leave",
+          "wedding leave",
+          "time off for wedding",
+          "funeral",
+          "moving house",
+          "paid time off for personal events"
+        ]
+      }
+    },
+    "care_leave": {
+      "kind": "topic",
+      "display": [
+        "Pflegefreistellung",
+        "Pflegekarenz",
+        "Pflegeteilzeit"
+      ],
+      "related": [
+        "sick_leave",
+        "special_leave"
+      ],
+      "labels": {
+        "tr": "Yakın bakımı izni",
+        "hr": "Dopust za njegu člana obitelji",
+        "sr": "Odsustvo za negu člana porodice",
+        "bs": "Odsustvo za njegu člana porodice",
+        "ro": "Concediu pentru îngrijirea familiei",
+        "hu": "Ápolási szabadság",
+        "sl": "Odsotnost za nego družinskega člana",
+        "de": "Pflegefreistellung",
+        "en": "Leave to care for a family member"
+      },
+      "terms": {
+        "de": [
+          "Betreuungsfreistellung",
+          "Familienhospizkarenz",
+          "Pflegekarenzgeld",
+          "Pflege eines Angehörigen",
+          "krankes Kind",
+          "Pflegefreistellung",
+          "Pflegekarenz",
+          "Pflegeteilzeit"
+        ],
+        "tr": [
+          "hasta çocuk izni",
+          "çocuk hastalandığında izin",
+          "yakın bakımı izni",
+          "refakat izni",
+          "bakım izni"
+        ],
+        "sh": [
+          "njega djeteta",
+          "nega deteta",
+          "bolovanje za dijete",
+          "bolovanje za dete",
+          "njega člana obitelji",
+          "njega clana porodice"
+        ],
+        "ro": [
+          "concediu pentru îngrijirea copilului bolnav",
+          "îngrijire copil bolnav",
+          "îngrijirea unui membru de familie"
+        ],
+        "hu": [
+          "beteg gyermek ápolása",
+          "gyermekápolási táppénz",
+          "ápolási szabadság"
+        ],
+        "sl": [
+          "nega otroka",
+          "bolniška za otroka",
+          "nega družinskega člana"
+        ],
+        "en": [
+          "sick child",
+          "carer's leave",
+          "family care leave",
+          "care leave",
+          "caring leave"
+        ]
+      }
+    },
+    "classification": {
+      "kind": "topic",
+      "display": [
+        "Einstufung",
+        "Verwendungsgruppe",
+        "Vorrückung"
+      ],
+      "related": [
+        "wages"
+      ],
+      "labels": {
+        "tr": "Ücret grubu ve kademe",
+        "hr": "Platni razred i napredovanje",
+        "sr": "Platni razred i napredovanje",
+        "bs": "Platni razred i napredovanje",
+        "ro": "Încadrare și avansare",
+        "hu": "Besorolás és előrelépés",
+        "sl": "Plačni razred in napredovanje",
+        "de": "Einstufung und Vorrückung",
+        "en": "Pay grade and seniority steps"
+      },
+      "terms": {
+        "de": [
+          "Einstufung",
+          "Verwendungsgruppe",
+          "Verwendungsgruppen",
+          "Beschäftigungsgruppe",
+          "Beschäftigungsgruppen",
+          "Lohngruppe",
+          "Lohngruppen",
+          "Gehaltsgruppe",
+          "Tätigkeitsgruppe",
+          "Tätigkeitsgruppen",
+          "Berufsgruppe",
+          "Berufsgruppen",
+          "Lohnkategorie",
+          "Lohnkategorien",
+          "Vorrückung",
+          "Vorrückungen",
+          "Vordienstzeiten",
+          "Biennalsprung",
+          "Stufe",
+          "Gehaltsstufe",
+          "Qualifikation",
+          "Umstufung",
+          "Anrechnung",
+          "Jobgruppen",
+          "Berufskategorien",
+          "Einordnung",
+          "berufliche Einordnung",
+          "Erfahrungsanrechnung",
+          "Arbeitsbereiche",
+          "Dienstalterszulage",
+          "Dienstalterszulagen"
+        ],
+        "tr": [
+          "ücret grubu",
+          "kademe",
+          "kıdem kademesi",
+          "meslek grubu",
+          "sınıflandırma",
+          "kademe atlama",
+          "derece"
+        ],
+        "sh": [
+          "platni razred",
+          "platna grupa",
+          "razvrstavanje",
+          "kategorija posla",
+          "napredovanje"
+        ],
+        "ro": [
+          "grupa salarială",
+          "încadrare",
+          "clasificare",
+          "avansare",
+          "treaptă de salarizare"
+        ],
+        "hu": [
+          "bérbesorolás",
+          "besorolás",
+          "bérkategória",
+          "fizetési fokozat",
+          "előrelépés"
+        ],
+        "sl": [
+          "plačni razred",
+          "tarifna skupina",
+          "razvrstitev",
+          "napredovanje"
+        ],
+        "en": [
+          "pay grade",
+          "classification",
+          "job grade",
+          "grading",
+          "seniority step",
+          "pay band"
+        ]
+      }
+    },
+    "claim_deadlines": {
+      "kind": "topic",
+      "display": [
+        "Verfall von Ansprüchen",
+        "Verfallsfrist",
+        "Geltendmachung"
+      ],
+      "related": [
+        "unpaid_wages",
+        "termination"
+      ],
+      "labels": {
+        "tr": "Hak düşürücü süreler (talep son tarihi)",
+        "hr": "Rokovi za potraživanja",
+        "sr": "Rokovi za potraživanja",
+        "bs": "Rokovi za potraživanja",
+        "ro": "Termene de decădere",
+        "hu": "Jogvesztő határidők",
+        "sl": "Roki za uveljavljanje zahtevkov",
+        "de": "Verfall von Ansprüchen",
+        "en": "Deadlines for claims"
+      },
+      "terms": {
+        "de": [
+          "Verfall",
+          "Verfall von Ansprüchen",
+          "Verfallsfrist",
+          "Verfallsfristen",
+          "verfallen",
+          "Unverfallbarkeit",
+          "Fristen für Ansprüche",
+          "Geltendmachung",
+          "schriftlich geltend machen",
+          "Ausschlussfrist",
+          "Fristen und Ansprüche",
+          "Fristen"
+        ],
+        "tr": [
+          "hak düşürücü süre",
+          "hakkın düşmesi",
+          "talep süresi",
+          "alacak süresi",
+          "yazılı talep",
+          "hakkımı kaybeder miyim"
+        ],
+        "sh": [
+          "rok za potraživanja",
+          "gubitak prava",
+          "prekluzivni rok",
+          "rok za zahtjev",
+          "rok za zahtev",
+          "propadanje prava"
+        ],
+        "ro": [
+          "termen de decădere",
+          "decădere",
+          "termen pentru pretenții",
+          "pierderea dreptului"
+        ],
+        "hu": [
+          "jogvesztő határidő",
+          "jogvesztés",
+          "igényérvényesítési határidő"
+        ],
+        "sl": [
+          "prekluzivni rok",
+          "rok za uveljavljanje",
+          "izguba pravice"
+        ],
+        "en": [
+          "time limit for claims",
+          "claim deadline",
+          "forfeiture",
+          "lapse of claims",
+          "deadline to claim"
+        ]
+      }
+    },
+    "apprenticeship": {
+      "kind": "topic",
+      "display": [
+        "Lehre",
+        "Lehrling",
+        "Lehrlingseinkommen"
+      ],
+      "related": [
+        "training",
+        "contract_start"
+      ],
+      "labels": {
+        "tr": "Çıraklık ve staj",
+        "hr": "Naukovanje i praksa",
+        "sr": "Zanat i praksa",
+        "bs": "Zanat i praksa",
+        "ro": "Ucenicie și stagiu",
+        "hu": "Tanoncidő és gyakorlat",
+        "sl": "Vajeništvo in praksa",
+        "de": "Lehre und Praktikum",
+        "en": "Apprenticeship and internship"
+      },
+      "terms": {
+        "de": [
+          "Lehre",
+          "Lehrlinge",
+          "Lehrlingseinkommen",
+          "Lehrlingsentschädigung",
+          "Lehrverhältnis",
+          "Lehrabschlussprüfung",
+          "Berufsschule",
+          "Lehrzeit",
+          "Praktikant",
+          "Praktikanten",
+          "Ferialpraktikum",
+          "Pflichtpraktikum",
+          "Auszubildende",
+          "Lehrling",
+          "Praktikum"
+        ],
+        "tr": [
+          "çıraklık",
+          "çırak maaşı",
+          "meslek okulu",
+          "kalfalık sınavı",
+          "meslek eğitimi çırak",
+          "çırak",
+          "stajyer",
+          "staj"
+        ],
+        "sh": [
+          "zanat",
+          "šegrtovanje",
+          "stručna škola",
+          "učenik u privredi",
+          "praksa za studente",
+          "naučnik",
+          "naucnik",
+          "šegrt",
+          "praksa",
+          "pripravnik"
+        ],
+        "ro": [
+          "ucenicie",
+          "școală profesională",
+          "stagiar",
+          "ucenic",
+          "practică",
+          "stagiu"
+        ],
+        "hu": [
+          "tanonc",
+          "szakmunkástanuló",
+          "szakiskola",
+          "tanulószerződés",
+          "tanuló",
+          "gyakornok",
+          "gyakornoki"
+        ],
+        "sl": [
+          "vajeništvo",
+          "poklicna šola",
+          "dijak na praksi",
+          "vajenec",
+          "praksa",
+          "pripravnik"
+        ],
+        "en": [
+          "trainee",
+          "vocational school",
+          "apprentice pay",
+          "apprentice",
+          "apprenticeship",
+          "internship",
+          "intern"
+        ]
+      }
+    },
+    "contract_types": {
+      "kind": "topic",
+      "display": [
+        "freier Dienstvertrag",
+        "Werkvertrag",
+        "Scheinselbständigkeit"
+      ],
+      "related": [
+        "contract_start",
+        "undeclared_work"
+      ],
+      "labels": {
+        "tr": "Serbest sözleşme ve sahte serbest çalışma",
+        "hr": "Ugovor o djelu i lažno samozapošljavanje",
+        "sr": "Ugovor o delu i lažno samozapošljavanje",
+        "bs": "Ugovor o djelu i lažno samozapošljavanje",
+        "ro": "Contracte de servicii și fals independenți",
+        "hu": "Megbízási szerződés és színlelt vállalkozás",
+        "sl": "Podjemna pogodba in navidezna samozaposlitev",
+        "de": "Freier Dienstvertrag und Werkvertrag",
+        "en": "Freelance contracts and bogus self-employment"
+      },
+      "terms": {
+        "de": [
+          "Scheinselbständigkeit",
+          "Scheinselbstständigkeit",
+          "scheinselbständig",
+          "Gewerbeschein",
+          "neue Selbständige",
+          "Ein-Personen-Unternehmen",
+          "EPU",
+          "Plattformarbeit",
+          "Selbständige",
+          "Selbstständige",
+          "Dienstnehmer",
+          "freier Dienstvertrag",
+          "Werkvertrag"
+        ],
+        "tr": [
+          "sahte serbest meslek",
+          "serbest çalışan",
+          "esnaf kaydı",
+          "ruhsatla çalışmak",
+          "gewerbe ile çalışmak",
+          "kendi hesabına çalışma",
+          "fatura keserek çalışma",
+          "serbest sözleşme"
+        ],
+        "sh": [
+          "ugovor o djelu",
+          "ugovor o delu",
+          "lažno samozapošljavanje",
+          "obrt",
+          "samostalna djelatnost",
+          "samostalna delatnost",
+          "gewerbe"
+        ],
+        "ro": [
+          "contract de prestări servicii",
+          "pfa",
+          "fals independent",
+          "activitate independentă"
+        ],
+        "hu": [
+          "vállalkozói szerződés",
+          "színlelt önfoglalkoztatás",
+          "egyéni vállalkozó",
+          "megbízási szerződés"
+        ],
+        "sl": [
+          "podjemna pogodba",
+          "navidezno samozaposlen",
+          "samostojni podjetnik",
+          "s.p."
+        ],
+        "en": [
+          "freelance contract",
+          "bogus self-employment",
+          "self-employed",
+          "contractor",
+          "platform work",
+          "gig work"
+        ]
+      }
+    },
+    "agency_work": {
+      "kind": "topic",
+      "display": [
+        "Arbeitskräfteüberlassung",
+        "Leiharbeit",
+        "Zeitarbeit"
+      ],
+      "related": [
+        "contract_start",
+        "industry"
+      ],
+      "labels": {
+        "tr": "Taşeron ve kiralık işçilik",
+        "hr": "Rad preko agencije",
+        "sr": "Rad preko agencije",
+        "bs": "Rad preko agencije",
+        "ro": "Muncă prin agenție",
+        "hu": "Munkaerő-kölcsönzés",
+        "sl": "Agencijsko delo",
+        "de": "Arbeitskräfteüberlassung",
+        "en": "Agency work"
+      },
+      "terms": {
+        "de": [
+          "Arbeitskräfteüberlassung",
+          "Arbeitskräfteüberlasser",
+          "Leiharbeit",
+          "Leiharbeiter",
+          "Leiharbeiterin",
+          "Leasingarbeiter",
+          "Zeitarbeit",
+          "Zeitarbeitsfirma",
+          "Personalleasing",
+          "Überlassung",
+          "Überlasser",
+          "Beschäftiger",
+          "Personaldienstleister",
+          "AÜG",
+          "Arbeitskräfteüberlassung KV"
+        ],
+        "tr": [
+          "taşeron",
+          "taşeron firma",
+          "kiralık işçi",
+          "geçici işçi",
+          "personel kiralama",
+          "leasing işçi",
+          "geçici iş ajansı",
+          "ödünç işçi"
+        ],
+        "sh": [
+          "agencijski rad",
+          "agencija za zapošljavanje",
+          "agencija za privremeno zapošljavanje",
+          "ustupanje radnika",
+          "leasing radnik",
+          "privremeni rad preko agencije"
+        ],
+        "ro": [
+          "muncă prin agent",
+          "agent de muncă temporară",
+          "muncitor temporar",
+          "detașare prin agenție"
+        ],
+        "hu": [
+          "munkaerő-kölcsönzés",
+          "kölcsönzött munkavállaló",
+          "munkaerő-kölcsönző",
+          "kölcsönmunka"
+        ],
+        "sl": [
+          "agencijsko delo",
+          "agencija za zaposlovanje",
+          "napoteni delavec agencija",
+          "zagotavljanje dela"
+        ],
+        "en": [
+          "agency work",
+          "temp agency",
+          "temporary agency work",
+          "agency worker",
+          "labour leasing",
+          "temp work"
+        ]
+      }
+    },
+    "marginal_employment": {
+      "kind": "topic",
+      "display": [
+        "geringfügige Beschäftigung",
+        "Geringfügigkeitsgrenze"
+      ],
+      "related": [
+        "part_time",
+        "contract_start"
+      ],
+      "labels": {
+        "tr": "Mini iş (geringfügig)",
+        "hr": "Mali posao (geringfügig)",
+        "sr": "Mali posao (geringfügig)",
+        "bs": "Mali posao (geringfügig)",
+        "ro": "Minijob (geringfügig)",
+        "hu": "Minimális foglalkoztatás (geringfügig)",
+        "sl": "Mini zaposlitev (geringfügig)",
+        "de": "Geringfügige Beschäftigung",
+        "en": "Marginal employment (geringfügig)"
+      },
+      "terms": {
+        "de": [
+          "geringfügig",
+          "geringfügige Beschäftigung",
+          "geringfügig beschäftigt",
+          "Geringfügigkeitsgrenze",
+          "Geringfügige",
+          "Minijob",
+          "Aushilfe",
+          "Aushilfskraft",
+          "fallweise Beschäftigung"
+        ],
+        "tr": [
+          "mini iş",
+          "geringfügig çalışma",
+          "az saatli iş",
+          "ek iş",
+          "yan iş",
+          "ufak iş"
+        ],
+        "sh": [
+          "mali posao",
+          "minijob",
+          "honorarni posao",
+          "povremeni posao",
+          "dodatni posao"
+        ],
+        "ro": [
+          "minijob",
+          "muncă ocazională",
+          "angajare cu venit mic",
+          "job mic"
+        ],
+        "hu": [
+          "minimális foglalkoztatás",
+          "alkalmi munka",
+          "kisállás",
+          "mellékállás"
+        ],
+        "sl": [
+          "mini zaposlitev",
+          "občasno delo",
+          "priložnostno delo",
+          "dodatno delo"
+        ],
+        "en": [
+          "marginal employment",
+          "mini job",
+          "minijob",
+          "side job",
+          "casual work",
+          "small job"
+        ]
+      }
+    },
+    "undeclared_work": {
+      "kind": "topic",
+      "display": [
+        "Schwarzarbeit",
+        "Anmeldung zur Sozialversicherung"
+      ],
+      "related": [
+        "contract_start",
+        "unpaid_wages"
+      ],
+      "labels": {
+        "tr": "Sigortasız ve kayıt dışı çalışma",
+        "hr": "Rad na crno i prijava",
+        "sr": "Rad na crno i prijava",
+        "bs": "Rad na crno i prijava",
+        "ro": "Muncă la negru și înregistrare",
+        "hu": "Feketemunka és bejelentés",
+        "sl": "Delo na črno in prijava",
+        "de": "Schwarzarbeit und Anmeldung",
+        "en": "Undeclared work and registration"
+      },
+      "terms": {
+        "de": [
+          "Schwarzarbeit",
+          "schwarz arbeiten",
+          "nicht angemeldet",
+          "nicht versichert",
+          "ohne Anmeldung",
+          "Anmeldung zur Sozialversicherung",
+          "Sozialversicherungsbetrug",
+          "Scheinanmeldung",
+          "Unterentlohnung",
+          "Finanzpolizei",
+          "ÖGK Anmeldung",
+          "Versicherungsdatenauszug"
+        ],
+        "tr": [
+          "kaçak çalışma",
+          "kaçak işçi",
+          "sigortasız",
+          "sigortasız çalışma",
+          "sigortam yok",
+          "sigorta yapılmadı",
+          "kayıt dışı",
+          "kayıtdışı çalışma",
+          "elden maaş",
+          "sigorta girişi yapılmadı",
+          "sigorta dökümü"
+        ],
+        "sh": [
+          "rad na crno",
+          "na crno",
+          "neprijavljen",
+          "neprijavljen rad",
+          "bez prijave",
+          "bez osiguranja",
+          "plata na ruke",
+          "plaća na ruke",
+          "nisam prijavljen"
+        ],
+        "ro": [
+          "muncă la negru",
+          "la negru",
+          "fără forme legale",
+          "neînregistrat",
+          "fără asigurare",
+          "bani la mână"
+        ],
+        "hu": [
+          "feketemunka",
+          "bejelentés nélkül",
+          "nincs bejelentve",
+          "biztosítás nélkül",
+          "zsebbe fizetés"
+        ],
+        "sl": [
+          "delo na črno",
+          "na črno",
+          "neprijavljeno delo",
+          "brez prijave",
+          "brez zavarovanja"
+        ],
+        "en": [
+          "undeclared work",
+          "illegal work",
+          "cash in hand",
+          "off the books",
+          "not registered",
+          "uninsured",
+          "no insurance",
+          "working without papers"
+        ]
+      }
+    },
+    "all_in": {
+      "kind": "topic",
+      "display": [
+        "All-in-Vertrag",
+        "Überstundenpauschale",
+        "Überzahlung"
+      ],
+      "related": [
+        "overtime",
+        "wages"
+      ],
+      "labels": {
+        "tr": "All-in sözleşme",
+        "hr": "All-in ugovor",
+        "sr": "All-in ugovor",
+        "bs": "All-in ugovor",
+        "ro": "Contract all-in",
+        "hu": "All-in szerződés",
+        "sl": "All-in pogodba",
+        "de": "All-in-Vertrag",
+        "en": "All-in contract"
+      },
+      "terms": {
+        "de": [
+          "All-in",
+          "All-in-Vertrag",
+          "All-In-Gehalt",
+          "Allin",
+          "Pauschalentlohnung",
+          "Pauschale",
+          "Überzahlung",
+          "Deckungsprüfung",
+          "Grundgehalt im All-in",
+          "Überstundenpauschale"
+        ],
+        "tr": [
+          "all-in sözleşme",
+          "götürü maaş",
+          "fazla mesai dahil maaş",
+          "mesai dahil"
+        ],
+        "sh": [
+          "all-in ugovor",
+          "paušal",
+          "pausal",
+          "paušalna plata",
+          "paušalna plaća"
+        ],
+        "ro": [
+          "contract all-in",
+          "salariu forfetar",
+          "forfetar"
+        ],
+        "hu": [
+          "all-in szerződés",
+          "átalánybér",
+          "átalány"
+        ],
+        "sl": [
+          "all-in pogodba",
+          "pavšal",
+          "pavšalna plača"
+        ],
+        "en": [
+          "all-in contract",
+          "all-inclusive salary",
+          "flat-rate overtime",
+          "lump sum"
+        ]
+      }
+    },
+    "tips": {
+      "kind": "topic",
+      "display": [
+        "Trinkgeld",
+        "Trinkgeldpauschale"
+      ],
+      "related": [
+        "hospitality",
+        "wages"
+      ],
+      "labels": {
+        "tr": "Bahşiş",
+        "hr": "Napojnice",
+        "sr": "Bakšiš",
+        "bs": "Bakšiš",
+        "ro": "Bacșiș",
+        "hu": "Borravaló",
+        "sl": "Napitnina",
+        "de": "Trinkgeld",
+        "en": "Tips"
+      },
+      "terms": {
+        "de": [
+          "Trinkgeld",
+          "Trinkgelder",
+          "Trinkgeldpauschale",
+          "Bedienungsgeld",
+          "Tronc",
+          "Servicezuschlag"
+        ],
+        "tr": [
+          "bahşiş",
+          "bahşişler",
+          "garson bahşişi",
+          "servis ücreti"
+        ],
+        "sh": [
+          "napojnica",
+          "napojnice",
+          "bakšiš",
+          "baksis"
+        ],
+        "ro": [
+          "bacșiș",
+          "bacsis",
+          "taxă de serviciu"
+        ],
+        "hu": [
+          "borravaló",
+          "szervizdíj"
+        ],
+        "sl": [
+          "napitnina",
+          "napitnine"
+        ],
+        "en": [
+          "tips",
+          "tip",
+          "gratuity",
+          "gratuities",
+          "service charge"
+        ]
+      }
+    },
+    "restrictive_clauses": {
+      "kind": "topic",
+      "display": [
+        "Konkurrenzklausel",
+        "Ausbildungskostenrückersatz",
+        "Konventionalstrafe"
+      ],
+      "related": [
+        "contract_start",
+        "training"
+      ],
+      "labels": {
+        "tr": "Rekabet yasağı ve eğitim masrafı iadesi",
+        "hr": "Zabrana konkurencije i povrat troškova",
+        "sr": "Zabrana konkurencije i povrat troškova",
+        "bs": "Zabrana konkurencije i povrat troškova",
+        "ro": "Neconcurență și rambursarea formării",
+        "hu": "Versenytilalom és képzési költség",
+        "sl": "Konkurenčna klavzula in povračilo stroškov",
+        "de": "Konkurrenzklausel und Ausbildungskosten",
+        "en": "Non-compete and training cost clauses"
+      },
+      "terms": {
+        "de": [
+          "Konkurrenzklausel",
+          "Wettbewerbsverbot",
+          "Ausbildungskostenrückersatz",
+          "Ausbildungskosten",
+          "Rückersatz",
+          "Konventionalstrafe",
+          "Vertragsstrafe",
+          "Verschwiegenheitspflicht",
+          "Nebenbeschäftigung"
+        ],
+        "tr": [
+          "rekabet yasağı",
+          "rekabet şartı",
+          "eğitim masrafı iadesi",
+          "eğitim parası geri ödeme",
+          "cezai şart",
+          "sözleşme cezası",
+          "gizlilik şartı"
+        ],
+        "sh": [
+          "zabrana konkurencije",
+          "konkurentska klauzula",
+          "povrat troškova obrazovanja",
+          "ugovorna kazna",
+          "povrat troškova školovanja"
+        ],
+        "ro": [
+          "clauză de neconcurență",
+          "neconcurență",
+          "rambursarea costurilor de formare",
+          "penalitate contractuală"
+        ],
+        "hu": [
+          "versenytilalmi megállapodás",
+          "versenytilalom",
+          "képzési költség visszafizetése",
+          "kötbér"
+        ],
+        "sl": [
+          "konkurenčna klavzula",
+          "prepoved konkurence",
+          "povračilo stroškov izobraževanja",
+          "pogodbena kazen"
+        ],
+        "en": [
+          "non-compete",
+          "non compete clause",
+          "training cost repayment",
+          "repay training costs",
+          "contractual penalty"
+        ]
+      }
+    },
+    "reference": {
+      "kind": "topic",
+      "display": [
+        "Dienstzeugnis",
+        "Arbeitszeugnis"
+      ],
+      "related": [
+        "termination"
+      ],
+      "labels": {
+        "tr": "Çalışma belgesi (Dienstzeugnis)",
+        "hr": "Potvrda o radu (Dienstzeugnis)",
+        "sr": "Potvrda o radu (Dienstzeugnis)",
+        "bs": "Potvrda o radu (Dienstzeugnis)",
+        "ro": "Adeverință de muncă (Dienstzeugnis)",
+        "hu": "Munkáltatói igazolás (Dienstzeugnis)",
+        "sl": "Potrdilo o zaposlitvi (Dienstzeugnis)",
+        "de": "Dienstzeugnis",
+        "en": "Employment certificate (Dienstzeugnis)"
+      },
+      "terms": {
+        "de": [
+          "Dienstzeugnis",
+          "Arbeitszeugnis",
+          "Zeugnis",
+          "Arbeitsbestätigung",
+          "Arbeitspapiere"
+        ],
+        "tr": [
+          "çalışma belgesi",
+          "referans mektubu",
+          "bonservis",
+          "iş belgesi",
+          "hizmet belgesi"
+        ],
+        "sh": [
+          "potvrda o radu",
+          "potvrda o zaposlenju",
+          "preporuka",
+          "radna potvrda"
+        ],
+        "ro": [
+          "adeverință de muncă",
+          "scrisoare de recomandare",
+          "certificat de muncă"
+        ],
+        "hu": [
+          "munkáltatói igazolás",
+          "munkaügyi igazolás",
+          "ajánlólevél"
+        ],
+        "sl": [
+          "potrdilo o zaposlitvi",
+          "delovno spričevalo",
+          "priporočilo"
+        ],
+        "en": [
+          "employment certificate",
+          "job reference",
+          "reference letter",
+          "certificate of employment"
+        ]
+      }
+    },
+    "residence_permit": {
+      "kind": "topic",
+      "display": [
+        "Aufenthaltstitel",
+        "Rot-Weiß-Rot-Karte",
+        "Beschäftigungsbewilligung"
+      ],
+      "related": [
+        "contract_start",
+        "unemployment"
+      ],
+      "labels": {
+        "tr": "Oturum ve çalışma izni",
+        "hr": "Boravišna i radna dozvola",
+        "sr": "Boravišna i radna dozvola",
+        "bs": "Boravišna i radna dozvola",
+        "ro": "Permis de ședere și de muncă",
+        "hu": "Tartózkodási és munkavállalási engedély",
+        "sl": "Dovoljenje za prebivanje in delo",
+        "de": "Aufenthaltstitel und Arbeitserlaubnis",
+        "en": "Residence and work permits"
+      },
+      "terms": {
+        "de": [
+          "Aufenthaltstitel",
+          "Aufenthaltsbewilligung",
+          "Niederlassungsbewilligung",
+          "Rot-Weiß-Rot-Karte",
+          "Rot-Weiß-Rot – Karte plus",
+          "RWR-Karte",
+          "Blaue Karte EU",
+          "Beschäftigungsbewilligung",
+          "Arbeitserlaubnis",
+          "Arbeitsbewilligung",
+          "Saisonbewilligung",
+          "Saisonnier",
+          "Daueraufenthalt",
+          "Visum",
+          "Anmeldebescheinigung",
+          "Ausländerbeschäftigungsgesetz",
+          "AuslBG",
+          "Fremdenpolizei",
+          "MA 35",
+          "ausländische Mitarbeiter",
+          "ausländische Beschäftigte",
+          "ausländische Arbeitnehmer"
+        ],
+        "tr": [
+          "oturum izni",
+          "oturum",
+          "çalışma izni",
+          "vize",
+          "kırmızı beyaz kırmızı kart",
+          "rwr kart",
+          "mavi kart",
+          "süresiz oturum",
+          "oturma izni",
+          "ikamet izni"
+        ],
+        "sh": [
+          "boravišna dozvola",
+          "boravisna dozvola",
+          "radna dozvola",
+          "dozvola za rad",
+          "viza",
+          "crveno bijelo crvena karta",
+          "crveno belo crvena karta",
+          "plava karta",
+          "stalni boravak"
+        ],
+        "ro": [
+          "permis de ședere",
+          "permis de muncă",
+          "viză",
+          "card roșu-alb-roșu",
+          "drept de ședere"
+        ],
+        "hu": [
+          "tartózkodási engedély",
+          "munkavállalási engedély",
+          "vízum",
+          "letelepedési engedély"
+        ],
+        "sl": [
+          "dovoljenje za prebivanje",
+          "delovno dovoljenje",
+          "vizum",
+          "dovoljenje za delo"
+        ],
+        "en": [
+          "residence permit",
+          "work permit",
+          "visa",
+          "red-white-red card",
+          "rwr card",
+          "eu blue card",
+          "permanent residence",
+          "right to work"
+        ]
+      }
+    },
+    "harassment": {
+      "kind": "topic",
+      "display": [
+        "Mobbing",
+        "Belästigung",
+        "sexuelle Belästigung"
+      ],
+      "related": [
+        "discrimination",
+        "accident"
+      ],
+      "labels": {
+        "tr": "Mobbing ve taciz",
+        "hr": "Mobing i uznemiravanje",
+        "sr": "Mobing i uznemiravanje",
+        "bs": "Mobing i uznemiravanje",
+        "ro": "Mobbing și hărțuire",
+        "hu": "Mobbing és zaklatás",
+        "sl": "Mobing in nadlegovanje",
+        "de": "Mobbing und Belästigung",
+        "en": "Bullying and harassment"
+      },
+      "terms": {
+        "de": [
+          "Bossing",
+          "Gewalt am Arbeitsplatz",
+          "Beschimpfung",
+          "Bedrohung",
+          "Mobbing",
+          "Belästigung",
+          "sexuelle Belästigung"
+        ],
+        "tr": [
+          "yıldırma",
+          "işyerinde zorbalık",
+          "hakaret",
+          "tehdit",
+          "bağırma",
+          "mobbing",
+          "psikolojik taciz",
+          "taciz",
+          "cinsel taciz"
+        ],
+        "sh": [
+          "maltretiranje na poslu",
+          "zlostavljanje na radu",
+          "vrijeđanje",
+          "vređanje",
+          "prijetnje",
+          "pretnje",
+          "mobing",
+          "uznemiravanje",
+          "seksualno uznemiravanje"
+        ],
+        "ro": [
+          "hărțuire morală",
+          "intimidare",
+          "amenințare",
+          "violență la locul de muncă",
+          "mobbing",
+          "hărțuire",
+          "hărțuire sexuală"
+        ],
+        "hu": [
+          "munkahelyi zaklatás",
+          "megfélemlítés",
+          "fenyegetés",
+          "mobbing",
+          "zaklatás",
+          "szexuális zaklatás"
+        ],
+        "sl": [
+          "trpinčenje na delovnem mestu",
+          "šikaniranje",
+          "grožnje",
+          "mobing",
+          "nadlegovanje",
+          "spolno nadlegovanje"
+        ],
+        "en": [
+          "workplace bullying",
+          "intimidation",
+          "threats",
+          "abuse at work",
+          "bullying",
+          "mobbing",
+          "harassment",
+          "sexual harassment"
+        ]
+      }
+    },
+    "scope": {
+      "kind": "topic",
+      "display": [
+        "Geltungsbereich",
+        "Inkrafttreten",
+        "Laufzeit"
+      ],
+      "related": [],
+      "labels": {
+        "tr": "Sözleşmenin kapsamı ve süresi",
+        "hr": "Područje primjene i trajanje",
+        "sr": "Područje primene i trajanje",
+        "bs": "Područje primjene i trajanje",
+        "ro": "Domeniu de aplicare și durată",
+        "hu": "Hatály és időtartam",
+        "sl": "Področje uporabe in veljavnost",
+        "de": "Geltungsbereich und Laufzeit",
+        "en": "Scope and duration"
+      },
+      "terms": {
+        "de": [
+          "Geltungsbereich",
+          "Geltungsbereiche",
+          "Inkrafttreten",
+          "Laufzeit",
+          "Geltungsdauer",
+          "Vertragspartner",
+          "Kollektivvertragspartner",
+          "Ausnahmen vom Kollektivvertrag",
+          "Kollektivvertragsangehörigkeit",
+          "persönlicher Geltungsbereich",
+          "fachlicher Geltungsbereich",
+          "räumlicher Geltungsbereich",
+          "für wen gilt",
+          "Übergang in neuen Kollektivvertrag",
+          "Außerkrafttreten",
+          "Übergangsbestimmungen",
+          "Übergangsregelung",
+          "Übergangsregelungen"
+        ],
+        "tr": [
+          "kapsam",
+          "hangi sözleşme geçerli",
+          "sözleşme kapsamı",
+          "yürürlük",
+          "geçerlilik süresi"
+        ],
+        "sh": [
+          "područje primjene",
+          "podrucje primene",
+          "važenje ugovora",
+          "stupanje na snagu",
+          "koji ugovor važi"
+        ],
+        "ro": [
+          "domeniu de aplicare",
+          "intrare în vigoare",
+          "durata contractului"
+        ],
+        "hu": [
+          "hatály",
+          "hatálybalépés",
+          "személyi hatály",
+          "területi hatály"
+        ],
+        "sl": [
+          "področje uporabe",
+          "veljavnost",
+          "začetek veljavnosti"
+        ],
+        "en": [
+          "scope",
+          "which agreement applies",
+          "coverage",
+          "entry into force",
+          "duration of the agreement"
+        ]
+      }
+    },
+    "piecework": {
+      "kind": "topic",
+      "display": [
+        "Akkordarbeit",
+        "Prämienlohn",
+        "Leistungslohn"
+      ],
+      "related": [
+        "wages"
+      ],
+      "labels": {
+        "tr": "Parça başı ve performans ücreti",
+        "hr": "Akord i plaća po učinku",
+        "sr": "Akord i plata po učinku",
+        "bs": "Akord i plata po učinku",
+        "ro": "Plată în acord",
+        "hu": "Darabbér és teljesítménybér",
+        "sl": "Akord in plača po učinku",
+        "de": "Akkord- und Prämienlohn",
+        "en": "Piecework and performance pay"
+      },
+      "terms": {
+        "de": [
+          "Akkord",
+          "Akkordarbeit",
+          "Akkordlohn",
+          "Akkordrichtsatz",
+          "Prämienlohn",
+          "Prämienarbeit",
+          "Leistungslohn",
+          "Leistungsrichtsätze",
+          "Stücklohn",
+          "Festlohnsystem",
+          "Garantielohn",
+          "leistungsbezogene Entlohnung",
+          "leistungsbezogen"
+        ],
+        "tr": [
+          "parça başı",
+          "parça başı ücret",
+          "akord",
+          "performans ücreti",
+          "götürü iş"
+        ],
+        "sh": [
+          "akord",
+          "rad na akord",
+          "plata po učinku",
+          "plaća po učinku",
+          "normirani rad"
+        ],
+        "ro": [
+          "acord",
+          "plată în acord",
+          "salarizare în acord",
+          "plată la bucată"
+        ],
+        "hu": [
+          "darabbér",
+          "teljesítménybér",
+          "akkordmunka"
+        ],
+        "sl": [
+          "akord",
+          "akordno delo",
+          "plača po učinku"
+        ],
+        "en": [
+          "piecework",
+          "piece rate",
+          "performance pay",
+          "bonus pay system"
+        ]
+      }
+    },
+    "board_lodging": {
+      "kind": "topic",
+      "display": [
+        "Kost und Logis",
+        "Dienstwohnung",
+        "Personalunterkunft"
+      ],
+      "related": [
+        "hospitality",
+        "wages"
+      ],
+      "labels": {
+        "tr": "Yemek ve konaklama",
+        "hr": "Smještaj i hrana",
+        "sr": "Smeštaj i hrana",
+        "bs": "Smještaj i hrana",
+        "ro": "Cazare și masă",
+        "hu": "Szállás és étkezés",
+        "sl": "Nastanitev in prehrana",
+        "de": "Kost, Logis und Unterkunft",
+        "en": "Board and lodging"
+      },
+      "terms": {
+        "de": [
+          "Kost und Logis",
+          "Kost",
+          "Logis",
+          "Verpflegung",
+          "Personalessen",
+          "Dienstwohnung",
+          "Personalunterkunft",
+          "Personalzimmer",
+          "Unterkunft",
+          "Sachbezug",
+          "Sachbezüge",
+          "Essensgeld",
+          "Zehrgeld",
+          "Zehrgelder",
+          "Naturalleistung",
+          "Naturalleistungen",
+          "Deputat",
+          "Deputate",
+          "Brennholz"
+        ],
+        "tr": [
+          "konaklama",
+          "yemek ve konaklama",
+          "personel odası",
+          "lojman",
+          "yemek parası",
+          "personel yemeği"
+        ],
+        "sh": [
+          "smještaj i hrana",
+          "smestaj i hrana",
+          "stan i hrana",
+          "smještaj za radnike",
+          "smeštaj",
+          "topli obrok"
+        ],
+        "ro": [
+          "cazare și masă",
+          "cazare",
+          "masă asigurată",
+          "locuință de serviciu"
+        ],
+        "hu": [
+          "szállás és ellátás",
+          "szállás",
+          "étkezés",
+          "szolgálati lakás"
+        ],
+        "sl": [
+          "hrana in nastanitev",
+          "nastanitev",
+          "službeno stanovanje",
+          "prehrana"
+        ],
+        "en": [
+          "board and lodging",
+          "accommodation",
+          "staff housing",
+          "staff meals",
+          "meals",
+          "benefits in kind"
+        ]
+      }
+    },
+    "collective_bargaining": {
+      "kind": "topic",
+      "display": [
+        "KV-Erhöhung",
+        "Lohnrunde",
+        "Streik"
+      ],
+      "related": [
+        "wages",
+        "works_council"
+      ],
+      "labels": {
+        "tr": "Toplu sözleşme zammı ve grev",
+        "hr": "Povećanje plaća i štrajk",
+        "sr": "Povećanje plata i štrajk",
+        "bs": "Povećanje plata i štrajk",
+        "ro": "Majorări salariale și grevă",
+        "hu": "Béremelés és sztrájk",
+        "sl": "Povišanje plač in stavka",
+        "de": "KV-Erhöhung und Streik",
+        "en": "Pay rises and strikes"
+      },
+      "terms": {
+        "de": [
+          "KV-Erhöhung",
+          "KV-Abschluss",
+          "Kollektivvertragsabschluss",
+          "Kollektivvertragsverhandlungen",
+          "KV-Verhandlungen",
+          "Lohnrunde",
+          "Herbstlohnrunde",
+          "Lohnerhöhung",
+          "Gehaltserhöhung",
+          "Erhöhung",
+          "Inflationsausgleich",
+          "Teuerungsausgleich",
+          "Einmalzahlung",
+          "Streik",
+          "Warnstreik",
+          "Betriebsversammlung",
+          "Lohnabschluss",
+          "Gehaltsabschluss",
+          "Lohnsteigerung",
+          "Lohnsteigerungen",
+          "Aufwertung"
+        ],
+        "tr": [
+          "zam",
+          "zamlar",
+          "maaş zammı",
+          "toplu pazarlık",
+          "grev",
+          "uyarı grevi",
+          "toplu sözleşme zammı",
+          "enflasyon farkı",
+          "tek seferlik ödeme",
+          "zam ne kadar",
+          "zam oranı"
+        ],
+        "sh": [
+          "povećanje plaće",
+          "povećanje plate",
+          "povišica",
+          "povisica",
+          "štrajk",
+          "strajk",
+          "kolektivno pregovaranje",
+          "jednokratna isplata",
+          "usklađivanje s inflacijom"
+        ],
+        "ro": [
+          "majorare salarială",
+          "mărire de salariu",
+          "grevă",
+          "negocieri colective",
+          "plată unică"
+        ],
+        "hu": [
+          "béremelés",
+          "fizetésemelés",
+          "sztrájk",
+          "kollektív tárgyalás",
+          "egyszeri kifizetés"
+        ],
+        "sl": [
+          "povišanje plače",
+          "povišica",
+          "stavka",
+          "kolektivna pogajanja",
+          "enkratno izplačilo"
+        ],
+        "en": [
+          "pay rise",
+          "raise",
+          "wage increase",
+          "salary increase",
+          "strike",
+          "collective bargaining",
+          "pay round",
+          "one-off payment",
+          "inflation adjustment"
+        ]
+      }
+    },
+    "short_time_work": {
+      "kind": "topic",
+      "display": [
+        "Kurzarbeit",
+        "Schlechtwetterentschädigung"
+      ],
+      "related": [
+        "wages",
+        "unemployment"
+      ],
+      "labels": {
+        "tr": "Kısa çalışma ve kötü hava ödemesi",
+        "hr": "Skraćeni rad i loše vrijeme",
+        "sr": "Skraćeni rad i loše vreme",
+        "bs": "Skraćeni rad i loše vrijeme",
+        "ro": "Șomaj tehnic și intemperii",
+        "hu": "Csökkentett munkaidő és rossz idő",
+        "sl": "Skrajšani delovni čas in slabo vreme",
+        "de": "Kurzarbeit und Schlechtwetter",
+        "en": "Short-time work and bad weather pay"
+      },
+      "terms": {
+        "de": [
+          "Kurzarbeit",
+          "Kurzarbeitsbeihilfe",
+          "Schlechtwetter",
+          "Schlechtwetterentschädigung",
+          "Schlechtwetterregelung",
+          "Arbeitsunterbrechung",
+          "Arbeitsunterbrechungen",
+          "Betriebsstillstand"
+        ],
+        "tr": [
+          "kısa çalışma",
+          "kısa çalışma ödeneği",
+          "kötü hava",
+          "kötü hava parası",
+          "iş durması"
+        ],
+        "sh": [
+          "skraćeni rad",
+          "loše vrijeme",
+          "loše vreme",
+          "naknada za loše vrijeme",
+          "prekid rada"
+        ],
+        "ro": [
+          "șomaj tehnic",
+          "program redus temporar",
+          "intemperii",
+          "întreruperea lucrului"
+        ],
+        "hu": [
+          "csökkentett munkaidő",
+          "rossz idő",
+          "rossz idő miatti kártalanítás",
+          "munkaszünet"
+        ],
+        "sl": [
+          "skrajšani delovni čas začasno",
+          "slabo vreme",
+          "čakanje na delo",
+          "prekinitev dela"
+        ],
+        "en": [
+          "short-time work",
+          "short time working",
+          "bad weather pay",
+          "work stoppage",
+          "furlough"
+        ]
+      }
+    },
+    "duties_discipline": {
+      "kind": "topic",
+      "display": [
+        "Dienstpflichten",
+        "Disziplinarmaßnahmen",
+        "Dienstnehmerhaftung"
+      ],
+      "related": [
+        "termination"
+      ],
+      "labels": {
+        "tr": "İşçinin yükümlülükleri ve disiplin",
+        "hr": "Obveze radnika i disciplina",
+        "sr": "Obaveze radnika i disciplina",
+        "bs": "Obaveze radnika i disciplina",
+        "ro": "Obligații și disciplină",
+        "hu": "Munkavállalói kötelezettségek és fegyelem",
+        "sl": "Obveznosti delavca in disciplina",
+        "de": "Pflichten, Disziplin und Haftung",
+        "en": "Employee duties, discipline and liability"
+      },
+      "terms": {
+        "de": [
+          "Pflichten",
+          "Dienstpflichten",
+          "Arbeitnehmerpflichten",
+          "Dienstpflichtverletzung",
+          "Dienstpflichtverletzungen",
+          "Disziplinar",
+          "Disziplinarordnung",
+          "Disziplinarmaßnahmen",
+          "Fehlverhalten",
+          "Verwarnung",
+          "Abmahnung",
+          "Schadenhaftung",
+          "Schadenersatz",
+          "Dienstnehmerhaftung",
+          "Haftung",
+          "Schweigepflicht",
+          "Nebentätigkeit",
+          "Nebentätigkeiten",
+          "Verantwortlichkeiten"
+        ],
+        "tr": [
+          "işçinin görevleri",
+          "yükümlülükler",
+          "disiplin",
+          "uyarı cezası",
+          "ihtar",
+          "zarar tazmini",
+          "gizlilik yükümlülüğü",
+          "ikinci iş",
+          "kırdığım eşyayı ödemek"
+        ],
+        "sh": [
+          "obaveze radnika",
+          "obveze radnika",
+          "disciplinska mjera",
+          "disciplinska mera",
+          "opomena",
+          "naknada štete",
+          "odgovornost za štetu"
+        ],
+        "ro": [
+          "obligațiile angajatului",
+          "sancțiune disciplinară",
+          "avertisment",
+          "răspundere pentru pagube"
+        ],
+        "hu": [
+          "munkavállalói kötelezettség",
+          "fegyelmi",
+          "figyelmeztetés",
+          "kártérítési felelősség"
+        ],
+        "sl": [
+          "obveznosti delavca",
+          "disciplinski ukrep",
+          "opomin",
+          "odškodninska odgovornost"
+        ],
+        "en": [
+          "employee duties",
+          "obligations",
+          "disciplinary",
+          "warning",
+          "written warning",
+          "liability for damage",
+          "confidentiality",
+          "secondary job"
+        ]
+      }
+    },
+    "disputes_court": {
+      "kind": "topic",
+      "display": [
+        "Arbeits- und Sozialgericht",
+        "Schlichtung",
+        "Klage"
+      ],
+      "related": [
+        "unpaid_wages",
+        "works_council"
+      ],
+      "labels": {
+        "tr": "Uyuşmazlık ve iş mahkemesi",
+        "hr": "Sporovi i radni sud",
+        "sr": "Sporovi i radni sud",
+        "bs": "Sporovi i radni sud",
+        "ro": "Litigii și instanța de muncă",
+        "hu": "Munkaügyi vita és bíróság",
+        "sl": "Spori in delovno sodišče",
+        "de": "Schlichtung und Arbeitsgericht",
+        "en": "Disputes and labour court"
+      },
+      "terms": {
+        "de": [
+          "Arbeitsgericht",
+          "Arbeits- und Sozialgericht",
+          "ASG",
+          "Gericht",
+          "Gerichtsverfahren",
+          "Klage",
+          "klagen",
+          "Schlichtung",
+          "Schlichtungsstelle",
+          "Schlichtungsverfahren",
+          "Schiedsgericht",
+          "Rechtsstreit",
+          "Rechtsweg"
+        ],
+        "tr": [
+          "iş mahkemesi",
+          "dava",
+          "dava açmak",
+          "mahkeme",
+          "arabuluculuk",
+          "uzlaşma",
+          "işvereni şikayet etmek"
+        ],
+        "sh": [
+          "radni sud",
+          "sud",
+          "tužba",
+          "tuzba",
+          "tužiti poslodavca",
+          "mirenje",
+          "arbitraža"
+        ],
+        "ro": [
+          "instanța de muncă",
+          "proces",
+          "dați în judecată",
+          "mediere",
+          "conciliere"
+        ],
+        "hu": [
+          "munkaügyi bíróság",
+          "per",
+          "beperelni",
+          "békéltetés",
+          "egyeztetés"
+        ],
+        "sl": [
+          "delovno sodišče",
+          "tožba",
+          "sodišče",
+          "mediacija",
+          "spravni postopek"
+        ],
+        "en": [
+          "labour court",
+          "labor court",
+          "court",
+          "lawsuit",
+          "sue my employer",
+          "arbitration",
+          "mediation",
+          "conciliation"
+        ]
+      }
+    },
+    "sabbatical": {
+      "kind": "topic",
+      "display": [
+        "Sabbatical",
+        "Freizeitoption",
+        "Zeitguthaben"
+      ],
+      "related": [
+        "annual_leave",
+        "working_hours"
+      ],
+      "labels": {
+        "tr": "Uzun süreli izin (Sabbatical) ve zaman hesabı",
+        "hr": "Sabbatical i vremenski račun",
+        "sr": "Sabbatical i vremenski račun",
+        "bs": "Sabbatical i vremenski račun",
+        "ro": "Sabbatical și cont de timp",
+        "hu": "Sabbatical és időszámla",
+        "sl": "Sabbatical in časovni račun",
+        "de": "Sabbatical, Freizeitoption und Zeitguthaben",
+        "en": "Sabbatical and time accounts"
+      },
+      "terms": {
+        "de": [
+          "Sabbatical",
+          "Auszeit",
+          "Auszeiten",
+          "Berufspause",
+          "Freizeitoption",
+          "Zeitguthaben",
+          "Zeitwertkonto",
+          "Langzeitkonto"
+        ],
+        "tr": [
+          "uzun izin",
+          "sabbatical",
+          "ücretsiz izin",
+          "zaman hesabı",
+          "biriken saatler"
+        ],
+        "sh": [
+          "neplaćeni dopust",
+          "neplaćeno odsustvo",
+          "sabbatical",
+          "fond sati"
+        ],
+        "ro": [
+          "concediu fără plată",
+          "sabbatical",
+          "cont de timp"
+        ],
+        "hu": [
+          "fizetés nélküli szabadság",
+          "sabbatical",
+          "időszámla"
+        ],
+        "sl": [
+          "neplačan dopust",
+          "sabbatical",
+          "časovni račun"
+        ],
+        "en": [
+          "sabbatical",
+          "career break",
+          "unpaid leave",
+          "time account",
+          "time credit"
         ]
       }
     },
@@ -1443,6 +4785,17 @@
         "Hotel"
       ],
       "related": [],
+      "labels": {
+        "tr": "Otel ve gastronomi",
+        "hr": "Hoteli i ugostiteljstvo",
+        "sr": "Hoteli i ugostiteljstvo",
+        "bs": "Hoteli i ugostiteljstvo",
+        "ro": "Hoteluri și gastronomie",
+        "hu": "Szálloda és vendéglátás",
+        "sl": "Hoteli in gostinstvo",
+        "de": "Hotel und Gastgewerbe",
+        "en": "Hotels and hospitality"
+      },
       "terms": {
         "de": [
           "Hotel",
@@ -1467,7 +4820,9 @@
           "konaklama",
           "sezonluk çalışma",
           "kafe",
-          "lokanta"
+          "lokanta",
+          "sezonluk",
+          "sezon işi"
         ],
         "sh": [
           "hotel",
@@ -1537,6 +4892,17 @@
         "Handelsangestellte"
       ],
       "related": [],
+      "labels": {
+        "tr": "Ticaret",
+        "hr": "Trgovina",
+        "sr": "Trgovina",
+        "bs": "Trgovina",
+        "ro": "Comerț",
+        "hu": "Kereskedelem",
+        "sl": "Trgovina",
+        "de": "Handel",
+        "en": "Retail and trade"
+      },
       "terms": {
         "de": [
           "Handel",
@@ -1624,6 +4990,17 @@
         "BUAK"
       ],
       "related": [],
+      "labels": {
+        "tr": "İnşaat",
+        "hr": "Građevina",
+        "sr": "Građevina",
+        "bs": "Građevina",
+        "ro": "Construcții",
+        "hu": "Építőipar",
+        "sl": "Gradbeništvo",
+        "de": "Bau",
+        "en": "Construction"
+      },
       "terms": {
         "de": [
           "Bau",
@@ -1718,6 +5095,17 @@
         "IT"
       ],
       "related": [],
+      "labels": {
+        "tr": "Sanayi ve metal",
+        "hr": "Industrija i metal",
+        "sr": "Industrija i metal",
+        "bs": "Industrija i metal",
+        "ro": "Industrie și metal",
+        "hu": "Ipar és fémipar",
+        "sl": "Industrija in kovinska industrija",
+        "de": "Industrie und Metall",
+        "en": "Industry and metal"
+      },
       "terms": {
         "de": [
           "Metall",
@@ -1736,7 +5124,6 @@
           "Eisen",
           "Bergbau",
           "Chemische Industrie",
-          "Elektro",
           "Brotindustrie",
           "Papier"
         ],
@@ -1817,6 +5204,17 @@
         "Lenkzeiten"
       ],
       "related": [],
+      "labels": {
+        "tr": "Taşımacılık ve kurye",
+        "hr": "Prijevoz i dostava",
+        "sr": "Prevoz i dostava",
+        "bs": "Prevoz i dostava",
+        "ro": "Transport și livrări",
+        "hu": "Szállítás és futárszolgálat",
+        "sl": "Prevoz in dostava",
+        "de": "Transport und Zustellung",
+        "en": "Transport and delivery"
+      },
       "terms": {
         "de": [
           "Güterbeförderung",
@@ -1834,7 +5232,33 @@
           "Kleintransport",
           "Autobus",
           "Postbus",
-          "Personenbeförderung"
+          "Personenbeförderung",
+          "Zusteller",
+          "Zustellung",
+          "Paketzusteller",
+          "Paketdienst",
+          "Kurier",
+          "Kurierdienst",
+          "Fahrradbote",
+          "Fahrradzustellung",
+          "Essenszustellung",
+          "Botendienst",
+          "Lieferdienst",
+          "Rider",
+          "Taxilenker",
+          "Lenker",
+          "Berufskraftfahrer",
+          "Lieferando",
+          "Foodora",
+          "Wolt",
+          "Mjam",
+          "Uber",
+          "Bolt",
+          "Taxifahrer",
+          "Taxi-Lenker",
+          "Bahnpersonal",
+          "Eisenbahn",
+          "ÖBB"
         ],
         "tr": [
           "nakliye",
@@ -1846,7 +5270,13 @@
           "lojistik",
           "sürüş süresi",
           "taksi",
-          "otobüs şoförü"
+          "otobüs şoförü",
+          "kurye",
+          "paket dağıtıcı",
+          "kargo",
+          "yemek kuryesi",
+          "dağıtım şoförü",
+          "tır şoförü"
         ],
         "sh": [
           "prijevoz",
@@ -1858,7 +5288,12 @@
           "logistika",
           "vrijeme vožnje",
           "taksi",
-          "autobus"
+          "autobus",
+          "dostavljač",
+          "dostavljac",
+          "kurir",
+          "dostava hrane",
+          "vozač kamiona"
         ],
         "ro": [
           "transport",
@@ -1869,7 +5304,10 @@
           "logistica",
           "timp de condus",
           "taxi",
-          "autobuz"
+          "autobuz",
+          "curier",
+          "livrator",
+          "șofer de camion"
         ],
         "hu": [
           "fuvarozás",
@@ -1879,7 +5317,9 @@
           "logisztika",
           "vezetési idő",
           "taxi",
-          "buszsofőr"
+          "buszsofőr",
+          "futár",
+          "kamionsofőr"
         ],
         "sl": [
           "prevoz",
@@ -1889,7 +5329,10 @@
           "logistika",
           "vozni čas",
           "taksi",
-          "avtobus"
+          "avtobus",
+          "dostavljavec",
+          "kurir",
+          "voznik tovornjaka"
         ],
         "en": [
           "transport",
@@ -1900,7 +5343,12 @@
           "driving time",
           "taxi",
           "bus driver",
-          "haulage"
+          "haulage",
+          "courier",
+          "delivery driver",
+          "delivery rider",
+          "bike courier",
+          "parcel delivery"
         ]
       }
     },
@@ -1911,6 +5359,17 @@
         "Pflege"
       ],
       "related": [],
+      "labels": {
+        "tr": "Bakım ve sosyal hizmetler",
+        "hr": "Njega i socijalne usluge",
+        "sr": "Nega i socijalne usluge",
+        "bs": "Njega i socijalne usluge",
+        "ro": "Îngrijire și servicii sociale",
+        "hu": "Ápolás és szociális szolgáltatások",
+        "sl": "Nega in socialne storitve",
+        "de": "Pflege und Sozialwirtschaft",
+        "en": "Care and social services"
+      },
       "terms": {
         "de": [
           "Pflege",
@@ -1930,7 +5389,14 @@
           "Gesundheitsbetriebe",
           "Pflegeheim",
           "Alten- und Pflegeheime",
-          "Sozial- und Gesundheit"
+          "Sozial- und Gesundheit",
+          "Rettungsdienst",
+          "Sanitäter",
+          "Arztpraxis",
+          "Ordination",
+          "Behindertenbetreuung",
+          "24-Stunden-Betreuung",
+          "Personenbetreuung"
         ],
         "tr": [
           "bakım",
@@ -2007,6 +5473,17 @@
         "Denkmal-, Fassaden- und Gebäudereiniger"
       ],
       "related": [],
+      "labels": {
+        "tr": "Temizlik",
+        "hr": "Čišćenje",
+        "sr": "Čišćenje",
+        "bs": "Čišćenje",
+        "ro": "Curățenie",
+        "hu": "Takarítás",
+        "sl": "Čiščenje",
+        "de": "Reinigung",
+        "en": "Cleaning"
+      },
       "terms": {
         "de": [
           "Reinigung",
@@ -2074,561 +5551,6 @@
         ]
       }
     },
-    "telework": {
-      "kind": "topic",
-      "display": [
-        "Telearbeit",
-        "Homeoffice"
-      ],
-      "related": [
-        "working_hours"
-      ],
-      "terms": {
-        "de": [
-          "Telearbeit",
-          "Homeoffice",
-          "Home-Office",
-          "Heimarbeit",
-          "Arbeiten von zu Hause",
-          "Telearbeitsvereinbarung",
-          "Homeoffice-Pauschale",
-          "Arbeitsplatz zu Hause",
-          "Homeoffice Vereinbarung"
-        ],
-        "tr": [
-          "evden çalışma",
-          "ev ofisi",
-          "uzaktan çalışma",
-          "home office",
-          "homeoffice",
-          "teleçalışma",
-          "evden çalışma ödeneği",
-          "evden çalışmak"
-        ],
-        "sh": [
-          "rad od kuće",
-          "rad od kuce",
-          "rad kod kuće",
-          "kućni ured",
-          "homeoffice",
-          "home office",
-          "telerad",
-          "rad na daljinu"
-        ],
-        "ro": [
-          "munca de acasă",
-          "telemuncă",
-          "munca la domiciliu",
-          "home office",
-          "muncă de la distanță",
-          "homeoffice"
-        ],
-        "hu": [
-          "otthoni munkavégzés",
-          "távmunka",
-          "home office",
-          "homeoffice",
-          "otthonról dolgozás"
-        ],
-        "sl": [
-          "delo od doma",
-          "delo na domu",
-          "delo na daljavo",
-          "home office",
-          "homeoffice",
-          "teledelo"
-        ],
-        "en": [
-          "working from home",
-          "remote work",
-          "home office",
-          "homeoffice",
-          "telework",
-          "teleworking",
-          "hybrid work"
-        ]
-      }
-    },
-    "allowances": {
-      "kind": "topic",
-      "display": [
-        "Zulagen",
-        "Zuschläge",
-        "Schmutzzulage"
-      ],
-      "related": [
-        "wages",
-        "working_hours"
-      ],
-      "terms": {
-        "de": [
-          "Zulage",
-          "Zulagen",
-          "Zuschlag",
-          "Zuschläge",
-          "Schmutzzulage",
-          "Erschwerniszulage",
-          "Gefahrenzulage",
-          "Nachtzuschlag",
-          "Nachtzulage",
-          "Sonntagszuschlag",
-          "Feiertagszuschlag",
-          "Schichtzulage",
-          "Funktionszulage",
-          "Überstundenzuschlag",
-          "Wegzeitvergütung"
-        ],
-        "tr": [
-          "zam ödeneği",
-          "ek ödenek",
-          "tehlike zammı",
-          "kirli iş zammı",
-          "gece zammı",
-          "pazar zammı",
-          "vardiya zammı",
-          "tatil çalışma zammı",
-          "fazla mesai zammı",
-          "ağır iş ödeneği",
-          "yol süresi ödemesi",
-          "mesai ücreti"
-        ],
-        "sh": [
-          "dodatak",
-          "dodaci",
-          "dodatak za prljav rad",
-          "dodatak za noćni rad",
-          "dodatak za rad nedjeljom",
-          "dodatak za smjenski rad",
-          "dodatak za opasnost",
-          "dodatak za prekovremeni rad",
-          "naknada za put do posla"
-        ],
-        "ro": [
-          "sporuri",
-          "spor",
-          "spor de noapte",
-          "spor de periculozitate",
-          "spor de weekend",
-          "spor pentru ore suplimentare",
-          "spor pentru munca în ture"
-        ],
-        "hu": [
-          "pótlék",
-          "pótlékok",
-          "éjszakai pótlék",
-          "vasárnapi pótlék",
-          "műszakpótlék",
-          "veszélyességi pótlék",
-          "túlóra pótlék",
-          "szennyezési pótlék"
-        ],
-        "sl": [
-          "dodatki",
-          "dodatek za nočno delo",
-          "dodatek za delo ob nedeljah",
-          "dodatek za izmensko delo",
-          "dodatek za nevarnost",
-          "dodatek za nadurno delo",
-          "dodatek za težke pogoje"
-        ],
-        "en": [
-          "allowances",
-          "supplements",
-          "premium pay",
-          "night supplement",
-          "sunday supplement",
-          "shift allowance",
-          "hazard pay",
-          "dirty work allowance",
-          "overtime premium",
-          "travel time pay"
-        ]
-      }
-    },
-    "unemployment": {
-      "kind": "topic",
-      "display": [
-        "Arbeitslosengeld",
-        "AMS",
-        "Notstandshilfe"
-      ],
-      "related": [
-        "termination"
-      ],
-      "terms": {
-        "de": [
-          "Arbeitslosengeld",
-          "Arbeitslosenversicherung",
-          "AMS",
-          "Arbeitsmarktservice",
-          "Notstandshilfe",
-          "Arbeitslosigkeit",
-          "arbeitslos",
-          "Arbeitssuche",
-          "Anwartschaft"
-        ],
-        "tr": [
-          "işsizlik maaşı",
-          "işsizlik ödeneği",
-          "işsizlik sigortası",
-          "işsiz",
-          "iş arama",
-          "işsiz kalmak",
-          "AMS"
-        ],
-        "sh": [
-          "nezaposlenost",
-          "naknada za nezaposlene",
-          "osiguranje za slučaj nezaposlenosti",
-          "nezaposlen",
-          "traženje posla",
-          "AMS"
-        ],
-        "ro": [
-          "șomaj",
-          "indemnizație de șomaj",
-          "asigurare de șomaj",
-          "șomer",
-          "căutare loc de muncă",
-          "AMS"
-        ],
-        "hu": [
-          "munkanélküliség",
-          "munkanélküli segély",
-          "álláskeresési járadék",
-          "munkanélküli-biztosítás",
-          "álláskeresés",
-          "AMS"
-        ],
-        "sl": [
-          "brezposelnost",
-          "nadomestilo za brezposelnost",
-          "zavarovanje za primer brezposelnosti",
-          "brezposeln",
-          "iskanje zaposlitve",
-          "AMS"
-        ],
-        "en": [
-          "unemployment",
-          "unemployment benefit",
-          "jobless",
-          "job seeker",
-          "jobseeker",
-          "unemployment insurance",
-          "AMS"
-        ]
-      }
-    },
-    "retirement": {
-      "kind": "topic",
-      "display": [
-        "Pension",
-        "Altersteilzeit"
-      ],
-      "related": [
-        "severance"
-      ],
-      "terms": {
-        "de": [
-          "Pension",
-          "Pensionierung",
-          "Alterspension",
-          "Pensionsantritt",
-          "Altersteilzeit",
-          "Pensionsversicherung",
-          "Pensionskonto",
-          "Rente"
-        ],
-        "tr": [
-          "emeklilik",
-          "emekli",
-          "emeklilik maaşı",
-          "yaşlılık aylığı",
-          "yarı zamanlı emeklilik",
-          "emeklilik sigortası"
-        ],
-        "sh": [
-          "mirovina",
-          "umirovljenje",
-          "penzija",
-          "penzionisanje",
-          "starosna mirovina",
-          "starosna penzija",
-          "mirovinsko osiguranje",
-          "penzijsko osiguranje"
-        ],
-        "ro": [
-          "pensie",
-          "pensionare",
-          "pensie de limită de vârstă",
-          "asigurare de pensie",
-          "program redus înainte de pensionare"
-        ],
-        "hu": [
-          "nyugdíj",
-          "nyugdíjazás",
-          "öregségi nyugdíj",
-          "nyugdíjbiztosítás",
-          "részmunkaidő nyugdíj előtt"
-        ],
-        "sl": [
-          "pokojnina",
-          "upokojitev",
-          "starostna pokojnina",
-          "pokojninsko zavarovanje"
-        ],
-        "en": [
-          "pension",
-          "retirement",
-          "retire",
-          "old-age pension",
-          "pension insurance",
-          "partial retirement"
-        ]
-      }
-    },
-    "discrimination": {
-      "kind": "topic",
-      "display": [
-        "Diskriminierung",
-        "Gleichbehandlung"
-      ],
-      "related": [
-        "works_council"
-      ],
-      "terms": {
-        "de": [
-          "Diskriminierung",
-          "Gleichbehandlung",
-          "Gleichbehandlungsgesetz",
-          "Gleichbehandlungsanwaltschaft",
-          "Belästigung",
-          "sexuelle Belästigung",
-          "Benachteiligung",
-          "Equal Pay",
-          "gleicher Lohn",
-          "Ungleichbehandlung",
-          "Rassismus"
-        ],
-        "tr": [
-          "ayrımcılık",
-          "eşit muamele",
-          "eşit işe eşit ücret",
-          "taciz",
-          "cinsel taciz",
-          "dezavantajlı muamele",
-          "ırkçılık",
-          "eşit ücret"
-        ],
-        "sh": [
-          "diskriminacija",
-          "jednako postupanje",
-          "jednaka plaća",
-          "jednaka plata",
-          "uznemiravanje",
-          "seksualno uznemiravanje",
-          "nejednako postupanje",
-          "rasizam"
-        ],
-        "ro": [
-          "discriminare",
-          "egalitate de tratament",
-          "salariu egal",
-          "hărțuire",
-          "hărțuire sexuală",
-          "rasism"
-        ],
-        "hu": [
-          "diszkrimináció",
-          "egyenlő bánásmód",
-          "egyenlő bér",
-          "zaklatás",
-          "szexuális zaklatás",
-          "rasszizmus"
-        ],
-        "sl": [
-          "diskriminacija",
-          "enako obravnavanje",
-          "enako plačilo",
-          "nadlegovanje",
-          "spolno nadlegovanje",
-          "rasizem"
-        ],
-        "en": [
-          "discrimination",
-          "equal treatment",
-          "equal pay",
-          "harassment",
-          "sexual harassment",
-          "racism",
-          "unfair treatment"
-        ]
-      }
-    },
-    "unpaid_wages": {
-      "kind": "topic",
-      "display": [
-        "Lohnrückstand",
-        "Insolvenz-Entgelt",
-        "Verjährung"
-      ],
-      "related": [
-        "termination"
-      ],
-      "terms": {
-        "de": [
-          "Lohnrückstand",
-          "Lohnrückstände",
-          "ausstehender Lohn",
-          "Lohn nicht bezahlt",
-          "Insolvenz",
-          "Insolvenzentgelt",
-          "Insolvenz-Entgelt",
-          "Konkurs",
-          "Lohnklage",
-          "Verjährung",
-          "Verfallsfrist",
-          "Nachzahlung",
-          "Unterentlohnung",
-          "Lohn- und Sozialdumping"
-        ],
-        "tr": [
-          "ödenmeyen maaş",
-          "maaş ödenmedi",
-          "maaş alacağı",
-          "işveren iflası",
-          "iflas",
-          "zamanaşımı",
-          "hak düşürücü süre",
-          "maaş davası",
-          "eksik ödeme",
-          "geriye dönük ödeme",
-          "maaşımı alamadım"
-        ],
-        "sh": [
-          "neisplaćena plaća",
-          "neisplaćena plata",
-          "plata nije isplaćena",
-          "stečaj",
-          "insolventnost",
-          "zastara",
-          "rokovi zastare",
-          "tužba za plaću",
-          "nedovoljna plaća"
-        ],
-        "ro": [
-          "salariu neplătit",
-          "salarii restante",
-          "insolvență",
-          "faliment",
-          "prescripție",
-          "termen de decădere",
-          "acțiune în instanță pentru salariu"
-        ],
-        "hu": [
-          "kifizetetlen bér",
-          "bértartozás",
-          "fizetésképtelenség",
-          "csőd",
-          "elévülés",
-          "jogvesztő határidő",
-          "bérper"
-        ],
-        "sl": [
-          "neizplačana plača",
-          "zaostanek plače",
-          "stečaj",
-          "insolventnost",
-          "zastaranje",
-          "rok zastaranja",
-          "tožba za plačo"
-        ],
-        "en": [
-          "unpaid wages",
-          "wages owed",
-          "unpaid salary",
-          "back pay",
-          "insolvency",
-          "bankruptcy",
-          "limitation period",
-          "time limit for claims",
-          "underpayment",
-          "wage claim"
-        ]
-      }
-    },
-    "training": {
-      "kind": "topic",
-      "display": [
-        "Weiterbildung",
-        "Bildungsfreistellung"
-      ],
-      "related": [],
-      "terms": {
-        "de": [
-          "Weiterbildung",
-          "Fortbildung",
-          "Bildungsfreistellung",
-          "Schulung",
-          "Ausbildung",
-          "Qualifizierung",
-          "Deutschkurs",
-          "Weiterbildungszeit"
-        ],
-        "tr": [
-          "eğitim",
-          "meslek eğitimi",
-          "hizmet içi eğitim",
-          "kurs",
-          "Almanca kursu",
-          "eğitim izni",
-          "mesleki gelişim"
-        ],
-        "sh": [
-          "obrazovanje",
-          "usavršavanje",
-          "edukacija",
-          "tečaj",
-          "kurs njemačkog",
-          "kurs nemačkog",
-          "obuka",
-          "izobrazba"
-        ],
-        "ro": [
-          "formare profesională",
-          "instruire",
-          "curs",
-          "curs de germană",
-          "perfecționare",
-          "concediu de studii"
-        ],
-        "hu": [
-          "továbbképzés",
-          "képzés",
-          "tanfolyam",
-          "németkurzus",
-          "szakképzés",
-          "tanulmányi szabadság"
-        ],
-        "sl": [
-          "izobraževanje",
-          "usposabljanje",
-          "tečaj",
-          "tečaj nemščine",
-          "izpopolnjevanje",
-          "izobraževalni dopust"
-        ],
-        "en": [
-          "training",
-          "further education",
-          "education leave",
-          "course",
-          "german course",
-          "qualification",
-          "upskilling"
-        ]
-      }
-    },
     "crafts": {
       "kind": "sector",
       "display": [
@@ -2638,6 +5560,17 @@
         "Holz"
       ],
       "related": [],
+      "labels": {
+        "tr": "Zanaat",
+        "hr": "Obrt",
+        "sr": "Zanatstvo",
+        "bs": "Zanatstvo",
+        "ro": "Meserii",
+        "hu": "Kézműipar",
+        "sl": "Obrt",
+        "de": "Gewerbe und Handwerk",
+        "en": "Crafts and trades"
+      },
       "terms": {
         "de": [
           "Friseur",
@@ -2727,6 +5660,169 @@
           "trades",
           "crafts",
           "beautician"
+        ]
+      }
+    },
+    "agriculture": {
+      "kind": "sector",
+      "display": [
+        "Landwirtschaft",
+        "Erntehelfer",
+        "Forst"
+      ],
+      "related": [],
+      "labels": {
+        "tr": "Tarım ve ormancılık",
+        "hr": "Poljoprivreda i šumarstvo",
+        "sr": "Poljoprivreda i šumarstvo",
+        "bs": "Poljoprivreda i šumarstvo",
+        "ro": "Agricultură și silvicultură",
+        "hu": "Mezőgazdaság és erdészet",
+        "sl": "Kmetijstvo in gozdarstvo",
+        "de": "Land- und Forstwirtschaft",
+        "en": "Agriculture and forestry"
+      },
+      "terms": {
+        "de": [
+          "Landwirtschaft",
+          "landwirtschaftlich",
+          "Land- und Forstwirtschaft",
+          "Forstwirtschaft",
+          "Forst",
+          "Erntehelfer",
+          "Erntehelferin",
+          "Ernte",
+          "Gutsbetriebe",
+          "Weinbau",
+          "Gartenbau",
+          "Obstbau",
+          "Landarbeiter",
+          "Lagerhaus",
+          "Molkerei",
+          "Tierhaltung"
+        ],
+        "tr": [
+          "tarım",
+          "tarım işçisi",
+          "hasat",
+          "hasat işçisi",
+          "bağ bozumu",
+          "çiftlik",
+          "orman işçisi",
+          "sera"
+        ],
+        "sh": [
+          "poljoprivreda",
+          "berač",
+          "berba",
+          "sezonski rad u poljoprivredi",
+          "farma",
+          "šumarstvo",
+          "sumarstvo"
+        ],
+        "ro": [
+          "agricultură",
+          "culegător",
+          "recoltare",
+          "fermă",
+          "silvicultură",
+          "muncitor agricol"
+        ],
+        "hu": [
+          "mezőgazdaság",
+          "szüret",
+          "betakarítás",
+          "idénymunka mezőgazdaság",
+          "erdészet",
+          "farm"
+        ],
+        "sl": [
+          "kmetijstvo",
+          "obiralec",
+          "obiranje",
+          "trgatev",
+          "gozdarstvo",
+          "kmetija"
+        ],
+        "en": [
+          "agriculture",
+          "farm work",
+          "farm worker",
+          "harvest",
+          "harvest worker",
+          "seasonal farm work",
+          "forestry"
+        ]
+      }
+    },
+    "security": {
+      "kind": "sector",
+      "display": [
+        "Bewachung",
+        "Sicherheitsdienst"
+      ],
+      "related": [],
+      "labels": {
+        "tr": "Güvenlik hizmetleri",
+        "hr": "Zaštitarske usluge",
+        "sr": "Obezbeđenje",
+        "bs": "Zaštitarske usluge",
+        "ro": "Servicii de pază",
+        "hu": "Vagyonvédelem",
+        "sl": "Varovanje",
+        "de": "Bewachung",
+        "en": "Security services"
+      },
+      "terms": {
+        "de": [
+          "Bewachung",
+          "Bewachungsgewerbe",
+          "Sicherheitsdienst",
+          "Sicherheitsdienste",
+          "Security",
+          "Wachdienst",
+          "Objektschutz",
+          "Sicherheitsgewerbe",
+          "Portier",
+          "Wachorgane"
+        ],
+        "tr": [
+          "güvenlik",
+          "güvenlik görevlisi",
+          "bekçi",
+          "güvenlik şirketi"
+        ],
+        "sh": [
+          "obezbjeđenje",
+          "obezbeđenje",
+          "zaštitar",
+          "zastitar",
+          "čuvar",
+          "cuvar",
+          "security"
+        ],
+        "ro": [
+          "pază",
+          "agent de pază",
+          "paznic",
+          "securitate"
+        ],
+        "hu": [
+          "vagyonőr",
+          "biztonsági szolgálat",
+          "őrző-védő"
+        ],
+        "sl": [
+          "varnostnik",
+          "varovanje",
+          "varnostna služba"
+        ],
+        "en": [
+          "security guard",
+          "security",
+          "guarding",
+          "watchman",
+          "bouncer"
         ]
       }
     }

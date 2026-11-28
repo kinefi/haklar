@@ -6,11 +6,11 @@ import { readFileSync } from "node:fs";
 
 const require = createRequire(import.meta.url);
 const { createEngine } = require("../assets/semantic.js");
-const { rank } = require("../assets/rag-retriever.js");
+const { rank } = require("../assets/search-retriever.js");
 const read = (p) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), "utf8"));
 
 const semantic = createEngine(read("content/concepts.json"));
-const index = read("content/rag-index.json");
+const index = read("content/search-index.json");
 const agreements = read("content/collective-agreements.json").agreements;
 const search = (q, language, topK = 10) => rank(index, q, { language, topK, semantic, agreements });
 
@@ -67,11 +67,11 @@ test("GLB hiçbir içerikte geçmez", () => {
   for (const f of ["tr", "hr", "sr", "bs", "ro", "hu", "sl", "de", "en"]) {
     assert.ok(!/GLB|Linksblock/.test(readFileSync(new URL(`../content/${f}.json`, import.meta.url), "utf8")), f);
   }
-  assert.ok(!/GLB|Linksblock/.test(readFileSync(new URL("../content/rag-index.json", import.meta.url), "utf8")));
+  assert.ok(!/GLB|Linksblock/.test(readFileSync(new URL("../content/search-index.json", import.meta.url), "utf8")));
 });
 
-test("rag-index küçük kalır (KV artık ayrı dosyadan aranır)", () => {
-  assert.ok(readFileSync(new URL("../content/rag-index.json", import.meta.url)).length < 400_000);
+test("search-index küçük kalır (KV artık ayrı dosyadan aranır)", () => {
+  assert.ok(readFileSync(new URL("../content/search-index.json", import.meta.url)).length < 400_000);
   assert.ok(!index.chunks.some((c) => c.sourceType === "kv_catalog"));
 });
 
@@ -106,8 +106,8 @@ test("card-meta.json yalnızca var olan kartları içerir; tarihler geçerli", (
   }
 });
 
-test("sihirbaz: her sektör ve her sektör etiketi 9 dilde, en az 3 sözleşmeye ulaşır", () => {
-  const sectors = ["hospitality", "retail", "construction", "industry", "transport", "care_social", "cleaning", "crafts"];
+test("sihirbaz: her sektör ve her sektör etiketi 9 dilde, en az 3 sözleşmeye ulaşır (güvenlik: 1)", () => {
+  const sectors = ["hospitality", "retail", "construction", "industry", "transport", "care_social", "cleaning", "crafts", "agriculture", "security"];
   const { words } = require("../assets/common.js");
   const ui = read("content/shared-ui.json");
   for (const lang of Object.keys(ui)) {
@@ -115,7 +115,8 @@ test("sihirbaz: her sektör ve her sektör etiketi 9 dilde, en az 3 sözleşmeye
   }
   for (const s of sectors) {
     const hits = agreements.filter((a) => semantic.countConceptHits(` ${words(a.title)} `, s) > 0);
-    assert.ok(hits.length >= 3, `${s}: ${hits.length} sözleşme`);
+    const minimum = s === "security" ? 1 : 3; // Bewachungsgewerbe tek sözleşme; tek doğru sonuç da yeterli
+    assert.ok(hits.length >= minimum, `${s}: ${hits.length} sözleşme`);
   }
 });
 
